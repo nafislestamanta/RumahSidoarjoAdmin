@@ -15,7 +15,7 @@
 
      <!-- Home-->
      <li class="nav-item active">
-         <a class="nav-link" href="<?= base_url('Admin/Dashboard'); ?>">
+         <a class="nav-link" href="<?= base_url('Dashboard'); ?>">
              <i class="fas fa-home"></i>
              <span>HOME</span></a>
      </li>
@@ -30,15 +30,16 @@
          <div id="collapse1" class="collapse" aria-labelledby="heading1" data-parent="#accordionSidebar">
              <div class="bg-white py-2 collapse-inner rounded">
                  <h6 class="collapse-header">feature:</h6>
-                 <a class="collapse-item" href="<?= base_url('PanikMenu/LaporanPanik'); ?>">Laporan Panik</a>
-                 <a class="collapse-item" href="<?= base_url('PanikMenu/ManagemenData'); ?>">Managemen Data</a>
+                 <a class="collapse-item" href="<?= base_url('PanikMenu'); ?>">Managemen Data</a>
+                 <a class="collapse-item" href="<?= base_url('PanikMenu/laporanpanik'); ?>">Laporan Panik</a>
+
              </div>
          </div>
      </li>
 
      <!-- Berita dan Informasi -->
      <li class="nav-item">
-         <a class="nav-link" href="<?= base_url('BeritaInformasi/BeritaInformasi'); ?>">
+         <a class="nav-link" href="<?= base_url('BeritaInformasi'); ?>">
              <i class="fas fa-info-circle"></i>
              <span>BERITA & INFORMASI</span></a>
      </li>
@@ -54,8 +55,8 @@
              data-parent="#accordionSidebar">
              <div class="bg-white py-2 collapse-inner rounded">
                  <h6 class="collapse-header">feature:</h6>
-                 <a class="collapse-item" href="<?= base_url('ManagemenUser/ManagemenAdmin'); ?>">Managemen Admin</a>
-                 <a class="collapse-item" href="<?= base_url('ManagemenUser/Kepegawaian'); ?>">Kepegawaian</a>
+                 <a class="collapse-item" href="<?= base_url('Admin'); ?>">Managemen Admin</a>
+                 <a class="collapse-item" href="<?= base_url(''); ?>">Kepegawaian</a>
              </div>
          </div>
      </li>
@@ -70,8 +71,8 @@
          <div id="collapse6" class="collapse" aria-labelledby="heading6" data-parent="#accordionSidebar">
              <div class="bg-white py-2 collapse-inner rounded">
                  <h6 class="collapse-header">feature:</h6>
-                 <a class="collapse-item" href="<?= base_url('ManagemenMobile/ValidasiAkun'); ?>">Validasi Akun</a>
-                 <a class="collapse-item" href="<?= base_url('ManagemenMobile/UserMobile'); ?>">User Mobile</a>
+                 <a class="collapse-item" href="<?= base_url('ManagemenMobile'); ?>">User Mobile</a>
+                 <a class="collapse-item" href="<?= base_url('ManagemenMobile/validasi'); ?>">Validasi Akun</a>
              </div>
          </div>
      </li>
@@ -86,9 +87,9 @@
          <div id="collapse4" class="collapse" aria-labelledby="heading4" data-parent="#accordionSidebar">
              <div class="bg-white py-2 collapse-inner rounded">
                  <h6 class="collapse-header">feature:</h6>
-                 <a class="collapse-item" href="<?= base_url('Pariwisata/TempatWisata'); ?>">Tempat Wisata</a>
-                 <a class="collapse-item" href="<?= base_url('Pariwisata/KategoriWisata'); ?>">Kategori Wisata</a>
-                 <a class="collapse-item" href="<?= base_url('Pariwisata/Event'); ?>">Event</a>
+                 <a class="collapse-item" href="<?= base_url('Pariwisata'); ?>">Tempat Wisata</a>
+                 <a class="collapse-item" href="<?= base_url('Pariwisata/kategoriwisata'); ?>">Kategori Wisata</a>
+                 <a class="collapse-item" href="<?= base_url('Pariwisata/event'); ?>">Event</a>
              </div>
          </div>
      </li>
@@ -103,9 +104,9 @@
          <div id="collapse8" class="collapse" aria-labelledby="heading8" data-parent="#accordionSidebar">
              <div class="bg-white py-2 collapse-inner rounded">
                  <h6 class="collapse-header">feature:</h6>
-                 <a class="collapse-item" href="<?= base_url('Kesehatan/PkmUtama'); ?>">Pkm Utama</a>
-                 <a class="collapse-item" href="<?= base_url('Kesehatan/PkmPembantu'); ?>">Pkm Pembantu</a>
-                 <a class="collapse-item" href="<?= base_url('Kesehatan/Rs'); ?>">Rumah Sakit</a>
+                 <a class="collapse-item" href="<?= base_url('Kesehatan/pkmutama'); ?>">Pkm Utama</a>
+                 <a class="collapse-item" href="<?= base_url('Kesehatan'); ?>">Pkm Pembantu</a>
+                 <a class="collapse-item" href="<?= base_url('Kesehatan/rs'); ?>">Rumah Sakit</a>
              </div>
          </div>
      </li>
@@ -120,7 +121,7 @@
          <div id="collapse9" class="collapse" aria-labelledby="heading9" data-parent="#accordionSidebar">
              <div class="bg-white py-2 collapse-inner rounded">
                  <h6 class="collapse-header">feature:</h6>
-                 <a class="collapse-item" href="<?= base_url('Pendidikan/Sd'); ?>">SD</a>
+                 <a class="collapse-item" href="<?= base_url('Pendidikan'); ?>">SD</a>
                  <a class="collapse-item" href="<?= base_url('Pendidikan/Slb'); ?>">SLB</a>
                  <a class="collapse-item" href="<?= base_url('Pendidikan/Smp'); ?>">SMP</a>
              </div>
@@ -137,8 +138,8 @@
          <div id="collapse5" class="collapse" aria-labelledby="heading5" data-parent="#accordionSidebar">
              <div class="bg-white py-2 collapse-inner rounded">
                  <h6 class="collapse-header">feature:</h6>
-                 <a class="collapse-item" href="<?= base_url('TenagaKerja/Perusahaan'); ?>">Perusahaan</a>
-                 <a class="collapse-item" href="<?= base_url('TenagaKerja/LowonganKerja'); ?>">Lowongan Kerja</a>
+                 <a class="collapse-item" href="<?= base_url('LowonganKerja'); ?>">Perusahaan</a>
+                 <a class="collapse-item" href="<?= base_url('LowonganKerja/lowongan'); ?>">Lowongan Kerja</a>
              </div>
          </div>
      </li>
@@ -154,7 +155,7 @@
          <div id="collapse7" class="collapse" aria-labelledby="heading7" data-parent="#accordionSidebar">
              <div class="bg-white py-2 collapse-inner rounded">
                  <h6 class="collapse-header">feature:</h6>
-                 <a class="collapse-item" href="<?= base_url('Dishub/Cctv'); ?>">Cctv</a>
+                 <a class="collapse-item" href="<?= base_url('Dishub'); ?>">Cctv</a>
              </div>
          </div>
      </li>
