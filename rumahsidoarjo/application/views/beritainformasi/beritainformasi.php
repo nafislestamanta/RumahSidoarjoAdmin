@@ -3,7 +3,7 @@
 
       <!-- Page Heading -->
       <div class="d-sm-flex align-items-center justify-content-between mb-3">
-          <h5><i class="fas fa-video"></i><b style="padding-left:5px">BERITA DAN IINFORMASI</b></h5>
+          <h5><i class="fas fa-video"></i><b style="padding-left:5px">BERITA DAN INFORMASI</b></h5>
       </div>
 
       <!-- Content -->
