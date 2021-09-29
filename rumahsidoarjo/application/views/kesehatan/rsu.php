@@ -3,7 +3,7 @@
 
       <!-- Page Heading -->
       <div class="d-sm-flex align-items-center justify-content-between mb-3">
-          <h5><i class="fas fa-stethoscope"></i><b style="padding-left:5px">PKM UTAMA</b></h5>
+          <h5><i class="fas fa-stethoscope"></i><b style="padding-left:5px">Rumah Sakit Umum</b></h5>
       </div>
 
       <!-- Content -->
@@ -11,7 +11,7 @@
       <div>
       <div class="card-header py-3">
           <div class="col-auto" >
-            <a href="<?= base_url('kesehatan/tambahpkmu'); ?>" class="btn-sm btn-primary"><i class="fas fa-plus" style="padding-right: 8px;"></i>Tambah Data</a>
+            <a href="<?= base_url('kesehatan/tambahrsu'); ?>" class="btn-sm btn-primary"><i class="fas fa-plus" style="padding-right: 8px;"></i>Tambah Data</a>
             <a href="<?= base_url(''); ?>" class="btn-sm btn-success"><i class="fas fa-download" style="padding-right: 8px;"></i>Report</a>
         </div>
       </div>
@@ -21,7 +21,7 @@
                       <thead>
                           <tr class="text-center"><b>
                                   <th>No</th>
-                                  <th>Nama PKM Utama</th>
+                                  <th>Nama RSU</th>
                                   <th>Alamat</th>
                                   <th>Pengelola</th>
                                   <th>No. Telepon</th>
@@ -49,7 +49,7 @@
                               <td></td>
                               
                               <td  class="text-center">
-                                <a href="<?= base_url('Kesehatan/editpkmu'); ?>" class="btn btn-warning btn-sm" ><i class="fa fa-edit"></i></a>
+                                <a href="<?= base_url('Kesehatan/editrsu'); ?>" class="btn btn-warning btn-sm" ><i class="fa fa-edit"></i></a>
                                 <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#>"><i class="fa fa-trash"></i></button>
                               </td>
                           </tr>
