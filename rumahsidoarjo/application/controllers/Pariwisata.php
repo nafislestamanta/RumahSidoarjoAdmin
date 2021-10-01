@@ -24,7 +24,7 @@ class Pariwisata extends CI_Controller
         $this->load->view('admin/templates/footer', $data);
     }
 
-    
+
     public function edit_wisata()
     {
         $data['title'] = 'Tempat Wisata';
@@ -32,6 +32,16 @@ class Pariwisata extends CI_Controller
         $this->load->view('admin/templates/sidebar', $data);
         $this->load->view('admin/templates/topbar', $data);
         $this->load->view('pariwisata/edit_wisata', $data);
+        $this->load->view('admin/templates/footer', $data);
+    }
+
+    public function detail_wisata()
+    {
+        $data['title'] = 'Tempat Wisata';
+        $this->load->view('admin/templates/header', $data);
+        $this->load->view('admin/templates/sidebar', $data);
+        $this->load->view('admin/templates/topbar', $data);
+        $this->load->view('pariwisata/detail_wisata', $data);
         $this->load->view('admin/templates/footer', $data);
     }
 
