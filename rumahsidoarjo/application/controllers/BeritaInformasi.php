@@ -166,7 +166,7 @@ class BeritaInformasi extends CI_Controller
             }
         }
     }
-
+ 
     public function detailberita($id)
     {
         $data['detail'] = $this->M_berita_informasi->detail($id)->row();
