@@ -19,12 +19,12 @@
               </div>
 
               <div class="card-body">
+                  <?= $this->session->flashdata('message'); ?>
                   <div class="table-responsive">
                       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-
                           <thead>
                               <tr class="text-center"><b>
-                                      <th>Kode CCTV</th>
+                                      <th>Kode</th>
                                       <th>Nama CCTV </th>
                                       <th>Alamat</th>
                                       <th>Status</th>
@@ -34,23 +34,26 @@
                               </tr>
                           </thead>
 
-                          <tbody>
+                          <tbody class="text-center">
+                              <?php if ($title == "Cctv") :
+                                    foreach ($tampil as $b) : ?>
                               <tr>
-                                  <td scope="row">1</td>
-                                  <td>Pendopo Alun-Alun Kabupaten Sidoarjo</td>
-                                  <td></td>
-                                  <td></td>
-                                  <td>August 3, 2019 12:32 PM</td>
-
-                                  <td class="text-center">
-                                      <a href="<?= base_url('Dishub/edit'); ?>" class="btn btn-warning btn-sm"><i
-                                              class="fa fa-edit"></i></a>
-                                      <a href="#" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
-
+                                  <td><?= $b->id_cctv ?></td>
+                                  <td><?= $b->nama ?></td>
+                                  <td><?= word_limiter($b->alamat, 3); ?></td>
+                                  <td><?= $b->status ?></td>
+                                  <td><?= word_limiter($b->link, 3); ?></td>
+                                  <td><a href="<?= base_url('Dishub/editcctv/' . $b->id_cctv); ?>"
+                                          class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+                                      <a style="margin-left: 5px;"
+                                          href="<?= base_url('Dishub/delete/' . $b->id_cctv); ?>"
+                                          onclick="javascript: return confirm('Anda Yakin Hapus ?')"
+                                          class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>
+                                      </a>
                                   </td>
                               </tr>
-
-
+                              <?php endforeach; ?>
+                              <?php endif; ?>
                           </tbody>
                       </table>
                   </div>

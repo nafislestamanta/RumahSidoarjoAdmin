@@ -123,7 +123,7 @@
                         </tr>
                     </thead>
                 </table>
-                <a href="<?= base_url('BeritaInformasi'); ?>" class="btn btn-danger">Kembali</a>
+                <a href="<?= base_url('BeritaInformasi'); ?>" class="btn-sm btn-danger">Kembali</a>
             </div>
         </div>
         <?php endif; ?>

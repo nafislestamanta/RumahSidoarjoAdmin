@@ -3,7 +3,7 @@
 
       <!-- Page Heading -->
       <div class="d-sm-flex align-items-center justify-content-between mb-3">
-          <h5><i class="fas fa-info-circle"></i><b style="padding-left:5px">Edit Berita Dan Informasi</b></h5>
+          <h5><i class="far fa-edit"></i><b style="padding-left:5px">Edit Berita Dan Informasi</b></h5>
       </div>
 
       <!-- Main content Ini Bagian Content -->
@@ -69,7 +69,7 @@
                                           value="<?= $edit->link ?>" placeholder="Masukkan link">
                                   </div>
                                   <div class="card-footer">
-                                      <button type="submit" class="btn btn-primary">Simpan</button>
+                                      <button type="submit" class="btn-sm btn-primary">Simpan</button>
 
                                   </div>
                               </div>
