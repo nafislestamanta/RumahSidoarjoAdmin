@@ -8,57 +8,52 @@
 
       <!-- Content -->
       <div class="card shadow mb-4">
-      <div>
-      <div class="card-header py-3">
-          <div class="col-auto" >
-            <a href="<?= base_url('kesehatan/tambahpkmu'); ?>" class="btn-sm btn-primary"><i class="fas fa-plus" style="padding-right: 8px;"></i>Tambah Data</a>
-            <a href="<?= base_url(''); ?>" class="btn-sm btn-success"><i class="fas fa-download" style="padding-right: 8px;"></i>Report</a>
-        </div>
-      </div>
-          <div class="card-body">
-              <div class="table-responsive">
-                  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                      <thead>
-                          <tr class="text-center"><b>
-                                  <th>No</th>
-                                  <th>Nama PKM Pembantu</th>
-                                  <th>Alamat</th>
-                                  <th>Pengelola</th>
-                                  <th>No. Telepon</th>
-                                  <th>Longitude</th>
-                                  <th>Langitude</th>
-                                  <th>Deskripsi</th>
-                                  <th>Foto</th>
-                                  <th>Link</th>
-                                  <th>Action</th>
-                              </b>
-                          </tr>
-                      </thead>
+          <div>
+              <div class="card-header py-3">
+                  <div class="col-auto">
+                      <a href="<?= base_url('Kesehatan/tambahpkmp'); ?>" class="btn-sm btn-primary"><i class="fas fa-plus" style="padding-right: 8px;"></i>Tambah Data</a>
+                      <a href="<?= base_url(''); ?>" class="btn-sm btn-success"><i class="fas fa-download" style="padding-right: 8px;"></i>Report</a>
+                  </div>
+              </div>
+              <div class="card-body">
+                  <?= $this->session->flashdata('message'); ?>
+                  <div class="table-responsive">
+                      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                          <thead>
+                              <tr class="text-center"><b>
+                                      <th>Kode</th>
+                                      <th>Nama PKM Utama</th>
+                                      <th>Alamat</th>
+                                      <th>Kecamatan</th>
+                                      <th>Pengelola</th>
+                                      <th>No. Telepon</th>
+                                      <th>Action</th>
+                                  </b>
+                              </tr>
+                          </thead>
 
-                      <tbody>
-                          <tr>
-                              <td scope="row">1</td>
-                              <td>RSUD Sidoarjo</td>
-                              <td>RSU</td>
-                              <td>B</td>
-                              <td>Pemerintah</td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              
-                              <td  class="text-center">
-                                <a href="<?= base_url('Kesehatan/editpkmp'); ?>" class="btn btn-warning btn-sm" ><i class="fa fa-edit"></i></a>
-                                <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#>"><i class="fa fa-trash"></i></button>
-                              </td>
-                          </tr>
+                          <tbody>
+                              <?php foreach ($pkmp as $u) : ?>
+                                  <tr>
+                                      <td style="text-align: center;"><?= $u->id_kesehatan ?></td>
+                                      <td><?= $u->nama ?></td>
+                                      <td><?= $u->alamat ?></td>
+                                      <td><?= $u->kecamatan ?></td>
+                                      <td><?= $u->kepemilikan ?></td>
+                                      <td><?= $u->no_telepon ?></td>
+                                      <td class="text-center">
+                                          <a href="<?= base_url('Kesehatan/editpkmp/' . $u->id_kesehatan); ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+                                          <a href="<?= base_url('Kesehatan/detail_pkmp/' . $u->id_kesehatan); ?>" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
+                                          <a style="margin-left: 5px;" href="<?= base_url('Kesehatan/delete_pkmp/' . $u->id_kesehatan); ?>" onclick="javascript: return confirm('Anda Yakin Hapus ?')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                      </td>
+                                  </tr>
+                              <?php endforeach; ?>
 
-                         
 
-                      </tbody>
-                  </table>
+
+                          </tbody>
+                      </table>
+                  </div>
               </div>
           </div>
       </div>
-  </div>

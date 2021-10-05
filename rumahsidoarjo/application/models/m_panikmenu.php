@@ -69,6 +69,7 @@ class m_panikmenu extends CI_Model
         $this->db->select('*');
         $this->db->from('kesehatan');
         $this->db->join('kecamatan', 'kecamatan.id_kecamatan=kesehatan.id_kecamatan');
+        $this->db->where('kesehatan.kategori="RSU"');
         $query = $this->db->get();
         return $query;
     }
@@ -111,7 +112,6 @@ class m_panikmenu extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('kecamatan');
-        $this->db->join('kelurahan', 'kelurahan.id_kelurahan=kecamatan.id_kelurahan');
         $query = $this->db->get();
         return $query;
     }
