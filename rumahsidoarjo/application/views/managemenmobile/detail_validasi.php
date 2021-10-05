@@ -12,55 +12,53 @@
                     <thead>
                         <tr>
                             <td>NIK</td>
-                            <td></td>
+                            <td><?= $user->NIK ?></td>
                         </tr>
                         <tr>
                             <td>Nama</td>
-                            <td></td>
+                            <td><?= $user->nama ?></td>
                         </tr>
                         <tr>
                             <td>Alamat</td>
-                            <td></td>
+                            <td><?= $user->alamat ?></td>
                         </tr>
                         <tr>
                             <td>Email</td>
-                            <td></td>
+                            <td><?= $user->email ?></td>
                         </tr>
                         <tr>
                             <td>Tanggal Lahir</td>
-                            <td></td>
+                            <td><?= $user->tanggal_lahir ?></td>
                         </tr>
                         <tr>
                             <td>Jenis Kelamin</td>
-                            <td></td>
+                            <td><?= $user->jenis_kelamin ?></td>
                         </tr>
                         <tr>
                             <td>No Telepon</td>
-                            <td></td>
+                            <td><?= $user->no_telepon ?></td>
                         </tr>
                         <tr>
                             <td>Password</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>Status</td>
-                            <td></td>
+                            <td><?= $user->password ?></td>
                         </tr>
                         <tr>
                             <td>Foto KTP</td>
-                            <td></td>
+                            <td><img src="<?= base_url('./assets/img/' . $user->foto_ktp); ?>" alt=""></td>
                         </tr>
                         <tr>
-                            <td>Foto Selfie</td>
-                            <td></td>
+                            <td>Foto Profil</td>
+                            <td><img src="<?= base_url('./assets/img/' . $user->foto_profil); ?>" alt=""></td>
                         </tr>
                         <tr>
                             <td>Selfie KTP</td>
-                            <td></td>
+                            <td><img src="<?= base_url('./assets/img/' . $user->selfie_ktp); ?>" alt=""></td>
                         </tr>
                     </thead>
                 </table>
-                <a href="#" class="btn btn-danger">Kembali</a>
+                <a href="<?= base_url('ManagemenMobile/validasi_acc/' . $user->NIK) ?>" onclick="javascript: return confirm('Apa Anda Yakin Ingin Mengonfirmasi ?')" class="btn btn-success">Konfirmasi</a>
+                <a href="<?= base_url('ManagemenMobile/delete_validasi/' . $user->NIK) ?>" onclick="javascript: return confirm('Apa Anda Yakin Ingin Menolak ?')" class="btn btn-danger">Tolak</a>
+                <a href="<?= base_url('ManagemenMobile/validasi') ?>" class="btn btn-warning">Kembali</a>
             </div>
         </div>
     </div>

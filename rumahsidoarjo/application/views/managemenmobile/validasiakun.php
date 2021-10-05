@@ -11,44 +11,49 @@
 
       <!-- Content -->
       <div class="card shadow mb-4">
-      </div>
-      <div class="card-body">
-          <div class="table-responsive">
-              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                  <thead>
-                      <tr class="text-center"><b>
-                              <th>No</th>
-                              <th>NIK</th>
-                              <th>Nama</th>
-                              <th>Email</th>>
-                              <th>No. Telepon</th>
-                              <th>Action</th>
+          <div>
+              <div class="card-header py-3">
+                  <div class="col-auto">
+                      <a href="<?= base_url(''); ?>" class="btn-sm btn-success"><i class="fas fa-download" style="padding-right: 8px;"></i>Report</a>
+                  </div>
+              </div>
+              <div class="card-body">
+                  <?= $this->session->flashdata('message'); ?>
+                  <div class="table-responsive">
+                      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                          <thead>
+                              <tr class="text-center"><b>
+                                      <th>NIK</th>
+                                      <th>Nama</th>
+                                      <th>Alamat</th>
+                                      <th>No Telepon</th>
+                                      <th>Action</th>
 
-                          </b> </tr>
-                  </thead>
+                                  </b> </tr>
+                          </thead>
 
-                  <tbody>
-                      <tr>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
+                          <tbody>
+                              <?php foreach ($user as $u) : ?>
+                                  <tr>
+                                      <td><?= $u->NIK ?></td>
+                                      <td><?= $u->nama ?></td>
+                                      <td><?= $u->alamat ?></td>
+                                      <td><?= $u->no_telepon ?></td>
+                                      <td class="text-center">
+                                          <a href="<?= base_url('Managemenmobile/detail_validasi/' . $u->NIK) ?>" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
 
-                          <td class="text-center">
-                              <a href="<?= base_url('Managemenmobile/detail_validasi') ?>"
-                                  class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
-                          </td>
-                      </tr>
-
-
+                                      </td>
+                                  </tr>
+                              <?php endforeach; ?>
 
 
-                      </tr>
-              </table>
+
+
+                              </tr>
+                      </table>
+                  </div>
+              </div>
           </div>
+
+
       </div>
-  </div>
-
-
-  </div>

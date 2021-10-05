@@ -3,9 +3,15 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class ManagemenMobile extends CI_Controller
 {
+    function __construct()
+    {
+        parent::__construct();
+        $this->load->model('M_mobile');
+    }
 
     public function index()
     {
+        $data['user'] = $this->M_mobile->tampil()->result();
         $data['title'] = 'User Mobile';
         $this->load->view('admin/templates/header', $data);
         $this->load->view('admin/templates/sidebar', $data);
@@ -14,38 +20,42 @@ class ManagemenMobile extends CI_Controller
         $this->load->view('admin/templates/footer', $data);
     }
 
-    public function tambah_usermobile()
+    public function delete($id)
     {
-        $data['title'] = 'User Mobile';
-        $this->load->view('admin/templates/header', $data);
-        $this->load->view('admin/templates/sidebar', $data);
-        $this->load->view('admin/templates/topbar', $data);
-        $this->load->view('managemenmobile/tambah_usermobile', $data);
-        $this->load->view('admin/templates/footer', $data);
+        $delete = $this->M_mobile->delete($id);
+        if ($delete) {
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data yang anda pilih telah terhapus</div>');
+        } else {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Tidak bisa hapus data</div>');
+        }
+        redirect('ManagemenMobile');
     }
 
-    public function edit_usermobile()
+    public function delete_validasi($id)
     {
-        $data['title'] = 'User Mobile';
-        $this->load->view('admin/templates/header', $data);
-        $this->load->view('admin/templates/sidebar', $data);
-        $this->load->view('admin/templates/topbar', $data);
-        $this->load->view('managemenmobile/edit_usermobile', $data);
-        $this->load->view('admin/templates/footer', $data);
+        $delete = $this->M_mobile->delete($id);
+        if ($delete) {
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Akun berhasil ditolak</div>');
+        } else {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Tidak bisa hapus data</div>');
+        }
+        redirect('ManagemenMobile/validasi');
     }
 
-    public function detail_usermobile()
+    public function detail_usermobile($id)
     {
+        $data['user'] = $this->M_mobile->detail($id)->row();
         $data['title'] = 'User Mobile';
         $this->load->view('admin/templates/header', $data);
         $this->load->view('admin/templates/sidebar', $data);
         $this->load->view('admin/templates/topbar', $data);
-        $this->load->view('managemenmobile/detail_usermobile', $data);
+        $this->load->view('managemenmobile/detail_mobile', $data);
         $this->load->view('admin/templates/footer', $data);
     }
 
     public function validasi()
     {
+        $data['user'] = $this->M_mobile->tampil_validasi()->result();
         $data['title'] = 'Validasi Akun';
         $this->load->view('admin/templates/header', $data);
         $this->load->view('admin/templates/sidebar', $data);
@@ -54,13 +64,31 @@ class ManagemenMobile extends CI_Controller
         $this->load->view('admin/templates/footer', $data);
     }
 
-    public function detail_validasi()
+    public function detail_validasi($id)
     {
+        $data['user'] = $this->M_mobile->detail($id)->row();
         $data['title'] = 'Validasi Akun';
         $this->load->view('admin/templates/header', $data);
         $this->load->view('admin/templates/sidebar', $data);
         $this->load->view('admin/templates/topbar', $data);
         $this->load->view('managemenmobile/detail_validasi', $data);
         $this->load->view('admin/templates/footer', $data);
+    }
+
+    public function validasi_acc($id)
+    {
+
+        $data = [
+            'status' => 1,
+        ];
+
+        $update = $this->M_mobile->update($data, $id);
+
+        if ($update) {
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Akun Berhasil Diakftifkan</div>');
+        } else {
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Akun Berhasil Ditolak</div>');
+        }
+        redirect('ManagemenMobile/validasi', $data);
     }
 }
