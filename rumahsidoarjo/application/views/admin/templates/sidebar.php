@@ -4,7 +4,8 @@
      <!-- Sidebar - Brand -->
      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
          <div class="sidebar-brand-icon">
-             <img class="img-profile rounded-circle" src="<?= base_url('assets'); ?>/img/admin1.jpg" widht="40" height="62">
+             <img class="img-profile rounded-circle" src="<?= base_url('assets'); ?>/img/admin1.jpg" widht="40"
+                 height="62">
          </div>
          <div class="sidebar-brand-text mx-3">Admin <sup></sup></div>
      </a>
@@ -21,7 +22,8 @@
 
      <!-- Panik Menu -->
      <li class="nav-item">
-         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse1" aria-expanded="true"
+             aria-controls="collapse1">
              <i class="fas fa-radiation"></i>
              <span>PANIK MENU</span>
          </a>
@@ -44,11 +46,13 @@
 
      <!-- Managemen User -->
      <li class="nav-item">
-         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+             aria-expanded="true" aria-controls="collapseUtilities">
              <i class="fas fa-user-cog"></i>
              <span>MANAGEMEN USER</span>
          </a>
-         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+             data-parent="#accordionSidebar">
              <div class="bg-white py-2 collapse-inner rounded">
                  <h6 class="collapse-header">feature:</h6>
                  <a class="collapse-item" href="<?= base_url('Admin'); ?>">Managemen Admin</a>
@@ -59,7 +63,8 @@
 
      <!-- Managemen Mobile  -->
      <li class="nav-item">
-         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse6" aria-expanded="true" aria-controls="collapse6">
+         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse6" aria-expanded="true"
+             aria-controls="collapse6">
              <i class="fas fa-mobile-alt"></i>
              <span>MANAGEMEN MOBILE</span>
          </a>
@@ -74,7 +79,8 @@
 
      <!-- Pariwisata -->
      <li class="nav-item">
-         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse4" aria-expanded="true" aria-controls="collapse4">
+         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse4" aria-expanded="true"
+             aria-controls="collapse4">
              <i class="fas fa-umbrella-beach"></i>
              <span>PARIWISATA</span>
          </a>
@@ -90,23 +96,25 @@
 
      <!-- Kesehatan  -->
      <li class="nav-item">
-         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse8" aria-expanded="true" aria-controls="collapse8">
+         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse8" aria-expanded="true"
+             aria-controls="collapse8">
              <i class="fas fa-user-md"></i>
              <span>KESEHATAN</span>
          </a>
          <div id="collapse8" class="collapse" aria-labelledby="heading8" data-parent="#accordionSidebar">
              <div class="bg-white py-2 collapse-inner rounded">
                  <h6 class="collapse-header">feature:</h6>
-                 <a class="collapse-item" href="<?= base_url('Kesehatan/pkmutama'); ?>">Pkm Utama</a>
-                 <a class="collapse-item" href="<?= base_url('Kesehatan'); ?>">Pkm Pembantu</a>
-                 <a class="collapse-item" href="<?= base_url('Kesehatan/rs'); ?>">Rumah Sakit</a>
+                 <a class="collapse-item" href="<?= base_url('Kesehatan/pkmutama'); ?>">PKM UTAMA</a>
+                 <a class="collapse-item" href="<?= base_url('Kesehatan'); ?>">PKM PEMBANTU</a>
+                 <a class="collapse-item" href="<?= base_url('Kesehatan/rs'); ?>">RUMAH SAKIT</a>
              </div>
          </div>
      </li>
 
      <!-- Pendidikan   -->
      <li class="nav-item">
-         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse9" aria-expanded="true" aria-controls="collapse9">
+         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse9" aria-expanded="true"
+             aria-controls="collapse9">
              <i class="fas fa-graduation-cap"></i>
              <span>PENDIDIKAN</span>
          </a>
@@ -122,7 +130,8 @@
 
      <!-- Tenaga Kerja  -->
      <li class="nav-item">
-         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse5" aria-expanded="true" aria-controls="collapse4">
+         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse5" aria-expanded="true"
+             aria-controls="collapse4">
              <i class="fas fa-user-tie"></i>
              <span>Lowongan Kerja</span>
          </a>
@@ -138,7 +147,8 @@
 
      <!-- DISHUB  -->
      <li class="nav-item">
-         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse7" aria-expanded="true" aria-controls="collapse7">
+         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse7" aria-expanded="true"
+             aria-controls="collapse7">
              <i class="fas fa-road"></i>
              <span>DISHUB</span>
          </a>
@@ -152,29 +162,29 @@
 
      <!-- Home-->
      <li class="nav-item">
-         <a class="nav-link" href="<?= base_url('Dashboard'); ?>">
-             <i class="fas fa-home"></i>
+         <a class="nav-link" href="<?= base_url('LayananPublik'); ?>">
+             <i class="fas fa-building"></i>
              <span>LAYANAN PUBLIK</span></a>
      </li>
 
      <!-- Home-->
      <li class="nav-item">
-         <a class="nav-link" href="<?= base_url('Dashboard'); ?>">
-             <i class="fas fa-home"></i>
+         <a class="nav-link" href="<?= base_url('Komunitas'); ?>">
+             <i class="fas fa-users"></i>
              <span>KOMUNITAS</span></a>
      </li>
 
      <!-- Home-->
      <li class="nav-item">
-         <a class="nav-link" href="<?= base_url('Dashboard'); ?>">
-             <i class="fas fa-home"></i>
+         <a class="nav-link" href="<?= base_url('LombaDanBudaya'); ?>">
+             <i class="fas fa-trophy"></i>
              <span>LOMBA DAN BUDAYA</span></a>
      </li>
 
      <!-- Home-->
      <li class="nav-item">
-         <a class="nav-link" href="<?= base_url('Dashboard'); ?>">
-             <i class="fas fa-home"></i>
+         <a class="nav-link" href="<?= base_url('Umkm'); ?>">
+             <i class="fas fa-hand-holding-usd"></i>
              <span>UMKM</span></a>
      </li>
 

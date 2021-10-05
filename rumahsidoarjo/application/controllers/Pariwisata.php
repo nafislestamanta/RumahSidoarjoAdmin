@@ -84,4 +84,34 @@ class Pariwisata extends CI_Controller
         $this->load->view('pariwisata/event', $data);
         $this->load->view('admin/templates/footer', $data);
     }
+
+    public function tambah_event()
+    {
+        $data['title'] = 'Event';
+        $this->load->view('admin/templates/header', $data);
+        $this->load->view('admin/templates/sidebar', $data);
+        $this->load->view('admin/templates/topbar', $data);
+        $this->load->view('pariwisata/tambah_event', $data);
+        $this->load->view('admin/templates/footer', $data);
+    }
+
+    public function edit_event()
+    {
+        $data['title'] = 'Event';
+        $this->load->view('admin/templates/header', $data);
+        $this->load->view('admin/templates/sidebar', $data);
+        $this->load->view('admin/templates/topbar', $data);
+        $this->load->view('pariwisata/edit_event', $data);
+        $this->load->view('admin/templates/footer', $data);
+    }
+
+    public function detail_event()
+    {
+        $data['title'] = 'Event';
+        $this->load->view('admin/templates/header', $data);
+        $this->load->view('admin/templates/sidebar', $data);
+        $this->load->view('admin/templates/topbar', $data);
+        $this->load->view('pariwisata/detail_event', $data);
+        $this->load->view('admin/templates/footer', $data);
+    }
 }

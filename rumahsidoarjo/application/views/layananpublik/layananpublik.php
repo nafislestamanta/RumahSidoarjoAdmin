@@ -2,16 +2,19 @@
   <div class="container-fluid">
 
       <!-- Page Heading -->
-      <div class="d-sm-flex align-items-center justify-content-between mb-3">
-          <h5><i class="fas fa-graduation-cap"></i><b style="padding-left:5px">PENDIDIKAN / SLB</b></h5>
+      <div class="d-sm-flex align-items-center justify-content-between mb-4">
+          <h1 class="h3 mb-0 text-gray-800">Tambah Layanan Publik </h1>
+          <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                  class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
       </div>
 
       <!-- Content -->
+
       <div class="card shadow mb-4">
           <div>
               <div class="card-header py-3">
                   <div class="col-auto">
-                      <a href="<?= base_url('pendidikan/tambah_slb'); ?>" class="btn-sm btn-primary"><i
+                      <a href="<?= base_url('layananpublik/tambah_layanan'); ?>" class="btn-sm btn-primary"><i
                               class="fas fa-plus" style="padding-right: 8px;"></i>Tambah Data</a>
                       <a href="<?= base_url(''); ?>" class="btn-sm btn-success"><i class="fas fa-download"
                               style="padding-right: 8px;"></i>Report</a>
@@ -23,39 +26,26 @@
                           <thead>
                               <tr class="text-center"><b>
                                       <th>No</th>
-                                      <th>Nama SLB</th>
-                                      <th>Kecamatan</th>
-                                      <th>Alamat</th>
-                                      <th>No Telepon</th>
-                                      <th>Lang</th>
-                                      <th>Long</th>
+                                      <th>Nama Layanan</th>
                                       <th>Deskripsi</th>
-                                      <th>Gambar</th>
                                       <th>Action</th>
-                                  </b> </tr>
+                                  </b>
+                              </tr>
                           </thead>
 
                           <tbody>
                               <tr>
-                                  <td scope="row">1</td>
                                   <td></td>
                                   <td></td>
                                   <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-
                                   <td class="text-center">
-                                      <a href="<?= base_url('pendidikan/edit_slb'); ?>"
+                                      <a href="<?= base_url('LayananPublik/edit_layanan'); ?>"
                                           class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
                                       <a href="" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
-                                      <a href="" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
+
+                                      </a>
                                   </td>
                               </tr>
-
-
                           </tbody>
                       </table>
                   </div>
