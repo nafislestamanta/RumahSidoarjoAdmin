@@ -43,8 +43,9 @@
 
                                   <div class="form-group">
                                       <label>Deskripsi</label>
-                                      <textarea name="deskripsi" id="deskripsi" cols="30" rows="5"
-                                          class="form-control"></textarea>
+                                      <textarea name="deskripsi" id="deskripsi" cols="30" rows="5" class="form-control"
+                                          required oninvalid="this.setCustomValidity('Deskripsi tidak boleh kosong!')"
+                                          oninput="setCustomValidity('')"></textarea>
                                   </div>
 
                                   <div class="form-group">

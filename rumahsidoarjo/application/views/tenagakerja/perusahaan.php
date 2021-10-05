@@ -1,51 +1,54 @@
-  <!-- Begin Page Content -->
-  <div class="container-fluid">
+ <!-- Begin Page Content -->
+ <div class="container-fluid">
+     <div class="d-sm-flex align-items-center justify-content-between mb-3">
+         <h5><i class="far fa-building"></i><b style="padding-left:5px">Perusahaan</b></h5>
+     </div>
+     <div class="card shadow mb-4">
+         <div class="card-header py-3">
+             <a href="" class="btn-sm btn-primary"><i class="fas fa-download" style="padding-right: 8px;"></i>Report</a>
 
-      <!-- Page Heading -->
-      <div class="d-sm-flex align-items-center justify-content-between mb-3">
-          <h5><i class="fas fa-building"></i><b style="padding-left:5px">PERUSAHAAN</b></h5>
-      </div>
+             <a href="<?= base_url('LowonganKerja/tambah_perusahaan'); ?>" class="btn-sm btn-primary"><i
+                     class="fas fa-plus" style="padding-right: 8px;"></i>Perusahaan</a>
+         </div>
+         <div class="card-body">
+             <?= $this->session->flashdata('message'); ?>
+             <div class="table-responsive">
+                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                     <thead>
+                         <tr class="text-center"><b>
+                                 <th>ID</th>
+                                 <th>Nama Perusahaan</th>
+                                 <th>Kepemilikan</th>
+                                 <th>Alamat</th>
+                                 <th>No Telepon</th>
+                                 <th>Action</th>
+                             </b>
+                         </tr>
+                     </thead>
 
-      <!-- Content -->
-      <div class="card shadow mb-4">
-          <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Daftar Perusahaan</h6>
-          </div>
-          <div class="card-body">
-              <div class="table-responsive">
-                  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                      <thead>
-                          <tr class="text-center"><b>
-                                  <th>**</th>
-                                  <th>Nama</th>
-                                  <th>Alamat</th>
-                                  <th>Jenis Perusahaan</th>
-                                  <th>Action</th>
-                              </b>
-                          </tr>
-                      </thead>
-
-                      <tbody>
-                          <tr>
-                              <td></td>
-                              <td>ABC</td>
-                              <td>jl. pahlawan sidoarjo</td>
-                              <td>bergerak di bidang hukum / notaris</td>
-                              <td></td>
-
-
-
-                              <!-- <td  class="text-center">
-                                <a href="#" class="btn btn-warning btn-sm" ><i class="fa fa-edit"></i></a>
-                                <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#>"><i class="fa fa-trash"></i></button>
-            </td> -->
-                          </tr>
-
-
-                          </tr>
-                      </tbody>
-                  </table>
-              </div>
-          </div>
-      </div>
-  </div>
+                     <tbody>
+                         <?php if ($title == "Perusahaan") :
+                                foreach ($tampil as $e) : ?>
+                         <tr class="text-center">
+                             <td><?= $e->id ?></td>
+                             <td><?= word_limiter($e->nama_perusahaan, 3); ?></td>
+                             <td><?= $e->kepemilikan ?></td>
+                             <td><?= word_limiter($e->alamat, 3); ?></td>
+                             <td><?= $e->no_tlp ?></td>
+                             <td><a href="<?= base_url('LowonganKerja/editperusahaan/' . $e->id); ?>"
+                                     class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a><a
+                                     style="margin-left: 5px;"
+                                     href="<?= base_url('LowonganKerja/detailperusahaan/' . $e->id); ?>"
+                                     class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a><a
+                                     style="margin-left: 5px;" href="<?= base_url('LowonganKerja/delete/' . $e->id); ?>"
+                                     onclick="javascript: return confirm('Anda Yakin Hapus ?')"
+                                     class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a></td>
+                         </tr>
+                         <?php endforeach; ?>
+                         <?php endif; ?>
+                     </tbody>
+                 </table>
+             </div>
+         </div>
+     </div>
+ </div>

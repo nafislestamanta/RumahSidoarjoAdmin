@@ -55,7 +55,7 @@ class M_berita_informasi extends CI_model
         $query = $this->db->get();
         return $query;
     }
- 
+
     public function tampilpengumuman()
     {
         $this->db->select('*');

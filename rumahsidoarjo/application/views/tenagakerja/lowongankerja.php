@@ -1,274 +1,55 @@
-  <!-- Begin Page Content -->
-  <div class="container-fluid">
+ <!-- Begin Page Content -->
+ <div class="container-fluid">
+     <div class="d-sm-flex align-items-center justify-content-between mb-3">
+         <h5><i class="far fa-building"></i><b style="padding-left:5px">Lowongan Kerja</b></h5>
+     </div>
+     <div class="card shadow mb-4">
+         <div class="card-header py-3">
+             <a href="" class="btn-sm btn-primary"><i class="fas fa-download" style="padding-right: 8px;"></i>Report</a>
 
-      <!-- Page Heading -->
-      <div class="d-sm-flex align-items-center justify-content-between mb-3">
-          <h5><i class="fas fa-mail-bulk"></i><b style="padding-left:5px">LOWONGAN KERJA</b></h5>
-      </div>
+             <a href="<?= base_url('LowonganKerja/tambah_lowongan'); ?>" class="btn-sm btn-primary"><i
+                     class="fas fa-plus" style="padding-right: 8px;"></i>Lowongan</a>
+         </div>
+         <div class="card-body">
+             <?= $this->session->flashdata('message'); ?>
+             <div class="table-responsive">
+                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                     <thead>
+                         <tr class="text-center"><b>
+                                 <th>ID</th>
+                                 <th>Judul Lowongan</th>
+                                 <th>Nama Perusahaan</th>
+                                 <th>Kepemilikan</th>
+                                 <th>No Telepon</th>
+                                 <th>Action</th>
+                             </b>
+                         </tr>
+                     </thead>
 
-      <!-- Content -->
-      <div class="card shadow mb-4">
-          <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Daftar Lowongan Kerja</h6>
-          </div>
-          <div class="card-body">
-              <div class="table-responsive">
-                  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                      <thead>
-                          <tr class="text-center"><b>
-                                  <th>**</th>
-                                  <th>Perusahaan</th>
-                                  <th>Spesifikasi</th>
-                                  <th>Sub Spesifikasi</th>
-                                  <th>Tingkat Pekerjaan</th>
-                                  <th>Deskripsi Kebutuhan</th>
-                                  <th>Deskripsi Pekerjaan</th>
-                                  <th>Tanggal Dibuka</th>
-                                  <th>Tanggal Ditutup</th>
-                                  <th>Tersedia</th>
-                                  <th>Lokasi</th>
-                                  <th>Created At</th>
-                                  <th>Action</th>
-                              </b>
-                          </tr>
-                      </thead>
-
-                      <tbody>
-                          <tr>
-                              <td></td>
-                              <td>1</td>
-                              <td>1</td>
-                              <td>2</td>
-                              <td>4</td>
-                              <td>fresh graduate bisa mengajukan lamaran</td>
-                              <td>mengerjakan keuangan perusahaan</td>
-                              <td>August 5, 2019 12:00 AM</td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-
-
-                              <!-- <td  class="text-center">
-                                <a href="#" class="btn btn-warning btn-sm" ><i class="fa fa-edit"></i></a>
-                                <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#>"><i class="fa fa-trash"></i></button>
-            </td> -->
-                          </tr>
-
-                          <tr>
-                              <td></td>
-                              <td>1</td>
-                              <td>1</td>
-                              <td>2</td>
-                              <td>4</td>
-                              <td>fresh graduate bisa mengajukan lamaran</td>
-                              <td>mengerjakan keuangan perusahaan</td>
-                              <td>August 5, 2019 12:00 AM</td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-
-
-                              <!-- <td  class="text-center">
-                                <a href="#" class="btn btn-warning btn-sm" ><i class="fa fa-edit"></i></a>
-                                <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#>"><i class="fa fa-trash"></i></button>
-            </td> -->
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td>1</td>
-                              <td>1</td>
-                              <td>2</td>
-                              <td>4</td>
-                              <td>fresh graduate bisa mengajukan lamaran</td>
-                              <td>mengerjakan keuangan perusahaan</td>
-                              <td>August 5, 2019 12:00 AM</td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-
-
-                              <!-- <td  class="text-center">
-                                <a href="#" class="btn btn-warning btn-sm" ><i class="fa fa-edit"></i></a>
-                                <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#>"><i class="fa fa-trash"></i></button>
-            </td> -->
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td>1</td>
-                              <td>1</td>
-                              <td>2</td>
-                              <td>4</td>
-                              <td>fresh graduate bisa mengajukan lamaran</td>
-                              <td>mengerjakan keuangan perusahaan</td>
-                              <td>August 5, 2019 12:00 AM</td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-
-
-                              <!-- <td  class="text-center">
-                                <a href="#" class="btn btn-warning btn-sm" ><i class="fa fa-edit"></i></a>
-                                <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#>"><i class="fa fa-trash"></i></button>
-            </td> -->
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td>1</td>
-                              <td>1</td>
-                              <td>2</td>
-                              <td>4</td>
-                              <td>fresh graduate bisa mengajukan lamaran</td>
-                              <td>mengerjakan keuangan perusahaan</td>
-                              <td>August 5, 2019 12:00 AM</td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-
-
-                              <!-- <td  class="text-center">
-                                <a href="#" class="btn btn-warning btn-sm" ><i class="fa fa-edit"></i></a>
-                                <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#>"><i class="fa fa-trash"></i></button>
-            </td> -->
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td>1</td>
-                              <td>1</td>
-                              <td>2</td>
-                              <td>4</td>
-                              <td>fresh graduate bisa mengajukan lamaran</td>
-                              <td>mengerjakan keuangan perusahaan</td>
-                              <td>August 5, 2019 12:00 AM</td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-
-
-                              <!-- <td  class="text-center">
-                                <a href="#" class="btn btn-warning btn-sm" ><i class="fa fa-edit"></i></a>
-                                <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#>"><i class="fa fa-trash"></i></button>
-            </td> -->
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td>1</td>
-                              <td>1</td>
-                              <td>2</td>
-                              <td>4</td>
-                              <td>fresh graduate bisa mengajukan lamaran</td>
-                              <td>mengerjakan keuangan perusahaan</td>
-                              <td>August 5, 2019 12:00 AM</td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-
-
-                              <!-- <td  class="text-center">
-                                <a href="#" class="btn btn-warning btn-sm" ><i class="fa fa-edit"></i></a>
-                                <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#>"><i class="fa fa-trash"></i></button>
-            </td> -->
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td>1</td>
-                              <td>1</td>
-                              <td>2</td>
-                              <td>4</td>
-                              <td>fresh graduate bisa mengajukan lamaran</td>
-                              <td>mengerjakan keuangan perusahaan</td>
-                              <td>August 5, 2019 12:00 AM</td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-
-
-                              <!-- <td  class="text-center">
-                                <a href="#" class="btn btn-warning btn-sm" ><i class="fa fa-edit"></i></a>
-                                <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#>"><i class="fa fa-trash"></i></button>
-            </td> -->
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td>1</td>
-                              <td>1</td>
-                              <td>2</td>
-                              <td>4</td>
-                              <td>fresh graduate bisa mengajukan lamaran</td>
-                              <td>mengerjakan keuangan perusahaan</td>
-                              <td>August 5, 2019 12:00 AM</td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-
-
-                              <!-- <td  class="text-center">
-                                <a href="#" class="btn btn-warning btn-sm" ><i class="fa fa-edit"></i></a>
-                                <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#>"><i class="fa fa-trash"></i></button>
-            </td> -->
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td>1</td>
-                              <td>1</td>
-                              <td>2</td>
-                              <td>4</td>
-                              <td>fresh graduate bisa mengajukan lamaran</td>
-                              <td>mengerjakan keuangan perusahaan</td>
-                              <td>August 5, 2019 12:00 AM</td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-
-
-                              <!-- <td  class="text-center">
-                                <a href="#" class="btn btn-warning btn-sm" ><i class="fa fa-edit"></i></a>
-                                <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#>"><i class="fa fa-trash"></i></button>
-            </td> -->
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td>1</td>
-                              <td>1</td>
-                              <td>2</td>
-                              <td>4</td>
-                              <td>fresh graduate bisa mengajukan lamaran</td>
-                              <td>mengerjakan keuangan perusahaan</td>
-                              <td>August 5, 2019 12:00 AM</td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-
-
-                              <!-- <td  class="text-center">
-                                <a href="#" class="btn btn-warning btn-sm" ><i class="fa fa-edit"></i></a>
-                                <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#>"><i class="fa fa-trash"></i></button>
-            </td> -->
-                          </tr>
-                      </tbody>
-                  </table>
-              </div>
-          </div>
-      </div>
-  </div>
+                     <tbody>
+                         <?php if ($title == "Lowongan Kerja") :
+                                foreach ($tampil as $s) : ?>
+                         <tr class="text-center">
+                             <td><?= $s->id_lowongan ?></td>
+                             <td><?= word_limiter($s->judul_lowongan, 3); ?></td>
+                             <td><?= word_limiter($s->nama_perusahaan, 3); ?></td>
+                             <td><?= $s->kepemilikan ?></td>
+                             <td><?= $s->no_tlp ?></td>
+                             <td><a href="<?= base_url('LowonganKerja/editperusahaan/' . $s->id_lowongan); ?>"
+                                     class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a><a
+                                     style="margin-left: 5px;"
+                                     href="<?= base_url('LowonganKerja/detail_lowongan/' . $s->id_lowongan); ?>"
+                                     class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a><a
+                                     style="margin-left: 5px;"
+                                     href="<?= base_url('LowonganKerja/delete_lowongan/' . $s->id_lowongan); ?>"
+                                     onclick="javascript: return confirm('Anda Yakin Hapus ?')"
+                                     class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a></td>
+                         </tr>
+                         <?php endforeach; ?>
+                         <?php endif; ?>
+                     </tbody>
+                 </table>
+             </div>
+         </div>
+     </div>
+ </div>
