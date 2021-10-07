@@ -35,7 +35,7 @@
                              <td><?= word_limiter($s->nama_perusahaan, 3); ?></td>
                              <td><?= $s->kepemilikan ?></td>
                              <td><?= $s->no_tlp ?></td>
-                             <td><a href="<?= base_url('LowonganKerja/editperusahaan/' . $s->id_lowongan); ?>"
+                             <td><a href="<?= base_url('LowonganKerja/editlowongan/' . $s->id_lowongan); ?>"
                                      class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a><a
                                      style="margin-left: 5px;"
                                      href="<?= base_url('LowonganKerja/detail_lowongan/' . $s->id_lowongan); ?>"

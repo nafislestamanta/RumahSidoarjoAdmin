@@ -88,5 +88,19 @@ class M_kerja extends CI_model
     public function tambah_lowongan($data)
     {
         return $this->db->insert('lowongan', $data);
+    } 
+
+     public function edit_lowongan($id)
+    {
+        $this->db->select('*');
+        $this->db->from('lowongan');
+        $this->db->where('id_lowongan', $id);
+        $query = $this->db->get();
+        return $query;
+    }
+
+     public function update_lowongan($data, $id)
+    {
+        return $this->db->where('id_lowongan', $id)->update('lowongan', $data);
     }
 }

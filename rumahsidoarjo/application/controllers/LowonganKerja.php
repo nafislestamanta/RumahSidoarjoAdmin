@@ -303,4 +303,79 @@ class LowonganKerja extends CI_Controller
         //     'required' => 'Field tidak boleh kosong'
         // ]);
     }
+
+    public function editlowongan($id)
+    {
+        $data['edit'] = $this->M_kerja->edit_lowongan($id)->row();
+        $data['perusahaan'] = $this->M_kerja->perusahaan($id)->result();
+        $data['title'] = 'Edit Lowongan';
+        $this->load->view('admin/templates/header', $data);
+        $this->load->view('admin/templates/sidebar', $data);
+        $this->load->view('admin/templates/topbar', $data);
+        $this->load->view('tenagakerja/edit_lowongan', $data);
+        $this->load->view('admin/templates/footer', $data);
+    }
+
+
+    public function update_lowongan($id)
+    {
+        $this->form_validation->set_rules('judul_lowongan', 'judul_lowongan', 'required|trim', [
+            'required' => 'Field tidak boleh kosong'
+        ]);
+        $this->form_validation->set_rules('nama_perusahaan', 'nama_perusahaan', 'required|trim', [
+            'required' => 'Field tidak boleh kosong'
+        ]);
+        $this->form_validation->set_rules('deskripsi_pekerjaan', 'deskripsi_pekerjaan', 'required|trim', [
+            'required' => 'Field tidak boleh kosong'
+        ]);
+        $this->form_validation->set_rules('foto_lowongan', 'foto_lowongan', 'required|trim', [
+            'required' => 'Field tidak boleh kosong'
+        ]);
+        if ($this->form_validation->run() == false) {
+            $this->editlowongan($id);
+        } else {
+            $judul_lowongan = $this->input->post('judul_lowongan');
+            $nama_perusahaan = $this->input->post('nama_perusahaan');
+            $deskripsi_pekerjaan = $this->input->post('deskripsi_pekerjaan');
+            $foto_lowongan = $this->input->post('foto_lowongan');
+            // $foto = $_FILES['foto_lowongan']['name'];
+
+
+            if ($foto_lowongan) {
+                $data = [
+                    'judul_lowongan' => $judul_lowongan,
+                    'id' => $nama_perusahaan,
+                    'deskripsi_pekerjaan' => $deskripsi_pekerjaan,
+                    'foto_lowongan' => preg_replace("/\s+/", "_", $foto_lowongan),
+                    // 'foto_lowongan' => $foto_lowongan,
+                ];
+
+                $update = $this->M_kerja->update_lowongan($data, $id);
+
+                if ($update) {
+                    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil diupdate</div>');
+                } else {
+                    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data tidak berhasil diupdate</div>');
+                }
+                redirect('LowonganKerja/lowongan', $data);
+            } else {
+                $data = [
+                    'judul_lowongan' => $judul_lowongan,
+                    'id' => $nama_perusahaan,
+                    'deskripsi_pekerjaan' => $deskripsi_pekerjaan,
+                    // 'foto_lowongan' => $foto_lowongan,
+                    'foto_lowongan' => preg_replace("/\s+/", "_", $foto_lowongan),
+                ];
+
+                $update = $this->M_kerja->update_lowongan($data, $id);
+
+                if ($update) {
+                    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil diupdate</div>');
+                } else {
+                    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data tidak berhasil diupdate</div>');
+                }
+                redirect('LowonganKerja/lowongan', $data);
+            }
+        }
+    }
 }
