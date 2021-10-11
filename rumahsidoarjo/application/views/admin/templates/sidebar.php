@@ -167,6 +167,32 @@
                  </div>
              </div>
          </li>
+         <li class="nav-item">
+             <a class="nav-link" href="<?= base_url('LayananPublik'); ?>">
+                 <i class="fas fa-building"></i>
+                 <span>LAYANAN PUBLIK</span></a>
+         </li>
+
+         <!-- Home-->
+         <li class="nav-item">
+             <a class="nav-link" href="<?= base_url('Komunitas'); ?>">
+                 <i class="fas fa-users"></i>
+                 <span>KOMUNITAS</span></a>
+         </li>
+
+         <!-- Home-->
+         <li class="nav-item">
+             <a class="nav-link" href="<?= base_url('LombaDanBudaya'); ?>">
+                 <i class="fas fa-trophy"></i>
+                 <span>LOMBA DAN BUDAYA</span></a>
+         </li>
+
+         <!-- Home-->
+         <li class="nav-item">
+             <a class="nav-link" href="<?= base_url('Umkm'); ?>">
+                 <i class="fas fa-hand-holding-usd"></i>
+                 <span>UMKM</span></a>
+         </li>
 
          <!-- role 2 = Dishub -->
      <?php elseif ($role == 2) : {
