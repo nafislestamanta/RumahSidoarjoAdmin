@@ -54,8 +54,8 @@ class Auth extends CI_Controller
     }
     // public function logout()
     // {
-    //     $this->session->unset_user_admin('username');
-    //     $this->session->unset_user_admin('id_role');
+    //     $this->session->unset_userdata('username');
+    //     $this->session->unset_userdata('id_role');
 
     //     $this->session->set_flashdata('message', '<div class="alert alert-succes" role="alert">Anda berhasil Logout</div>');
     //     redirect('auth');
