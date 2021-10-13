@@ -59,7 +59,7 @@
                             <td><?= $a->kategori ?></td>
                             <td><?= word_limiter($a->deskripsi, 3); ?></td>
                             <td><?= $a->no_telp ?></td>
-                            <td><a href="<?= base_url('Umkm/edit_umkm' . $a->id_umkm); ?>"
+                            <td><a href="<?= base_url('Umkm/edit_umkm/' . $a->id_umkm); ?>"
                                     class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a><a
                                     style="margin-left: 5px;" href="<?= base_url('Umkm/detail_umkm/' . $a->id_umkm); ?>"
                                     class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a><a

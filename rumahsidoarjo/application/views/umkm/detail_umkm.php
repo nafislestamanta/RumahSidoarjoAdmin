@@ -12,55 +12,55 @@
                 <table class="table table-bordered" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <td>ID</td>
+                            <td class="font-weight-bold text-dark">ID</td>
                             <td><?= $detail->id_umkm; ?></td>
                         </tr>
                         <tr>
-                            <td>Kategori</td>
+                            <td class="font-weight-bold text-dark">Kategori</td>
                             <td><?= $detail->kategori; ?></td>
                         </tr>
                         <tr>
-                            <td>Nama</td>
+                            <td class="font-weight-bold text-dark">Nama</td>
                             <td><?= $detail->nama; ?></td>
                         </tr>
                         <tr>
-                            <td>Alamat</td>
+                            <td class="font-weight-bold text-dark">Alamat</td>
                             <td><?= $detail->alamat; ?></td>
                         </tr>
                         <tr>
-                            <td>Penanggung Jawab</td>
+                            <td class="font-weight-bold text-dark">Penanggung Jawab</td>
                             <td><?= $detail->penanggung_jawab; ?></td>
                         </tr>
                         <tr>
-                            <td>Gambar</td>
+                            <td class="font-weight-bold text-dark">Gambar 1</td>
                             <td><?= $detail->foto1; ?></td>
                         </tr>
                         <tr>
-                            <td>Gambar</td>
+                            <td class="font-weight-bold text-dark">Gambar 2</td>
                             <td><?= $detail->foto2; ?></td>
                         </tr>
                         <tr>
-                            <td>Gambar</td>
+                            <td class="font-weight-bold text-dark">Gambar 3</td>
                             <td><?= $detail->foto3; ?></td>
                         </tr>
                         <tr>
-                            <td>No Telepon</td>
+                            <td class="font-weight-bold text-dark">No Telepon</td>
                             <td><?= $detail->no_telp; ?></td>
                         </tr>
                         <tr>
-                            <td>Deskripsi</td>
+                            <td class="font-weight-bold text-dark">Deskripsi</td>
                             <td><?= $detail->deskripsi; ?></td>
                         </tr>
                         <tr>
-                            <td>Website</td>
+                            <td class="font-weight-bold text-dark">Website</td>
                             <td><?= $detail->website; ?></td>
                         </tr>
                         <tr>
-                            <td>Lat</td>
+                            <td class="font-weight-bold text-dark">Lat</td>
                             <td><?= $detail->lat; ?></td>
                         </tr>
                         <tr>
-                            <td>Long</td>
+                            <td class="font-weight-bold text-dark">Long</td>
                             <td><?= $detail->long; ?></td>
                         </tr>
 
