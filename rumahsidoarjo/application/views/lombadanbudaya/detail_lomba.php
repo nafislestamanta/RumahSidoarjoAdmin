@@ -12,23 +12,25 @@
                     <thead>
                         <tr>
                             <td>Nama Lomba</td>
-                            <td></td>
+                            <td><?= $lomba->nama_lomba ?></td>
                         </tr>
                         <tr>
                             <td>Tanggal Publish</td>
-                            <td></td>
+                            <td><?= $lomba->tgl_publish ?></td>
                         </tr>
                         <tr>
                             <td>Deskripsi</td>
-                            <td></td>
+                            <td><?= $lomba->deskripsi ?></td>
                         </tr>
                         <tr>
                             <td>Foto</td>
-                            <td></td>
+
+                            <td><?= $lomba->foto ?></td>
+
                         </tr>
                         <tr>
                             <td>Link</td>
-                            <td></td>
+                            <td><?= $lomba->link ?></td>
                         </tr>
 
                     </thead>

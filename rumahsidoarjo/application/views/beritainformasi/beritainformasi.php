@@ -81,11 +81,12 @@
                                      class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a><a
                                      style="margin-left: 5px;"
                                      href="<?= base_url('BeritaInformasi/detailberita/' . $a->kode); ?>"
-                                     class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a><a
-                                     style="margin-left: 5px;"
+                                     class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
+                                 <a style="margin-left: 5px;"
                                      href="<?= base_url('BeritaInformasi/delete/' . $a->kode); ?>"
                                      onclick="javascript: return confirm('Anda Yakin Hapus ?')"
-                                     class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a></td>
+                                     class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                             </td>
                          </tr>
                          <?php endforeach; ?>
 
