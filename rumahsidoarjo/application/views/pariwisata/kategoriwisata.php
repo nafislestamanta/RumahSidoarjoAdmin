@@ -11,14 +11,13 @@
           <div>
               <div class="card-header py-3">
                   <div class="col-auto">
-                      <a href="<?= base_url('pariwisata/tambah_kategori'); ?>" class="btn-sm btn-primary"><i
-                              class="fas fa-plus" style="padding-right: 8px;"></i>Tambah Data</a>
-                      <a href="<?= base_url(''); ?>" class="btn-sm btn-success"><i class="fas fa-download"
-                              style="padding-right: 8px;"></i>Report</a>
+                      <a href="<?= base_url('pariwisata/tambah_kategori'); ?>" class="btn-sm btn-primary"><i class="fas fa-plus" style="padding-right: 8px;"></i>Tambah Data</a>
+                      <a href="<?= base_url(''); ?>" class="btn-sm btn-success"><i class="fas fa-download" style="padding-right: 8px;"></i>Report</a>
                   </div>
               </div>
               <div class="card-body">
                   <div class="table-responsive">
+                      <?= $this->session->flashdata('message'); ?>
                       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                           <thead>
                               <tr class="text-center"><b>
@@ -30,16 +29,17 @@
                           </thead>
 
                           <tbody>
-                              <tr>
-                                  <td></td>
-                                  <td></td>
-                                  <td class="text-center">
-                                      <a href="<?= base_url('Pariwisata/edit_kategori'); ?>"
-                                          class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
-                                      <a href="" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
-                                      </a>
-                                  </td>
-                              </tr>
+                              <?php foreach ($kategori as $k) : ?>
+                                  <tr>
+                                      <td><?= $k->id_kategori_wisata ?></td>
+                                      <td><?= $k->kategori ?></td>
+                                      <td class="text-center">
+                                          <a href="<?= base_url('Pariwisata/edit_kategori/' . $k->id_kategori_wisata); ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+                                          <a href="<?= base_url('Pariwisata/delete_kategori/' . $k->id_kategori_wisata); ?>" class="btn btn-danger btn-sm" onclick="javascript: return confirm('Anda Yakin Hapus ?')"><i class="fa fa-trash"></i></a>
+                                          </a>
+                                      </td>
+                                  </tr>
+                              <?php endforeach; ?>
                           </tbody>
                       </table>
                   </div>
