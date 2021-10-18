@@ -11,50 +11,45 @@
           <div>
               <div class="card-header py-3">
                   <div class="col-auto">
-                      <a href="<?= base_url('pendidikan/tambah_slb'); ?>" class="btn-sm btn-primary"><i
-                              class="fas fa-plus" style="padding-right: 8px;"></i>Tambah Data</a>
-                      <a href="<?= base_url(''); ?>" class="btn-sm btn-success"><i class="fas fa-download"
-                              style="padding-right: 8px;"></i>Report</a>
+                      <a href="<?= base_url('pendidikan/tambah_slb'); ?>" class="btn-sm btn-primary"><i class="fas fa-plus" style="padding-right: 8px;"></i>Tambah Data</a>
+                      <a href="<?= base_url(''); ?>" class="btn-sm btn-success"><i class="fas fa-download" style="padding-right: 8px;"></i>Report</a>
                   </div>
               </div>
               <div class="card-body">
+                  <?= $this->session->flashdata('message'); ?>
                   <div class="table-responsive">
                       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                           <thead>
                               <tr class="text-center"><b>
                                       <th>No</th>
-                                      <th>Nama SLB</th>
+                                      <th>Nama SD</th>
                                       <th>Kecamatan</th>
                                       <th>Alamat</th>
                                       <th>No Telepon</th>
-                                      <th>Lang</th>
-                                      <th>Long</th>
-                                      <th>Deskripsi</th>
-                                      <th>Gambar</th>
+                                      <th>Akreditasi</th>
+                                      <th>Status</th>
                                       <th>Action</th>
                                   </b> </tr>
                           </thead>
 
                           <tbody>
-                              <tr>
-                                  <td scope="row">1</td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-
-                                  <td class="text-center">
-                                      <a href="<?= base_url('pendidikan/edit_slb'); ?>"
-                                          class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
-                                      <a href="" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
-                                      <a href="" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
-                                  </td>
-                              </tr>
-
+                              <?php $no = 1;
+                                foreach ($tampil as $t) : ?>
+                                  <tr>
+                                      <td><?= $no++ ?></td>
+                                      <td><?= $t->nama_sekolah ?></td>
+                                      <td><?= $t->kecamatan ?></td>
+                                      <td><?= word_limiter($t->alamat, 3)  ?></td>
+                                      <td><?= $t->no_telepon ?></td>
+                                      <td><?= $t->akreditasi ?></td>
+                                      <td><?= $t->status ?></td>
+                                      <td class="text-center">
+                                          <a href="<?= base_url('Pendidikan/edit_slb/' . $t->id_sekolah); ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+                                          <a href="<?= base_url('Pendidikan/detail_slb/' . $t->id_sekolah); ?>" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
+                                          <a style="margin-left: 5px;" href="<?= base_url('Pendidikan/delete_slb/' . $t->id_sekolah); ?>" onclick="javascript: return confirm('Anda Yakin Hapus ?')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                      </td>
+                                  </tr>
+                              <?php endforeach; ?>
 
                           </tbody>
                       </table>

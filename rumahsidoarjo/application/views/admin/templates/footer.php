@@ -20,8 +20,7 @@
  </a>
 
  <!-- Logout Modal-->
- <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
+ <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
      <div class="modal-dialog" role="document">
          <div class="modal-content">
              <div class="modal-header">
@@ -62,6 +61,15 @@
  <script src="<?= base_url('assets/'); ?>vendor/datatables/jquery.dataTables.min.js"></script>
  <script src="<?= base_url('assets/'); ?>vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
+ <script>
+     $(document).ready(function() {
+         $("#kecamatan").change(function() {
+             var url = "<?php echo site_url('Pendidikan/add_ajax_kel'); ?>/" + $(this).val();
+             $('#kelurahan').load(url);
+             return false;
+         })
+     })
+ </script>
 
  </body>
 
