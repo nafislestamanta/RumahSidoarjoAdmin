@@ -3,6 +3,7 @@
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
+        <?php if ($title == 'Detail Komunitas') : ?>
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Detail Komunitas</h6>
         </div>
@@ -11,48 +12,52 @@
                 <table class="table table-bordered" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <td>Nama Komunitas</td>
-                            <td></td>
+                            <td class="font-weight-bold">ID Komunitas</td>
+                            <td><?= $detail->id_komunitas; ?></td>
                         </tr>
                         <tr>
-                            <td>Alamat</td>
-                            <td></td>
+                            <td class="font-weight-bold">Nama Komunitas</td>
+                            <td><?= $detail->nama_komunitas; ?></td>
                         </tr>
                         <tr>
-                            <td>Deskripsi</td>
-                            <td></td>
+                            <td class="font-weight-bold">Ketua / Penanggung Jawab Komunitas</td>
+                            <td><?= $detail->ketua; ?></td>
                         </tr>
                         <tr>
-                            <td>No. Telepon</td>
-                            <td></td>
+                            <td class="font-weight-bold">Alamat</td>
+                            <td><?= $detail->alamat; ?></td>
                         </tr>
                         <tr>
-                            <td>Sosial Media</td>
-                            <td></td>
+                            <td class="font-weight-bold">No Telepon</td>
+                            <td><?= $detail->no_tlp; ?></td>
                         </tr>
                         <tr>
-                            <td>Foto Utama</td>
-                            <td></td>
+                            <td class="font-weight-bold">Deskripsi</td>
+                            <td><?= $detail->deskripsi; ?></td>
                         </tr>
                         <tr>
-                            <td>Foto Kedua</td>
-                            <td></td>
+                            <td class="font-weight-bold">Sosial Media</td>
+                            <td><?= $detail->sosialmedia; ?></td>
                         </tr>
                         <tr>
-                            <td>Foto Profil</td>
-                            <td></td>
+                            <td class="font-weight-bold">Foto 1</td>
+                            <td><?= $detail->foto1; ?></td>
                         </tr>
-
-
+                        <tr>
+                            <td class="font-weight-bold">Foto 2</td>
+                            <td><?= $detail->foto2; ?></td>
+                        </tr>
+                        <tr>
+                            <td class="font-weight-bold">Foto 3</td>
+                            <td><?= $detail->foto_profil; ?></td>
+                        </tr>
                     </thead>
                 </table>
-                <a href="#" class="btn btn-danger">Kembali</a>
+                <a href="<?= base_url('Komunitas'); ?>" class="btn btn-danger">Kembali</a>
             </div>
         </div>
+        <?php endif; ?>
     </div>
 
 </div>
 <!-- /.container-fluid -->
-
-</div>
-<!-- End of Main Content -->

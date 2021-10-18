@@ -24,7 +24,7 @@ class LowonganKerja extends CI_Controller
 
     public function detailperusahaan($id)
     {
-        $data['detail'] = $this->M_kerja->tampilperusahaan($id)->row();
+        $data['detail'] = $this->M_kerja->detail_perusahaan($id)->row();
         $data['title'] = 'Detail Perusahaan';
         $this->load->view('admin/templates/header', $data);
         $this->load->view('admin/templates/sidebar', $data);

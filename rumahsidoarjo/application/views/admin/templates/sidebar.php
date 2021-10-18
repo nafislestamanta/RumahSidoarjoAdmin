@@ -192,17 +192,25 @@
          </div>
      </li>
 
-     <!-- <li class="nav-item">
-             <a class="nav-link" href="<?= base_url('LayananPublik'); ?>">
-                 <i class="fas fa-cogs"></i>
-                 <span>LAYANAN PUBLIK</span></a>
-         </li> -->
 
-     <!-- Home-->
-     <li class="nav-item">
+     <!-- <li class="nav-item">
          <a class="nav-link" href="<?= base_url('Komunitas'); ?>">
              <i class="fas fa-users"></i>
              <span>KOMUNITAS</span></a>
+     </li> -->
+
+     <li class="nav-item">
+         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse18" aria-expanded="true"
+             aria-controls="collapse18">
+             <i class="fas fa-users"></i>
+             <span>KOMUNITAS</span>
+         </a>
+         <div id="collapse18" class="collapse" aria-labelledby="heading18" data-parent="#accordionSidebar">
+             <div class="bg-white py-2 collapse-inner rounded">
+                 <a class="collapse-item" href="<?= base_url('Komunitas'); ?>">Komunitas</a>
+                 <a class="collapse-item" href="<?= base_url('Komunitas/event'); ?>">Event</a>
+             </div>
+         </div>
      </li>
 
      <!-- Home-->

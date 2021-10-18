@@ -23,6 +23,16 @@ class M_kerja extends CI_model
         return $query;
     }
 
+    public function detail_perusahaan($id)
+    {
+        $this->db->select('*');
+        $this->db->from('perusahaan');
+        $this->db->where('id', $id);
+        $query = $this->db->get();
+        return $query;
+    }
+
+
     public function editperusahaan($id)
     {
         $this->db->select('*');
