@@ -4,18 +4,25 @@ class M_layanan_publik extends CI_model
 {
     private $_table = "layanan_publik";
     private $_tables = "pengaduan_umum";
-
-    public $id_layanan;
-    public $nama;
-    public $deskripsi;
+    private $_table1 = "kategori_layanan";
 
     public function tampil_informasi()
     {
         $this->db->select('*');
         $this->db->from('layanan_publik');
+        $this->db->join('kategori_layanan', 'kategori_layanan.id_kategorilayanan=layanan_publik.id_kategorilayanan');
         $query = $this->db->get();
         return $query;
     }
+
+    // public function tampil_lowongan()
+    // {
+    //     $this->db->select('*');
+    //     $this->db->from('lowongan');
+    //     $this->db->join('perusahaan', 'perusahaan.id=lowongan.id');
+    //     $query = $this->db->get();
+    //     return $query;
+    // }
 
     public function delete($id)
     {
@@ -27,12 +34,18 @@ class M_layanan_publik extends CI_model
         return $this->db->where('id_lowongan', $id)->delete('lowongan');
     }
 
-    public function save_informasi()
+    public function save_informasii()
     {
         $post = $this->input->post();
+        $this->id_kategorilayanan = $post["nama_kategori"];
         $this->nama = $post["nama"];
         $this->deskripsi = $post["deskripsi"];
         return $this->db->insert($this->_table, $this);
+    }
+
+    public function save_informasi($data)
+    {
+        return $this->db->insert('layanan_publik', $data);
     }
 
     public function edit_informasi($id)
@@ -106,5 +119,41 @@ class M_layanan_publik extends CI_model
     public function update_pengaduan($data, $id)
     {
         return $this->db->where('id_pengaduan', $id)->update('pengaduan_umum', $data);
+    }
+
+    public function tampil_kategori()
+    {
+        $this->db->select('*');
+        $this->db->from('kategori_layanan');
+        $query = $this->db->get();
+        return $query;
+    }
+
+    public function delete_kategori($id)
+    {
+        $delete = $this->db->where('id_kategorilayanan', $id)->delete('layanan_publik');
+        $delete = $this->db->where('id_kategorilayanan', $id)->delete('kategori_layanan');
+        return $delete;
+    }
+
+    public function save_kategori()
+    {
+        $post = $this->input->post();
+        $this->nama_kategori = $post["nama_kategori"];
+        return $this->db->insert($this->_table1, $this);
+    }
+
+    public function edit_kategori($id)
+    {
+        $this->db->select('*');
+        $this->db->from('kategori_layanan');
+        $this->db->where('id_kategorilayanan', $id);
+        $query = $this->db->get();
+        return $query;
+    }
+
+    public function update_kategori($data, $id)
+    {
+        return $this->db->where('id_kategorilayanan', $id)->update('kategori_layanan', $data);
     }
 }

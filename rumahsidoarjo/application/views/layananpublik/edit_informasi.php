@@ -15,6 +15,29 @@
                       <div class="card-body">
                           <div class="row">
                               <div class="col-md-12">
+
+                                  <div class="row">
+                                      <div class="col-sm-12">
+                                          <div class="form-group">
+                                              <label for="enum">
+                                                  <h6 class="m-0 font-weight-bold text-dark">Kategori</h6>
+                                              </label>
+                                              <select class="form-control" name="nama_kategori" id="nama_kategori">
+                                                  <!-- <opztion>Pilih Perusahaan</opztion> -->
+                                                  <?php foreach ($kategori_layanan as $k) : ?>
+                                                  <option value="<?= $k->id_kategorilayanan ?>"
+                                                      <?php if ($k->id_kategorilayanan == $edit->id_kategorilayanan)                                                                                   echo 'selected'; ?>>
+                                                      <?= $k->nama_kategori ?></option>
+                                                  <?php endforeach; ?>
+                                              </select>
+                                              <?= form_error('nama_kategori', '<small class="text-danger pl-2">', '</small>');  ?>
+                                          </div>
+                                      </div>
+                                  </div>
+
+
+
+
                                   <div class="form-group">
                                       <label>Nama Informasi Layanan</label>
                                       <input name="nama" id="nama" type="text" class="form-control"

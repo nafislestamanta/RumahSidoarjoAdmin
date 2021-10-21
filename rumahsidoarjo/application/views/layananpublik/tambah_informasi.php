@@ -10,11 +10,30 @@
       <section class="content">
           <div class="col">
               <div class="card card-primary">
-                  <form action="<?php echo base_url('LayananPublik/save_informasi') ?> " method="POST"
+                  <form action="<?php echo base_url('LayananPublik/save_informasii') ?> " method="POST"
                       enctype="multipart/form-data">
                       <div class="card-body">
                           <div class="row">
                               <div class="col-md-12">
+
+                                  <div class="row">
+                                      <div class="col-sm-12">
+                                          <!-- text input -->
+                                          <div class="form-group">
+                                              <label for="enum">
+                                                  <h6 class="m-0 font-weight-bold text-dark">Kategori</h6>
+                                              </label>
+                                              <select class="form-control" name="nama_kategori" id="nama_kategori">
+                                                  <option value="" selected disabled>Daftar Kategori</option>
+                                                  <?php foreach ($kategori_layanan as $k) : ?>
+                                                  <option value="<?= $k->id_kategorilayanan ?>"><?= $k->nama_kategori ?>
+                                                  </option>
+                                                  <?php endforeach; ?>
+                                              </select>
+                                              <?= form_error('nama_kategori', '<small class="text-danger pl-2">', '</small>');  ?>
+                                          </div>
+                                      </div>
+                                  </div>
 
                                   <div class="form-group">
                                       <label class="m-0 font-weight-bold text-dark">Nama Informasi Layanan</label>

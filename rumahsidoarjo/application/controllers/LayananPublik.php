@@ -35,6 +35,7 @@ class LayananPublik extends CI_Controller
 
     public function tambah_informasi()
     {
+        $data['kategori_layanan'] = $this->M_layanan_publik->tampil_kategori()->result();
         $data['title'] = ' Tambah Informasi';
         $this->load->view('admin/templates/header', $data);
         $this->load->view('admin/templates/sidebar', $data);
@@ -43,11 +44,12 @@ class LayananPublik extends CI_Controller
         $this->load->view('admin/templates/footer', $data);
     }
 
-    public function save_informasi()
+
+    public function save_informasii()
     {
         $model = $this->M_layanan_publik;
 
-        if ($model->save_informasi()) {
+        if ($model->save_informasii()) {
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Berhasil Ditambah</div>');
         } else {
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data Tidak Berhasil Ditambah</div>');
@@ -55,9 +57,46 @@ class LayananPublik extends CI_Controller
         redirect(site_url('LayananPublik'));
     }
 
+    // public function save_informasi()
+    // {
+    //     $nama_kategori = $this->input->post('nama_kategori');
+    //     $nama = $this->input->post('nama');
+    //     $deskripsi = $this->input->post('deskripsi');
+
+    //     if ($nama) {
+    //         if ($this->upload->upload('nama')) {
+
+    //             $data = [
+    //                 'id_kategorilayanan' => $nama_kategori,
+    //                 'nama' => $nama,
+    //                 'deskripsi' => $deskripsi,
+
+    //             ];
+
+    //             $tambah_informasi = $this->M_layanan_publik->save_informasi($data);
+
+    //             if ($tambah_informasi) {
+    //                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil ditambah</div>');
+    //                 redirect('LayananPublik', $data);
+    //             } else {
+    //                 $this->session->set_flashdata('message', '<div class="alert alert-warning" role="alert">Data tidak berhasil ditambah</div>');
+    //                 redirect('LayananPublik', $data);
+    //             }
+    //         } else {
+    //             $error = array('error' => $this->upload->display_errors());
+    //             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Gambar tidak sesuai format</div>');
+    //             redirect('LayananPublik', $error);
+    //         }
+    //     } else {
+    //         $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data Gagal Ditambahkan, Harap Mengupload Gambar</div>');
+    //         redirect('LayananPublik');
+    //     }
+    // }
+
     public function edit_informasi($id)
     {
         $data['edit'] = $this->M_layanan_publik->edit_informasi($id)->row();
+        $data['kategori_layanan'] = $this->M_layanan_publik->tampil_kategori($id)->result();
         $data['title'] = 'Edit Informasi';
         $this->load->view('admin/templates/header', $data);
         $this->load->view('admin/templates/sidebar', $data);
@@ -66,9 +105,11 @@ class LayananPublik extends CI_Controller
         $this->load->view('admin/templates/footer', $data);
     }
 
-
     public function update_informasi($id)
     {
+        $this->form_validation->set_rules('nama_kategori', 'nama_kategori', 'required|trim', [
+            'required' => 'Field tidak boleh kosong'
+        ]);
         $this->form_validation->set_rules('nama', 'nama', 'required|trim', [
             'required' => 'Field tidak boleh kosong'
         ]);
@@ -79,11 +120,13 @@ class LayananPublik extends CI_Controller
         if ($this->form_validation->run() == false) {
             $this->edit_informasi($id);
         } else {
+            $nama_kategori = $this->input->post('nama_kategori');
             $nama = $this->input->post('nama');
             $deskripsi = $this->input->post('deskripsi');
 
             if ($nama) {
                 $data = [
+                    'id_kategorilayanan' => $nama_kategori,
                     'nama' => $nama,
                     'deskripsi' => $deskripsi,
                 ];
@@ -98,6 +141,7 @@ class LayananPublik extends CI_Controller
                 redirect('LayananPublik', $data);
             } else {
                 $data = [
+                    'id_kategorilayanan' => $nama_kategori,
                     'nama' => $nama,
                     'deskripsi' => $deskripsi,
                 ];
@@ -197,5 +241,99 @@ class LayananPublik extends CI_Controller
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data tidak berhasil diupdate</div>');
         }
         redirect('LayananPublik/pengaduan', $data);
+    }
+
+    public function kategori()
+    {
+        $data['tampil'] = $this->M_layanan_publik->tampil_kategori()->result();
+        $data['title'] = 'Kategori';
+        $this->load->view('admin/templates/header', $data);
+        $this->load->view('admin/templates/sidebar', $data);
+        $this->load->view('admin/templates/topbar', $data);
+        $this->load->view('layananpublik/kategori', $data);
+        $this->load->view('admin/templates/footer', $data);
+    }
+
+    public function delete_kategori($id)
+    {
+        $delete = $this->M_layanan_publik->delete_kategori($id);
+        if ($delete) {
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data yang anda pilih telah terhapus</div>');
+        } else {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Tidak bisa hapus data</div>');
+        }
+        redirect('LayananPublik/kategori');
+    }
+
+    public function tambah_kategori()
+    {
+        $data['title'] = ' Tambah Kategori';
+        $this->load->view('admin/templates/header', $data);
+        $this->load->view('admin/templates/sidebar', $data);
+        $this->load->view('admin/templates/topbar', $data);
+        $this->load->view('layananpublik/tambah_kategori', $data);
+        $this->load->view('admin/templates/footer', $data);
+    }
+
+    public function save_kategori()
+    {
+        $model = $this->M_layanan_publik;
+
+        if ($model->save_kategori()) {
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Berhasil Ditambah</div>');
+        } else {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data Tidak Berhasil Ditambah</div>');
+        }
+        redirect(site_url('LayananPublik/kategori'));
+    }
+
+    public function edit_kategori($id)
+    {
+        $data['edit'] = $this->M_layanan_publik->edit_kategori($id)->row();
+        $data['title'] = 'Edit Kategori';
+        $this->load->view('admin/templates/header', $data);
+        $this->load->view('admin/templates/sidebar', $data);
+        $this->load->view('admin/templates/topbar', $data);
+        $this->load->view('layananpublik/edit_kategori', $data);
+        $this->load->view('admin/templates/footer', $data);
+    }
+
+    public function update_kategori($id)
+    {
+        $this->form_validation->set_rules('nama_kategori', 'nama_kategori', 'required|trim', [
+            'required' => 'Field tidak boleh kosong'
+        ]);
+        if ($this->form_validation->run() == false) {
+            $this->edit_kategori($id);
+        } else {
+            $nama_kategori = $this->input->post('nama_kategori');
+
+            if ($nama_kategori) {
+                $data = [
+                    'nama_kategori' => $nama_kategori,
+                ];
+                $update = $this->M_layanan_publik->update_kategori($data, $id);
+
+                if ($update) {
+                    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil diupdate</div>');
+                } else {
+                    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data tidak berhasil diupdate</div>');
+                }
+                redirect('LayananPublik/kategori', $data);
+            } else {
+                $data = [
+                    'nama_kategori' => $nama_kategori,
+                ];
+
+                $update = $this->M_kerja->update_kategori($data, $id);
+
+                if ($update) {
+                    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil diupdate</div>');
+                } else {
+                    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data tidak berhasil diupdate</div>');
+                }
+                redirect('LayananPublik/kategori', $data);
+            }
+        }
     }
 }
