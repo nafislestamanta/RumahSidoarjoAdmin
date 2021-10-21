@@ -216,9 +216,9 @@
 
      <!-- Home-->
      <li class="nav-item">
-         <a class="nav-link" href="<?= base_url('LombaDanBudaya'); ?>">
-             <i class="fas fa-trophy"></i>
-             <span>LOMBA DAN BUDAYA</span></a>
+         <a class="nav-link" href="<?= base_url('Event'); ?>">
+             <i class="fas fa-theater-masks"></i>
+             <span>Event</span></a>
      </li>
 
      <!-- Home-->

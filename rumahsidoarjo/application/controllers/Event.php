@@ -1,47 +1,71 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class LombaDanBudaya extends CI_Controller
+class Event extends CI_Controller
 {
     function __construct()
     {
         parent::__construct();
-        $this->load->model('M_lombadanbudaya');
+        $this->load->model('M_event');
+        $this->load->library('form_validation');
     }
 
 
     public function index()
     {
-        $data['lomba'] = $this->M_lombadanbudaya->tampil()->result();
-        $data['title'] = 'Lomba Dan Budaya';
+        $data['tampil'] = $this->M_event->tampil()->result();
+        $data['title'] = 'Event';
         $this->load->view('admin/templates/header', $data);
         $this->load->view('admin/templates/sidebar', $data);
         $this->load->view('admin/templates/topbar', $data);
-        $this->load->view('lombadanbudaya/lombadanbudaya', $data);
-        $this->load->view('admin/templates/footer', $data);
-    }
-
-    public function tambah_lomba()
-    {
-        $data['title'] = 'Tambah Lomba';
-        $this->load->view('admin/templates/header', $data);
-        $this->load->view('admin/templates/sidebar', $data);
-        $this->load->view('admin/templates/topbar', $data);
-        $this->load->view('lombadanbudaya/tambah_lomba', $data);
+        $this->load->view('event/event', $data);
         $this->load->view('admin/templates/footer', $data);
     }
 
 
-    public function simpanlomba()
+    public function tampilagenda()
     {
-        $model = $this->M_lombadanbudaya;
+        $data['tampil'] = $this->M_event->tampilagenda()->result();
+        $data['title'] = 'agenda kota';
+        $this->load->view('admin/templates/header', $data);
+        $this->load->view('admin/templates/sidebar', $data);
+        $this->load->view('admin/templates/topbar', $data);
+        $this->load->view('event/event', $data);
+        $this->load->view('admin/templates/footer', $data);
+    }
+
+    public function tampillombadanbudaya()
+    {
+        $data['tampil'] = $this->M_event->tampillombadanbudaya()->result();
+        $data['title'] = 'agenda kota';
+        $this->load->view('admin/templates/header', $data);
+        $this->load->view('admin/templates/sidebar', $data);
+        $this->load->view('admin/templates/topbar', $data);
+        $this->load->view('event/event', $data);
+        $this->load->view('admin/templates/footer', $data);
+    }
+
+    public function tambah_event()
+    {
+        $data['title'] = 'Tambah Event';
+        $this->load->view('admin/templates/header', $data);
+        $this->load->view('admin/templates/sidebar', $data);
+        $this->load->view('admin/templates/topbar', $data);
+        $this->load->view('event/tambah_event', $data);
+        $this->load->view('admin/templates/footer', $data);
+    }
+
+
+    public function save()
+    {
+        $model = $this->M_event;
 
         if ($model->save()) {
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Berhasil Ditambah</div>');
         } else {
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data Tidak Berhasil Ditambah</div>');
         }
-        redirect(site_url('LombaDanBudaya'));
+        redirect(site_url('Event'));
     }
 
     // public function simpanlomba()
@@ -84,7 +108,7 @@ class LombaDanBudaya extends CI_Controller
 
     //                 ];
 
-    //                 $tambah = $this->M_lombadanbudaya->tambah($data);
+    //                 $tambah = $this->M_event->tambah($data);
 
     //                 if ($tambah) {
     //                     $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil ditambah</div>');
@@ -105,176 +129,135 @@ class LombaDanBudaya extends CI_Controller
     //     }
     // }
 
-    public function edit_lomba($id)
+    public function edit_event($id)
     {
-        $data['edit'] = $this->M_lombadanbudaya->detail_edit($id)->row();
-        $data['title'] = 'Edit Lomba';
+        $data['edit'] = $this->M_event->detail_edit($id)->row();
+        $data['title'] = 'Edit Event';
         $this->load->view('admin/templates/header', $data);
         $this->load->view('admin/templates/sidebar', $data);
         $this->load->view('admin/templates/topbar', $data);
-        $this->load->view('lombadanbudaya/edit_lomba', $data);
+        $this->load->view('event/edit_event', $data);
         $this->load->view('admin/templates/footer', $data);
     }
 
-    // public function update_lomba($id)
-    // {
-    //     // $this->rules();
-    //     if ($this->form_validation->run() == false) {
-    //         $this->edit_lomba($id);
-    //     } else {
-    //         $nama_lomba = $this->input->post('nama_lomba');
-    //         $tgl_publish = $this->input->post('tgl_publish');
-    //         $deskripsi = $this->input->post('deskripsi');
-    //         $foto = $_FILES['foto']['name'];
-    //         $link = $this->input->post('link');
-
-    //         $config['upload_path']        =    './assets/img/';
-    //         $config['allowed_types']    =    'jpg|jpeg|png';
-    //         $config['max_size']            =    10000;
-
-    //         $this->load->library('upload', $config);
-
-    //         if ($foto) {
-    //             if ($this->upload->do_upload('foto')) {
-
-    //                 $data = [
-    //                     'nama_lomba' => $nama_lomba,
-    //                     'deskripsi' => $deskripsi,
-    //                     'foto' => preg_replace("/\s+/", "_", $foto),
-    //                     'link' => $link,
-    //                 ];
-
-    //                 $update = $this->M_lombadanbudaya->update($data, $id);
-
-    //                 if ($update) {
-    //                     $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil diupdate</div>');
-    //                     redirect('LombaDanBudaya/lombadanbudaya', $data);
-    //                 } else {
-    //                     $this->session->set_flashdata('message', '<div class="alert alert-warning" role="alert">Data tidak berhasil diupdate</div>');
-    //                     redirect('LombaDanBudaya/lombadanbudaya', $data);
-    //                 }
-    //             } else {
-    //                 $error = array('error' => $this->upload->display_errors());
-    //                 $this->session->set_flashdata('message', '<div class="alert alert-warning" role="alert">foto tidak sesuai format</div>');
-    //                 redirect('LombaDanBudaya/lombadanbudaya', $error);
-    //             }
-    //         } else {
-    //             $data =
-    //                 [
-    //                     'nama_lomba' => $nama_lomba,
-    //                     'deskripsi' => $deskripsi,
-    //                     'foto' => preg_replace("/\s+/", "_", $foto),
-    //                     'link' => $link,
-    //                 ];
-
-    //             $update = $this->M_lombadanbudaya->update($data, $id);
-
-    //             if ($update) {
-    //                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil diupdate</div>');
-    //                 redirect('LombaDanBudaya/lombadanbudaya', $data);
-    //             } else {
-    //                 $this->session->set_flashdata('message', '<div class="alert alert-warning" role="alert">Data tidak berhasil diudpate</div>');
-    //                 redirect('LombaDanBudaya/lombadanbudaya', $data);
-    //             }
-    //         }
-    //     }
-    // }
 
 
 
-    public function update_lomba($id)
+    public function update_event($id)
     {
-        $this->form_validation->set_rules('nama_lomba', 'nama_lomba', 'required|trim', [
+
+        $this->form_validation->set_rules('kategori', 'kategori', 'required|trim', [
             'required' => 'Field tidak boleh kosong'
         ]);
-        $this->form_validation->set_rules('tgl_publish', 'tgl_publish Postingan', 'required|trim', [
+        $this->form_validation->set_rules('nama_event', 'nama_event', 'required|trim', [
+            'required' => 'Field tidak boleh kosong'
+        ]);
+        $this->form_validation->set_rules('tgl_posting', 'tgl_posting', 'required|trim', [
+            'required' => 'Field tidak boleh kosong'
+        ]);
+        $this->form_validation->set_rules('penyelenggara', 'penyelenggara', 'required|trim', [
+            'required' => 'Field tidak boleh kosong'
+        ]);
+        $this->form_validation->set_rules('tempat_kegiatan', 'tempat_kegiatan', 'required|trim', [
             'required' => 'Field tidak boleh kosong'
         ]);
         $this->form_validation->set_rules('deskripsi', 'deskripsi', 'required|trim', [
             'required' => 'Field tidak boleh kosong'
         ]);
-        $this->form_validation->set_rules('link', 'Link', 'required|trim', [
-            'required' => 'Field tidak boleh kosong'
-        ]);
+
 
         if ($this->form_validation->run() == false) {
-            $this->edit_lomba($id);
+            $this->edit_event($id);
         } else {
-            $nama_lomba = $this->input->post('nama_lomba');
-            $tgl_publish = $this->input->post('tgl_publish');
+            $kategori = $this->input->post('kategori');
+            $nama_event = $this->input->post('nama_event');
+            $tgl_posting = $this->input->post('tgl_posting');
+            $penyelenggara = $this->input->post('penyelenggara');
+            $tempat_kegiatan = $this->input->post('tempat_kegiatan');
             $deskripsi = $this->input->post('deskripsi');
-            $foto = $this->input->post('foto');
-            $link = $this->input->post('link');
+            $foto1 = $_FILES['foto1']['name'];
+            $foto2 = $_FILES['foto2']['name'];
+            $foto3 = $_FILES['foto3']['name'];
 
-            if ($foto) {
+            if ($foto1) {
                 $data = [
-                    'nama_lomba' => $nama_lomba,
-                    'tgl_publish' => $tgl_publish,
+                    'kategori' => $kategori,
+                    'nama_event' => $nama_event,
+                    'tgl_posting' => $tgl_posting,
+                    'penyelenggara' => $penyelenggara,
+                    'tempat_kegiatan' => $tempat_kegiatan,
                     'deskripsi' => $deskripsi,
-                    'foto' => $foto,
-                    'link' => $link,
+                    'tempat_kegiatan' => $tempat_kegiatan,
+                    'foto1' => $foto1,
+                    'foto2' => $foto2,
+                    'foto3' => $foto3,
                 ];
 
-                $update = $this->M_lombadanbudaya->update_lomba($data, $id);
+                $update = $this->M_event->update_event($data, $id);
 
                 if ($update) {
                     $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil diupdate</div>');
                 } else {
                     $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data tidak berhasil diupdate</div>');
                 }
-                redirect('LombaDanBudaya', $data);
+                redirect('Event', $data);
             } else {
                 $data = [
-                    'nama_lomba' => $nama_lomba,
-                    'tgl_publish' => $tgl_publish,
+                    'kategori' => $kategori,
+                    'nama_event' => $nama_event,
+                    'tgl_posting' => $tgl_posting,
+                    'penyelenggara' => $penyelenggara,
+                    'tempat_kegiatan' => $tempat_kegiatan,
                     'deskripsi' => $deskripsi,
-                    'foto' => $foto,
-                    'link' => $link,
+                    'tempat_kegiatan' => $tempat_kegiatan,
+                    'foto1' => $foto1,
+                    'foto2' => $foto2,
+                    'foto3' => $foto3,
                 ];
 
-                $update = $this->M_lombadanbudaya->update_lomba($data, $id);
+                $update = $this->M_event->update_event($data, $id);
 
                 if ($update) {
                     $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil diupdate</div>');
                 } else {
                     $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data tidak berhasil diupdate</div>');
                 }
-                redirect('LombaDanBudaya', $data);
+                redirect('Event', $data);
             }
         }
     }
 
 
-    public function detail_lomba($id)
+    public function detail_event($id)
     {
-        $data['lomba'] = $this->M_lombadanbudaya->detail_lomba($id)->row();
-        $data['title'] = 'Detail Lomba';
+        $data['event'] = $this->M_event->detail_event($id)->row();
+        $data['title'] = 'Detail Event';
         $this->load->view('admin/templates/header', $data);
         $this->load->view('admin/templates/sidebar', $data);
         $this->load->view('admin/templates/topbar', $data);
-        $this->load->view('lombadanbudaya/detail_lomba', $data);
+        $this->load->view('event/detail_event', $data);
         $this->load->view('admin/templates/footer', $data);
     }
 
     public function delete($id)
     {
-        $delete = $this->M_lombadanbudaya->delete($id);
+        $delete = $this->M_event->delete($id);
         if ($delete) {
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data yang anda pilih telah terhapus</div>');
         } else {
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Tidak bisa hapus data</div>');
         }
-        redirect('LombaDanBudaya');
+        redirect('Event');
     }
 
-    public function tampillomba()
+    public function tampilevent()
     {
-        $data['tampil'] = $this->M_lombadanbudaya->tampilberita()->result();
+        $data['tampil'] = $this->M_event->tampilberita()->result();
         $data['title'] = 'Berita';
         $this->load->view('admin/templates/header', $data);
         $this->load->view('admin/templates/sidebar', $data);
         $this->load->view('admin/templates/topbar', $data);
-        $this->load->view('beritainformasi/beritainformasi', $data);
+        $this->load->view('event/event', $data);
         $this->load->view('admin/templates/footer', $data);
     }
 }
