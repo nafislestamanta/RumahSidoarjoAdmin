@@ -153,9 +153,9 @@
                               <!-- text input -->
                               <div class="form-group">
                                   <label>Latitude</label>
-                                  <input type="number" class="form-control" id="lang" name="lang"
+                                  <input type="number" class="form-control" id="lat" name="lat"
                                       placeholder="Masukkan Langitude" value="<?= $rsu->lat ?>">
-                                  <?= form_error('lang', '<small class="text-danger pl-2">', '</small>');  ?>
+                                  <?= form_error('lat', '<small class="text-danger pl-2">', '</small>');  ?>
                               </div>
                           </div>
                       </div>
@@ -194,10 +194,6 @@
           </div>
       </div>
       <!--end div halaman add-->
-
-  </div>
-  </div>
-  </div>
 
   </div>
 

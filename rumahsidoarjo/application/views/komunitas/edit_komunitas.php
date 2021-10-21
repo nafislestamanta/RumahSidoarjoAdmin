@@ -74,8 +74,9 @@
                                   </div>
 
                                   <div class="card-footer">
-                                      <button type="submit" class="btn-sm btn-info">Update</button>
-
+                                      <button type="submit" class="btn btn-info">Update</button>
+                                      <a class="btn btn-warning" href="<?= base_url('Komunitas'); ?>"
+                                          role="button">kembali</a>
                                   </div>
                               </div>
                           </div>

@@ -57,7 +57,7 @@ class Kesehatan extends CI_Controller
             $fax = $this->input->post('fax');
             $email = $this->input->post('email');
             $long = $this->input->post('long');
-            $lang = $this->input->post('lang');
+            $lat = $this->input->post('lat');
             $website = $this->input->post('website');
             $gambar = $_FILES['gambar']['name'];
             $link = $this->input->post('link');
@@ -81,7 +81,7 @@ class Kesehatan extends CI_Controller
                         'fax' => $fax,
                         'email' => $email,
                         'long' => $long,
-                        'lang' => $lang,
+                        'lat' => $lat,
                         'website' => $website,
                         'foto' => preg_replace("/\s+/", "_", $gambar),
                         'link' => $link,
@@ -136,7 +136,7 @@ class Kesehatan extends CI_Controller
             $fax = $this->input->post('fax');
             $email = $this->input->post('email');
             $long = $this->input->post('long');
-            $lang = $this->input->post('lang');
+            $lat = $this->input->post('lat');
             $website = $this->input->post('website');
             $gambar = $_FILES['gambar']['name'];
             $link = $this->input->post('link');
@@ -160,7 +160,7 @@ class Kesehatan extends CI_Controller
                         'fax' => $fax,
                         'email' => $email,
                         'long' => $long,
-                        'lang' => $lang,
+                        'lat' => $lat,
                         'website' => $website,
                         'foto' => preg_replace("/\s+/", "_", $gambar),
                         'link' => $link,
@@ -191,7 +191,7 @@ class Kesehatan extends CI_Controller
                     'fax' => $fax,
                     'email' => $email,
                     'long' => $long,
-                    'lang' => $lang,
+                    'lat' => $lat,
                     'website' => $website,
                     'link' => $link,
                 ];
@@ -245,7 +245,7 @@ class Kesehatan extends CI_Controller
             $fax = $this->input->post('fax');
             $email = $this->input->post('email');
             $long = $this->input->post('long');
-            $lang = $this->input->post('lang');
+            $lat = $this->input->post('lat');
             $website = $this->input->post('website');
             $gambar = $_FILES['gambar']['name'];
             $link = $this->input->post('link');
@@ -269,7 +269,7 @@ class Kesehatan extends CI_Controller
                         'fax' => $fax,
                         'email' => $email,
                         'long' => $long,
-                        'lang' => $lang,
+                        'lat' => $lat,
                         'website' => $website,
                         'foto' => preg_replace("/\s+/", "_", $gambar),
                         'link' => $link,
@@ -324,7 +324,7 @@ class Kesehatan extends CI_Controller
             $fax = $this->input->post('fax');
             $email = $this->input->post('email');
             $long = $this->input->post('long');
-            $lang = $this->input->post('lang');
+            $lat = $this->input->post('lat');
             $website = $this->input->post('website');
             $gambar = $_FILES['gambar']['name'];
             $link = $this->input->post('link');
@@ -348,7 +348,7 @@ class Kesehatan extends CI_Controller
                         'fax' => $fax,
                         'email' => $email,
                         'long' => $long,
-                        'lang' => $lang,
+                        'lat' => $lat,
                         'website' => $website,
                         'foto' => preg_replace("/\s+/", "_", $gambar),
                         'link' => $link,
@@ -379,7 +379,7 @@ class Kesehatan extends CI_Controller
                     'fax' => $fax,
                     'email' => $email,
                     'long' => $long,
-                    'lang' => $lang,
+                    'lat' => $lat,
                     'website' => $website,
                     'link' => $link,
                 ];
@@ -434,7 +434,7 @@ class Kesehatan extends CI_Controller
             $fax = $this->input->post('fax');
             $email = $this->input->post('email');
             $long = $this->input->post('long');
-            $lang = $this->input->post('lang');
+            $lat = $this->input->post('lat');
             $website = $this->input->post('website');
             $gambar = $_FILES['gambar']['name'];
             $link = $this->input->post('link');
@@ -458,7 +458,7 @@ class Kesehatan extends CI_Controller
                         'fax' => $fax,
                         'email' => $email,
                         'long' => $long,
-                        'lat' => $lang,
+                        'lat' => $lat,
                         'website' => $website,
                         'foto' => preg_replace("/\s+/", "_", $gambar),
                         'link' => $link,
@@ -513,7 +513,7 @@ class Kesehatan extends CI_Controller
             $fax = $this->input->post('fax');
             $email = $this->input->post('email');
             $long = $this->input->post('long');
-            $lang = $this->input->post('lang');
+            $lat = $this->input->post('lat');
             $website = $this->input->post('website');
             $gambar = $_FILES['gambar']['name'];
             $link = $this->input->post('link');
@@ -537,7 +537,7 @@ class Kesehatan extends CI_Controller
                         'fax' => $fax,
                         'email' => $email,
                         'long' => $long,
-                        'lat' => $lang,
+                        'lat' => $lat,
                         'website' => $website,
                         'foto' => preg_replace("/\s+/", "_", $gambar),
                         'link' => $link,
@@ -569,7 +569,7 @@ class Kesehatan extends CI_Controller
                     'fax' => $fax,
                     'email' => $email,
                     'long' => $long,
-                    'lat' => $lang,
+                    'lat' => $lat,
                     'website' => $website,
                     'link' => $link,
                     'kategori' => 'RSU'
@@ -683,7 +683,7 @@ class Kesehatan extends CI_Controller
         $this->form_validation->set_rules('long', 'Long', 'required|trim', [
             'required' => 'Field tidak boleh kosong'
         ]);
-        $this->form_validation->set_rules('lang', 'Lang', 'required|trim', [
+        $this->form_validation->set_rules('lat', 'Lat', 'required|trim', [
             'required' => 'Field tidak boleh kosong'
         ]);
         $this->form_validation->set_rules('link', 'Link', 'required|trim', [

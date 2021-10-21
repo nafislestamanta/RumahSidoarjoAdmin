@@ -43,7 +43,8 @@
                                   </div>
                                   <div class="card-footer">
                                       <button type="submit" class="btn btn-primary">Simpan</button>
-
+                                      <a class="btn btn-warning" href="<?= base_url('Dishub'); ?>"
+                                          role="button">kembali</a>
                                   </div>
                               </div>
                           </div>

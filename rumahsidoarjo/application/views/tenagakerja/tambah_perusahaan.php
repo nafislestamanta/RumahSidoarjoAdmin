@@ -77,8 +77,9 @@
                                       <img src="holder.jpg" id="ayam" name="ayam" width="150px">
                                   </div>
                                   <div class="card-footer">
-                                      <button type="submit" class="btn-sm btn-primary">Simpan</button>
-
+                                      <button type="submit" class="btn btn-primary">Simpan</button>
+                                      <a class="btn btn-warning" href="<?= base_url('LowonganKerja'); ?>"
+                                          role="button">kembali</a>
                                   </div>
                               </div>
                           </div>

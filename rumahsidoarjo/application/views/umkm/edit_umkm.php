@@ -110,12 +110,12 @@
                                       <input name="long" id="long" type="text" class="form-control"
                                           value="<?= $edit->long ?>" placeholder="">
                                   </div>
-
-
                                   <div class="card-footer">
-                                      <button type="submit" class="btn-sm btn-primary">Simpan</button>
-
+                                      <button type="submit" class="btn btn-primary">Simpan</button>
+                                      <a class="btn btn-warning" href="<?= base_url('Umkm'); ?>"
+                                          role="button">kembali</a>
                                   </div>
+
                               </div>
                           </div>
                       </div>

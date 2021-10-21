@@ -83,7 +83,9 @@
                                        </tr>
                                    </thead>
                                </table>
-                               <button type="submit" class="btn-sm btn-primary">Update</button>
+                               <button type="submit" class="btn btn-primary">Update</button>
+                               <a class="btn btn-warning" href="<?= base_url('LayananPublik/pengaduan'); ?>"
+                                   role="button">kembali</a>
                            </div>
                        </div>
                    </form>

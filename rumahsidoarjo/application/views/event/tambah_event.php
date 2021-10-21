@@ -3,7 +3,7 @@
 
       <!-- Page Heading -->
       <div class="d-sm-flex align-items-center justify-content-between mb-3">
-          <h5><i class="fas fa-info-circle"></i><b style="padding-left:5px">Tambah Event</b></h5>
+          <h5><i class="far fa-calendar-alt"></i><b style="padding-left:5px">Tambah Event</b></h5>
       </div>
 
       <!-- Main content Ini Bagian Content -->
@@ -90,7 +90,8 @@
                                   </div> -->
                                   <div class="card-footer">
                                       <button type="submit" class="btn btn-primary">Simpan</button>
-
+                                      <a class="btn btn-warning" href="<?= base_url('Event'); ?>"
+                                          role="button">kembali</a>
                                   </div>
                               </div>
                           </div>

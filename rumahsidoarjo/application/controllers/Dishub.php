@@ -56,16 +56,6 @@ class Dishub extends CI_Controller
     redirect(site_url('Dishub/index'));
   }
 
-  // public function edit()
-  // {
-  //   $data['title'] = 'Tambah CCTV';
-  //   $this->load->view('admin/templates/header', $data);
-  //   $this->load->view('admin/templates/sidebar', $data);
-  //   $this->load->view('admin/templates/topbar', $data);
-  //   $this->load->view('dishub/edit', $data);
-  //   $this->load->view('admin/templates/footer', $data);
-  // }
-
   public function editcctv($id)
   {
     $data['edit'] = $this->M_dishub->detail($id)->row();

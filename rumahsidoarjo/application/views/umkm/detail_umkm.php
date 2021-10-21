@@ -66,7 +66,7 @@
 
                     </thead>
                 </table>
-                <a href="<?= base_url('Umkm'); ?>" class="btn-sm btn-danger">Kembali</a>
+                <a href="<?= base_url('Umkm'); ?>" class="btn btn-danger">Kembali</a>
             </div>
         </div>
 

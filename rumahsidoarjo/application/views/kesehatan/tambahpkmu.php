@@ -150,9 +150,9 @@
                               <!-- text input -->
                               <div class="form-group">
                                   <label>Langitude</label>
-                                  <input type="number" class="form-control" id="lang" name="lang"
-                                      placeholder="Masukkan Langitude" value="<?= set_value('lang') ?>">
-                                  <?= form_error('lang', '<small class="text-danger pl-2">', '</small>');  ?>
+                                  <input type="number" class="form-control" id="lat" name="lat"
+                                      placeholder="Masukkan Langitude" value="<?= set_value('lat') ?>">
+                                  <?= form_error('lat', '<small class="text-danger pl-2">', '</small>');  ?>
                               </div>
                           </div>
                       </div>
@@ -194,11 +194,6 @@
       <!--end div halaman add-->
 
   </div>
-  </div>
-  </div>
-
-  </div>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script type="text/javascript">
 function foto(val) {

@@ -52,6 +52,8 @@
                                   </div>
                                   <div class="card-footer">
                                       <button type="submit" class="btn-sm btn-primary">Update</button>
+                                      <a class="btn btn-warning" href="<?= base_url('Dishub'); ?>"
+                                          role="button">kembali</a>
                                   </div>
                               </div>
                           </div>

@@ -52,7 +52,7 @@
                         </tr>
                         <tr>
                             <td>Langitude</td>
-                            <td><?= $pkmu->lang; ?></td>
+                            <td><?= $pkmu->lat; ?></td>
                         </tr>
                         <tr>
                             <td>Longitude</td>

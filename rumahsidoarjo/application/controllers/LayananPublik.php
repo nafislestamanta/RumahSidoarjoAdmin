@@ -57,42 +57,6 @@ class LayananPublik extends CI_Controller
         redirect(site_url('LayananPublik'));
     }
 
-    // public function save_informasi()
-    // {
-    //     $nama_kategori = $this->input->post('nama_kategori');
-    //     $nama = $this->input->post('nama');
-    //     $deskripsi = $this->input->post('deskripsi');
-
-    //     if ($nama) {
-    //         if ($this->upload->upload('nama')) {
-
-    //             $data = [
-    //                 'id_kategorilayanan' => $nama_kategori,
-    //                 'nama' => $nama,
-    //                 'deskripsi' => $deskripsi,
-
-    //             ];
-
-    //             $tambah_informasi = $this->M_layanan_publik->save_informasi($data);
-
-    //             if ($tambah_informasi) {
-    //                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil ditambah</div>');
-    //                 redirect('LayananPublik', $data);
-    //             } else {
-    //                 $this->session->set_flashdata('message', '<div class="alert alert-warning" role="alert">Data tidak berhasil ditambah</div>');
-    //                 redirect('LayananPublik', $data);
-    //             }
-    //         } else {
-    //             $error = array('error' => $this->upload->display_errors());
-    //             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Gambar tidak sesuai format</div>');
-    //             redirect('LayananPublik', $error);
-    //         }
-    //     } else {
-    //         $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data Gagal Ditambahkan, Harap Mengupload Gambar</div>');
-    //         redirect('LayananPublik');
-    //     }
-    // }
-
     public function edit_informasi($id)
     {
         $data['edit'] = $this->M_layanan_publik->edit_informasi($id)->row();

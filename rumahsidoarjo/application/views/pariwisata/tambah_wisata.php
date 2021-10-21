@@ -159,7 +159,7 @@
 
                           <tbody>
                               <?php $no = 1;
-                  foreach ($tampil as $t) : ?>
+                                    foreach ($tampil as $t) : ?>
                               <tr>
                                   <td><?= $no++ ?></td>
                                   <td><?= $t->nama_tiket ?></td>
@@ -241,7 +241,7 @@
 
                           <tbody>
                               <?php $no = 1;
-                  foreach ($tampil as $t) : ?>
+                                    foreach ($tampil as $t) : ?>
                               <tr>
                                   <td><?= $no++ ?></td>
                                   <td><?= $t->nama ?></td>
@@ -258,8 +258,7 @@
                   <a data-toggle="modal" type="submit" data-target="#tambah-datakuliner"
                       class="btn btn-primary">Tambah</a>
                   <?php endif; ?>
-                  <br>
-                  <br>
+
 
                   <div class="table-responsive">
                       <table class="table table-bordered" width="100%" cellspacing="0">
