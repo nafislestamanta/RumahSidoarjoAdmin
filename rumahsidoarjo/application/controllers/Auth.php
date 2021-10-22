@@ -41,6 +41,14 @@ class Auth extends CI_Controller
                     redirect('dashboard');
                 } elseif ($user_admin['id_role'] == 2) {
                     redirect('dashboard');
+                } elseif ($user_admin['id_role'] == 3) {
+                    redirect('dashboard');
+                } elseif ($user_admin['id_role'] == 4) {
+                    redirect('dashboard');
+                } elseif ($user_admin['id_role'] == 5) {
+                    redirect('dashboard');
+                } elseif ($user_admin['id_role'] == 6) {
+                    redirect('dashboard');
                 } elseif ($user_admin) {
                 }
             } else {
