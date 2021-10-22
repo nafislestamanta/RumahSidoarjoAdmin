@@ -48,7 +48,7 @@
                               <!-- text input -->
                               <div class="form-group">
                                   <label>Alamat</label>
-                                  <input type="text" class="form-control" id=alamat"" name="alamat"
+                                  <input type="text" class="form-control" id="alamat" name="alamat"
                                       placeholder="Masukkan Alamat" value="<?= set_value('alamat') ?>">
                                   <?= form_error('alamat', '<small class="text-danger pl-2">', '</small>');  ?>
                               </div>
