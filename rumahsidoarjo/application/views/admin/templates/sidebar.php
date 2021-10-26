@@ -6,7 +6,7 @@
          <div class="sidebar-brand-icon">
              <img class="img-profile rounded-circle" src="<?= base_url('assets'); ?>/img/admin1.jpg" widht="40" height="62">
          </div>
-         <div class="sidebar-brand-text mx-3">Admin <sup></sup></div>
+         <div class="sidebar-brand-text mx-3"><?= $data['nama'] ?> <sup></sup></div>
      </a>
 
      <!-- Divider -->
@@ -37,6 +37,7 @@
                      <h6 class="collapse-header">feature:</h6>
                      <a class="collapse-item" href="<?= base_url('PanikMenu'); ?>">Managemen Data</a>
                      <a class="collapse-item" href="<?= base_url('PanikMenu/laporanpanik'); ?>">Laporan Panik</a>
+                     <a class="collapse-item" href="<?= base_url('PanikMenu/konfirmasi'); ?>">Konfirmasi Panik</a>
 
                  </div>
              </div>
