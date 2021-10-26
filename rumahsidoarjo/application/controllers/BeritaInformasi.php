@@ -13,6 +13,7 @@ class BeritaInformasi extends CI_Controller
 
     public function index()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['tampil'] = $this->M_berita_informasi->tampil()->result();
         $data['title'] = 'BeritaInformasi';
         $this->load->view('admin/templates/header', $data);
@@ -24,6 +25,7 @@ class BeritaInformasi extends CI_Controller
     //tambah berita dan informasi
     public function tambah()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['title'] = 'Tambah Berita Informasi';
         $this->load->view('admin/templates/header', $data);
         $this->load->view('admin/templates/sidebar', $data);
@@ -57,6 +59,7 @@ class BeritaInformasi extends CI_Controller
 
     public function tampilberita()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['tampil'] = $this->M_berita_informasi->tampilberita()->result();
         $data['title'] = 'Berita';
         $this->load->view('admin/templates/header', $data);
@@ -68,6 +71,7 @@ class BeritaInformasi extends CI_Controller
 
     public function tampilinformasi()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['tampil'] = $this->M_berita_informasi->tampilinformasi()->result();
         $data['title'] = 'Informasi';
         $this->load->view('admin/templates/header', $data);
@@ -79,6 +83,7 @@ class BeritaInformasi extends CI_Controller
 
     public function tampilpengumuman()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['tampil'] = $this->M_berita_informasi->tampilpengumuman()->result();
         $data['title'] = 'Pengumuman';
         $this->load->view('admin/templates/header', $data);
@@ -91,6 +96,7 @@ class BeritaInformasi extends CI_Controller
 
     public function editberita($id)
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['edit'] = $this->M_berita_informasi->detail($id)->row();
         $data['title'] = 'Berita';
         $this->load->view('admin/templates/header', $data);
@@ -169,6 +175,7 @@ class BeritaInformasi extends CI_Controller
 
     public function detailberita($id)
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['detail'] = $this->M_berita_informasi->detail($id)->row();
         $data['title'] = 'Detail Berita';
         $this->load->view('admin/templates/header', $data);

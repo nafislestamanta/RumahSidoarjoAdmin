@@ -12,6 +12,7 @@ class Admin extends CI_Controller
 
     public function index()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['user'] = $this->M_admin->tampil()->result();
         $data['title'] = 'Managemen Admin';
         $this->load->view('admin/templates/header', $data);
@@ -34,6 +35,7 @@ class Admin extends CI_Controller
 
     public function tambah()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['role'] = $this->M_admin->role()->result();
         $data['title'] = 'Tambah Admin';
         $this->load->view('admin/templates/header', $data);
@@ -125,6 +127,7 @@ class Admin extends CI_Controller
 
     public function edit($id)
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['role'] = $this->M_admin->role()->result();
         $data['edit'] = $this->M_admin->edit($id)->row();
         $data['title'] = 'Rumah Sakit';
@@ -231,6 +234,7 @@ class Admin extends CI_Controller
 
     public function detail($id)
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['detail'] = $this->M_admin->edit($id)->row();
         $data['title'] = 'Detail Admin';
         $this->load->view('admin/templates/header', $data);

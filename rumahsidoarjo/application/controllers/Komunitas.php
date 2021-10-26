@@ -13,6 +13,7 @@ class Komunitas extends CI_Controller
 
     public function index()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['tampil'] = $this->M_komunitas->tampil_komunitas()->result();
         $data['title'] = 'Komunitas';
         $this->load->view('admin/templates/header', $data);
@@ -35,6 +36,7 @@ class Komunitas extends CI_Controller
 
     public function tambah_komunitas()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['title'] = 'Tambah Komunitas';
         $this->load->view('admin/templates/header', $data);
         $this->load->view('admin/templates/sidebar', $data);
@@ -57,6 +59,7 @@ class Komunitas extends CI_Controller
 
     public function edit_komunitas($id)
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['edit'] = $this->M_komunitas->edit_komunitas($id)->row();
         $data['title'] = 'Edit Komunitas';
         $this->load->view('admin/templates/header', $data);
@@ -68,6 +71,7 @@ class Komunitas extends CI_Controller
 
     public function detail_komunitas($id)
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['detail'] = $this->M_komunitas->detail_komunitas($id)->row();
         $data['title'] = 'Detail Komunitas';
         $this->load->view('admin/templates/header', $data);
@@ -152,6 +156,7 @@ class Komunitas extends CI_Controller
 
     public function event()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['tampil'] = $this->M_komunitas->tampil_event()->result();
         $data['title'] = 'Event';
         $this->load->view('admin/templates/header', $data);
@@ -163,6 +168,7 @@ class Komunitas extends CI_Controller
 
     public function tampil_event_selesai()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['tampil'] = $this->M_komunitas->tampil_event_selesai()->result();
         $data['title'] = 'Event Selesai';
         $this->load->view('admin/templates/header', $data);
@@ -174,6 +180,7 @@ class Komunitas extends CI_Controller
 
     public function tampil_event_segera()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['tampil'] = $this->M_komunitas->tampil_event_segera()->result();
         $data['title'] = 'Event Akan Datang';
         $this->load->view('admin/templates/header', $data);
@@ -185,6 +192,7 @@ class Komunitas extends CI_Controller
 
     public function detail_event($id)
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['detail'] = $this->M_komunitas->detail_event($id)->row();
         $data['title'] = 'Detail Lowongan';
         $this->load->view('admin/templates/header', $data);
@@ -207,6 +215,7 @@ class Komunitas extends CI_Controller
 
     public function tambah_event()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['komunitas'] = $this->M_komunitas->komunitas()->result();
         $data['title'] = 'Tambah Event';
         $this->load->view('admin/templates/header', $data);
@@ -277,6 +286,7 @@ class Komunitas extends CI_Controller
 
     public function edit_event($id)
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['edit'] = $this->M_komunitas->edit_event($id)->row();
         $data['komunitas'] = $this->M_komunitas->komunitas($id)->result();
         $data['title'] = 'Edit Lowongan';

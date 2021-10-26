@@ -11,6 +11,7 @@ class Pariwisata extends CI_Controller
 
     public function index()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['tampil'] = $this->M_pariwisata->tampil_wisata()->result();
         $data['title'] = 'Tempat Wisata';
         $this->load->view('admin/templates/header', $data);
@@ -22,6 +23,7 @@ class Pariwisata extends CI_Controller
 
     public function tambah_wisata()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['kategori'] = $this->M_pariwisata->tampil()->result();
         $data['title'] = 'Tempat Wisata';
         $this->load->view('admin/templates/header', $data);
@@ -33,6 +35,7 @@ class Pariwisata extends CI_Controller
 
     public function tambah_wisata_sidoarjo($id)
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['desc'] = $this->M_pariwisata->tampilwisataid($id)->row();
         $data['kategori'] = $this->M_pariwisata->tampil()->result();
         $data['tampil'] = $this->M_pariwisata->tampil_tarif($id)->result();
@@ -47,6 +50,7 @@ class Pariwisata extends CI_Controller
 
     public function tambah_wisata_kuliner($id)
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['desc'] = $this->M_pariwisata->tampilwisataid($id)->row();
         $data['kategori'] = $this->M_pariwisata->tampil()->result();
         $data['tampil'] = $this->M_pariwisata->tampil_kuliner($id)->result();
@@ -61,6 +65,7 @@ class Pariwisata extends CI_Controller
 
     function tambah_tarif()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data = array(
             'id_wisata' => $this->input->post('id'),
             'tarif'  => $this->input->post('tarif'),
@@ -395,6 +400,7 @@ class Pariwisata extends CI_Controller
 
     public function tambah_wisata_sejarah()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['title'] = 'Tempat Wisata Sejarah';
         $this->load->view('admin/templates/header', $data);
         $this->load->view('admin/templates/sidebar', $data);
@@ -405,6 +411,7 @@ class Pariwisata extends CI_Controller
 
     public function edit_wisata($id)
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['edit'] = $this->M_pariwisata->tampilwisataid($id)->row();
         $data['edits'] = $this->M_pariwisata->tampil_tarif($id)->result();
         $data['kuliner'] = $this->M_pariwisata->tampil_kuliner($id)->result();
@@ -422,6 +429,7 @@ class Pariwisata extends CI_Controller
 
     public function detail_wisata($id)
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['edit'] = $this->M_pariwisata->tampilwisataid($id)->row();
         $data['tarif'] = $this->M_pariwisata->tampil_tarif($id)->result();
         $data['kuliner'] = $this->M_pariwisata->tampil_kuliner($id)->result();
@@ -435,6 +443,7 @@ class Pariwisata extends CI_Controller
 
     public function kategoriwisata()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['kategori'] = $this->M_pariwisata->tampil()->result();
         $data['title'] = 'Kategori Wisata';
         $this->load->view('admin/templates/header', $data);
@@ -446,6 +455,7 @@ class Pariwisata extends CI_Controller
 
     public function tambah_kategori()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['title'] = 'Kategori Wisata';
         $this->load->view('admin/templates/header', $data);
         $this->load->view('admin/templates/sidebar', $data);
@@ -482,6 +492,7 @@ class Pariwisata extends CI_Controller
 
     public function edit_kategori($id)
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['edit'] = $this->M_pariwisata->edit($id)->row();
         $data['title'] = 'Edit Kategori Wisata';
         $this->load->view('admin/templates/header', $data);
@@ -734,45 +745,5 @@ class Pariwisata extends CI_Controller
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Tidak bisa hapus data</div>');
         }
         redirect('Pariwisata/edit_wisata/' . $id);
-    }
-
-    public function event()
-    {
-        $data['title'] = 'Event';
-        $this->load->view('admin/templates/header', $data);
-        $this->load->view('admin/templates/sidebar', $data);
-        $this->load->view('admin/templates/topbar', $data);
-        $this->load->view('pariwisata/event', $data);
-        $this->load->view('admin/templates/footer', $data);
-    }
-
-    public function tambah_event()
-    {
-        $data['title'] = 'Event';
-        $this->load->view('admin/templates/header', $data);
-        $this->load->view('admin/templates/sidebar', $data);
-        $this->load->view('admin/templates/topbar', $data);
-        $this->load->view('pariwisata/tambah_event', $data);
-        $this->load->view('admin/templates/footer', $data);
-    }
-
-    public function edit_event()
-    {
-        $data['title'] = 'Event';
-        $this->load->view('admin/templates/header', $data);
-        $this->load->view('admin/templates/sidebar', $data);
-        $this->load->view('admin/templates/topbar', $data);
-        $this->load->view('pariwisata/edit_event', $data);
-        $this->load->view('admin/templates/footer', $data);
-    }
-
-    public function detail_event()
-    {
-        $data['title'] = 'Event';
-        $this->load->view('admin/templates/header', $data);
-        $this->load->view('admin/templates/sidebar', $data);
-        $this->load->view('admin/templates/topbar', $data);
-        $this->load->view('pariwisata/detail_event', $data);
-        $this->load->view('admin/templates/footer', $data);
     }
 }

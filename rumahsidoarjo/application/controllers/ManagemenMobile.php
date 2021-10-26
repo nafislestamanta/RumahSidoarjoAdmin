@@ -11,6 +11,7 @@ class ManagemenMobile extends CI_Controller
 
     public function index()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['user'] = $this->M_mobile->tampil()->result();
         $data['title'] = 'User Mobile';
         $this->load->view('admin/templates/header', $data);
@@ -44,6 +45,7 @@ class ManagemenMobile extends CI_Controller
 
     public function detail_usermobile($id)
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['user'] = $this->M_mobile->detail($id)->row();
         $data['title'] = 'User Mobile';
         $this->load->view('admin/templates/header', $data);
@@ -55,6 +57,7 @@ class ManagemenMobile extends CI_Controller
 
     public function validasi()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['user'] = $this->M_mobile->tampil_validasi()->result();
         $data['title'] = 'Validasi Akun';
         $this->load->view('admin/templates/header', $data);
@@ -66,6 +69,7 @@ class ManagemenMobile extends CI_Controller
 
     public function detail_validasi($id)
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['user'] = $this->M_mobile->detail($id)->row();
         $data['title'] = 'Validasi Akun';
         $this->load->view('admin/templates/header', $data);

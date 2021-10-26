@@ -11,6 +11,7 @@ class PanikMenu extends CI_Controller
 
     public function index()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['kantorpolisi'] = $this->m_panikmenu->kantorpolisi()->result();
         $data['title'] = 'Kantor Polisi';
         $this->load->view('admin/templates/header', $data);
@@ -22,6 +23,7 @@ class PanikMenu extends CI_Controller
 
     public function laporanpanik()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['laporan'] = $this->m_panikmenu->laporan()->result();
         $data['title'] = 'Laporan Panik';
         $this->load->view('admin/templates/header', $data);
@@ -33,6 +35,7 @@ class PanikMenu extends CI_Controller
 
     public function laporankriminal()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['kriminal'] = $this->m_panikmenu->laporan_kriminal()->result();
         $data['title'] = 'Laporan Kriminal';
         $this->load->view('admin/templates/header', $data);
@@ -44,6 +47,7 @@ class PanikMenu extends CI_Controller
 
     public function laporankecelakaan()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['kecelakaan'] = $this->m_panikmenu->laporan_kecelakaan()->result();
         $data['title'] = 'Laporan Kecelakaan';
         $this->load->view('admin/templates/header', $data);
@@ -55,6 +59,7 @@ class PanikMenu extends CI_Controller
 
     public function laporanbencana()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['bencana'] = $this->m_panikmenu->laporan_bencana()->result();
         $data['title'] = 'Laporan Bencana';
         $this->load->view('admin/templates/header', $data);
@@ -66,6 +71,7 @@ class PanikMenu extends CI_Controller
 
     public function konfirmasi()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['konfirmasi'] = $this->m_panikmenu->konfirmasi()->result();
         $data['title'] = 'Konfirmasi Laporan';
         $this->load->view('admin/templates/header', $data);
@@ -77,6 +83,7 @@ class PanikMenu extends CI_Controller
 
     public function konfirmasiKriminal()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['kriminal'] = $this->m_panikmenu->konfirmasi_Kriminal()->result();
         $data['title'] = 'Konfirmasi Laporan Kriminal';
         $this->load->view('admin/templates/header', $data);
@@ -88,6 +95,7 @@ class PanikMenu extends CI_Controller
 
     public function konfirmasiKecelakaan()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['kecelakaan'] = $this->m_panikmenu->konfirmasi_kecelakaan()->result();
         $data['title'] = 'Konfirmasi Laporan Kecelakaan';
         $this->load->view('admin/templates/header', $data);
@@ -99,6 +107,7 @@ class PanikMenu extends CI_Controller
 
     public function konfirmasiBencana()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['bencana'] = $this->m_panikmenu->konfirmasi_bencana()->result();
         $data['title'] = 'Konfirmasi Laporan Bencana';
         $this->load->view('admin/templates/header', $data);
@@ -110,6 +119,7 @@ class PanikMenu extends CI_Controller
 
     public function updateKonfirmasi($id)
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $nik = $this->input->post('nik');
         $kategori = $this->input->post('kategori');
         $lokasi = $this->input->post('lokasi');
@@ -150,6 +160,7 @@ class PanikMenu extends CI_Controller
 
     public function detail_konfirmasi($id)
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['edit'] = $this->m_panikmenu->detail_konfirmasi($id)->row();
         $data['title'] = 'Detail Konfirmasi Laporan';
         $this->load->view('admin/templates/header', $data);
@@ -161,6 +172,7 @@ class PanikMenu extends CI_Controller
 
     public function delete_Kriminal($id)
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $delete = $this->m_panikmenu->delete_laporan($id);
         if ($delete) {
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data yang anda pilih telah terhapus</div>');
@@ -172,6 +184,7 @@ class PanikMenu extends CI_Controller
 
     public function delete_Kecelakaan($id)
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $delete = $this->m_panikmenu->delete_laporan($id);
         if ($delete) {
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data yang anda pilih telah terhapus</div>');
@@ -183,6 +196,7 @@ class PanikMenu extends CI_Controller
 
     public function delete_Bencanaa($id)
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $delete = $this->m_panikmenu->delete_laporan($id);
         if ($delete) {
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data yang anda pilih telah terhapus</div>');
@@ -194,6 +208,7 @@ class PanikMenu extends CI_Controller
 
     public function delete_laporan($id)
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $delete = $this->m_panikmenu->delete_laporan($id);
         if ($delete) {
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data yang anda pilih telah terhapus</div>');
@@ -205,6 +220,7 @@ class PanikMenu extends CI_Controller
 
     public function delete_laporanKriminal($id)
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $delete = $this->m_panikmenu->delete_laporan($id);
         if ($delete) {
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data yang anda pilih telah terhapus</div>');
@@ -216,6 +232,7 @@ class PanikMenu extends CI_Controller
 
     public function delete_laporankecelakaan($id)
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $delete = $this->m_panikmenu->delete_laporan($id);
         if ($delete) {
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data yang anda pilih telah terhapus</div>');
@@ -227,6 +244,7 @@ class PanikMenu extends CI_Controller
 
     public function delete_laporanBencana($id)
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $delete = $this->m_panikmenu->delete_laporan($id);
         if ($delete) {
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data yang anda pilih telah terhapus</div>');
@@ -238,6 +256,7 @@ class PanikMenu extends CI_Controller
 
     public function rumahsakit()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['rumahsakit'] = $this->m_panikmenu->rumahsakit()->result();
         $data['title'] = 'Rumah Sakit';
         $this->load->view('admin/templates/header', $data);
@@ -249,6 +268,7 @@ class PanikMenu extends CI_Controller
 
     public function bencana()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['Bencana'] = $this->m_panikmenu->bpbd()->result();
         $data['title'] = 'Bencana';
         $this->load->view('admin/templates/header', $data);
@@ -293,6 +313,7 @@ class PanikMenu extends CI_Controller
 
     public function tambah_kantorpolisi()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['kecamatan'] = $this->m_panikmenu->kecamatan()->result();
         $data['title'] = 'Tambah Kantor Polisi';
         $this->load->view('admin/templates/header', $data);
@@ -304,6 +325,7 @@ class PanikMenu extends CI_Controller
 
     public function tambahKantorPolisi()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $this->form_validation->set_rules('nama', 'Nama', 'required|trim', [
             'required' => 'Field tidak boleh kosong'
         ]);
@@ -348,6 +370,7 @@ class PanikMenu extends CI_Controller
 
     public function tambah_Bencana()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['kecamatan'] = $this->m_panikmenu->kecamatan()->result();
         $data['title'] = 'Tambah BPBD';
         $this->load->view('admin/templates/header', $data);
@@ -359,6 +382,7 @@ class PanikMenu extends CI_Controller
 
     public function tambahBencana()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $this->form_validation->set_rules('nama', 'Nama', 'required|trim', [
             'required' => 'Field tidak boleh kosong'
         ]);
@@ -403,6 +427,7 @@ class PanikMenu extends CI_Controller
 
     public function edit_kantorpolisi($id)
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['edit'] = $this->m_panikmenu->detail_kantorpolisi($id)->row();
         $data['kecamatan'] = $this->m_panikmenu->kecamatan()->result();
         $data['title'] = 'Edit Kantor Polisi';
@@ -415,6 +440,7 @@ class PanikMenu extends CI_Controller
 
     public function updateKantorPolisi($id)
     {
+
         $this->form_validation->set_rules('nama', 'Nama', 'required|trim', [
             'required' => 'Field tidak boleh kosong'
         ]);
@@ -459,6 +485,7 @@ class PanikMenu extends CI_Controller
 
     public function edit_Bencana($id)
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['edit'] = $this->m_panikmenu->detail_bpbd($id)->row();
         $data['kecamatan'] = $this->m_panikmenu->kecamatan()->result();
         $data['title'] = 'Edit BPBD';
@@ -516,6 +543,7 @@ class PanikMenu extends CI_Controller
 
     public function detail_kantorpolisi($id)
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['detail'] = $this->m_panikmenu->detail_kantorpolisi($id)->row();
         $data['kecamatan'] = $this->m_panikmenu->kecamatan()->result();
         $data['title'] = 'Detail Kantor Polisi';
@@ -528,6 +556,7 @@ class PanikMenu extends CI_Controller
 
     public function detail_Bencana($id)
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['detail'] = $this->m_panikmenu->detail_bpbd($id)->row();
         $data['kecamatan'] = $this->m_panikmenu->kecamatan()->result();
         $data['title'] = 'Detail BPBD';

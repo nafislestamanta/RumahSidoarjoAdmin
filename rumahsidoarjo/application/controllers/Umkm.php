@@ -13,6 +13,7 @@ class Umkm extends CI_Controller
 
     public function index()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['tampil'] = $this->M_umkm->tampil()->result();
         $data['title'] = 'Tampil';
         $this->load->view('admin/templates/header', $data);
@@ -24,6 +25,7 @@ class Umkm extends CI_Controller
 
     public function tampil_kerajinan()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['tampil'] = $this->M_umkm->tampil_kerajinan()->result();
         $data['title'] = 'Kerajinan';
         $this->load->view('admin/templates/header', $data);
@@ -35,6 +37,7 @@ class Umkm extends CI_Controller
 
     public function tampil_makanan()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['tampil'] = $this->M_umkm->tampil_makanan()->result();
         $data['title'] = 'Makanan';
         $this->load->view('admin/templates/header', $data);
@@ -46,6 +49,7 @@ class Umkm extends CI_Controller
 
     public function tampil_pertanian()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['tampil'] = $this->M_umkm->tampil_pertanian()->result();
         $data['title'] = 'Pertanian';
         $this->load->view('admin/templates/header', $data);
@@ -57,6 +61,7 @@ class Umkm extends CI_Controller
 
     public function edit_umkm($id)
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['edit'] = $this->M_umkm->detail($id)->row();
         $data['title'] = 'Edit Umkm';
         $this->load->view('admin/templates/header', $data);
@@ -68,6 +73,7 @@ class Umkm extends CI_Controller
 
     public function tambah_umkm()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['title'] = 'Tambah Umkm';
         $this->load->view('admin/templates/header', $data);
         $this->load->view('admin/templates/sidebar', $data);
@@ -78,6 +84,7 @@ class Umkm extends CI_Controller
 
     public function detail_umkm($id)
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['detail'] = $this->M_umkm->detail($id)->row();
         $data['title'] = 'Detail Umkm';
         $this->load->view('admin/templates/header', $data);

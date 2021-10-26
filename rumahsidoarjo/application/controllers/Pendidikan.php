@@ -11,6 +11,7 @@ class Pendidikan extends CI_Controller
 
     public function index()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['tampil'] = $this->M_pendidikan->tampilSD()->result();
         $data['title'] = 'Sekolah Dasar';
         $this->load->view('admin/templates/header', $data);
@@ -22,6 +23,7 @@ class Pendidikan extends CI_Controller
 
     public function Slb()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['tampil'] = $this->M_pendidikan->tampilSLB()->result();
         $data['title'] = 'Sekolah Luar Biasa';
         $this->load->view('admin/templates/header', $data);
@@ -33,6 +35,7 @@ class Pendidikan extends CI_Controller
 
     public function smp()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['tampil'] = $this->M_pendidikan->tampilSMP()->result();
         $data['title'] = 'Sekolah Menengah Pertama';
         $this->load->view('admin/templates/header', $data);
@@ -44,6 +47,7 @@ class Pendidikan extends CI_Controller
 
     public function tambah_sd()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['kecamatan'] = $this->M_pendidikan->getKecamatan()->result();
         $data['title'] = 'Sekolah Dasar';
         $this->load->view('admin/templates/header', $data);
@@ -55,6 +59,7 @@ class Pendidikan extends CI_Controller
 
     public function tambah_slb()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['kecamatan'] = $this->M_pendidikan->getKecamatan()->result();
         $data['title'] = 'Sekolah Dasar';
         $this->load->view('admin/templates/header', $data);
@@ -66,6 +71,7 @@ class Pendidikan extends CI_Controller
 
     public function tambah_smp()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['kecamatan'] = $this->M_pendidikan->getKecamatan()->result();
         $data['title'] = 'Sekolah Menengah Pertama';
         $this->load->view('admin/templates/header', $data);
@@ -77,6 +83,7 @@ class Pendidikan extends CI_Controller
 
     public function edit_sd($id)
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['tampil'] = $this->M_pendidikan->editSD($id)->row();
         $tampil = $this->M_pendidikan->editSD($id)->row();
         $kecc = $tampil->id_kecamatan;
@@ -94,6 +101,7 @@ class Pendidikan extends CI_Controller
 
     public function edit_slb($id)
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['tampil'] = $this->M_pendidikan->editSD($id)->row();
         $tampil = $this->M_pendidikan->editSD($id)->row();
         $kecc = $tampil->id_kecamatan;
@@ -111,6 +119,7 @@ class Pendidikan extends CI_Controller
 
     public function edit_smp($id)
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['tampil'] = $this->M_pendidikan->editSD($id)->row();
         $tampil = $this->M_pendidikan->editSD($id)->row();
         $kecc = $tampil->id_kecamatan;
@@ -128,6 +137,7 @@ class Pendidikan extends CI_Controller
 
     public function detail_sd($id)
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['tampil'] = $this->M_pendidikan->editSD($id)->row();
         $data['fasilitas'] = $this->M_pendidikan->fasilitas($id)->result();
         $data['ekskul'] = $this->M_pendidikan->ekskul($id)->result();
@@ -141,6 +151,7 @@ class Pendidikan extends CI_Controller
 
     public function detail_slb($id)
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['tampil'] = $this->M_pendidikan->editSD($id)->row();
         $data['fasilitas'] = $this->M_pendidikan->fasilitas($id)->result();
         $data['ekskul'] = $this->M_pendidikan->ekskul($id)->result();
@@ -154,6 +165,7 @@ class Pendidikan extends CI_Controller
 
     public function faskul()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['desc'] = $this->M_pendidikan->tampil_sekolah_desc()->row();
         $desc = $this->M_pendidikan->tampil_sekolah_desc()->row();
         $id = $desc->id_sekolah;
@@ -169,6 +181,7 @@ class Pendidikan extends CI_Controller
 
     public function faskul_slb()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['desc'] = $this->M_pendidikan->tampil_sekolah_desc()->row();
         $desc = $this->M_pendidikan->tampil_sekolah_desc()->row();
         $id = $desc->id_sekolah;
@@ -184,6 +197,7 @@ class Pendidikan extends CI_Controller
 
     public function faskul_smp()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['desc'] = $this->M_pendidikan->tampil_sekolah_desc()->row();
         $desc = $this->M_pendidikan->tampil_sekolah_desc()->row();
         $id = $desc->id_sekolah;

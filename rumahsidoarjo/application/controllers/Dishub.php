@@ -13,6 +13,7 @@ class Dishub extends CI_Controller
 
   public function index()
   {
+    $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
     $data['tampil'] = $this->M_dishub->tampil()->result();
     $data['title'] = 'Cctv';
     $this->load->view('admin/templates/header', $data);
@@ -36,6 +37,7 @@ class Dishub extends CI_Controller
 
   public function addcctv()
   {
+    $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
     $data['title'] = 'Tambah CCTV';
     $this->load->view('admin/templates/header', $data);
     $this->load->view('admin/templates/sidebar', $data);
@@ -58,6 +60,7 @@ class Dishub extends CI_Controller
 
   public function editcctv($id)
   {
+    $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
     $data['edit'] = $this->M_dishub->detail($id)->row();
     $data['title'] = 'Edit Cctv';
     $this->load->view('admin/templates/header', $data);

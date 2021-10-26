@@ -13,6 +13,7 @@ class Event extends CI_Controller
 
     public function index()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['tampil'] = $this->M_event->tampil()->result();
         $data['title'] = 'Event';
         $this->load->view('admin/templates/header', $data);
@@ -25,6 +26,7 @@ class Event extends CI_Controller
 
     public function tampilagenda()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['tampil'] = $this->M_event->tampilagenda()->result();
         $data['title'] = 'agenda kota';
         $this->load->view('admin/templates/header', $data);
@@ -36,6 +38,7 @@ class Event extends CI_Controller
 
     public function tampillombadanbudaya()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['tampil'] = $this->M_event->tampillombadanbudaya()->result();
         $data['title'] = 'agenda kota';
         $this->load->view('admin/templates/header', $data);
@@ -47,6 +50,7 @@ class Event extends CI_Controller
 
     public function tambah_event()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['title'] = 'Tambah Event';
         $this->load->view('admin/templates/header', $data);
         $this->load->view('admin/templates/sidebar', $data);
@@ -131,6 +135,7 @@ class Event extends CI_Controller
 
     public function edit_event($id)
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['edit'] = $this->M_event->detail_edit($id)->row();
         $data['title'] = 'Edit Event';
         $this->load->view('admin/templates/header', $data);
@@ -230,6 +235,7 @@ class Event extends CI_Controller
 
     public function detail_event($id)
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['event'] = $this->M_event->detail_event($id)->row();
         $data['title'] = 'Detail Event';
         $this->load->view('admin/templates/header', $data);
@@ -252,6 +258,7 @@ class Event extends CI_Controller
 
     public function tampilevent()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['tampil'] = $this->M_event->tampilberita()->result();
         $data['title'] = 'Berita';
         $this->load->view('admin/templates/header', $data);

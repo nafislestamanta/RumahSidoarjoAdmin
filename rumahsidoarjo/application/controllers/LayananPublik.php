@@ -13,6 +13,7 @@ class LayananPublik extends CI_Controller
 
     public function index()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['tampil'] = $this->M_layanan_publik->tampil_informasi()->result();
         $data['title'] = 'Informasi Umum';
         $this->load->view('admin/templates/header', $data);
@@ -35,6 +36,7 @@ class LayananPublik extends CI_Controller
 
     public function tambah_informasi()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['kategori_layanan'] = $this->M_layanan_publik->tampil_kategori()->result();
         $data['title'] = ' Tambah Informasi';
         $this->load->view('admin/templates/header', $data);
@@ -59,6 +61,7 @@ class LayananPublik extends CI_Controller
 
     public function edit_informasi($id)
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['edit'] = $this->M_layanan_publik->edit_informasi($id)->row();
         $data['kategori_layanan'] = $this->M_layanan_publik->tampil_kategori($id)->result();
         $data['title'] = 'Edit Informasi';
@@ -124,6 +127,7 @@ class LayananPublik extends CI_Controller
 
     public function pengaduan()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['tampil'] = $this->M_layanan_publik->tampil_pengaduan()->result();
         $data['title'] = 'Pengaduan';
         $this->load->view('admin/templates/header', $data);
@@ -135,6 +139,7 @@ class LayananPublik extends CI_Controller
 
     public function tampil_pelayanan()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['tampil'] = $this->M_layanan_publik->tampil_pelayanan()->result();
         $data['title'] = 'Pelayanan';
         $this->load->view('admin/templates/header', $data);
@@ -146,6 +151,7 @@ class LayananPublik extends CI_Controller
 
     public function tampil_fasilitas_publik()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['tampil'] = $this->M_layanan_publik->tampil_fasilitas_publik()->result();
         $data['title'] = 'Fasilitas Publik';
         $this->load->view('admin/templates/header', $data);
@@ -157,6 +163,7 @@ class LayananPublik extends CI_Controller
 
     public function tampil_kesehatan()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['tampil'] = $this->M_layanan_publik->tampil_kesehatan()->result();
         $data['title'] = 'Kesehatan';
         $this->load->view('admin/templates/header', $data);
@@ -179,6 +186,7 @@ class LayananPublik extends CI_Controller
 
     public function edit_pengaduan($id)
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['edit'] = $this->M_layanan_publik->detail($id)->row();
         $data['title'] = 'Edit Pengaduan';
         $this->load->view('admin/templates/header', $data);
@@ -209,6 +217,7 @@ class LayananPublik extends CI_Controller
 
     public function kategori()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['tampil'] = $this->M_layanan_publik->tampil_kategori()->result();
         $data['title'] = 'Kategori';
         $this->load->view('admin/templates/header', $data);
@@ -231,6 +240,7 @@ class LayananPublik extends CI_Controller
 
     public function tambah_kategori()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['title'] = ' Tambah Kategori';
         $this->load->view('admin/templates/header', $data);
         $this->load->view('admin/templates/sidebar', $data);
@@ -253,6 +263,7 @@ class LayananPublik extends CI_Controller
 
     public function edit_kategori($id)
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['edit'] = $this->M_layanan_publik->edit_kategori($id)->row();
         $data['title'] = 'Edit Kategori';
         $this->load->view('admin/templates/header', $data);

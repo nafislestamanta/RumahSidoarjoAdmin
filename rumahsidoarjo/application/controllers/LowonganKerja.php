@@ -13,6 +13,7 @@ class LowonganKerja extends CI_Controller
 
     public function index()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['tampil'] = $this->M_kerja->tampilperusahaan()->result();
         $data['title'] = 'Perusahaan';
         $this->load->view('admin/templates/header', $data);
@@ -24,6 +25,7 @@ class LowonganKerja extends CI_Controller
 
     public function detailperusahaan($id)
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['detail'] = $this->M_kerja->detail_perusahaan($id)->row();
         $data['title'] = 'Detail Perusahaan';
         $this->load->view('admin/templates/header', $data);
@@ -57,6 +59,7 @@ class LowonganKerja extends CI_Controller
 
     public function tambah_perusahaan()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['title'] = 'Tambah Perusahaan';
         $this->load->view('admin/templates/header', $data);
         $this->load->view('admin/templates/sidebar', $data);
@@ -79,6 +82,7 @@ class LowonganKerja extends CI_Controller
 
     public function editperusahaan($id)
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['edit'] = $this->M_kerja->editperusahaan($id)->row();
         $data['title'] = 'Edit Perusahaan';
         $this->load->view('admin/templates/header', $data);
@@ -171,6 +175,7 @@ class LowonganKerja extends CI_Controller
 
     public function lowongan()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['tampil'] = $this->M_kerja->tampil_lowongan()->result();
         $data['title'] = 'Lowongan Kerja';
         $this->load->view('admin/templates/header', $data);
@@ -182,6 +187,7 @@ class LowonganKerja extends CI_Controller
 
     public function detail_lowongan($id)
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['detail'] = $this->M_kerja->detail_lowongan($id)->row();
         $data['title'] = 'Detail Lowongan';
         $this->load->view('admin/templates/header', $data);
@@ -193,6 +199,7 @@ class LowonganKerja extends CI_Controller
 
     public function tambah_lowongan()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['perusahaan'] = $this->M_kerja->perusahaan()->result();
         $data['title'] = 'Tambah Lowongan';
         $this->load->view('admin/templates/header', $data);
@@ -306,6 +313,7 @@ class LowonganKerja extends CI_Controller
 
     public function editlowongan($id)
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['edit'] = $this->M_kerja->edit_lowongan($id)->row();
         $data['perusahaan'] = $this->M_kerja->perusahaan($id)->result();
         $data['title'] = 'Edit Lowongan';

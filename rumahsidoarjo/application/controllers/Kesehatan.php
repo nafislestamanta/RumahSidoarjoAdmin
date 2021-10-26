@@ -11,6 +11,7 @@ class Kesehatan extends CI_Controller
 
     public function index()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['pkmp'] = $this->m_kesehatan->pkmp()->result();
         $data['title'] = 'Pkm Pembantu';
         $this->load->view('admin/templates/header', $data);
@@ -22,6 +23,7 @@ class Kesehatan extends CI_Controller
 
     public function pkmutama()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['pmu'] = $this->m_kesehatan->pkmu()->result();
         $data['title'] = 'Pkm Utama';
         $this->load->view('admin/templates/header', $data);
@@ -33,6 +35,7 @@ class Kesehatan extends CI_Controller
 
     public function tambahpkmu()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['kecamatan'] = $this->m_kesehatan->kecamatan()->result();
         $data['title'] = 'Pkm Utama';
         $this->load->view('admin/templates/header', $data);
@@ -111,6 +114,7 @@ class Kesehatan extends CI_Controller
 
     public function editpkmu($id)
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['pkmu'] = $this->m_kesehatan->pkm_u($id)->row();
         $data['kecamatan'] = $this->m_kesehatan->kecamatan()->result();
         $data['title'] = 'Pkm Utama';
@@ -211,6 +215,7 @@ class Kesehatan extends CI_Controller
 
     public function pkmp()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['title'] = 'Pkm Utama';
         $this->load->view('admin/templates/header', $data);
         $this->load->view('admin/templates/sidebar', $data);
@@ -221,6 +226,7 @@ class Kesehatan extends CI_Controller
 
     public function tambahpkmp()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['kecamatan'] = $this->m_kesehatan->kecamatan()->result();
         $data['title'] = 'Pkm Utama';
         $this->load->view('admin/templates/header', $data);
@@ -299,6 +305,7 @@ class Kesehatan extends CI_Controller
 
     public function editpkmp($id)
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['pkmp'] = $this->m_kesehatan->pkm_p($id)->row();
         $data['kecamatan'] = $this->m_kesehatan->kecamatan()->result();
         $data['title'] = 'Pkm Pembantu';
@@ -399,6 +406,7 @@ class Kesehatan extends CI_Controller
 
     public function rs()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['rsu'] = $this->m_kesehatan->rumahsakit()->result();
         $data['title'] = 'Rumah Sakit';
         $this->load->view('admin/templates/header', $data);
@@ -410,6 +418,7 @@ class Kesehatan extends CI_Controller
 
     public function tambahrsu()
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['kecamatan'] = $this->m_kesehatan->kecamatan()->result();
         $data['title'] = 'Rumah Sakit';
         $this->load->view('admin/templates/header', $data);
@@ -488,6 +497,7 @@ class Kesehatan extends CI_Controller
 
     public function edit_rsu($id)
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['rsu'] = $this->m_kesehatan->rsu($id)->row();
         $data['kecamatan'] = $this->m_kesehatan->kecamatan()->result();
         $data['title'] = 'Rumah Sakit';
@@ -590,6 +600,7 @@ class Kesehatan extends CI_Controller
 
     public function detail_rsu($id)
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['rsu'] = $this->m_kesehatan->rsu($id)->row();
         $data['title'] = 'Rumah Sakit';
         $this->load->view('admin/templates/header', $data);
@@ -601,6 +612,7 @@ class Kesehatan extends CI_Controller
 
     public function detail_pkmu($id)
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['pkmu'] = $this->m_kesehatan->pkm_u($id)->row();
         $data['title'] = 'PKM Utama';
         $this->load->view('admin/templates/header', $data);
@@ -612,6 +624,7 @@ class Kesehatan extends CI_Controller
 
     public function detail_pkmp($id)
     {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['pkmp'] = $this->m_kesehatan->pkm_p($id)->row();
         $data['title'] = 'PKM Pembantu';
         $this->load->view('admin/templates/header', $data);
