@@ -199,7 +199,7 @@
 
                           <tbody>
                               <?php $no = 1;
-                foreach ($fasilitas as $f) : ?>
+                                foreach ($fasilitas as $f) : ?>
                               <tr>
                                   <td><?= $no++ ?></td>
                                   <td><?= $f->nama ?></td>
@@ -237,7 +237,7 @@
 
                           <tbody>
                               <?php $no = 1;
-                foreach ($ekskul as $e) : ?>
+                                foreach ($ekskul as $e) : ?>
                               <tr>
                                   <td><?= $no++ ?></td>
                                   <td><?= $e->nama ?></td>
@@ -259,16 +259,6 @@
               </div>
           </div>
       </div>
-
-  </div>
-  <!--end card body-->
-  </div>
-  </div>
-  <!--end div halaman add-->
-
-  </div>
-  </div>
-  </div>
 
   </div>
 

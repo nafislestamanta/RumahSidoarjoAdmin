@@ -1,7 +1,7 @@
  <!-- Begin Page Content -->
  <div class="container-fluid">
      <div class="d-sm-flex align-items-center justify-content-between mb-3">
-         <h5><i class="fas fa-cogs"></i><b style="padding-left:5px">PENGADUAN UMUM</b></h5>
+         <h5><i class="fas fa-file-import"></i><b style="padding-left:5px">PENGADUAN UMUM</b></h5>
      </div>
 
 

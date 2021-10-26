@@ -4,10 +4,10 @@
      <!-- Sidebar - Brand -->
      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
          <div class="sidebar-brand-icon">
-             <img class="img-profile rounded-circle" src="<?= base_url('assets'); ?>/img/admin1.jpg" widht="40"
-                 height="62">
+             <img class="img-profile rounded-circle" src="<?= base_url('assets/img/' .  $data['foto']);
+                                                            ?>" widht="40" height="62">
          </div>
-         <div class="sidebar-brand-text mx-3"><?= $data['nama'] ?> <sup></sup></div>
+         <div class="sidebar-brand-text mx-3"><?= $data['nama'] ?></div>
      </a>
 
      <!-- Divider -->
@@ -43,6 +43,13 @@
 
              </div>
          </div>
+     </li>
+
+     <!-- Pengaduan Umum -->
+     <li class="nav-item">
+         <a class="nav-link" href="<?= base_url('LayananPublik/pengaduan'); ?>">
+             <i class="fas fa-file-import"></i>
+             <span>PENGADUAN</span></a>
      </li>
 
      <!-- Berita dan Informasi -->
@@ -111,8 +118,8 @@
          <div id="collapse8" class="collapse" aria-labelledby="heading8" data-parent="#accordionSidebar">
              <div class="bg-white py-2 collapse-inner rounded">
                  <h6 class="collapse-header">feature:</h6>
-                 <a class="collapse-item" href="<?= base_url('Kesehatan/pkmutama'); ?>">Pkm Utama</a>
-                 <a class="collapse-item" href="<?= base_url('Kesehatan'); ?>">Pkm Pembantu</a>
+                 <a class="collapse-item" href="<?= base_url('Kesehatan/pkmutama'); ?>">PKM Utama</a>
+                 <a class="collapse-item" href="<?= base_url('Kesehatan'); ?>">PKM Pembantu</a>
                  <a class="collapse-item" href="<?= base_url('Kesehatan/rs'); ?>">Rumah Sakit</a>
              </div>
          </div>
@@ -140,7 +147,7 @@
          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse5" aria-expanded="true"
              aria-controls="collapse4">
              <i class="fas fa-user-tie"></i>
-             <span>Lowongan Kerja</span>
+             <span>LOWONGAN KERJA</span>
          </a>
          <div id="collapse5" class="collapse" aria-labelledby="heading5" data-parent="#accordionSidebar">
              <div class="bg-white py-2 collapse-inner rounded">
@@ -175,7 +182,7 @@
          </a>
          <div id="collapse12" class="collapse" aria-labelledby="heading12" data-parent="#accordionSidebar">
              <div class="bg-white py-2 collapse-inner rounded">
-                 <a class="collapse-item" href="<?= base_url('LayananPublik/pengaduan'); ?>">Pengaduan Umum</a>
+                 <!-- <a class="collapse-item" href="<?= base_url('LayananPublik/pengaduan'); ?>">Pengaduan Umum</a> -->
                  <a class="collapse-item" href="<?= base_url('LayananPublik'); ?>">Informasi Umum</a>
                  <a class="collapse-item" href="<?= base_url('LayananPublik/kategori'); ?>">Kategori Informasi</a>
              </div>
