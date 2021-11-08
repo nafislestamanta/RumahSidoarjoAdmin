@@ -2,25 +2,27 @@
  <ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion" id="accordionSidebar">
 
      <!-- Sidebar - Brand -->
-     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-         <div class="sidebar-brand-icon">
-             <img class="img-profile rounded-circle" src="<?= base_url('assets/img/' .  $data['foto']);
-                                                            ?>" widht="40" height="62">
-         </div>
-         <div class="sidebar-brand-text mx-3"><?= $data['nama'] ?></div>
-     </a>
+     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url('Dashboard'); ?>">
+         <div class="sidebar-brand-icon"> <br>
 
+             <?php $role = $this->session->userdata('id_role');
+                $nama_role = "SELECT * FROM `rule_admin` WHERE id_role = $role";
+                $nama = $this->db->query($nama_role)->row(); ?>
+
+             <img class="img-profile rounded-circle" style="padding-top: px;"
+                 src="<?= base_url('assets'); ?>/img/sidoarjo.PNG" widht="60" height="60">
+             <br>
+             <div class="sidebar-brand-text mr-2 d-lg-inline text-gray-light small"><?= $nama->nama_role ?></div>
+
+         </div>
+     </a>
+     <br>
      <!-- Divider -->
      <hr class="sidebar-divider">
 
      <?php $role = $this->session->userdata('id_role');
         //role 1 = super admin
         if ($role == 1) : ?>
-     <!-- Heading -->
-     <div class="sidebar-heading">
-         Super Admin
-     </div>
-     <!-- Home-->
      <li class="nav-item active">
          <a class="nav-link" href="<?= base_url('Dashboard'); ?>">
              <i class="fas fa-home"></i>

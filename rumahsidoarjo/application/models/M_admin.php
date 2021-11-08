@@ -42,4 +42,13 @@ class M_admin extends CI_Model
     {
         return $this->db->where('id_admin', $id)->update('user_admin', $data);
     }
+
+    public function tampil_profile($id)
+    {
+        $this->db->select('*');
+        $this->db->from('user_admin');
+        $this->db->where('id_admin', $id);
+        $query = $this->db->get();
+        return $query;
+    }
 }

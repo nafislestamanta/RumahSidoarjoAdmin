@@ -1,57 +1,10 @@
-  <!-- Begin Page Content -->
   <div class="container-fluid">
-      <!-- Page Heading -->
       <div class="mb-4">
           <h6><i class="fas fa-home"></i><b> DASHBOARD RUMAH SIDOARJO</b></h6>
       </div>
-
+      <script src="<?php echo base_url() ?>assets/vendor/chart.js"></script>
       <!-- Content Row -->
       <div class="row">
-          <!-- <div class="col-xl-2 col-md-3 mb-5">
-              <div class="card border-left-primary shadow h-100 py-1">
-                  <div class="card-body">
-                      <div class="row no-gutters align-items-center">
-                          <div class="col mr-2">
-                              <div class="h2 text-xs font-weight-bold text-primary">
-                                  USER MOBILE <br> <br>
-                              </div>
-                              <div class="h5 font-weight-bold text-gray-700">4000</div>
-                          </div>
-                          <div class="col-auto">
-                              <i class="fas fad fa-users fa-2x text-gray-300"></i>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="card-footer text-center">
-                      <a href="#" class="stretched-link h7 text-gray-700"> Detail
-                          <i class="fas fa-arrow-circle-right"></i>
-                      </a>
-                  </div>
-              </div>
-          </div> 
-
-          <div class="col-xl-3">
-              <div class="card border-left-secondary">
-                  <div class="card-body">
-                      <div class="row no-gutters align-items-center">
-                          <div class="col">
-                              <h6 class="font-weight-bold text-dark mb-2">
-                                  VALIDASI AKUN
-                              </h6>
-                              <h4 class="font-weight-bold text-gray-700" style="padding-left: 40px"> 312
-                                  <i class="fas fa-clipboard-list fa-2x text-gray-300" style="padding-left: 70px"></i>
-                              </h4>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="btn-sm btn-light text-center">
-                      <a href="#" aria-current="page">Detail
-                          <i class="fas fa-arrow-circle-right"></i>
-                      </a>
-                  </div>
-              </div>
-          </div> -->
-
           <div class="col-xl-3 col-md-3 mb-5">
               <div class="card border-left-info">
                   <div class="card-body">
@@ -60,15 +13,16 @@
                               <div class="font-weight-bold text-info mb-1" style="padding-left: 15px;">
                                   ADMIN
                               </div> <br>
-                              <div class="h4 font-weight-bold text-gray-700" style="padding-left: 15px;">312</div>
+                              <div class="h4 font-weight-bold text-gray-700" style="padding-left: 15px;">
+                                  <?php echo $admin->total ?></div>
                           </div>
                           <div class="col-auto">
-                              <i class="fas fa-users-cog fa-4x text-gray-300"></i>
+                              <i class="fas fa-users-cog fa-5x text-gray-300"></i>
                           </div>
                       </div>
                   </div>
                   <div class="btn bg-gradient-light text-center">
-                      <a href="#" aria-current="page" style="color:black"> Detail
+                      <a href="<?= base_url('Admin'); ?>" aria-current="page" style="color:black"> Detail
                           <i class="fas fa-arrow-circle-right"></i>
                       </a>
                   </div>
@@ -81,17 +35,18 @@
                       <div class="row no-gutters align-items-center">
                           <div class="col mr-2">
                               <div class="font-weight-bold text-success mb-1" style="padding-left: 15px;">
-                                  USER MOBILE
+                                  User MOBILE
                               </div> <br>
-                              <div class="h4 font-weight-bold text-gray-700" style="padding-left: 15px;">312</div>
+                              <div class="h4 font-weight-bold text-gray-700" style="padding-left: 15px;">
+                                  <?php echo $user->total ?></div>
                           </div>
                           <div class="col-auto">
-                              <i class="fas fa-users fa-3x text-gray-300"></i>
+                              <i class="fas fa-users fa-4x text-gray-300"></i>
                           </div>
                       </div>
                   </div>
                   <div class="btn bg-gradient-light text-center">
-                      <a href="#" aria-current="page" style="color:black"> Detail
+                      <a href="<?= base_url('ManagemenMobile'); ?>" aria-current="page" style="color:black"> Detail
                           <i class="fas fa-arrow-circle-right"></i>
                       </a>
                   </div>
@@ -104,9 +59,10 @@
                       <div class="row no-gutters align-items-center">
                           <div class="col mr-2">
                               <div class="font-weight-bold text-warning mb-1" style="padding-left: 15px;">
-                                  VALIDASI USER
+                                  Validasi USER
                               </div> <br>
-                              <div class="h4 font-weight-bold text-gray-700" style="padding-left: 15px;">312</div>
+                              <div class="h4 font-weight-bold text-gray-700" style="padding-left: 15px;">
+                                  <?php echo $user2->total ?></div>
                           </div>
                           <div class="col-auto">
                               <i class="fas fa-user-plus fa-3x text-gray-300"></i>
@@ -114,7 +70,8 @@
                       </div>
                   </div>
                   <div class="btn bg-gradient-light text-center">
-                      <a href="#" aria-current="page" style="color:black"> Detail
+                      <a href="<?= base_url('ManagemenMobile/validasi'); ?>" aria-current="page" style="color:black">
+                          Detail
                           <i class="fas fa-arrow-circle-right"></i>
                       </a>
                   </div>
@@ -127,22 +84,51 @@
                       <div class="row no-gutters align-items-center">
                           <div class="col mr-2">
                               <div class="font-weight-bold text-danger mb-1" style="padding-left: 15px;">
-                                  PNS
+                                  Laporan PANIK
                               </div> <br>
-                              <div class="h4 font-weight-bold text-gray-700" style="padding-left: 15px;">312</div>
+                              <div class="h4 font-weight-bold text-gray-700" style="padding-left: 15px;">
+                                  <?php echo $panik->total ?>
+                              </div>
                           </div>
                           <div class="col-auto">
-                              <i class="fas fa-user-tie fa-4x text-gray-300"></i>
+                              <i class="fas fa-radiation fa-4x text-gray-300"></i>
                           </div>
                       </div>
                   </div>
                   <div class="btn bg-gradient-light text-center">
-                      <a href="#" aria-current="page" style="color:black"> Detail
+                      <a href="<?= base_url('PanikMenu/konfirmasi'); ?>" aria-current="page" style="color:black"> Detail
                           <i class="fas fa-arrow-circle-right"></i>
                       </a>
                   </div>
               </div>
           </div>
+
+          <div class="col-xl-3 col-md-3 mb-5">
+              <div class="card border-left-danger">
+                  <div class="card-body">
+                      <div class="row no-gutters align-items-center">
+                          <div class="col mr-2">
+                              <div class="font-weight-bold text-danger mb-1" style="padding-left: 15px;">
+                                  Pengaduan UMUM
+                              </div> <br>
+                              <div class="h4 font-weight-bold text-gray-700" style="padding-left: 15px;">
+                                  <?php echo $pengaduan->total ?>
+                              </div>
+                          </div>
+                          <div class="col-auto">
+                              <i class="fas fa-radiation fa-3x text-gray-300"></i>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="btn bg-gradient-light text-center">
+                      <a href="<?= base_url('LayananPublik/menunggu'); ?>" aria-current="page" style="color:black">
+                          Detail
+                          <i class="fas fa-arrow-circle-right"></i>
+                      </a>
+                  </div>
+              </div>
+          </div>
+
       </div>
 
       <!-- Content Grafik -->
@@ -153,15 +139,39 @@
               <!-- Bar Chart -->
               <div class="card shadow mb-4">
                   <div class="card-header py-3">
-                      <h6 class="m-0 font-weight-bold text-center">Total Request Time</h6>
+                      <h6 class="m-0 font-weight-bold text-center">Panik Button</h6>
                   </div>
                   <div class="card-body">
                       <div class="chart-bar">
-                          <canvas id="myBarChart"></canvas>
+                          <canvas id="myChart">
+                              <?php
+                                //Inisialisasi nilai variabel awal
+                                $kategori = "";
+                                $jumlah = null;
+                                foreach ($hasil as $item) {
+                                    $kategorii = $item->kategori;
+                                    $nama_kategori .= "'$kategorii'" . ", ";
+                                    $kategoriii = $item->total;
+                                    $jumlah .= "$kategoriii" . ", ";
+                                }
+                                ?>
+                          </canvas>
                       </div>
                   </div>
               </div>
           </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
           <!-- Donut Chart -->
           <div class="col-xl-6 col-lg-5">
@@ -221,3 +231,34 @@
       </div>
   </div>
   <!-- End of Main Content -->
+
+
+  <script>
+var ctx = document.getElementById('myChart').getContext('2d');
+var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'bar',
+    // The data for our dataset
+    data: {
+        labels: [<?php echo $nama_kategori; ?>],
+        datasets: [{
+            label: 'Data Laporan Panik Menu ',
+            backgroundColor: ['rgb(255, 99, 132)', 'rgba(56, 86, 255, 0.87)', 'rgb(60, 179, 113)',
+                'rgb(175, 238, 239)'
+            ],
+            borderColor: ['rgb(255, 99, 132)'],
+            data: [<?php echo $jumlah; ?>]
+        }]
+    },
+    // Configuration options go here
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+  </script>

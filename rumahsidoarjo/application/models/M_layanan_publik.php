@@ -156,4 +156,53 @@ class M_layanan_publik extends CI_model
     {
         return $this->db->where('id_kategorilayanan', $id)->update('kategori_layanan', $data);
     }
+
+    public function semua_status()
+    {
+        $this->db->select('*');
+        $this->db->from('pengaduan_umum');
+        $this->db->join('user_mobile', 'user_mobile.NIK=pengaduan_umum.NIK');
+        $query = $this->db->get();
+        return $query;
+    }
+
+    public function status_menunggu()
+    {
+        $this->db->select('*');
+        $this->db->from('pengaduan_umum');
+        $this->db->join('user_mobile', 'user_mobile.NIK=pengaduan_umum.NIK');
+        $this->db->where('status_pengaduan="Menunggu"');
+        $query = $this->db->get();
+        return $query;
+    }
+
+    public function status_proses()
+    {
+        $this->db->select('*');
+        $this->db->from('pengaduan_umum');
+        $this->db->join('user_mobile', 'user_mobile.NIK=pengaduan_umum.NIK');
+        $this->db->where('status_pengaduan="Sedang Diproses"');
+        $query = $this->db->get();
+        return $query;
+    }
+
+    public function status_selesai()
+    {
+        $this->db->select('*');
+        $this->db->from('pengaduan_umum');
+        $this->db->join('user_mobile', 'user_mobile.NIK=pengaduan_umum.NIK');
+        $this->db->where('status_pengaduan="Selesai"');
+        $query = $this->db->get();
+        return $query;
+    }
+
+    public function status_ditolak()
+    {
+        $this->db->select('*');
+        $this->db->from('pengaduan_umum');
+        $this->db->join('user_mobile', 'user_mobile.NIK=pengaduan_umum.NIK');
+        $this->db->where('status_pengaduan="Ditolak"');
+        $query = $this->db->get();
+        return $query;
+    }
 }

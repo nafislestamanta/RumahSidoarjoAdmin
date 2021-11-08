@@ -311,4 +311,64 @@ class LayananPublik extends CI_Controller
             }
         }
     }
+
+    public function status()
+    {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
+        $data['tampil'] = $this->M_layanan_publik->semua_status()->result();
+        $data['title'] = 'Status';
+        $this->load->view('admin/templates/header', $data);
+        $this->load->view('admin/templates/sidebar', $data);
+        $this->load->view('admin/templates/topbar', $data);
+        $this->load->view('layananpublik/pengaduan_umum', $data);
+        $this->load->view('admin/templates/footer', $data);
+    }
+
+    public function menunggu()
+    {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
+        $data['tampil'] = $this->M_layanan_publik->status_menunggu()->result();
+        $data['title'] = 'Menunggu';
+        $this->load->view('admin/templates/header', $data);
+        $this->load->view('admin/templates/sidebar', $data);
+        $this->load->view('admin/templates/topbar', $data);
+        $this->load->view('layananpublik/pengaduan_umum', $data);
+        $this->load->view('admin/templates/footer', $data);
+    }
+
+    public function proses()
+    {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
+        $data['tampil'] = $this->M_layanan_publik->status_proses()->result();
+        $data['title'] = 'Sedang Diproses';
+        $this->load->view('admin/templates/header', $data);
+        $this->load->view('admin/templates/sidebar', $data);
+        $this->load->view('admin/templates/topbar', $data);
+        $this->load->view('layananpublik/pengaduan_umum', $data);
+        $this->load->view('admin/templates/footer', $data);
+    }
+
+    public function selesai()
+    {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
+        $data['tampil'] = $this->M_layanan_publik->status_selesai()->result();
+        $data['title'] = 'Selesai';
+        $this->load->view('admin/templates/header', $data);
+        $this->load->view('admin/templates/sidebar', $data);
+        $this->load->view('admin/templates/topbar', $data);
+        $this->load->view('layananpublik/pengaduan_umum', $data);
+        $this->load->view('admin/templates/footer', $data);
+    }
+
+    public function ditolak()
+    {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
+        $data['tampil'] = $this->M_layanan_publik->status_ditolak()->result();
+        $data['title'] = 'Ditolak';
+        $this->load->view('admin/templates/header', $data);
+        $this->load->view('admin/templates/sidebar', $data);
+        $this->load->view('admin/templates/topbar', $data);
+        $this->load->view('layananpublik/pengaduan_umum', $data);
+        $this->load->view('admin/templates/footer', $data);
+    }
 }
