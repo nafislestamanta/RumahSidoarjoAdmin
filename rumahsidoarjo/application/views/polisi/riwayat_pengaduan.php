@@ -20,9 +20,9 @@
                   <?php endif; ?>
               </a>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                  <a class="dropdown-item" href="<?= base_url('Kesehatan/riwayat'); ?>">Semua</a>
-                  <a class="dropdown-item" href="<?= base_url('Kesehatan/riwayat_selesai'); ?>">Selesai</a>
-                  <a class="dropdown-item" href="<?= base_url('Kesehatan/riwayat_tolak'); ?>">Tolak</a>
+                  <a class="dropdown-item" href="<?= base_url('Polisi/riwayat'); ?>">Semua</a>
+                  <a class="dropdown-item" href="<?= base_url('Polisi/riwayat_selesai'); ?>">Selesai</a>
+                  <a class="dropdown-item" href="<?= base_url('Polisi/riwayat_tolak'); ?>">Tolak</a>
               </div>
               <a style="float: right;" href="<?= base_url('Pdf/pdf'); ?>" target="_blank" class="btn btn-primary"><i
                       class="fas fa-download" style="padding-right: 5px;"></i>Report</a>
@@ -54,11 +54,11 @@
                               <td><?= $k->waktu_kejadian ?></td>
                               <td><?= $k->status ?></td>
                               <td>
-                                  <a href="<?= base_url('Kesehatan/delete_riwayat/' . $k->id_laporan); ?>"
+                                  <a href="<?= base_url('Polisi/delete_riwayat/' . $k->id_laporan); ?>"
                                       onclick="javascript: return confirm('Anda Yakin Hapus ?')"
                                       class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>
                                   </a>
-                                  <a href="<?= base_url('LayananPublik/edit_pengaduan/' . $k->id_laporan); ?>"
+                                  <a href="<?= base_url('Polisi/detail_riwayat/' . $k->id_laporan); ?>"
                                       class="btn btn-warning btn-sm"><i class="fa fa-edit"></i>
                                   </a>
                               </td>
@@ -75,11 +75,11 @@
                               <td><?= $k->waktu_kejadian ?></td>
                               <td><?= $k->status ?></td>
                               <td>
-                                  <a href="<?= base_url('Kesehatan/delete_riwayat/' . $k->id_laporan); ?>"
+                                  <a href="<?= base_url('Polisi/delete_riwayat/' . $k->id_laporan); ?>"
                                       onclick="javascript: return confirm('Anda Yakin Hapus ?')"
                                       class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>
                                   </a>
-                                  <a href="<?= base_url('Kesehatan/edit_pengaduan/' . $k->id_laporan); ?>"
+                                  <a href="<?= base_url('Polisi/detail_riwayat/' . $k->id_laporan); ?>"
                                       class="btn btn-warning btn-sm"><i class="fa fa-edit"></i>
                                   </a>
                               </td>
@@ -96,11 +96,11 @@
                               <td><?= $k->waktu_kejadian ?></td>
                               <td><?= $k->status ?></td>
                               <td>
-                                  <a href="<?= base_url('Kesehatan/delete_riwayat/' . $k->id_laporan); ?>"
+                                  <a href="<?= base_url('Polisi/delete_riwayat/' . $k->id_laporan); ?>"
                                       onclick="javascript: return confirm('Anda Yakin Hapus ?')"
                                       class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>
                                   </a>
-                                  <a href="<?= base_url('Kesehatan/edit_pengaduan/' . $k->id_laporan); ?>"
+                                  <a href="<?= base_url('Polisi/detail_riwayat/' . $k->id_laporan); ?>"
                                       class="btn btn-warning btn-sm"><i class="fa fa-edit"></i>
                                   </a>
                               </td>
@@ -117,12 +117,12 @@
                               <td><?= $k->waktu_kejadian ?></td>
                               <td><?= $k->status ?></td>
                               <td>
-                                  <a href="<?= base_url('Kesehatan/delete_riwayat/' . $k->id_laporan); ?>"
+                                  <a href="<?= base_url('Polisi/delete_riwayat/' . $k->id_laporan); ?>"
                                       onclick="javascript: return confirm('Anda Yakin Hapus ?')"
                                       class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>
                                   </a>
-                                  <a href="<?= base_url('Kesehatan/detail_riwayat/' . $k->id_laporan); ?>"
-                                      class="btn btn-warning btn-sm"><i class="fa fa-eye"></i>
+                                  <a href="<?= base_url('Polisi/detail_riwayat/' . $k->id_laporan); ?>"
+                                      class="btn btn-warning btn-sm"><i class="fa fa-edit"></i>
                                   </a>
                               </td>
                           </tr>

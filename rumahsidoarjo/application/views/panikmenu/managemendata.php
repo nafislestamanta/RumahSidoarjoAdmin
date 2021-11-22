@@ -131,8 +131,6 @@
                           </tr>
                           <?php endforeach; ?>
                           <?php endif; ?>
-
-                          </tr>
                   </table>
               </div>
           </div>

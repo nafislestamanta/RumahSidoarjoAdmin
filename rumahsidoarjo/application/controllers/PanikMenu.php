@@ -566,4 +566,18 @@ class PanikMenu extends CI_Controller
         $this->load->view('panikmenu/detail_managemendata', $data);
         $this->load->view('admin/templates/footer', $data);
     }
+
+    public function dashboard()
+    {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
+        // $data['pkmu'] = $this->m_kesehatan->jmlh_pkmu()->row();
+        // $data['pkmp'] = $this->m_kesehatan->jmlh_pkmp()->row();
+        // $data['rs'] = $this->m_kesehatan->jmlh_rs()->row();
+        $data['title'] = 'Dashboard';
+        $this->load->view('admin/templates/header', $data);
+        $this->load->view('admin/templates/sidebar', $data);
+        $this->load->view('admin/templates/topbar', $data);
+        $this->load->view('panikmenu/dashboard_polisi', $data);
+        $this->load->view('admin/templates/footer', $data);
+    }
 }

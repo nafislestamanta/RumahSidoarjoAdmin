@@ -52,7 +52,7 @@ class Auth extends CI_Controller
                 } elseif ($user_admin['id_role'] == 7) {
                     redirect('pariwisata/dashboard');
                 } elseif ($user_admin['id_role'] == 8) {
-                    redirect('dashboard');
+                    redirect('Polisi');
                 } elseif ($user_admin['id_role'] == 9) {
                     redirect('dashboard');
                 } elseif ($user_admin) {

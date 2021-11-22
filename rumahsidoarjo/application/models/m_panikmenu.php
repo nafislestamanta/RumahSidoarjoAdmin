@@ -201,4 +201,13 @@ class m_panikmenu extends CI_Model
     {
         return $this->db->where('id_bpbd', $id)->update('bpbd', $data);
     }
+
+    function jmlh_pkmp()
+    {
+        $this->db->select('*, COUNT(id_kesehatan) as total');
+        $this->db->from('kesehatan');
+        $this->db->where('kategori="PKM PEMBANTU"');
+        $hasil = $this->db->get();
+        return $hasil;
+    }
 }

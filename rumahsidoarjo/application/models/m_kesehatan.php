@@ -136,7 +136,7 @@ class m_kesehatan extends CI_Model
         $this->db->select('*, panik_button.status');
         $this->db->from('panik_button');
         $this->db->join('user_mobile', 'user_mobile.NIK=panik_button.NIK');
-        $this->db->where('panik_button.petugas="Rumah Sakit" and panik_button.status="Selesai" or panik_button.status="Tolak"');
+        $this->db->where('panik_button.petugas="Rumah Sakit" and panik_button.status="Selesai" or panik_button.petugas="Rumah Sakit" and panik_button.status="Tolak"');
         $query = $this->db->get();
         return $query;
     }
@@ -171,7 +171,18 @@ class m_kesehatan extends CI_Model
         $this->db->select('*, panik_button.status');
         $this->db->from('panik_button');
         $this->db->join('user_mobile', 'user_mobile.NIK=panik_button.NIK');
+        $this->db->where('id_laporan', $id);
         $query = $this->db->get();
         return $query;
     }
+
+    // public function rsuu($id)
+    // {
+    //     $this->db->select('*');
+    //     $this->db->from('kesehatan');
+    //     $this->db->join('kecamatan', 'kecamatan.id_kecamatan=kesehatan.id_kecamatan');
+    //     $this->db->where('id_kesehatan', $id);
+    //     $query = $this->db->get();
+    //     return $query;
+    // }
 }
