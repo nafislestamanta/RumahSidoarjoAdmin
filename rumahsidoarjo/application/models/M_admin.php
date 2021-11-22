@@ -43,6 +43,11 @@ class M_admin extends CI_Model
         return $this->db->where('id_admin', $id)->update('user_admin', $data);
     }
 
+    public function update_password($data, $id)
+    {
+        return $this->db->where('id_admin', $id)->update('user_admin', $data);
+    }
+
     public function tampil_profile($id)
     {
         $this->db->select('*');

@@ -257,6 +257,43 @@ class Admin extends CI_Controller
         $this->load->view('admin/templates/footer', $data);
     }
 
+    public function ubah_password($id)
+    {
+        $this->form_validation->set_rules('pabar', 'pabar', 'required|trim', [
+            'required' => 'Field tidak boleh kosong'
+        ]);
+        $this->form_validation->set_rules('ulpa', 'ulpa', 'required|trim', [
+            'required' => 'Field tidak boleh kosong'
+        ]);
+
+        if ($this->form_validation->run() == false) {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Gagal Update Password! Field tidak boleh kosong</div>');
+            $this->profile($id);
+        } else {
+            $pabar = md5($this->input->post('pabar'));
+            $ulpa = md5($this->input->post('ulpa'));
+
+            if ($pabar == $ulpa) {
+                $data = [
+                    'password' => $pabar,
+                ];
+
+                $update = $this->M_admin->update_password($data, $id);
+
+                if ($update) {
+                    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Password berhasil diupdate</div>');
+                    redirect('Admin/profile/' . $id);
+                } else {
+                    $this->session->set_flashdata('message', '<div class="alert alert-warning" role="alert">Password tidak berhasil diupdate</div>');
+                    redirect('Admin/profile/' . $id);
+                }
+            } else {
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Gagal Update Password! Password baru tidak sama dengan ulang password</div>');
+                redirect('Admin/profile/' . $id);
+            }
+        }
+    }
+
     public function update_profile($id)
     {
         $this->form_validation->set_rules('nip', 'nip', 'required|trim', [
@@ -274,12 +311,6 @@ class Admin extends CI_Controller
         $this->form_validation->set_rules('email', 'email', 'required|trim', [
             'required' => 'Field tidak boleh kosong'
         ]);
-        $this->form_validation->set_rules('username', 'username', 'required|trim', [
-            'required' => 'Field tidak boleh kosong'
-        ]);
-        $this->form_validation->set_rules('password', 'password', 'required|trim', [
-            'required' => 'Field tidak boleh kosong'
-        ]);
 
         if ($this->form_validation->run() == false) {
             $this->profile($id);
@@ -290,8 +321,6 @@ class Admin extends CI_Controller
             $no_tlp = $this->input->post('no_tlp');
             $email = $this->input->post('email');
             $foto = $_FILES['foto']['name'];
-            $username = $this->input->post('username');
-            $password = $this->input->post('password');
 
             $config['upload_path']        =    './assets/img/';
             $config['allowed_types']    =    'jpg|jpeg|png';
@@ -310,8 +339,6 @@ class Admin extends CI_Controller
                         'no_tlp' => $no_tlp,
                         'email' => $email,
                         'foto' => preg_replace("/\s+/", "_", $foto),
-                        'username' => $username,
-                        'password' => $password,
                     ];
 
                     $tambah = $this->M_admin->update($data, $id);
@@ -336,8 +363,6 @@ class Admin extends CI_Controller
                     'alamat' => $alamat,
                     'no_tlp' => $no_tlp,
                     'email' => $email,
-                    'username' => $username,
-                    'password' => $password,
                 ];
 
                 $tambah = $this->M_admin->update($data, $id);
