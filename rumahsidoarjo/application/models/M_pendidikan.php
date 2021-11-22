@@ -148,4 +148,29 @@ class M_pendidikan extends CI_Model
     {
         return $this->db->where('id_sekolah', $id)->update('sekolah', $data);
     }
+
+    function jmlh_sd()
+    {
+        $this->db->select('*, COUNT(id_sekolah) as total');
+        $this->db->from('sekolah');
+        $this->db->where('jenjang="SD"');
+        $hasil = $this->db->get();
+        return $hasil;
+    }
+    function jmlh_smp()
+    {
+        $this->db->select('*, COUNT(id_sekolah) as total');
+        $this->db->from('sekolah');
+        $this->db->where('jenjang="SMP"');
+        $hasil = $this->db->get();
+        return $hasil;
+    }
+    function jmlh_slb()
+    {
+        $this->db->select('*, COUNT(id_sekolah) as total');
+        $this->db->from('sekolah');
+        $this->db->where('jenjang="SLB"');
+        $hasil = $this->db->get();
+        return $hasil;
+    }
 }

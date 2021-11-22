@@ -113,4 +113,19 @@ class M_kerja extends CI_model
     {
         return $this->db->where('id_lowongan', $id)->update('lowongan', $data);
     }
+
+    function jmlh_perusahaan()
+    {
+        $this->db->select('*, COUNT(id) as total');
+        $this->db->from('perusahaan');
+        $hasil = $this->db->get();
+        return $hasil;
+    }
+    function jmlh_lowongan()
+    {
+        $this->db->select('*, COUNT(id_lowongan) as total');
+        $this->db->from('lowongan');
+        $hasil = $this->db->get();
+        return $hasil;
+    }
 }

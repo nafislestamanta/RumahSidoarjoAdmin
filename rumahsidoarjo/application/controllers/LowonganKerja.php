@@ -23,6 +23,20 @@ class LowonganKerja extends CI_Controller
         $this->load->view('admin/templates/footer', $data);
     }
 
+    public function dashboard()
+    {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
+        $data['perusahaan'] = $this->M_kerja->jmlh_perusahaan()->row();
+        $data['lowongan'] = $this->M_kerja->jmlh_lowongan()->row();
+        $data['title'] = 'Perusahaan';
+        $this->load->view('admin/templates/header', $data);
+        $this->load->view('admin/templates/sidebar', $data);
+        $this->load->view('admin/templates/topbar', $data);
+        $this->load->view('tenagakerja/dashboard_kerja', $data);
+        $this->load->view('admin/templates/footer', $data);
+    }
+
+
     public function detailperusahaan($id)
     {
         $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();

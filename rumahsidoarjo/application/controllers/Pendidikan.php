@@ -21,6 +21,20 @@ class Pendidikan extends CI_Controller
         $this->load->view('admin/templates/footer', $data);
     }
 
+    public function dashboard()
+    {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
+        $data['sd'] = $this->M_pendidikan->jmlh_sd()->row();
+        $data['smp'] = $this->M_pendidikan->jmlh_smp()->row();
+        $data['slb'] = $this->M_pendidikan->jmlh_slb()->row();
+        $data['title'] = 'Dashboard';
+        $this->load->view('admin/templates/header', $data);
+        $this->load->view('admin/templates/sidebar', $data);
+        $this->load->view('admin/templates/topbar', $data);
+        $this->load->view('pendidikan/dashboard_pendidikan', $data);
+        $this->load->view('admin/templates/footer', $data);
+    }
+
     public function Slb()
     {
         $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();

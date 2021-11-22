@@ -22,6 +22,20 @@ class Umkm extends CI_Controller
         $this->load->view('umkm/umkm', $data);
         $this->load->view('admin/templates/footer', $data);
     }
+    public function dashboard()
+    {
+        $data['kerajinan'] = $this->M_umkm->jmlh_kerajinan()->row();
+        $data['makanan'] = $this->M_umkm->jmlh_makanan()->row();
+        $data['pertanian'] = $this->M_umkm->jmlh_pertanian()->row();
+
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
+        $data['title'] = 'Dashboard UMKM';
+        $this->load->view('admin/templates/header', $data);
+        $this->load->view('admin/templates/sidebar', $data);
+        $this->load->view('admin/templates/topbar', $data);
+        $this->load->view('umkm/dashboard_umkm', $data);
+        $this->load->view('admin/templates/footer', $data);
+    }
 
     public function tampil_kerajinan()
     {

@@ -7,6 +7,7 @@ class Kesehatan extends CI_Controller
     {
         parent::__construct();
         $this->load->model('m_kesehatan');
+        $this->load->model('m_panikmenu');
     }
 
     public function index()
@@ -18,6 +19,20 @@ class Kesehatan extends CI_Controller
         $this->load->view('admin/templates/sidebar', $data);
         $this->load->view('admin/templates/topbar', $data);
         $this->load->view('kesehatan/pkmpembantu', $data);
+        $this->load->view('admin/templates/footer', $data);
+    }
+
+    public function dashboard()
+    {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
+        $data['pkmu'] = $this->m_kesehatan->jmlh_pkmu()->row();
+        $data['pkmp'] = $this->m_kesehatan->jmlh_pkmp()->row();
+        $data['rs'] = $this->m_kesehatan->jmlh_rs()->row();
+        $data['title'] = 'Dashboard';
+        $this->load->view('admin/templates/header', $data);
+        $this->load->view('admin/templates/sidebar', $data);
+        $this->load->view('admin/templates/topbar', $data);
+        $this->load->view('kesehatan/dashboard_kesehatan', $data);
         $this->load->view('admin/templates/footer', $data);
     }
 
@@ -705,5 +720,107 @@ class Kesehatan extends CI_Controller
         // $this->form_validation->set_rules('gambar', 'Gambar', 'required|trim', [
         //     'required' => 'Field tidak boleh kosong'
         // ]);
+    }
+
+    public function laporan()
+    {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
+        $data['laporan'] = $this->m_kesehatan->laporan()->result();
+        $data['title'] = 'Laporan';
+        $this->load->view('admin/templates/header', $data);
+        $this->load->view('admin/templates/sidebar', $data);
+        $this->load->view('admin/templates/topbar', $data);
+        $this->load->view('kesehatan/laporan_proses', $data);
+        $this->load->view('admin/templates/footer', $data);
+    }
+
+    public function edit_pengaduan($id)
+    {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
+        $data['edit'] = $this->m_kesehatan->detail($id)->row();
+        $data['title'] = 'Edit Pengaduan';
+        $this->load->view('admin/templates/header', $data);
+        $this->load->view('admin/templates/sidebar', $data);
+        $this->load->view('admin/templates/topbar', $data);
+        $this->load->view('Kesehatan/edit_pengaduan', $data);
+        $this->load->view('admin/templates/footer', $data);
+    }
+
+    public function updatepengaduan($id)
+    {
+        $status = $this->input->post('status');
+
+        $data = [
+            'status' => $status,
+        ];
+
+        $update = $this->m_kesehatan->update_pengaduan($data, $id);
+
+        if ($update) {
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil diupdate</div>');
+        } else {
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data tidak berhasil diupdate</div>');
+        }
+        redirect('Kesehatan/laporan', $data);
+    }
+
+    public function riwayat()
+    {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
+        $data['riwayat'] = $this->m_kesehatan->riwayat()->result();
+        //$data['riwayat'] = $this->m_kesehatan->riwayat_semua()->result();
+        $data['title'] = 'Riwayat';
+        $this->load->view('admin/templates/header', $data);
+        $this->load->view('admin/templates/sidebar', $data);
+        $this->load->view('admin/templates/topbar', $data);
+        $this->load->view('kesehatan/riwayat_pengaduan', $data);
+        $this->load->view('admin/templates/footer', $data);
+    }
+
+    public function riwayat_selesai()
+    {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
+        $data['selesai'] = $this->m_kesehatan->riwayat_selesai()->result();
+        $data['title'] = 'Selesai';
+        $this->load->view('admin/templates/header', $data);
+        $this->load->view('admin/templates/sidebar', $data);
+        $this->load->view('admin/templates/topbar', $data);
+        $this->load->view('kesehatan/riwayat_pengaduan', $data);
+        $this->load->view('admin/templates/footer', $data);
+    }
+
+    public function riwayat_tolak()
+    {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
+        $data['tolak'] = $this->m_kesehatan->riwayat_tolak()->result();
+        $data['title'] = 'Tolak';
+        $this->load->view('admin/templates/header', $data);
+        $this->load->view('admin/templates/sidebar', $data);
+        $this->load->view('admin/templates/topbar', $data);
+        $this->load->view('kesehatan/riwayat_pengaduan', $data);
+        $this->load->view('admin/templates/footer', $data);
+    }
+
+    public function delete_riwayat($id)
+    {
+        $delete_riwayat = $this->m_kesehatan->delete_riwayat($id);
+        if ($delete_riwayat) {
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data yang anda pilih telah terhapus</div>');
+        } else {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Tidak bisa hapus data</div>');
+        }
+        redirect('Kesehatan/riwayat');
+    }
+
+    public function detail_riwayat($id)
+    {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
+        $data['detail'] = $this->m_kesehatan->detail_riwayat($id)->row();
+        $data['title'] = 'Detail Riwayat';
+        $this->load->view('admin/templates/header', $data);
+        $this->load->view('admin/templates/sidebar', $data);
+        $this->load->view('admin/templates/topbar', $data);
+        $this->load->view('kesehatan/detail_riwayat', $data);
+        $this->load->view('admin/templates/footer', $data);
     }
 }

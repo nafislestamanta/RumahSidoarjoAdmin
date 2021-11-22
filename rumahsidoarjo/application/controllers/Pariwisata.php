@@ -21,6 +21,19 @@ class Pariwisata extends CI_Controller
         $this->load->view('admin/templates/footer', $data);
     }
 
+    public function dashboard()
+    {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
+        $data['kategori'] = $this->M_pariwisata->jmlh_kategori()->row();
+        $data['wisata'] = $this->M_pariwisata->jmlh_wisata()->row();
+        $data['title'] = 'Tempat Wisata';
+        $this->load->view('admin/templates/header', $data);
+        $this->load->view('admin/templates/sidebar', $data);
+        $this->load->view('admin/templates/topbar', $data);
+        $this->load->view('pariwisata/dashboard_pariwisata', $data);
+        $this->load->view('admin/templates/footer', $data);
+    }
+
     public function tambah_wisata()
     {
         $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();

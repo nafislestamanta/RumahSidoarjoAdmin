@@ -47,9 +47,6 @@ class M_dashboard extends CI_model
         return $hasil;
     }
 
-
-
-
     function diagram_panik()
     {
         $this->db->group_by('kategori');

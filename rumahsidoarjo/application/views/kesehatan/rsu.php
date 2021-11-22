@@ -11,8 +11,10 @@
           <div>
               <div class="card-header py-3">
                   <div class="col-auto">
-                      <a href="<?= base_url('kesehatan/tambahrsu'); ?>" class="btn-sm btn-primary"><i class="fas fa-plus" style="padding-right: 8px;"></i>Tambah Data</a>
-                      <a href="<?= base_url(''); ?>" class="btn-sm btn-success"><i class="fas fa-download" style="padding-right: 8px;"></i>Report</a>
+                      <a href="<?= base_url('kesehatan/tambahrsu'); ?>" class="btn-sm btn-primary"><i
+                              class="fas fa-plus" style="padding-right: 8px;"></i>Tambah Data</a>
+                      <a href="<?= base_url(''); ?>" class="btn-sm btn-success"><i class="fas fa-download"
+                              style="padding-right: 8px;"></i>Report</a>
                   </div>
               </div>
               <div class="card-body">
@@ -33,16 +35,24 @@
 
                           <tbody>
                               <?php foreach ($rsu as $r) : ?>
-                                  <tr>
-                                      <td><?= $r->id_kesehatan ?></td>
-                                      <td><?= $r->nama ?></td>
-                                      <td><?= $r->alamat ?></td>
-                                      <td><?= $r->kepemilikan ?></td>
-                                      <td><?= $r->no_telepon ?></td>
-                                      <td class="text-center">
-                                          <a href="<?= base_url('Kesehatan/edit_rsu/' . $r->id_kesehatan); ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a><a style="margin-left: 5px;" href="<?= base_url('Kesehatan/detail_rsu/' . $r->id_kesehatan); ?>" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a><a style="margin-left: 5px;" href="<?= base_url('Kesehatan/delete_rsu/' . $r->id_kesehatan); ?>" onclick="javascript: return confirm('Anda Yakin Hapus ?')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
-                                      </td>
-                                  </tr>
+                              <tr>
+                                  <td><?= $r->id_kesehatan ?></td>
+                                  <td><?= word_limiter($r->nama, 2); ?></td>
+                                  <td><?= word_limiter($r->alamat, 2); ?></td>
+                                  <td><?= $r->kepemilikan ?></td>
+                                  <td><?= $r->no_telepon ?></td>
+                                  <td class="text-center">
+                                      <a href="<?= base_url('Kesehatan/edit_rsu/' . $r->id_kesehatan); ?>"
+                                          class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a><a
+                                          style="margin-left: 5px;"
+                                          href="<?= base_url('Kesehatan/detail_rsu/' . $r->id_kesehatan); ?>"
+                                          class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a><a
+                                          style="margin-left: 5px;"
+                                          href="<?= base_url('Kesehatan/delete_rsu/' . $r->id_kesehatan); ?>"
+                                          onclick="javascript: return confirm('Anda Yakin Hapus ?')"
+                                          class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                  </td>
+                              </tr>
                               <?php endforeach; ?>
 
 

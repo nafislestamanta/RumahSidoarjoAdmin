@@ -92,4 +92,30 @@ class M_umkm extends CI_model
     {
         return $this->db->where('id_umkm', $id)->update('umkm', $data);
     }
+
+
+    function jmlh_kerajinan()
+    {
+        $this->db->select('*, COUNT(kategori) as total');
+        $this->db->from('umkm');
+        $this->db->where('kategori="Kerajinan"');
+        $hasil = $this->db->get();
+        return $hasil;
+    }
+    function jmlh_makanan()
+    {
+        $this->db->select('*, COUNT(kategori) as total');
+        $this->db->from('umkm');
+        $this->db->where('kategori="Makanan"');
+        $hasil = $this->db->get();
+        return $hasil;
+    }
+    function jmlh_pertanian()
+    {
+        $this->db->select('*, COUNT(kategori) as total');
+        $this->db->from('umkm');
+        $this->db->where('kategori="Pertanian"');
+        $hasil = $this->db->get();
+        return $hasil;
+    }
 }

@@ -161,4 +161,18 @@ class M_pariwisata extends CI_Model
     {
         return $this->db->where('id_kuliner', $id_kuliner)->update('menu_kuliner', $data);
     }
+    function jmlh_kategori()
+    {
+        $this->db->select('*, COUNT(kategori) as total');
+        $this->db->from('kategori_wisata');
+        $hasil = $this->db->get();
+        return $hasil;
+    }
+    function jmlh_wisata()
+    {
+        $this->db->select('*, COUNT(id_wisata) as total');
+        $this->db->from('pariwisata');
+        $hasil = $this->db->get();
+        return $hasil;
+    }
 }

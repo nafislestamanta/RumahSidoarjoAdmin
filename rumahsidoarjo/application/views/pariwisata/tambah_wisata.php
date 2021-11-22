@@ -349,6 +349,7 @@
           </div>
       </div>
   </div>
+
   <!-- END Modal Tambah -->
 
   <!-- Modal Tambah -->
@@ -386,6 +387,7 @@
       </div>
   </div>
 
+
   <!-- END Modal Tambah -->
 
   <!-- Modal Tambah -->
@@ -422,8 +424,7 @@
           </div>
       </div>
   </div>
-
-
+  </div>
 
 
   <!-- END Modal Tambah -->

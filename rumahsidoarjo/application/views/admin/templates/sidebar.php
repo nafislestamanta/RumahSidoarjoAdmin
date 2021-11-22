@@ -2,7 +2,7 @@
  <ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion" id="accordionSidebar">
 
      <!-- Sidebar - Brand -->
-     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url('Dashboard'); ?>">
+     <a class="sidebar-brand d-flex align-items-center justify-content-center">
          <div class="sidebar-brand-icon"> <br>
 
              <?php $role = $this->session->userdata('id_role');
@@ -226,12 +226,12 @@
      <div class="sidebar-heading">
          Admin Dishub
      </div>
-     <!-- Home-->
-     <li class="nav-item active">
+
+     <!-- <li class="nav-item active">
          <a class="nav-link" href="<?= base_url('Dashboard'); ?>">
              <i class="fas fa-home"></i>
              <span>HOME</span></a>
-     </li>
+     </li> -->
      <!-- DISHUB  -->
      <li class="nav-item">
          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse7" aria-expanded="true"
@@ -249,16 +249,31 @@
      <?php elseif ($role == 3) : {
             }; ?>
      <div class="sidebar-heading">
-         Admin Naker
+         Admin UMKM
      </div>
      <!-- Home-->
      <li class="nav-item active">
-         <a class="nav-link" href="<?= base_url('Dashboard'); ?>">
+         <a class="nav-link" href="<?= base_url('Umkm/dashboard'); ?>">
+             <i class="fas fa-home"></i>
+             <span>HOME</span></a>
+     <li class="nav-item">
+         <a class="nav-link" href="<?= base_url('Umkm'); ?>">
+             <i class="fas fa-hand-holding-usd"></i>
+             <span>UMKM</span></a>
+     </li>
+
+
+     <?php elseif ($role == 4) : {
+            }; ?>
+     <div class="sidebar-heading">
+         Admin Lowongan Kerja
+     </div>
+     <!-- Home-->
+     <li class="nav-item active">
+         <a class="nav-link" href="<?= base_url('LowonganKerja/dashboard'); ?>">
              <i class="fas fa-home"></i>
              <span>HOME</span></a>
      </li>
-
-     <!-- Tenaga Kerja  -->
      <li class="nav-item">
          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse5" aria-expanded="true"
              aria-controls="collapse4">
@@ -274,35 +289,6 @@
          </div>
      </li>
 
-     <?php elseif ($role == 4) : {
-            }; ?>
-     <div class="sidebar-heading">
-         Admin Pariwisata
-     </div>
-     <!-- Home-->
-     <li class="nav-item active">
-         <a class="nav-link" href="<?= base_url('Dashboard'); ?>">
-             <i class="fas fa-home"></i>
-             <span>HOME</span></a>
-     </li>
-
-     <!-- Pariwisata -->
-     <li class="nav-item">
-         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse4" aria-expanded="true"
-             aria-controls="collapse4">
-             <i class="fas fa-umbrella-beach"></i>
-             <span>PARIWISATA</span>
-         </a>
-         <div id="collapse4" class="collapse" aria-labelledby="heading4" data-parent="#accordionSidebar">
-             <div class="bg-white py-2 collapse-inner rounded">
-                 <h6 class="collapse-header">feature:</h6>
-                 <a class="collapse-item" href="<?= base_url('Pariwisata'); ?>">Tempat Wisata</a>
-                 <a class="collapse-item" href="<?= base_url('Pariwisata/kategoriwisata'); ?>">Kategori Wisata</a>
-                 <a class="collapse-item" href="<?= base_url('Pariwisata/event'); ?>">Event</a>
-             </div>
-         </div>
-     </li>
-
      <?php elseif ($role == 5) : {
             }; ?>
      <div class="sidebar-heading">
@@ -310,7 +296,7 @@
      </div>
      <!-- Home-->
      <li class="nav-item active">
-         <a class="nav-link" href="<?= base_url('Dashboard'); ?>">
+         <a class="nav-link" href="<?= base_url('Pendidikan/dashboard'); ?>">
              <i class="fas fa-home"></i>
              <span>HOME</span></a>
      </li>
@@ -334,14 +320,77 @@
      <?php elseif ($role == 6) : {
             }; ?>
      <div class="sidebar-heading">
-         Admin Polisi
+         Admin Kesehatan
      </div>
      <!-- Home-->
      <li class="nav-item active">
-         <a class="nav-link" href="<?= base_url('Dashboard'); ?>">
+         <a class="nav-link" href="<?= base_url('Kesehatan/dashboard'); ?>">
              <i class="fas fa-home"></i>
              <span>HOME</span></a>
      </li>
+     <!-- Kesehatan  -->
+     <li class="nav-item">
+         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse8" aria-expanded="true"
+             aria-controls="collapse8">
+             <i class="fas fa-user-md"></i>
+             <span>KESEHATAN</span>
+         </a>
+         <div id="collapse8" class="collapse" aria-labelledby="heading8" data-parent="#accordionSidebar">
+             <div class="bg-white py-2 collapse-inner rounded">
+                 <h6 class="collapse-header">feature:</h6>
+                 <a class="collapse-item" href="<?= base_url('Kesehatan/pkmutama'); ?>">PKM Utama</a>
+                 <a class="collapse-item" href="<?= base_url('Kesehatan'); ?>">PKM Pembantu</a>
+                 <a class="collapse-item" href="<?= base_url('Kesehatan/rs'); ?>">Rumah Sakit</a>
+             </div>
+         </div>
+     </li>
+     <li class="nav-item">
+         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse9" aria-expanded="true"
+             aria-controls="collapse9">
+             <i class="fas fa-radiation"></i>
+             <span>LAPORAN PANIK</span>
+         </a>
+         <div id="collapse9" class="collapse" aria-labelledby="heading9" data-parent="#accordionSidebar">
+             <div class="bg-white py-2 collapse-inner rounded">
+                 <h6 class="collapse-header">feature:</h6>
+                 <a class="collapse-item" href="<?= base_url('Kesehatan/laporan'); ?>">Sedang Proses</a>
+                 <a class="collapse-item" href="<?= base_url('Kesehatan/riwayat'); ?>">Riwayat</a>
+             </div>
+         </div>
+     </li>
+
+     <?php elseif ($role == 7) : {
+            }; ?>
+     <div class="sidebar-heading">
+         Admin Pariwisata
+     </div>
+     <!-- Home-->
+     <li class="nav-item active">
+         <a class="nav-link" href="<?= base_url('Pariwisata/dashboard'); ?>">
+             <i class="fas fa-home"></i>
+             <span>HOME</span></a>
+     </li>
+     <!-- Pariwisata -->
+     <li class="nav-item">
+         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse4" aria-expanded="true"
+             aria-controls="collapse4">
+             <i class="fas fa-umbrella-beach"></i>
+             <span>PARIWISATA</span>
+         </a>
+         <div id="collapse4" class="collapse" aria-labelledby="heading4" data-parent="#accordionSidebar">
+             <div class="bg-white py-2 collapse-inner rounded">
+                 <h6 class="collapse-header">feature:</h6>
+                 <a class="collapse-item" href="<?= base_url('Pariwisata'); ?>">Tempat Wisata</a>
+                 <a class="collapse-item" href="<?= base_url('Pariwisata/kategoriwisata'); ?>">Kategori Wisata</a>
+             </div>
+         </div>
+     </li>
+
+     <?php elseif ($role == 8) : {
+            }; ?>
+     <div class="sidebar-heading">
+         Admin Polisi
+     </div>
 
      <!-- Panik Menu -->
      <li class="nav-item">
@@ -355,10 +404,37 @@
                  <h6 class="collapse-header">feature:</h6>
                  <a class="collapse-item" href="<?= base_url('PanikMenu'); ?>">Managemen Data</a>
                  <a class="collapse-item" href="<?= base_url('PanikMenu/laporanpanik'); ?>">Laporan Panik</a>
+                 <a class="collapse-item" href="<?= base_url('PanikMenu/konfirmasi'); ?>">Konfirmasi Panik</a>
 
              </div>
          </div>
      </li>
+
+     <?php elseif ($role == 9) : {
+            }; ?>
+     <div class="sidebar-heading">
+         Admin BPDB
+     </div>
+
+     <!-- Panik Menu -->
+     <li class="nav-item">
+         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse1" aria-expanded="true"
+             aria-controls="collapse1">
+             <i class="fas fa-radiation"></i>
+             <span>PANIK MENU</span>
+         </a>
+         <div id="collapse1" class="collapse" aria-labelledby="heading1" data-parent="#accordionSidebar">
+             <div class="bg-white py-2 collapse-inner rounded">
+                 <h6 class="collapse-header">feature:</h6>
+                 <a class="collapse-item" href="<?= base_url('PanikMenu'); ?>">Managemen Data</a>
+                 <a class="collapse-item" href="<?= base_url('PanikMenu/laporanpanik'); ?>">Laporan Panik</a>
+                 <a class="collapse-item" href="<?= base_url('PanikMenu/konfirmasi'); ?>">Konfirmasi Panik</a>
+
+             </div>
+         </div>
+     </li>
+
+
 
      <?php endif; ?>
      <!-- Divider -->

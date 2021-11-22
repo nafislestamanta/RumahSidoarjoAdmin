@@ -29,7 +29,7 @@ class Auth extends CI_Controller
         $user_admin = $this->db->get_where('user_admin', ['username' => $username])->row_array();
         // Jika user ada
         if ($user_admin) {
-            if (md5($password, $user_admin['password'])) {
+            if (md5($password) == $user_admin['password']) {
                 $data = [
                     'username' => $user_admin['username'],
                     'nama' => $nama['nama'],
@@ -40,14 +40,20 @@ class Auth extends CI_Controller
                 if ($user_admin['id_role'] == 1) {
                     redirect('dashboard');
                 } elseif ($user_admin['id_role'] == 2) {
-                    redirect('dashboard');
+                    redirect('dishub');
                 } elseif ($user_admin['id_role'] == 3) {
-                    redirect('dashboard');
+                    redirect('Umkm/dashboard');
                 } elseif ($user_admin['id_role'] == 4) {
-                    redirect('dashboard');
+                    redirect('LowonganKerja/dashboard');
                 } elseif ($user_admin['id_role'] == 5) {
-                    redirect('dashboard');
+                    redirect('Pendidikan/dashboard');
                 } elseif ($user_admin['id_role'] == 6) {
+                    redirect('Kesehatan/dashboard');
+                } elseif ($user_admin['id_role'] == 7) {
+                    redirect('pariwisata/dashboard');
+                } elseif ($user_admin['id_role'] == 8) {
+                    redirect('dashboard');
+                } elseif ($user_admin['id_role'] == 9) {
                     redirect('dashboard');
                 } elseif ($user_admin) {
                 }
