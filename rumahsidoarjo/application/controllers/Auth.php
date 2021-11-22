@@ -16,11 +16,11 @@ class Auth extends CI_Controller
             $this->load->view('auth/login');
         } else {
             //validasi sukses
-            $this->login();
+            $this->_login();
         }
     }
 
-    private function login()
+    private function _login()
     {
         $username = $this->input->post('username');
         $password = $this->input->post('password');
@@ -66,12 +66,12 @@ class Auth extends CI_Controller
             redirect('auth');
         }
     }
-    // public function logout()
-    // {
-    //     $this->session->unset_userdata('username');
-    //     $this->session->unset_userdata('id_role');
+    public function logout()
+    {
+        $this->session->unset_userdata('username');
+        $this->session->unset_userdata('id_role');
 
-    //     $this->session->set_flashdata('message', '<div class="alert alert-succes" role="alert">Anda berhasil Logout</div>');
-    //     redirect('auth');
-    // }
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Anda berhasil Logout</div>');
+        redirect('auth');
+    }
 }
