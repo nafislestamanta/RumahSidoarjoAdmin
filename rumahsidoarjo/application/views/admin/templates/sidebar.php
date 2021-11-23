@@ -421,24 +421,22 @@
      </div>
 
      <!-- Panik Menu -->
-     <li class="nav-item">
-         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse1" aria-expanded="true"
-             aria-controls="collapse1">
-             <i class="fas fa-radiation"></i>
-             <span>PANIK MENU</span>
-         </a>
-         <div id="collapse1" class="collapse" aria-labelledby="heading1" data-parent="#accordionSidebar">
-             <div class="bg-white py-2 collapse-inner rounded">
-                 <h6 class="collapse-header">feature:</h6>
-                 <a class="collapse-item" href="<?= base_url('PanikMenu'); ?>">Managemen Data</a>
-                 <a class="collapse-item" href="<?= base_url('PanikMenu/laporanpanik'); ?>">Laporan Panik</a>
-                 <a class="collapse-item" href="<?= base_url('PanikMenu/konfirmasi'); ?>">Konfirmasi Panik</a>
 
-             </div>
-         </div>
+     <li class="nav-item active">
+         <a class="nav-link" href="<?= base_url('Bpbd'); ?>">
+             <i class="fas fa-home"></i>
+             <span>KANTOR</span></a>
      </li>
-
-
+     <li class="nav-item active">
+         <a class="nav-link" href="<?= base_url('Bpbd/laporan'); ?>">
+             <i class="fas fa-home"></i>
+             <span>PENGADUAN</span></a>
+     </li>
+     <li class="nav-item active">
+         <a class="nav-link" href="<?= base_url('Bpbd/riwayat'); ?>">
+             <i class="fas fa-home"></i>
+             <span>RWIAYAT </span></a>
+     </li>
 
      <?php endif; ?>
      <!-- Divider -->

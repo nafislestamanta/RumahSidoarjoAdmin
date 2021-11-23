@@ -17,7 +17,7 @@
                                  <?php echo $kantor->total ?></div>
                          </div>
                          <div class="col-auto">
-                             <i class="fas fa-clinic-medical fa-4x text-gray-300"></i>
+                             <i class="fas fa-building fa-4x text-gray-300"></i>
                          </div>
                      </div>
                  </div>
@@ -42,7 +42,7 @@
                                  <?php echo $pengaduan->total ?></div>
                          </div>
                          <div class="col-auto">
-                             <i class="fas fa-ambulance fa-4x text-gray-300"></i>
+                             <i class="fas fa-phone-volume fa-4x text-gray-300"></i>
                          </div>
                      </div>
                  </div>
@@ -66,7 +66,7 @@
                                  <?php echo $selesai->total ?></div>
                          </div>
                          <div class="col-auto">
-                             <i class="fas fa-hospital-alt fa-4x text-gray-300"></i>
+                             <i class="fas fa-check-double fa-4x text-gray-300"></i>
                          </div>
                      </div>
                  </div>
@@ -91,7 +91,7 @@
                                  <?php echo $tolak->total ?></div>
                          </div>
                          <div class="col-auto">
-                             <i class="fas fa-exclamation-triangle fa-4x text-gray-300"></i>
+                             <i class="fas fa-phone-slash fa-4x text-gray-300"></i>
                          </div>
                      </div>
                  </div>

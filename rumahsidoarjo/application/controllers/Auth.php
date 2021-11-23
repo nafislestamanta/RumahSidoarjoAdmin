@@ -54,7 +54,7 @@ class Auth extends CI_Controller
                 } elseif ($user_admin['id_role'] == 8) {
                     redirect('Polisi');
                 } elseif ($user_admin['id_role'] == 9) {
-                    redirect('dashboard');
+                    redirect('Bpbd');
                 } elseif ($user_admin) {
                 }
             } else {

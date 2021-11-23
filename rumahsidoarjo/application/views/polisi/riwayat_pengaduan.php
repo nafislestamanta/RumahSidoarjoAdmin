@@ -59,7 +59,7 @@
                                       class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>
                                   </a>
                                   <a href="<?= base_url('Polisi/detail_riwayat/' . $k->id_laporan); ?>"
-                                      class="btn btn-warning btn-sm"><i class="fa fa-edit"></i>
+                                      class="btn btn-warning btn-sm"><i class="fa fa-eye"></i>
                                   </a>
                               </td>
                           </tr>
@@ -80,7 +80,7 @@
                                       class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>
                                   </a>
                                   <a href="<?= base_url('Polisi/detail_riwayat/' . $k->id_laporan); ?>"
-                                      class="btn btn-warning btn-sm"><i class="fa fa-edit"></i>
+                                      class="btn btn-warning btn-sm"><i class="fa fa-eye"></i>
                                   </a>
                               </td>
                           </tr>
@@ -101,7 +101,7 @@
                                       class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>
                                   </a>
                                   <a href="<?= base_url('Polisi/detail_riwayat/' . $k->id_laporan); ?>"
-                                      class="btn btn-warning btn-sm"><i class="fa fa-edit"></i>
+                                      class="btn btn-warning btn-sm"><i class="fa fa-eye"></i>
                                   </a>
                               </td>
                           </tr>
@@ -122,7 +122,7 @@
                                       class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>
                                   </a>
                                   <a href="<?= base_url('Polisi/detail_riwayat/' . $k->id_laporan); ?>"
-                                      class="btn btn-warning btn-sm"><i class="fa fa-edit"></i>
+                                      class="btn btn-warning btn-sm"><i class="fa fa-eye"></i>
                                   </a>
                               </td>
                           </tr>
