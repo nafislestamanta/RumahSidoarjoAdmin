@@ -12,7 +12,38 @@ class m_kesehatan extends CI_Model
         if ($id === null) {
             return $this->db->get()->result_array();
         } else {
-            return $this->db->get_where('kesehatan', ['id_kesehatan' => $id])->result_array();
+            $this->db->where('id_kesehatan', $id);
+            return $this->db->get()->result_array();
+        }
+    }
+
+    public function getPKMP($id = null)
+    {
+        $this->db->select('*');
+        $this->db->from('kesehatan');
+        $this->db->join('kecamatan', 'kecamatan.id_kecamatan=kesehatan.id_kesehatan');
+        $this->db->where('kategori = "PKM PEMBANTU"');
+
+        if ($id === null) {
+            return $this->db->get()->result_array();
+        } else {
+            $this->db->where('id_kesehatan', $id);
+            return $this->db->get()->result_array();
+        }
+    }
+
+    public function getRSU($id = null)
+    {
+        $this->db->select('*');
+        $this->db->from('kesehatan');
+        $this->db->join('kecamatan', 'kecamatan.id_kecamatan=kesehatan.id_kesehatan');
+        $this->db->where('kategori = "RSU"');
+
+        if ($id === null) {
+            return $this->db->get()->result_array();
+        } else {
+            $this->db->where('id_kesehatan', $id);
+            return $this->db->get()->result_array();
         }
     }
 }
