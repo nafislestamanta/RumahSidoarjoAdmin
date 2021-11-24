@@ -7,6 +7,9 @@ class LowonganKerja extends CI_Controller
     function __construct()
     {
         parent::__construct();
+        if (!$this->session->userdata('username')) {
+            redirect('auth');
+        }
         $this->load->model('M_kerja');
         $this->load->library('form_validation');
     }

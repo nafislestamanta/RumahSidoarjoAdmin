@@ -44,10 +44,13 @@
                             <div class=" col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Halaman Login Admin <p> </p>
-                                            <p>RUMAH SIDOARJO</p>
+                                        <h1 class="h4 text-gray-900 mb-4">RUMAH SIDOARJO <p>
+                                            </p>
                                         </h1>
+
                                     </div>
+
+
                                     <?= $this->session->flashdata('message'); ?>
                                     <form class="user" method="post" action="<?= base_url('auth') ?>">
                                         <div class="form-group">
@@ -70,27 +73,27 @@
                                         <a class="small" href="<?= base_url('auth/forgotpassword') ?>">Forgot
                                             Password?</a>
                                     </div>
+                                    </>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
 
             </div>
 
         </div>
 
-    </div>
+        <!-- Bootstrap core JavaScript-->
+        <script src="<?= base_url('assets/'); ?>vendor/jquery/jquery.min.js"></script>
+        <script src="<?= base_url('assets/'); ?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="<?= base_url('assets/'); ?>vendor/jquery/jquery.min.js"></script>
-    <script src="<?= base_url('assets/'); ?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- Core plugin JavaScript-->
+        <script src="<?= base_url('assets/'); ?>vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="<?= base_url('assets/'); ?>vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="<?= base_url('assets/'); ?>js/sb-admin-2.min.js"></script>
+        <!-- Custom scripts for all pages-->
+        <script src="<?= base_url('assets/'); ?>js/sb-admin-2.min.js"></script>
 
 </body>
 

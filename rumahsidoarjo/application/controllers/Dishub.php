@@ -7,6 +7,9 @@ class Dishub extends CI_Controller
   function __construct()
   {
     parent::__construct();
+    if (!$this->session->userdata('username')) {
+      redirect('auth');
+    }
     $this->load->model('M_dishub');
     $this->load->library('form_validation');
   }
