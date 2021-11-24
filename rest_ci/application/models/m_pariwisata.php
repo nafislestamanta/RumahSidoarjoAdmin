@@ -2,7 +2,12 @@
 
 class m_pariwisata extends CI_Model
 {
-    public function getPariwisata($id = null)
+    public function post_ulasan($data)
+    {
+        return $this->db->insert('ulasan_wisata', $data);
+    }
+
+    public function getWisataId($id = null)
     {
         $this->db->select('*');
         $this->db->from('pariwisata');
@@ -11,7 +16,8 @@ class m_pariwisata extends CI_Model
         if ($id === null) {
             return $this->db->get()->result_array();
         } else {
-            return $this->db->get_where('pariwisata', ['id_wisata' => $id])->result_array();
+            $this->db->where('id_wisata', $id);
+            return $this->db->get()->result_array();
         }
     }
 }
