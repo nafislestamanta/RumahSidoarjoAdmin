@@ -74,4 +74,21 @@ class Auth extends CI_Controller
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Anda berhasil Logout</div>');
         redirect('auth');
     }
+
+    public function forgotPassword()
+    {
+        $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
+        if ($this->form_validation->run() == false) {
+            $this->load->view('auth/forgot-password');
+        } else {
+            $email = $this->input->post('email');
+            $user_admin = $this->db->get_where('user_admin', ['email' => $email])->row_array();
+
+            if ($user_admin) {
+            } else {
+                $this->session->set_flashdata('message', '<div class ="alert alert-danger" role="alerts">Email belum terdaftar</div>');
+                redirect('auth');
+            }
+        }
+    }
 }
