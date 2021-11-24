@@ -12,18 +12,42 @@ class Sekolah extends REST_Controller
     {
         parent::__construct($config);
         $this->load->database();
+        $this->load->model('m_sekolah');
     }
 
-    //Menampilkan data Sekolah
+    //Menampilkan data Sekolah Jenjang SD
     function index_get()
     {
         $id = $this->get('id_sekolah');
         if ($id == '') {
-            $sekolah = $this->db->get('sekolah')->result();
+            $jenjang = $this->m_sekolah->getSekolahSD();
         } else {
-            $this->db->where('id_sekolah', $id);
-            $sekolah = $this->db->get('sekolah')->result();
+            $jenjang = $this->m_sekolah->getSekolahSD($id);
         }
-        $this->response($sekolah, 200);
+        $this->response($jenjang, 200);
+    }
+
+    //Menampilkan data Sekolah Jenjang SMP
+    function index_getSMP()
+    {
+        $id = $this->get('id_sekolah');
+        if ($id == '') {
+            $jenjang = $this->m_sekolah->getSekolahSMP();
+        } else {
+            $jenjang = $this->m_sekolah->getSekolahSMP($id);
+        }
+        $this->response($jenjang, 200);
+    }
+
+    //Menampilkan data Sekolah Jenjang SLB
+    function index_getSLB()
+    {
+        $id = $this->get('id_sekolah');
+        if ($id == '') {
+            $jenjang = $this->m_sekolah->getSekolahSLB();
+        } else {
+            $jenjang = $this->m_sekolah->getSekolahSLB($id);
+        }
+        $this->response($jenjang, 200);
     }
 }

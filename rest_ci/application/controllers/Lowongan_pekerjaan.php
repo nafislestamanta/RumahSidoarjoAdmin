@@ -12,18 +12,18 @@ class Lowongan_pekerjaan extends REST_Controller
     {
         parent::__construct($config);
         $this->load->database();
+        $this->load->model('m_lowongan');
     }
 
-    //Menampilkan data Lowongan Pekerjaan
+    //Menampilkan data Lowongan Pekerjaan semua dan berdasarkan ID
     function index_get()
     {
         $id = $this->get('id_lowongan');
         if ($id == '') {
-            $job = $this->db->get('lowongan')->result();
+            $lowongan = $this->m_lowongan->getLowonganId();
         } else {
-            $this->db->where('id_lowongan', $id);
-            $job = $this->db->get('lowongan')->result();
+            $lowongan = $this->m_lowongan->getLowonganId($id);
         }
-        $this->response($job, 200);
+        $this->response($lowongan, 200);
     }
 }
