@@ -19,10 +19,13 @@ class Layanan_publik extends REST_Controller
     function index_get()
     {
         $id = $this->get('id_kategorilayanan');
-        if ($id == '') {
+        $id_layanan = $this->get('id_layanan');
+        if ($id == '' && $id_layanan == '') {
             $kategori = $this->m_layananPublik->getKategori();
-        } else {
+        } elseif ($id) {
             $kategori = $this->m_layananPublik->getKategori($id);
+        } elseif ($id_layanan) {
+            $kategori = $this->m_layananPublik->getLayanan($id_layanan);
         }
         $this->response($kategori, 200);
     }

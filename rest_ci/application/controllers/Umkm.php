@@ -12,6 +12,7 @@ class Umkm extends REST_Controller
     {
         parent::__construct($config);
         $this->load->database();
+        $this->load->model('m_umkm');
     }
 
     //Menampilkan data Umkm
@@ -19,10 +20,33 @@ class Umkm extends REST_Controller
     {
         $id = $this->get('id_umkm');
         if ($id == '') {
-            $umkm = $this->db->get('umkm')->result();
+            $umkm = $this->m_umkm->getUmkm();
         } else {
-            $this->db->where('id_umkm', $id);
-            $umkm = $this->db->get('umkm')->result();
+            $umkm = $this->m_umkm->getUmkm($id);
+        }
+        $this->response($umkm, 200);
+    }
+
+    //Menampilkan data Umkm
+    function get_umkmPertanian()
+    {
+        $id = $this->get('id_umkm');
+        if ($id == '') {
+            $umkm = $this->m_umkm->getPertanian();
+        } else {
+            $umkm = $this->m_umkm->getPertanian($id);
+        }
+        $this->response($umkm, 200);
+    }
+
+    //Menampilkan data Umkm
+    function get_umkmMakanan()
+    {
+        $id = $this->get('id_umkm');
+        if ($id == '') {
+            $umkm = $this->m_umkm->getMakanan();
+        } else {
+            $umkm = $this->m_umkm->getMakanan($id);
         }
         $this->response($umkm, 200);
     }

@@ -17,28 +17,13 @@ class m_layananPublik extends CI_Model
         }
     }
 
-    public function getLayanan($id)
+    public function getLayanan($id_layanan)
     {
         $this->db->select('*');
         $this->db->from('layanan_publik');
         $this->db->join('kategori_layanan', 'kategori_layanan.id_kategorilayanan=layanan_publik.id_kategorilayanan');
-        $this->db->where('layanan_publik.id_layanan', $id);
+        $this->db->where('layanan_publik.id_layanan', $id_layanan);
 
-        return $this->db->get();
-    }
-
-    public function getRSU($id = null)
-    {
-        $this->db->select('*');
-        $this->db->from('kesehatan');
-        $this->db->join('kecamatan', 'kecamatan.id_kecamatan=kesehatan.id_kesehatan');
-        $this->db->where('kategori = "RSU"');
-
-        if ($id === null) {
-            return $this->db->get()->result_array();
-        } else {
-            $this->db->where('id_kesehatan', $id);
-            return $this->db->get()->result_array();
-        }
+        return $this->db->get()->result_array();
     }
 }
