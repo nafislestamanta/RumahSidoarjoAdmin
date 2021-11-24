@@ -15,16 +15,23 @@ class Layanan_publik extends REST_Controller
         $this->load->model('m_layananPublik');
     }
 
-    //Menampilkan data Layanan Publik
+    //Menampilkan data Layanan Publik Kategori
     function index_get()
     {
         $id = $this->get('id_kategorilayanan');
         if ($id == '') {
-            $layanan = $this->db->get('kategori_layanan')->result();
+            $kategori = $this->m_layananPublik->getKategori();
         } else {
-            $this->db->where('id_kategorilayanan', $id);
-            $layanan = $this->db->get('kategori_layanan')->result();
+            $kategori = $this->m_layananPublik->getKategori($id);
         }
+        $this->response($kategori, 200);
+    }
+
+    //Menampilkan data Layanan Publik
+    function index_getLayanan()
+    {
+        $id = $this->get('id_layanan');
+        $layanan = $this->m_layananPublik->getLayanan($id);
         $this->response($layanan, 200);
     }
 }

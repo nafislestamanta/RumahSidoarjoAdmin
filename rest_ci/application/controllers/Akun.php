@@ -39,6 +39,7 @@ class Akun extends REST_Controller
             'jenis_kelamin' => $this->post('jenis_kelamin'),
             'no_telepon' => $this->post('no_telepon'),
             'password' => md5($this->post('password')),
+            'foto_profil' => md5($this->post('foto_profil')),
             'status' => 0,
         );
         $insert = $this->m_akun->postAkun($data);
@@ -60,7 +61,9 @@ class Akun extends REST_Controller
             'tanggal_lahir' => $this->put('tanggal_lahir'),
             'jenis_kelamin' => $this->put('jenis_kelamin'),
             'no_telepon' => $this->put('no_telepon'),
-            'password' => $this->put('password')
+            'password' => $this->put('password'),
+            'password' => $this->put('foto_profil'),
+
         );
         $update = $this->m_akun->putAkun($id, $data);
         if ($update) {
