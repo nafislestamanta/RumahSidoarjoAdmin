@@ -20,9 +20,9 @@ class Kesehatan extends REST_Controller
     {
         $id = $this->get('id_kesehatan');
         if ($id == '') {
-            $kesehatan = $this->m_kesehatan->getRSU();
+            $kesehatan = $this->m_kesehatan->getPKMU();
         } else {
-            $kesehatan = $this->m_kesehatan->getRSU($id);
+            $kesehatan = $this->m_kesehatan->getPKMU($id);
         }
         $this->response($kesehatan, 200);
     }

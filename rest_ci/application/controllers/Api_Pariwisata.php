@@ -20,9 +20,9 @@ class Pariwisata extends REST_Controller
     {
         $id = $this->get('id_wisata');
         if ($id == '') {
-            $pariwisata = $this->m_pariwisata->getWisataId();
+            $pariwisata = $this->m_pariwisata->getWisataPemancingan();
         } else {
-            $pariwisata = $this->m_pariwisata->getWisataId($id);
+            $pariwisata = $this->m_pariwisata->getWisataPemancingan($id);
         }
         $this->response($pariwisata, 200);
     }

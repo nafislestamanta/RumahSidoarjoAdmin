@@ -39,7 +39,6 @@ class Akun extends REST_Controller
             'jenis_kelamin' => $this->post('jenis_kelamin'),
             'no_telepon' => $this->post('no_telepon'),
             'password' => md5($this->post('password')),
-            'foto_profil' => md5($this->post('foto_profil')),
             'status' => 0,
         );
         $insert = $this->m_akun->postAkun($data);
