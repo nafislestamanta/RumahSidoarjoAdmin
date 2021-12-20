@@ -32,6 +32,84 @@ class Api_Pariwisata extends REST_Controller
         );
     }
 
+    function sejarah_get()
+    {
+        $id = $this->get('id_wisata');
+
+        if ($id == '') {
+            $pariwisata = $this->api_m_pariwisata->getWisataSejarah();
+
+
+            $this->response(
+                array(
+                    'status' => true,
+                    'message' => 'berhasil mengambil data',
+                    'data' => $pariwisata,
+                ),
+                200
+            );
+        } else {
+            $pariwisata = $this->api_m_pariwisata->getWisataSejarah($id);
+            $tarif = $this->db->get_where("tarif_wisata", ["id_wisata" => $id])->result_array();
+            $menu = $this->db->get_where("menu_kuliner", ["id_wisata" => $id])->result_array();
+            $this->db->join('user_mobile', 'user_mobile.NIK=ulasan_wisata.NIK');
+            $this->db->limit(2);
+            $this->db->order_by('id_ulasan', 'DESC');
+            $ulasan = $this->db->get_where("ulasan_wisata", ["id_wisata" => $id])->result_array();
+
+            $this->response(
+                array(
+                    'status' => true,
+                    'message' => 'berhasil mengambil data',
+                    'pariwisata' => $pariwisata,
+                    'tarif' => $tarif,
+                    'ulasan' => $ulasan,
+                    'menu' => $menu,
+                ),
+                200
+            );
+        }
+    }
+
+    function kuliner_get()
+    {
+        $id = $this->get('id_wisata');
+
+        if ($id == '') {
+            $pariwisata = $this->api_m_pariwisata->getWisataKuliner();
+
+
+            $this->response(
+                array(
+                    'status' => true,
+                    'message' => 'berhasil mengambil data',
+                    'data' => $pariwisata,
+                ),
+                200
+            );
+        } else {
+            $pariwisata = $this->api_m_pariwisata->getWisataKuliner($id);
+            $tarif = $this->db->get_where("tarif_wisata", ["id_wisata" => $id])->result_array();
+            $menu = $this->db->get_where("menu_kuliner", ["id_wisata" => $id])->result_array();
+            $this->db->join('user_mobile', 'user_mobile.NIK=ulasan_wisata.NIK');
+            $this->db->limit(2);
+            $this->db->order_by('id_ulasan', 'DESC');
+            $ulasan = $this->db->get_where("ulasan_wisata", ["id_wisata" => $id])->result_array();
+
+            $this->response(
+                array(
+                    'status' => true,
+                    'message' => 'berhasil mengambil data',
+                    'pariwisata' => $pariwisata,
+                    'tarif' => $tarif,
+                    'ulasan' => $ulasan,
+                    'menu' => $menu,
+                ),
+                200
+            );
+        }
+    }
+
     //Menampilkan data pariwisata semua dan berdasarkan id
     function index_get()
     {
