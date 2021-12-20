@@ -15,6 +15,23 @@ class Api_Pariwisata extends REST_Controller
         $this->load->model('rest-api/api_m_pariwisata');
     }
 
+    function ulasan_get()
+    {
+        $id = $this->get('id_wisata');
+        $this->db->join('user_mobile', 'user_mobile.NIK=ulasan_wisata.NIK');
+        $this->db->order_by('id_ulasan', 'DESC');
+        $ulasan = $this->db->get_where("ulasan_wisata", ["id_wisata" => $id])->result_array();
+
+        $this->response(
+            array(
+                'status' => true,
+                'message' => 'berhasil mengambil data',
+                'data' => $ulasan,
+            ),
+            200
+        );
+    }
+
     //Menampilkan data pariwisata semua dan berdasarkan id
     function index_get()
     {
@@ -35,7 +52,10 @@ class Api_Pariwisata extends REST_Controller
         } else {
             $pariwisata = $this->api_m_pariwisata->getWisataPemancingan($id);
             $tarif = $this->db->get_where("tarif_wisata", ["id_wisata" => $id])->result_array();
+            $menu = $this->db->get_where("menu_kuliner", ["id_wisata" => $id])->result_array();
             $this->db->join('user_mobile', 'user_mobile.NIK=ulasan_wisata.NIK');
+            $this->db->limit(2);
+            $this->db->order_by('id_ulasan', 'DESC');
             $ulasan = $this->db->get_where("ulasan_wisata", ["id_wisata" => $id])->result_array();
 
             $this->response(
@@ -45,6 +65,7 @@ class Api_Pariwisata extends REST_Controller
                     'pariwisata' => $pariwisata,
                     'tarif' => $tarif,
                     'ulasan' => $ulasan,
+                    'menu' => $menu,
                 ),
                 200
             );
@@ -68,7 +89,7 @@ class Api_Pariwisata extends REST_Controller
         $foto2 = '';
         $foto3 = '';
 
-        if ($_FILES['foto1']['error'] != 4) {
+        if (isset($_FILES['foto1']) && $_FILES['foto1']['error'] != 4) {
             // do upload
             if ($this->upload->do_upload('foto1')) {
                 $foto1 = $this->upload->data()['file_name'];
@@ -78,7 +99,7 @@ class Api_Pariwisata extends REST_Controller
             }
             // apakah upload berhasil
         }
-        if ($_FILES['foto2']['error'] != 4) {
+        if (isset($_FILES['foto2']) && $_FILES['foto2']['error'] != 4) {
             // do upload
             if ($this->upload->do_upload('foto2')) {
                 $foto2 = $this->upload->data()['file_name'];
@@ -88,7 +109,7 @@ class Api_Pariwisata extends REST_Controller
             }
             // apakah upload berhasil
         }
-        if ($_FILES['foto3']['error'] != 4) {
+        if (isset($_FILES['foto3']) && $_FILES['foto3']['error'] != 4) {
             // do upload
             if ($this->upload->do_upload('foto3')) {
                 $foto3 =  $this->upload->data()['file_name'];
@@ -102,8 +123,10 @@ class Api_Pariwisata extends REST_Controller
         $id = $this->post('id_wisata');
         if ($flagStatus) {
             $data = array(
+                'NIK' => $this->post('nik'),
                 'ulasan' => $this->post('ulasan'),
                 'id_wisata' => $id,
+                'tanggal_upload' => date("Y-m-d", time()),
                 'foto1' => $foto1,
                 'foto2' => $foto2,
                 'foto3' => $foto3,

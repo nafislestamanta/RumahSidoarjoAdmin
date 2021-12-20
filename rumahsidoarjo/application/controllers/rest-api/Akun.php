@@ -126,7 +126,7 @@ class Akun extends REST_Controller
     {
         $config['upload_path']        =    './assets/img/';
         $config['allowed_types']    =    'jpg|jpeg|png|JPG|JPEG|PNG';
-        $config['max_size']            =    5000;
+        $config['max_size']            =    10000;
         $config['overwrite']            =    true;
         $config['encrypt_name']            =    true;
 

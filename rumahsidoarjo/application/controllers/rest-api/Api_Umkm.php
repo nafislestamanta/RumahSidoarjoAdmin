@@ -24,7 +24,14 @@ class Api_Umkm extends REST_Controller
         } else {
             $umkm = $this->m_umkm->getUmkm($id);
         }
-        $this->response($umkm, 200);
+        $this->response(
+            array(
+                'status' => true,
+                'message' => 'berhasil mengambil data',
+                'data' => $umkm,
+            ),
+            200
+        );
     }
 
     //Menampilkan data Umkm
