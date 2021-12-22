@@ -2,33 +2,50 @@
 
 class m_umkm extends CI_Model
 {
-    public function getUmkm($id = null)
+    public function post_ulasanUmkm($data)
     {
-
-        if ($id === null) {
-            return $this->db->get_where('umkm', ['kategori' => 'Kerajinan'])->result_array();
-        } else {
-            return $this->db->get_where('umkm', ['id_umkm' => $id])->result_array();
-        }
+        return $this->db->insert('ulasan_umkm', $data);
     }
 
-    public function getPertanian($id = null)
+    public function getKerajinan($id = null)
     {
+        $this->db->select('*');
+        $this->db->from('umkm');
+        $this->db->where('kategori = "Kerajinan"');
 
         if ($id === null) {
-            return $this->db->get_where('umkm', ['kategori' => 'Pertanian'])->result_array();
+            return $this->db->get()->result_array();
         } else {
-            return $this->db->get_where('umkm', ['id_umkm' => $id])->result_array();
+            $this->db->where('id_umkm', $id);
+            return $this->db->get()->row_array();
         }
     }
 
     public function getMakanan($id = null)
     {
+        $this->db->select('*');
+        $this->db->from('umkm');
+        $this->db->where('kategori = "Makanan"');
 
         if ($id === null) {
-            return $this->db->get_where('umkm', ['kategori' => 'Makanan'])->result_array();
+            return $this->db->get()->result_array();
         } else {
-            return $this->db->get_where('umkm', ['id_umkm' => $id])->result_array();
+            $this->db->where('id_umkm', $id);
+            return $this->db->get()->row_array();
+        }
+    }
+
+    public function getPertanian($id = null)
+    {
+        $this->db->select('*');
+        $this->db->from('umkm');
+        $this->db->where('kategori = "Pertanian"');
+
+        if ($id === null) {
+            return $this->db->get()->result_array();
+        } else {
+            $this->db->where('id_umkm', $id);
+            return $this->db->get()->row_array();
         }
     }
 }

@@ -201,7 +201,7 @@ class Api_Pariwisata extends REST_Controller
         $id = $this->post('id_wisata');
         if ($flagStatus) {
             $data = array(
-                'NIK' => $this->post('nik'),
+                'NIK' => $this->post('NIK'),
                 'ulasan' => $this->post('ulasan'),
                 'id_wisata' => $id,
                 'tanggal_upload' => date("Y-m-d", time()),
@@ -228,11 +228,30 @@ class Api_Pariwisata extends REST_Controller
                 ), 200);
             }
         } else {
-            $this->response(array(
-                'status' => false,
-                'message' => 'Gambar tidak sesuai format',
-                'data' => [],
-            ), 200);
+            $data = array(
+                'NIK' => $this->post('NIK'),
+                'ulasan' => $this->post('ulasan'),
+                'id_wisata' => $id,
+                'tanggal_upload' => date("Y-m-d", time()),
+            );
+            $post = $this->api_m_pariwisata->post_ulasan($data);
+
+            if ($post) {
+                $this->response(
+                    array(
+                        'status' => true,
+                        'message' => 'Ulasan berhasil ditambah',
+                        'data' => $data,
+                    ),
+                    200
+                );
+            } else {
+                $this->response(array(
+                    'status' => false,
+                    'message' => 'Gagal menambahkan ulasan',
+                    'data' => [],
+                ), 200);
+            }
         }
     }
 }
