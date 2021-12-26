@@ -208,4 +208,81 @@ class Akun extends REST_Controller
             ), 200);
         }
     }
+
+    private function _sendEmail_post($token, $type)
+    {
+        $config = [
+            'protocol' => 'smtp',
+            'smtp_host' => 'ssl://smtp.googlemail.com',
+            'smtp_user' => 'nafislestamanta@gmail.com',
+            'smtp_pass' => 'kembarlestamanta',
+            'smtp_port' => 465,
+            'mailtype' => 'html',
+            'charset' => 'utf-8',
+            'newline' => "\r\n"
+        ];
+
+        $this->load->library('email', $config);
+
+        $this->email->initialize($config);
+        $this->email->from('nafislestamanta@gmail.com', 'Reset Password Rumah Sidoarjo');
+        $this->email->to($this->post('email'));
+
+        if ($type == 'forgot') {
+            $this->email->subject('Reset Password');
+            $this->email->message('Silahkan Click Link untuk melakukan Reset Password : <a href="' . base_url() . 'auth/resetpassworduser?email=' . $this->post('email') . '&token=' . urlencode($token) . '">Reset Password</a>');
+        }
+
+        if ($this->email->send()) {
+            return true;
+        } else {
+            // echo $this->email->print_debugger();
+            return false;
+        }
+    }
+
+    public function forgotPassword_post()
+    {
+        $email = $this->post('email');
+        $user = $this->db->get_where('user_mobile', ['email' => $email])->row_array();
+
+        if ($user) {
+            $token = base64_encode(random_bytes(32));
+            $user_token = [
+                'email' => $email,
+                'token' => $token,
+                'date_create' => time()
+            ];
+
+            $this->db->insert('user_token', $user_token);
+            if ($this->_sendEmail_post($token, 'forgot')) {
+                $this->response(
+                    array(
+                        'status' => true,
+                        'message' => 'Silahkan cek Email anda Untuk Mereset Password',
+                        'data' => $user_token,
+                    ),
+                    200
+                );
+            } else {
+                $this->response(
+                    array(
+                        'status' => false,
+                        'message' => 'Gagal mengirim email',
+                        'data' => [],
+                    ),
+                    200
+                );
+            }
+        } else {
+            $this->response(
+                array(
+                    'status' => false,
+                    'message' => 'Email Tidak Terdaftar',
+                    'data' => [],
+                ),
+                200
+            );
+        }
+    }
 }
