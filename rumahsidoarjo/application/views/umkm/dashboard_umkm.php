@@ -79,6 +79,31 @@
               </div>
           </div>
 
+          <div class="col-xl-3 col-md-3 mb-5">
+              <div class="card border-left-danger">
+                  <div class="card-body">
+                      <div class="row no-gutters align-items-center">
+                          <div class="col mr-2">
+                              <div class="font-weight-bold text-danger mb-1" style="padding-left: 15px;">
+                                  Ulasan
+                              </div> <br>
+                              <div class="h4 font-weight-bold text-gray-700" style="padding-left: 15px;">
+                                  <?php echo $ulasan->total ?></div>
+                          </div>
+                          <div class="col-auto">
+                              <i class="far fa-comments fa-5x text-gray-300"></i>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="btn bg-gradient-light text-center">
+                      <a href="<?= base_url('Umkm'); ?>" aria-current="page" style="color:black">
+                          Detail
+                          <i class="fas fa-arrow-circle-right"></i>
+                      </a>
+                  </div>
+              </div>
+          </div>
+
       </div>
 
       <!-- Content Grafik -->

@@ -22,12 +22,6 @@
                                           value="<?= $edit->nama_perusahaan ?>">
                                   </div>
 
-                                  <!-- <div class="form-group">
-                                      <label>Kepemilikan</label>
-                                      <input name="kepemilikan" id="kepemilikan" value="<?= $edit->kepemilikan ?>"
-                                          class="form-control">
-                                  </div> -->
-
                                   <div class="form-group">
                                       <label for="enum">
                                           <h6>Kepemilikan</h6>
@@ -73,12 +67,21 @@
                                           value="<?= $edit->deskripsi ?>">
                                   </div>
 
-                                  <div class="form-group">
-                                      <label>Gambar</label> <br>
-                                      <input type="file" accept="image/png, .jpeg, .jpg" id="foto" name="foto"
-                                          value="<?= $edit->foto ?>" onchange="foto(this.value)">
-                                      <img src="holder.jpg" id="ayam" name="ayam" width="150px">
-                                  </div>
+                                  <tr>
+                                      <td>Gambar</td>
+                                      <td>
+                                          <?= $this->session->flashdata('alert'); ?>
+                                          <div class="form-group">
+                                              <br>
+                                              <img src="<?= base_url('assets/img/' . $edit->foto); ?>" id="foto"
+                                                  width="150px">
+                                              <a data-toggle="modal" type="submit"
+                                                  data-target="#editmodalgambar<?= $edit->id ?>"
+                                                  class="btn-sm btn-primary">Edit</a>
+                                              <?= form_error('gambar', '<small class="text-danger pl-2">', '</small>');  ?>
+                                          </div>
+                                      </td>
+                                  </tr>
 
                                   <div class="card-footer">
                                       <button type="submit" class="btn btn-info">Update</button>
@@ -93,10 +96,46 @@
           </div>
       </section>
 
+
+      <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1"
+          id="editmodalgambar<?= $edit->id ?>" class="modal fade">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="text-center" style="color: darkcyan;">Edit Gambar</h5>
+                  </div>
+                  <form class="form-horizontal"
+                      action="<?php echo base_url('LowonganKerja/simpanGambar/' . $edit->id) ?>" method="post"
+                      enctype="multipart/form-data" role="form">
+                      <div class="modal-body">
+                          <div class="form-group">
+                              <div class="col-lg-10">
+                                  <label class="col-lg-5 col-sm-5 control-label">Foto Lama</label>
+                                  <img src="<?= base_url('assets/img/' . $edit->foto); ?>" id="foto" width="150px">
+                              </div>
+                              <br>
+                              <input type="file" id="foto" name="foto" accept="image/png, .jpeg, .jpg"
+                                  onchange="gambar11(this.value)">
+                              <div class="col-lg-10">
+                                  <br>
+                                  <label class="col-lg-5 col-sm-5 control-label">Foto Baru</label>
+                                  <img src="holder.jpg" id="foto11" width="150px">
+                              </div>
+                          </div>
+                      </div>
+                      <div class="modal-footer">
+                          <button class="btn-sm btn-info" type="submit"> Simpan&nbsp;</button>
+                          <button type="button" class="btn-sm btn-warning" data-dismiss="modal"> Batal</button>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       <script type="text/javascript">
-      function foto(val) {
-          $("#ayam").attr('src', URL.createObjectURL(event.target.files[0]));
+      function gambar11(val) {
+          $("#foto11").attr('src', URL.createObjectURL(event.target.files[0]));
       }
       </script>
   </div>

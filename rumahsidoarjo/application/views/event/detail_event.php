@@ -40,16 +40,34 @@
                             <td><?= $event->deskripsi; ?></td>
                         </tr>
                         <tr>
-                            <td>Foto Utama</td>
-                            <td><?= $event->foto1; ?></td>
+                            <td>Foto 1</td>
+                            <td>
+                                <?= $this->session->flashdata('alert'); ?>
+                                <div class="form-group">
+                                    <br>
+                                    <img src="<?= base_url('assets/img/' . $event->foto1); ?>" id="foto" width="150px">
+                                </div>
+                            </td>
                         </tr>
                         <tr>
-                            <td>Foto Kedua</td>
-                            <td><?= $event->foto2; ?></td>
+                            <td>Foto 2</td>
+                            <td>
+                                <?= $this->session->flashdata('alert'); ?>
+                                <div class="form-group">
+                                    <br>
+                                    <img src="<?= base_url('assets/img/' . $event->foto2); ?>" id="foto" width="150px">
+                                </div>
+                            </td>
                         </tr>
                         <tr>
-                            <td>Foto Ketiga</td>
-                            <td><?= $event->foto3; ?></td>
+                            <td>Foto 3</td>
+                            <td>
+                                <?= $this->session->flashdata('alert'); ?>
+                                <div class="form-group">
+                                    <br>
+                                    <img src="<?= base_url('assets/img/' . $event->foto3); ?>" id="foto" width="150px">
+                                </div>
+                            </td>
                         </tr>
                     </thead>
                 </table>

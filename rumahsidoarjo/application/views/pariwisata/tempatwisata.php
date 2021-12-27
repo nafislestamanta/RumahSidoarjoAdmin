@@ -11,8 +11,10 @@
           <div>
               <div class="card-header py-3">
                   <div class="col-auto">
-                      <a href="<?= base_url('pariwisata/tambah_wisata'); ?>" class="btn-sm btn-primary"><i class="fas fa-plus" style="padding-right: 8px;"></i>Tambah Data</a>
-                      <a href="<?= base_url(''); ?>" class="btn-sm btn-success"><i class="fas fa-download" style="padding-right: 8px;"></i>Report</a>
+                      <a href="<?= base_url('pariwisata/tambah_wisata'); ?>" class="btn-sm btn-primary"><i
+                              class="fas fa-plus" style="padding-right: 8px;"></i>Tambah Data</a>
+                      <a href="<?= base_url(''); ?>" class="btn-sm btn-success"><i class="fas fa-download"
+                              style="padding-right: 8px;"></i>Report</a>
                   </div>
               </div>
               <div class="card-body">
@@ -34,19 +36,27 @@
                           <tbody>
                               <?php $no = 1;
                                 foreach ($tampil as $t) : ?>
-                                  <tr>
-                                      <td><?= $no++ ?></td>
-                                      <td><?= $t->kategori ?></td>
-                                      <td><?= $t->nama_wisata ?></td>
-                                      <td><?= word_limiter($t->alamat, 2) ?></td>
-                                      <td><?= $t->no_telepon ?></td>
-                                      <td class="text-center">
-                                          <a href="<?= base_url('Pariwisata/edit_wisata/' . $t->id_wisata); ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
-                                          <a href="<?= base_url('Pariwisata/detail_wisata/' . $t->id_wisata); ?>" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
-                                          <a href="<?= base_url('Pariwisata/delete_wisata/' . $t->id_wisata); ?>" class="btn btn-danger btn-sm" onclick="javascript: return confirm('Anda Yakin Hapus ?')"><i class="fa fa-trash"></i></a>
-                                          </a>
-                                      </td>
-                                  </tr>
+                              <tr>
+                                  <td><?= $no++ ?></td>
+                                  <td><?= $t->kategori ?></td>
+                                  <td><?= $t->nama_wisata ?></td>
+                                  <td><?= word_limiter($t->alamat, 2) ?></td>
+                                  <td><?= $t->no_telepon ?></td>
+                                  <td class="text-center">
+                                      <a href="<?= base_url('Pariwisata/edit_wisata/' . $t->id_wisata); ?>"
+                                          class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+                                      <a href="<?= base_url('Pariwisata/detail_wisata/' . $t->id_wisata); ?>"
+                                          class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
+                                      <a href="<?= base_url('Pariwisata/delete_wisata/' . $t->id_wisata); ?>"
+                                          class="btn btn-danger btn-sm"
+                                          onclick="javascript: return confirm('Anda Yakin Hapus ?')"><i
+                                              class="fa fa-trash"></i>
+                                      </a><a style="margin-left: 5px;"
+                                          href="<?= base_url('Pariwisata/ulasan/' . $t->id_wisata); ?>"
+                                          class="btn btn-info btn-sm"><i class="fas fa-comments"></i></a>
+                                      </a>
+                                  </td>
+                              </tr>
                               <?php endforeach; ?>
                           </tbody>
                       </table>

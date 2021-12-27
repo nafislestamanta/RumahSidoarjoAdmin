@@ -65,7 +65,10 @@
                                     class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a><a
                                     style="margin-left: 5px;" href="<?= base_url('Umkm/delete/' . $a->id_umkm); ?>"
                                     onclick="javascript: return confirm('Anda Yakin Hapus ?')"
-                                    class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a></td>
+                                    class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                <a style="margin-left: 5px;" href="<?= base_url('Umkm/ulasan/' . $a->id_umkm); ?>"
+                                    class="btn btn-info btn-sm"><i class="fas fa-comments"></i></a>
+                            </td>
                         </tr>
                         <?php endforeach; ?>
 
@@ -83,7 +86,10 @@
                                     class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a><a
                                     style="margin-left: 5px;" href="<?= base_url('Umkm/delete/' . $a->id_umkm); ?>"
                                     onclick="javascript: return confirm('Anda Yakin Hapus ?')"
-                                    class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a></td>
+                                    class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                <a style="margin-left: 5px;" href="<?= base_url('Umkm/ulasan/' . $a->id_umkm); ?>"
+                                    class="btn btn-info btn-sm"><i class="fas fa-comments"></i></a>
+                            </td>
                         </tr>
                         <?php endforeach; ?>
 
@@ -101,7 +107,10 @@
                                     class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a><a
                                     style="margin-left: 5px;" href="<?= base_url('Umkm/delete/' . $a->id_umkm); ?>"
                                     onclick="javascript: return confirm('Anda Yakin Hapus ?')"
-                                    class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a></td>
+                                    class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                <a style="margin-left: 5px;" href="<?= base_url('Umkm/ulasan/' . $a->id_umkm); ?>"
+                                    class="btn btn-info btn-sm"><i class="fas fa-comments"></i></a>
+                            </td>
                         </tr>
                         <?php endforeach; ?>
 
@@ -119,9 +128,12 @@
                                     class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a><a
                                     style="margin-left: 5px;" href="<?= base_url('Umkm/delete/' . $a->id_umkm); ?>"
                                     onclick="javascript: return confirm('Anda Yakin Hapus ?')"
-                                    class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a></td>
+                                    class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                <a style="margin-left: 5px;" href="<?= base_url('Umkm/ulasan/' . $a->id_umkm); ?>"
+                                    class="btn btn-info btn-sm"><i class="fas fa-comments"></i></a>
+                            </td>
                         </tr>
-                        </tr>
+
                         <?php endforeach; ?>
                         <?php endif; ?>
                     </tbody>

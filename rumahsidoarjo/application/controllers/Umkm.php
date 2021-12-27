@@ -30,7 +30,7 @@ class Umkm extends CI_Controller
         $data['kerajinan'] = $this->M_umkm->jmlh_kerajinan()->row();
         $data['makanan'] = $this->M_umkm->jmlh_makanan()->row();
         $data['pertanian'] = $this->M_umkm->jmlh_pertanian()->row();
-
+        $data['ulasan'] = $this->M_umkm->jmlh_ulasan()->row();
         $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['title'] = 'Dashboard UMKM';
         $this->load->view('admin/templates/header', $data);
@@ -304,6 +304,114 @@ class Umkm extends CI_Controller
                 }
                 redirect('Umkm', $data);
             }
+        }
+    }
+
+    public function ulasan($id)
+    {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
+        $data['ulasan'] = $this->M_umkm->ulasan($id)->row();
+        $data['ulasan2'] = $this->M_umkm->ulasan22($id)->result();
+        // $data['tampil'] = $this->M_umkm->tampil()->result();
+        $data['title'] = 'ulasan';
+        $this->load->view('admin/templates/header', $data);
+        $this->load->view('admin/templates/sidebar', $data);
+        $this->load->view('admin/templates/topbar', $data);
+        $this->load->view('umkm/ulasan', $data);
+        $this->load->view('admin/templates/footer', $data);
+    }
+
+
+    public function delete_ulasan($id)
+    {
+        $delete = $this->M_umkm->delete_ulasan($id);
+        if ($delete) {
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Ulasan yang anda pilih telah terhapus</div>');
+        } else {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Tidak bisa hapus data</div>');
+        }
+        redirect('Umkm');
+    }
+
+
+    public function simpanGambar($id)
+    {
+        $foto1 = $_FILES['foto1']['name'];
+        $foto2 = $_FILES['foto2']['name'];
+        $foto3 = $_FILES['foto3']['name'];
+
+        $config['upload_path']        =    './assets/img/';
+        $config['allowed_types']    =    'jpg|jpeg|png';
+        $config['max_size']            =    10000;
+
+        $this->load->library('upload', $config);
+
+        if ($foto1) {
+            if ($this->upload->do_upload('foto1')) {
+
+                $data = [
+                    'foto1' => preg_replace("/\s+/", "_", $foto1),
+                ];
+
+                $update = $this->M_umkm->update_gambar($id, $data);
+
+                if ($update) {
+                    $this->session->set_flashdata('alert', '<div class="alert alert-success" role="alert">Gambar Berhasil di Update</div>');
+                    redirect('Umkm/edit_umkm/' . $id);
+                } else {
+                    $this->session->set_flashdata('alert', '<div class="alert alert-warning" role="alert">Gambar tidak berhasil di Update</div>');
+                    redirect('Umkm/edit_umkm/' . $id);
+                }
+            } else {
+                $error = array('error' => $this->upload->display_errors());
+                $this->session->set_flashdata('alert', '<div class="alert alert-danger" role="alert">Gambar tidak sesuai format</div>');
+                redirect('Umkm/edit_umkm/' . $id);
+            }
+        } elseif ($foto2) {
+            if ($this->upload->do_upload('foto2')) {
+
+                $data = [
+                    'foto2' => preg_replace("/\s+/", "_", $foto2),
+                ];
+
+                $update = $this->M_umkm->update_gambar($id, $data);
+
+                if ($update) {
+                    $this->session->set_flashdata('alert1', '<div class="alert alert-success" role="alert">Gambar Berhasil di Update</div>');
+                    redirect('Umkm/edit_umkm/' . $id);
+                } else {
+                    $this->session->set_flashdata('alert1', '<div class="alert alert-warning" role="alert">Gambar tidak berhasil di Update</div>');
+                    redirect('Umkm/edit_umkm/' . $id);
+                }
+            } else {
+                $error = array('error' => $this->upload->display_errors());
+                $this->session->set_flashdata('alert1', '<div class="alert alert-danger" role="alert">Gambar tidak sesuai format</div>');
+                redirect('Umkm/edit_umkm/' . $id);
+            }
+        } elseif ($foto3) {
+            if ($this->upload->do_upload('foto3')) {
+
+                $data = [
+                    'foto3' => preg_replace("/\s+/", "_", $foto3),
+                ];
+
+                $update = $this->M_umkm->update_gambar($id, $data);
+
+                if ($update) {
+                    $this->session->set_flashdata('alert2', '<div class="alert alert-success" role="alert">Gambar Berhasil di Update</div>');
+                    redirect('Umkm/edit_umkm/' . $id);
+                } else {
+                    $this->session->set_flashdata('alert2', '<div class="alert alert-warning" role="alert">Gambar tidak berhasil di Update</div>');
+                    redirect('Umkm/edit_umkm/' . $id);
+                }
+            } else {
+                $error = array('error' => $this->upload->display_errors());
+                $this->session->set_flashdata('alert2', '<div class="alert alert-danger" role="alert">Gambar tidak sesuai format</div>');
+                redirect('Umkm/edit_umkm/' . $id);
+            }
+        } else {
+            $this->session->set_flashdata('alert3', '<div class="alert alert-danger" role="alert">Data Gagal Ditambahkan, Harap Mengupload Gambar</div>');
+            redirect('Umkm/edit_umkm/' . $id);
         }
     }
 }

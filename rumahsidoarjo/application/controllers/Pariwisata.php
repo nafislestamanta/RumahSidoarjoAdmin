@@ -762,4 +762,29 @@ class Pariwisata extends CI_Controller
         }
         redirect('Pariwisata/edit_wisata/' . $id);
     }
+
+    public function ulasan($id)
+    {
+        $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
+        $data['ulasan'] = $this->M_pariwisata->ulasan($id)->row();
+        $data['ulasan3'] = $this->M_pariwisata->kategori($id)->row();
+        $data['ulasan2'] = $this->M_pariwisata->ulasan22($id)->result();
+        $data['title'] = 'ulasan';
+        $this->load->view('admin/templates/header', $data);
+        $this->load->view('admin/templates/sidebar', $data);
+        $this->load->view('admin/templates/topbar', $data);
+        $this->load->view('pariwisata/ulasan', $data);
+        $this->load->view('admin/templates/footer', $data);
+    }
+
+    public function delete_ulasan($id)
+    {
+        $delete = $this->M_pariwisata->delete_ulasan($id);
+        if ($delete) {
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Ulasan yang anda pilih telah terhapus</div>');
+        } else {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Tidak bisa hapus data</div>');
+        }
+        redirect('Pariwisata');
+    }
 }

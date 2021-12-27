@@ -112,10 +112,60 @@ class M_umkm extends CI_model
     }
     function jmlh_pertanian()
     {
-        $this->db->select('*, COUNT(kategori) as total');
-        $this->db->from('umkm');
-        $this->db->where('kategori="Pertanian"');
+        $this->db->select('*, COUNT(id_ulasan) as total');
+        $this->db->from('ulasan_umkm');
+        //$this->db->where('kategori="Pertanian"');
         $hasil = $this->db->get();
         return $hasil;
+    }
+
+    function jmlh_ulasan()
+    {
+        $this->db->select('*, COUNT(kategori) as total');
+        $this->db->from('umkm');
+        $this->db->where('kategori="Kerajinan"');
+        $hasil = $this->db->get();
+        return $hasil;
+    }
+
+    public function ulasan($id)
+    {
+        $this->db->select('*');
+        $this->db->from('umkm');
+        $this->db->where('id_umkm', $id);
+        $query = $this->db->get();
+        return $query;
+    }
+
+    // public function ulasan2($id)
+    // {
+    //     $this->db->select('*');
+    //     $this->db->from('umkm');
+    //     $this->db->join('ulasan_umkm', 'ulasan_umkm.id_ulasan = umkm.id_ulasan');
+    //     $this->db->join('user_mobile', 'user_mobile.id_umkm = umkm.id_umkm');
+    //     $this->db->where('umkm.id_umkm', $id);
+    //     $query = $this->db->get();
+    //     return $query;
+    // }
+
+    public function ulasan22($id)
+    {
+        $this->db->select('*');
+        $this->db->from('ulasan_umkm');
+        $this->db->join('umkm', 'umkm.id_umkm=ulasan_umkm.id_umkm');
+        $this->db->join('user_mobile', 'user_mobile.NIK=ulasan_umkm.NIK');
+        $this->db->where('ulasan_umkm.id_umkm', $id);
+        $query = $this->db->get();
+        return $query;
+    }
+
+    public function delete_ulasan($id)
+    {
+        return $this->db->where('id_ulasan', $id)->delete('ulasan_umkm');
+    }
+
+    public function update_gambar($id, $data)
+    {
+        return $this->db->where('id_umkm', $id)->update('umkm', $data);
     }
 }

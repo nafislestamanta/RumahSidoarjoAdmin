@@ -47,16 +47,29 @@
                             <td><?= $detail->deskripsi_pekerjaan; ?></td>
                         </tr>
                         <tr>
-                            <td class="font-weight-bold">Foto</td>
-                            <td><?= $detail->foto_lowongan; ?></td>
+                            <td>Foto</td>
+                            <td>
+                                <?= $this->session->flashdata('alert'); ?>
+                                <div class="form-group">
+                                    <br>
+                                    <img src="<?= base_url('assets/img/' . $detail->foto_lowongan); ?>" id="foto"
+                                        width="150px">
+                                </div>
+                            </td>
                         </tr>
                         <tr>
-                            <td class="font-weight-bold">File</td>
-                            <td><?= $detail->file; ?></td>
+                            <td>File</td>
+                            <td>
+                                <?= $this->session->flashdata('alert'); ?>
+                                <div class="form-group">
+                                    <br>
+                                    <img src="<?= base_url('assets/img/' . $detail->file); ?>" id="foto" width="150px">
+                                </div>
+                            </td>
                         </tr>
                     </thead>
                 </table>
-                <a href="<?= base_url('LowonganKerja/lowongan'); ?>" class="btn-sm btn-danger">Kembali</a>
+                <a href="<?= base_url('LowonganKerja/lowongan'); ?>" class="btn btn-danger">Kembali</a>
             </div>
         </div>
     </div>

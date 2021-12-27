@@ -128,4 +128,14 @@ class M_kerja extends CI_model
         $hasil = $this->db->get();
         return $hasil;
     }
+
+    public function update_gambar($id, $data)
+    {
+        return $this->db->where('id', $id)->update('perusahaan', $data);
+    }
+
+    public function update_gambar_lowongan($id, $data)
+    {
+        return $this->db->where('id_lowongan', $id)->update('lowongan', $data);
+    }
 }

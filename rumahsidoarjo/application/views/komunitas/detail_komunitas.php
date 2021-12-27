@@ -40,16 +40,35 @@
                             <td><?= $detail->sosialmedia; ?></td>
                         </tr>
                         <tr>
-                            <td class="font-weight-bold">Foto 1</td>
-                            <td><?= $detail->foto1; ?></td>
+                            <td>Foto 1</td>
+                            <td>
+                                <?= $this->session->flashdata('alert'); ?>
+                                <div class="form-group">
+                                    <br>
+                                    <img src="<?= base_url('assets/img/' . $detail->foto1); ?>" id="foto" width="150px">
+                                </div>
+                            </td>
                         </tr>
                         <tr>
-                            <td class="font-weight-bold">Foto 2</td>
-                            <td><?= $detail->foto2; ?></td>
-                        </tr>
+                            <td>Foto 2</td>
+                            <td>
+                                <?= $this->session->flashdata('alert'); ?>
+                                <div class="form-group">
+                                    <br>
+                                    <img src="<?= base_url('assets/img/' . $detail->foto2); ?>" id="foto" width="150px">
+                                </div>
+                            </td>
+                        </tr>>
                         <tr>
-                            <td class="font-weight-bold">Foto 3</td>
-                            <td><?= $detail->foto_profil; ?></td>
+                            <td>Foto 3</td>
+                            <td>
+                                <?= $this->session->flashdata('alert'); ?>
+                                <div class="form-group">
+                                    <br>
+                                    <img src="<?= base_url('assets/img/' . $detail->foto_profil); ?>" id="foto"
+                                        width="150px">
+                                </div>
+                            </td>
                         </tr>
                     </thead>
                 </table>

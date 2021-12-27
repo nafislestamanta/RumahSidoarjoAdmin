@@ -175,4 +175,40 @@ class M_pariwisata extends CI_Model
         $hasil = $this->db->get();
         return $hasil;
     }
+
+    public function ulasan($id)
+    {
+        $this->db->select('*');
+        $this->db->from('pariwisata');
+        $this->db->where('id_wisata', $id);
+        $query = $this->db->get();
+        return $query;
+    }
+
+    public function ulasan22($id)
+    {
+        $this->db->select('*');
+        $this->db->from('ulasan_wisata');
+        $this->db->join('pariwisata', 'pariwisata.id_wisata=ulasan_wisata.id_wisata');
+        $this->db->join('user_mobile', 'user_mobile.NIK=ulasan_wisata.NIK');
+        //$this->db->join('pariw', 'kategori_wisata.id_katgegori_wisata=pariwisata.id_katgegori_wisata');
+        $this->db->where('ulasan_wisata.id_wisata', $id);
+        $query = $this->db->get();
+        return $query;
+    }
+
+    public function kategori($id)
+    {
+        $this->db->select('*');
+        $this->db->from('pariwisata');
+        $this->db->join('kategori_wisata', 'kategori_wisata.id_kategori_wisata=pariwisata.id_kategori_wisata');
+        $this->db->where('pariwisata.id_wisata', $id);
+        $query = $this->db->get();
+        return $query;
+    }
+
+    public function delete_ulasan($id)
+    {
+        return $this->db->where('id_ulasan', $id)->delete('ulasan_wisata');
+    }
 }

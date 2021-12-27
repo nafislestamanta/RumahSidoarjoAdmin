@@ -155,7 +155,7 @@ class LowonganKerja extends CI_Controller
                     'email' => $email,
                     'penanggung_jawab' => $penanggung_jawab,
                     'deskripsi' => $deskripsi,
-                    'foto' => $foto,
+
                 ];
 
                 $update = $this->M_kerja->update_perusahaan($data, $id);
@@ -175,7 +175,7 @@ class LowonganKerja extends CI_Controller
                     'email' => $email,
                     'penanggung_jawab' => $penanggung_jawab,
                     'deskripsi' => $deskripsi,
-                    'foto' => $foto,
+
                 ];
 
                 $update = $this->M_kerja->update_perusahaan($data, $id);
@@ -353,9 +353,6 @@ class LowonganKerja extends CI_Controller
         $this->form_validation->set_rules('deskripsi_pekerjaan', 'deskripsi_pekerjaan', 'required|trim', [
             'required' => 'Field tidak boleh kosong'
         ]);
-        $this->form_validation->set_rules('foto_lowongan', 'foto_lowongan', 'required|trim', [
-            'required' => 'Field tidak boleh kosong'
-        ]);
         if ($this->form_validation->run() == false) {
             $this->editlowongan($id);
         } else {
@@ -371,7 +368,7 @@ class LowonganKerja extends CI_Controller
                     'judul_lowongan' => $judul_lowongan,
                     'id' => $nama_perusahaan,
                     'deskripsi_pekerjaan' => $deskripsi_pekerjaan,
-                    'foto_lowongan' => preg_replace("/\s+/", "_", $foto_lowongan),
+                    //'foto_lowongan' => preg_replace("/\s+/", "_", $foto_lowongan),
                     // 'foto_lowongan' => $foto_lowongan,
                 ];
 
@@ -389,7 +386,7 @@ class LowonganKerja extends CI_Controller
                     'id' => $nama_perusahaan,
                     'deskripsi_pekerjaan' => $deskripsi_pekerjaan,
                     // 'foto_lowongan' => $foto_lowongan,
-                    'foto_lowongan' => preg_replace("/\s+/", "_", $foto_lowongan),
+                    //'foto_lowongan' => preg_replace("/\s+/", "_", $foto_lowongan),
                 ];
 
                 $update = $this->M_kerja->update_lowongan($data, $id);
@@ -401,6 +398,100 @@ class LowonganKerja extends CI_Controller
                 }
                 redirect('LowonganKerja/lowongan', $data);
             }
+        }
+    }
+
+    public function simpanGambar($id)
+    {
+        $foto = $_FILES['foto']['name'];
+
+        $config['upload_path']        =    './assets/img/';
+        $config['allowed_types']    =    'jpg|jpeg|png';
+        $config['max_size']            =    10000;
+
+        $this->load->library('upload', $config);
+
+        if ($foto) {
+            if ($this->upload->do_upload('foto')) {
+
+                $data = [
+                    'foto' => preg_replace("/\s+/", "_", $foto),
+                ];
+
+                $update = $this->M_kerja->update_gambar($id, $data);
+
+                if ($update) {
+                    $this->session->set_flashdata('alert', '<div class="alert alert-success" role="alert">Gambar Berhasil di Update</div>');
+                    redirect('LowonganKerja/editperusahaan/' . $id);
+                } else {
+                    $this->session->set_flashdata('alert', '<div class="alert alert-warning" role="alert">Gambar tidak berhasil di Update</div>');
+                    redirect('LowonganKerja/editperusahaan/' . $id);
+                }
+            } else {
+                $error = array('error' => $this->upload->display_errors());
+                $this->session->set_flashdata('alert', '<div class="alert alert-danger" role="alert">Gambar tidak sesuai format</div>');
+                redirect('LowonganKerja/editperusahaan/' . $id);
+            }
+        }
+    }
+
+    public function simpanGambarLowongan($id)
+    {
+        $foto_lowongan = $_FILES['foto_lowongan']['name'];
+        $file = $_FILES['file']['name'];
+
+
+        $config['upload_path']        =    './assets/img/';
+        $config['allowed_types']    =    'jpg|jpeg|png';
+        $config['max_size']            =    10000;
+
+        $this->load->library('upload', $config);
+
+        if ($foto_lowongan) {
+            if ($this->upload->do_upload('foto_lowongan')) {
+
+                $data = [
+                    'foto_lowongan' => preg_replace("/\s+/", "_", $foto_lowongan),
+                ];
+
+                $update = $this->M_kerja->update_gambar_lowongan($id, $data);
+
+                if ($update) {
+                    $this->session->set_flashdata('alert', '<div class="alert alert-success" role="alert">Gambar Berhasil di Update</div>');
+                    redirect('LowonganKerja/editlowongan/' . $id);
+                } else {
+                    $this->session->set_flashdata('alert', '<div class="alert alert-warning" role="alert">Gambar tidak berhasil di Update</div>');
+                    redirect('LowonganKerja/editlowongan/' . $id);
+                }
+            } else {
+                $error = array('error' => $this->upload->display_errors());
+                $this->session->set_flashdata('alert', '<div class="alert alert-danger" role="alert">Gambar tidak sesuai format</div>');
+                redirect('LowonganKerja/editlowongan/' . $id);
+            }
+        } elseif ($file) {
+            if ($this->upload->do_upload('file')) {
+
+                $data = [
+                    'file' => preg_replace("/\s+/", "_", $file),
+                ];
+
+                $update = $this->M_kerja->update_gambar_lowongan($id, $data);
+
+                if ($update) {
+                    $this->session->set_flashdata('alert1', '<div class="alert alert-success" role="alert">Gambar Berhasil di Update</div>');
+                    redirect('LowonganKerja/editlowongan/' . $id);
+                } else {
+                    $this->session->set_flashdata('alert1', '<div class="alert alert-warning" role="alert">Gambar tidak berhasil di Update</div>');
+                    redirect('LowonganKerja/editlowongan/' . $id);
+                }
+            } else {
+                $error = array('error' => $this->upload->display_errors());
+                $this->session->set_flashdata('alert1', '<div class="alert alert-danger" role="alert">Gambar tidak sesuai format</div>');
+                redirect('LowonganKerja/editlowongan/' . $id);
+            }
+        } else {
+            $this->session->set_flashdata('alert3', '<div class="alert alert-danger" role="alert">Data Gagal Ditambahkan, Harap Mengupload Gambar</div>');
+            redirect('LowonganKerja/editlowongan/' . $id);
         }
     }
 }
