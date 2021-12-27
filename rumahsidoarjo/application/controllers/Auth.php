@@ -91,7 +91,7 @@ class Auth extends CI_Controller
         $this->load->library('email', $config);
 
         $this->email->initialize($config);
-        $this->email->from('cobac5448@gmail.com', 'Reset Password Rumah Sidoarjo');
+        $this->email->from('nafislestamanta@gmail.com', 'Reset Password Rumah Sidoarjo');
         $this->email->to($this->input->post('email'));
 
         if ($type == 'forgot') {
@@ -195,7 +195,7 @@ class Auth extends CI_Controller
 
         if ($this->form_validation->run() == false) {
             $data['title'] = 'Ubah Paswword';
-            $this->load->view('auth/ubahPassword');
+            $this->load->view('auth/ubahPasswordAdmin');
         } else {
             // $password = password_hash($this->input->post('password1'), PASSWORD_DEFAULT);
             // $password = md5($this->input->post('password'));
