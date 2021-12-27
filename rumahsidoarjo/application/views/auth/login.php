@@ -70,7 +70,7 @@
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <a class="small" href="<?= base_url('auth/forgotpassword') ?>">Forgot
+                                        <a class="small" href="<?= base_url('auth/forgotPassword') ?>">Lupa
                                             Password?</a>
                                     </div>
                                     </>

@@ -50,18 +50,24 @@
 
                               <tr>
                                   <td>Foto Profile</td>
-                                  <td><input type="file" id="foto" accept="image/png, .jpeg, .jpg" name="foto"
-                                          onchange="foto(this.value)">
-                                      <img src="holder.jpg" id="ayam" name="ayam" width="150px">
+                                  <td>
+                                      <?= $this->session->flashdata('alert'); ?>
+                                      <div class="form-group">
+                                          <br>
+                                          <img src="<?= base_url('assets/img/' . $user->foto); ?>" id="foto"
+                                              width="150px">
+                                          <a data-toggle="modal" type="submit"
+                                              data-target="#editmodalgambar<?= $user->id_admin ?>"
+                                              class="btn-sm btn-primary">Edit</a>
+                                          <?= form_error('gambar', '<small class="text-danger pl-2">', '</small>');  ?>
+                                      </div>
                                   </td>
                               </tr>
-
                               <tr>
                                   <td>Username</td>
                                   <td><?= $user->username ?></td>
                                   </td>
                               </tr>
-
                               <tr>
                                   <td>Password</td>
                                   <td><a data-toggle="modal" type="submit" data-target="#edit-data"
@@ -72,7 +78,29 @@
                       </table>
                       <div class="card-footer">
                           <button type="submit" class="btn btn-primary">Update</button>
+                          <?php if ($user->id_role == 1) : ?>
                           <a class="btn btn-warning" href="<?= base_url('Dashboard'); ?>" role="button">kembali</a>
+                          <?php elseif ($user->id_role == 2) : ?>
+                          <a class="btn btn-warning" href="<?= base_url('dishub'); ?>" role="button">kembali</a>
+                          <?php elseif ($user->id_role == 3) : ?>
+                          <a class="btn btn-warning" href="<?= base_url('Umkm/dashboard'); ?>" role="button">kembali</a>
+                          <?php elseif ($user->id_role == 4) : ?>
+                          <a class="btn btn-warning" href="<?= base_url('LowonganKerja/dashboard'); ?>"
+                              role="button">kembali</a>
+                          <?php elseif ($user->id_role == 5) : ?>
+                          <a class="btn btn-warning" href="<?= base_url('Pendidikan/dashboard'); ?>"
+                              role="button">kembali</a>
+                          <?php elseif ($user->id_role == 6) : ?>
+                          <a class="btn btn-warning" href="<?= base_url('Kesehatan/dashboard'); ?>"
+                              role="button">kembali</a>
+                          <?php elseif ($user->id_role == 7) : ?>
+                          <a class="btn btn-warning" href="<?= base_url('pariwisata/dashboard'); ?>"
+                              role="button">kembali</a>
+                          <?php elseif ($user->id_role == 8) : ?>
+                          <a class="btn btn-warning" href="<?= base_url('Polisi'); ?>" role="button">kembali</a>
+                          <?php elseif ($user->id_role == 9) : ?>
+                          <a class="btn btn-warning" href="<?= base_url('Bpbd'); ?>" role="button">kembali</a>
+                          <?php endif; ?>
                       </div>
                   </form>
               </div>
@@ -117,9 +145,44 @@
       </div>
   </div>
 
+  <!-- Modal Tambah -->
+  <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1"
+      id="editmodalgambar<?= $user->id_admin ?>" class="modal fade">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="text-center" style="color: darkcyan;">Edit Gambar</h5>
+              </div>
+              <form class="form-horizontal" action="<?php echo base_url('Admin/simpanGambar1/' . $user->id_admin) ?>"
+                  method="post" enctype="multipart/form-data" role="form">
+                  <div class="modal-body">
+                      <div class="form-group">
+                          <div class="col-lg-10">
+                              <label class="col-lg-5 col-sm-5 control-label">Foto Lama</label>
+                              <img src="<?= base_url('assets/img/' . $user->foto); ?>" id="foto" width="150px">
+                          </div>
+                          <br>
+                          <input type="file" id="foto" name="foto" accept="image/png, .jpeg, .jpg"
+                              onchange="gambar1(this.value)">
+                          <div class="col-lg-10">
+                              <br>
+                              <label class="col-lg-5 col-sm-5 control-label">Foto Baru</label>
+                              <img src="holder.jpg" id="foto1" width="150px">
+                          </div>
+                      </div>
+                  </div>
+                  <div class="modal-footer">
+                      <button class="btn-sm btn-info" type="submit"> Simpan&nbsp;</button>
+                      <button type="button" class="btn-sm btn-warning" data-dismiss="modal"> Batal</button>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script type="text/javascript">
-function foto(val) {
-    $("#ayam").attr('src', URL.createObjectURL(event.target.files[0]));
+function gambar1(val) {
+    $("#foto1").attr('src', URL.createObjectURL(event.target.files[0]));
 }
   </script>

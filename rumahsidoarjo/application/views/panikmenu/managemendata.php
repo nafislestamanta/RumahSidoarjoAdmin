@@ -114,7 +114,7 @@
                                 foreach ($kantorpolisi as $k) : ?>
                           <tr>
                               <td><?= $k->id_kantor_polisi ?></td>
-                              <td><?= $k->nama_kantor_polisi ?></td>
+                              <td><?= word_limiter($k->nama_kantor_polisi, 3); ?></td>
                               <td><?= $k->penanggungjawab ?></td>
                               <td><?= $k->kecamatan ?></td>
                               <td><?= word_limiter($k->alamat, 3); ?></td>

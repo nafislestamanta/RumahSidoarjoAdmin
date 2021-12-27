@@ -47,8 +47,9 @@
                             <td><?= $pkmp->penanggung_jawab; ?></td>
                         </tr>
                         <tr>
-                            <td>Foto</td>
-                            <td><img src="<?= base_url('./assets/img/' . $pkmp->foto); ?>" alt=""></td>
+                            <td>Gambar</td>
+                            <td><img width="150px" height="150px" src="<?= base_url('assets/img/' . $pkmp->foto); ?>"
+                                    alt="Belum Ada Foto"></td>
                         </tr>
                         <tr>
                             <td>Langitude</td>

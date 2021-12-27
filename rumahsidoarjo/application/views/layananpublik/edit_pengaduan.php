@@ -52,9 +52,16 @@
                                        </tr>
 
                                        <tr>
+                                           <td>Gambar</td>
+                                           <td><img width="150px" height="150px"
+                                                   src="<?= base_url('assets/img/' . $edit->gambar); ?>"
+                                                   alt="Belum Ada Foto"></td>
+                                       </tr>
+
+                                       <!-- <tr>
                                            <td class="font-weight-bold">Gambar</td>
                                            <td><?= $edit->gambar; ?></td>
-                                       </tr>
+                                       </tr> -->
 
                                        <tr>
                                            <td class="font-weight-bold">Status Pengaduan</td>

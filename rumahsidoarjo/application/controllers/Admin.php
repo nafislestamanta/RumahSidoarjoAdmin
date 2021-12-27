@@ -368,4 +368,41 @@ class Admin extends CI_Controller
             }
         }
     }
+
+    public function simpanGambar1($id)
+    {
+        $foto = $_FILES['foto']['name'];
+
+        $config['upload_path']        =    './assets/img/';
+        $config['allowed_types']    =    'jpg|jpeg|png';
+        $config['max_size']            =    10000;
+
+        $this->load->library('upload', $config);
+
+        if ($foto) {
+            if ($this->upload->do_upload('foto')) {
+
+                $data = [
+                    'foto' => preg_replace("/\s+/", "_", $foto),
+                ];
+
+                $update = $this->M_admin->update_gambar($id, $data);
+
+                if ($update) {
+                    $this->session->set_flashdata('alert', '<div class="alert alert-success" role="alert">Data Berhasil di Update</div>');
+                    redirect('Admin/profile/' . $id);
+                } else {
+                    $this->session->set_flashdata('alert', '<div class="alert alert-warning" role="alert">Data tidak berhasil di Update</div>');
+                    redirect('Admin/profile/' . $id);
+                }
+            } else {
+                $error = array('error' => $this->upload->display_errors());
+                $this->session->set_flashdata('alert', '<div class="alert alert-danger" role="alert">Gambar tidak sesuai format</div>');
+                redirect('Admin/profile/' . $id);
+            }
+        } else {
+            $this->session->set_flashdata('alert', '<div class="alert alert-danger" role="alert">Data Gagal Ditambahkan, Harap Mengupload Gambar</div>');
+            redirect('Admin/profile/' . $id);
+        }
+    }
 }

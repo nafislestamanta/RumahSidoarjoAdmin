@@ -22,7 +22,8 @@
                       </div>
                   </div>
                   <div class="btn bg-gradient-light text-center">
-                      <a href="<?= base_url('Admin'); ?>" aria-current="page" style="color:black"> Detail
+                      <a href="<?= base_url('Umkm/tampil_kerajinan'); ?>" aria-current="page" style="color:black">
+                          Detail
                           <i class="fas fa-arrow-circle-right"></i>
                       </a>
                   </div>
@@ -46,7 +47,7 @@
                       </div>
                   </div>
                   <div class="btn bg-gradient-light text-center">
-                      <a href="<?= base_url('ManagemenMobile'); ?>" aria-current="page" style="color:black"> Detail
+                      <a href="<?= base_url('Umkm/tampil_makanan'); ?>" aria-current="page" style="color:black"> Detail
                           <i class="fas fa-arrow-circle-right"></i>
                       </a>
                   </div>
@@ -70,7 +71,7 @@
                       </div>
                   </div>
                   <div class="btn bg-gradient-light text-center">
-                      <a href="<?= base_url('ManagemenMobile/validasi'); ?>" aria-current="page" style="color:black">
+                      <a href="<?= base_url('Umkm/tampil_pertanian'); ?>" aria-current="page" style="color:black">
                           Detail
                           <i class="fas fa-arrow-circle-right"></i>
                       </a>

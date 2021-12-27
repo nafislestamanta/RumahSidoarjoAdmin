@@ -1,6 +1,6 @@
   <div class="container-fluid">
       <div class="mb-4">
-          <h6><i class="fas fa-home"></i><b> DASHBOARD RUMAH SIDOARJO</b></h6>
+          <h6><i class="fas fa-home"></i><b> DASHBOARD RUMAH SIDOARJO </b></h6>
       </div>
       <script src="<?php echo base_url() ?>assets/vendor/chart.js"></script>
       <!-- Content Row -->
@@ -161,18 +161,6 @@
               </div>
           </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
           <!-- Donut Chart -->
           <div class="col-xl-6 col-lg-5">
               <div class="card shadow mb-4">
@@ -223,7 +211,7 @@
                   <!-- Card Body -->
                   <div class="card-body">
                       <iframe
-                          src="https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d7912.199494933153!2d112.7116714742142!3d-7.454216378489887!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e6!4m3!3m2!1d-7.4481664!2d112.71864319999999!4m5!1s0x2dd7e170bf8f8335%3A0xcc19817a9c23f3af!2smaps%20diskominfo%20sidoarjo!3m2!1d-7.4583224999999995!2d112.71400799999999!5e0!3m2!1sen!2sid!4v1631077075652!5m2!1sen!2sid"
+                          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.062807002249!2d112.71178381420643!3d-7.458304275578898!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7e170bf8f8335%3A0xcc19817a9c23f3af!2sDiskominfo%20Kabupaten%20Sidoarjo!5e0!3m2!1sen!2sid!4v1639016017104!5m2!1sen!2sid"
                           width="485" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                   </div>
               </div>

@@ -826,4 +826,116 @@ class Kesehatan extends CI_Controller
         $this->load->view('kesehatan/detail_riwayat', $data);
         $this->load->view('admin/templates/footer', $data);
     }
+
+    public function simpanGambar1($id)
+    {
+        $foto = $_FILES['foto']['name'];
+
+        $config['upload_path']        =    './assets/img/';
+        $config['allowed_types']    =    'jpg|jpeg|png';
+        $config['max_size']            =    10000;
+
+        $this->load->library('upload', $config);
+
+        if ($foto) {
+            if ($this->upload->do_upload('foto')) {
+
+                $data = [
+                    'foto' => preg_replace("/\s+/", "_", $foto),
+                ];
+
+                $update = $this->m_kesehatan->update_gambar($id, $data);
+
+                if ($update) {
+                    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil diupdate</div>');
+                    redirect('Kesehatan/pkmutama', $data);
+                } else {
+                    $this->session->set_flashdata('message', '<div class="alert alert-warning" role="alert">Data tidak berhasil di Update</div>');
+                    redirect('Kesehatan/pkmutama', $data);
+                }
+            } else {
+                $error = array('error' => $this->upload->display_errors());
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Gambar tidak sesuai format</div>');
+                redirect('Kesehatan/pkmutama');
+            }
+        } else {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data Gagal Ditambahkan, Harap Mengupload Gambar</div>');
+            redirect('Kesehatan/pkmutama');
+        }
+    }
+
+
+    public function simpanGambar2($id)
+    {
+        $foto = $_FILES['foto']['name'];
+
+        $config['upload_path']        =    './assets/img/';
+        $config['allowed_types']    =    'jpg|jpeg|png';
+        $config['max_size']            =    10000;
+
+        $this->load->library('upload', $config);
+
+        if ($foto) {
+            if ($this->upload->do_upload('foto')) {
+
+                $data = [
+                    'foto' => preg_replace("/\s+/", "_", $foto),
+                ];
+
+                $update = $this->m_kesehatan->update_gambar($id, $data);
+
+                if ($update) {
+                    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil diupdate</div>');
+                    redirect('Kesehatan', $data);
+                } else {
+                    $this->session->set_flashdata('message', '<div class="alert alert-warning" role="alert">Data tidak berhasil di Update</div>');
+                    redirect('Kesehatan', $data);
+                }
+            } else {
+                $error = array('error' => $this->upload->display_errors());
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Gambar tidak sesuai format</div>');
+                redirect('Kesehatan');
+            }
+        } else {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data Gagal Ditambahkan, Harap Mengupload Gambar</div>');
+            redirect('Kesehatan');
+        }
+    }
+
+    public function simpanGambar3($id)
+    {
+        $foto = $_FILES['foto']['name'];
+
+        $config['upload_path']        =    './assets/img/';
+        $config['allowed_types']    =    'jpg|jpeg|png';
+        $config['max_size']            =    10000;
+
+        $this->load->library('upload', $config);
+
+        if ($foto) {
+            if ($this->upload->do_upload('foto')) {
+
+                $data = [
+                    'foto' => preg_replace("/\s+/", "_", $foto),
+                ];
+
+                $update = $this->m_kesehatan->update_gambar($id, $data);
+
+                if ($update) {
+                    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil diupdate</div>');
+                    redirect('Kesehatan', $data);
+                } else {
+                    $this->session->set_flashdata('message', '<div class="alert alert-warning" role="alert">Data tidak berhasil di Update</div>');
+                    redirect('Kesehatan', $data);
+                }
+            } else {
+                $error = array('error' => $this->upload->display_errors());
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Gambar tidak sesuai format</div>');
+                redirect('Kesehatan');
+            }
+        } else {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data Gagal Ditambahkan, Harap Mengupload Gambar</div>');
+            redirect('Kesehatan');
+        }
+    }
 }

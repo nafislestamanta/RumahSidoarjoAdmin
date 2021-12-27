@@ -43,13 +43,16 @@
                             <td class="font-weight-bold">Deskripsi</td>
                             <td><?= $detail->deskripsi; ?></td>
                         </tr>
+
                         <tr>
-                            <td class="font-weight-bold">Foto</td>
-                            <td><?= $detail->foto; ?></td>
+                            <td>Gambar</td>
+                            <td><img width="150px" height="150px" src="<?= base_url('assets/img/' . $detail->foto); ?>"
+                                    alt="Belum Ada Foto">
+                            </td>
                         </tr>
                     </thead>
                 </table>
-                <a href="<?= base_url('LowonganKerja'); ?>" class="btn-sm btn-danger">Kembali</a>
+                <a href="<?= base_url('LowonganKerja'); ?>" class="btn btn-danger">Kembali</a>
             </div>
         </div>
         <?php endif; ?>

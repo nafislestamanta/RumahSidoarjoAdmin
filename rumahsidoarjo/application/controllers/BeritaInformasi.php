@@ -184,4 +184,45 @@ class BeritaInformasi extends CI_Controller
         $this->load->view('beritainformasi/detaildata', $data);
         $this->load->view('admin/templates/footer', $data);
     }
+
+    public function simpanGambar1($id)
+    {
+        $gambar = $_FILES['gambar']['name'];
+
+        $config['upload_path']        =    './assets/img/';
+        $config['allowed_types']    =    'jpg|jpeg|png';
+        $config['max_size']            =    10000;
+
+        $this->load->library('upload', $config);
+
+        if ($gambar) {
+            if ($this->upload->do_upload('gambar')) {
+
+                $data = [
+                    'gambar' => preg_replace("/\s+/", "_", $gambar),
+                ];
+
+                $update = $this->M_berita_informasi->update_gambar1($id, $data);
+
+                if ($update) {
+                    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil diupdate</div>');
+                    //$this->session->set_flashdata('alert', '<div class="alert alert-success" role="alert">Data Berhasil di Update</div>');
+                    redirect('BeritaInformasi', $data);
+                } else {
+                    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Tidak Berhasil fi Update</div>');
+                    //$this->session->set_flashdata('alert', '<div class="alert alert-warning" role="alert">Data tidak berhasil di Update</div>');
+                    redirect('BeritaInformasi', $data);
+                }
+            } else {
+                $error = array('error' => $this->upload->display_errors());
+                $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Gambar tidak sesui format</div>');
+                // $this->session->set_flashdata('alert', '<div class="alert alert-danger" role="alert">Gambar tidak sesuai format</div>');
+                redirect(site_url('BeritaInformasi'));
+            }
+        } else {
+            // $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil diupdate</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data Gagal Ditambahkan, Harap Mengupload Gambar</div>');
+            redirect(site_url('BeritaInformasi'));
+        }
+    }
 }

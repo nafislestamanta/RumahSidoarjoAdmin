@@ -78,4 +78,9 @@ class M_berita_informasi extends CI_model
     {
         return $this->db->where('kode', $id)->update('berita_informasi', $data);
     }
+
+    public function update_gambar1($id, $data)
+    {
+        return $this->db->where('kode', $id)->update('berita_informasi', $data);
+    }
 }

@@ -47,12 +47,13 @@
                             <td><?= $rsu->penanggung_jawab; ?></td>
                         </tr>
                         <tr>
-                            <td>Foto</td>
-                            <td><img src="<?= base_url('./assets/img/' . $rsu->foto); ?>" alt=""></td>
+                            <td>Gambar</td>
+                            <td><img width="150px" height="150px" src="<?= base_url('assets/img/' . $rsu->foto); ?>"
+                                    alt="Belum Ada Foto"></td>
                         </tr>
                         <tr>
                             <td>Langitude</td>
-                            <td><?= $rsu->lang; ?></td>
+                            <td><?= $rsu->lat; ?></td>
                         </tr>
                         <tr>
                             <td>Longitude</td>

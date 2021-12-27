@@ -56,4 +56,9 @@ class M_admin extends CI_Model
         $query = $this->db->get();
         return $query;
     }
+
+    public function update_gambar($id, $data)
+    {
+        return $this->db->where('id_admin', $id)->update('user_admin', $data);
+    }
 }

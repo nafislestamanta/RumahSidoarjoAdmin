@@ -176,13 +176,8 @@ class m_kesehatan extends CI_Model
         return $query;
     }
 
-    // public function rsuu($id)
-    // {
-    //     $this->db->select('*');
-    //     $this->db->from('kesehatan');
-    //     $this->db->join('kecamatan', 'kecamatan.id_kecamatan=kesehatan.id_kecamatan');
-    //     $this->db->where('id_kesehatan', $id);
-    //     $query = $this->db->get();
-    //     return $query;
-    // }
+    public function update_gambar($id, $data)
+    {
+        return $this->db->where('id_kesehatan', $id)->update('kesehatan', $data);
+    }
 }

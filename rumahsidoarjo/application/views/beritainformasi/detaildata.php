@@ -31,10 +31,16 @@
                             <td>Deskripsi</td>
                             <td><?= $detail->deskripsi; ?></td>
                         </tr>
+
                         <tr>
                             <td>Gambar</td>
-                            <td><?= $detail->gambar; ?></td>
+                            <td><img width="150px" height="150px"
+                                    src="<?= base_url('assets/img/' . $detail->gambar); ?>" alt="Belum Ada Gambar"></td>
                         </tr>
+                        <!-- <tr>
+                                <td>Gambar</td>
+                                <td><?= $detail->gambar; ?></td>
+                            </tr> -->
                         <tr>
                             <td>Link</td>
                             <td><?= $detail->link; ?></td>
