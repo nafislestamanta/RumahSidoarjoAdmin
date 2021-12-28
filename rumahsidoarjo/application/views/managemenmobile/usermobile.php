@@ -14,10 +14,12 @@
           <div>
               <div class="card-header py-3">
                   <div class="col-auto">
-                      <a href="<?= base_url(''); ?>" class="btn-sm btn-success"><i class="fas fa-download" style="padding-right: 8px;"></i>Report</a>
+                      <a href="<?= base_url(''); ?>" class="btn-sm btn-success"><i class="fas fa-download"
+                              style="padding-right: 8px;"></i>Report</a>
                   </div>
               </div>
               <div class="card-body">
+                  <?= $this->session->flashdata('message'); ?>
                   <div class="table-responsive">
                       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                           <thead>
@@ -31,20 +33,23 @@
                                   </b> </tr>
                           </thead>
 
-                          <tbody>
+                          <tbody class="text-center">
                               <?php foreach ($user as $u) : ?>
-                                  <tr>
-                                      <td><?= $u->NIK ?></td>
-                                      <td><?= $u->nama ?></td>
-                                      <td><?= $u->alamat ?></td>
-                                      <td><?= $u->no_telepon ?></td>
-                                      <td class="text-center">
-                                          <a href="<?= base_url('Managemenmobile/detail_usermobile/' . $u->NIK) ?>" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
-                                          <a href="<?= base_url('Managemenmobile/delete/' . $u->NIK) ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                              <tr>
+                                  <td><?= $u->NIK ?></td>
+                                  <td><?= $u->nama ?></td>
+                                  <td><?= $u->alamat ?></td>
+                                  <td><?= $u->no_telepon ?></td>
+                                  <td class="text-center">
+                                      <a href="<?= base_url('Managemenmobile/detail_usermobile/' . $u->NIK) ?>"
+                                          class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
+                                      <a href="<?= base_url('Managemenmobile/delete/' . $u->NIK) ?>"
+                                          onclick="javascript: return confirm('Anda Yakin Hapus ?')"
+                                          class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
 
 
-                                      </td>
-                                  </tr>
+                                  </td>
+                              </tr>
                               <?php endforeach; ?>
 
 

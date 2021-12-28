@@ -4,7 +4,7 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Detail SD</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Detail</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -56,7 +56,8 @@
                         </tr>
                         <tr>
                             <td>Foto</td>
-                            <td><img width="150px" height="150px" src="<?= base_url('assets/img/' . $tampil->foto); ?>" alt="Belum Ada Foto"></td>
+                            <td><img width="150px" height="150px" src="<?= base_url('assets/img/' . $tampil->foto); ?>"
+                                    alt="Belum Ada Foto"></td>
                         </tr>
                     </thead>
                 </table>
@@ -74,18 +75,18 @@
                     <thead>
                         <?php $no = 1;
                         foreach ($fasilitas as $f) : ?>
-                            <tr>
-                                <td><?= $no++ ?> </td>
-                                <td><?= $f->nama; ?></td>
-                            </tr>
+                        <tr>
+                            <td><?= $no++ ?> </td>
+                            <td><?= $f->nama; ?></td>
+                        </tr>
                         <?php endforeach; ?>
                     </thead>
                 </table>
-                <?php if ($title == "Sekolah Luar Biasa") : ?>
-                    <a href="<?= base_url('Pendidikan/slb'); ?>" class="btn btn-danger">Kembali</a>
+                <!-- <?php if ($title == "Sekolah Luar Biasa") : ?>
+                <a href="<?= base_url('Pendidikan/slb'); ?>" class="btn btn-danger">Kembali</a>
                 <?php else : ?>
-                    <a href="<?= base_url('Pendidikan'); ?>" class="btn btn-danger">Kembali</a>
-                <?php endif; ?>
+                <a href="<?= base_url('Pendidikan/slb'); ?>" class="btn btn-danger">Kembali</a>
+                <?php endif; ?> -->
             </div>
         </div>
     </div>
@@ -100,18 +101,18 @@
                     <thead>
                         <?php $no = 1;
                         foreach ($ekskul as $e) : ?>
-                            <tr>
-                                <td><?= $no++ ?></td>
-                                <td><?= $e->nama; ?></td>
-                            </tr>
+                        <tr>
+                            <td><?= $no++ ?></td>
+                            S <td><?= $e->nama; ?></td>
+                        </tr>
                         <?php endforeach; ?>
                     </thead>
                 </table>
-                <?php if ($title == "Sekolah Luar Biasa") : ?>
-                    <a href="<?= base_url('Pendidikan/slb'); ?>" class="btn btn-danger">Kembali</a>
+                <!-- <?php if ($title == "Sekolah Luar Biasa") : ?>
+                <a href="<?= base_url('Pendidikan/slb'); ?>" class="btn btn-danger">Kembali</a>
                 <?php else : ?>
-                    <a href="<?= base_url('Pendidikan'); ?>" class="btn btn-danger">Kembali</a>
-                <?php endif; ?>
+                <a href="<?= base_url('Pendidikan/slb'); ?>" class="btn btn-danger">Kembali</a>
+                <?php endif; ?> -->
 
 
             </div>

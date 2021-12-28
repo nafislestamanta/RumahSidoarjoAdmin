@@ -173,4 +173,9 @@ class M_pendidikan extends CI_Model
         $hasil = $this->db->get();
         return $hasil;
     }
+
+    public function update_gambar($id, $data)
+    {
+        return $this->db->where('id_sekolah', $id)->update('sekolah', $data);
+    }
 }

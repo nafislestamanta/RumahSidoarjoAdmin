@@ -379,4 +379,86 @@ class Komunitas extends CI_Controller
             }
         }
     }
+
+
+    public function simpanGambar($id)
+    {
+        $foto1 = $_FILES['foto1']['name'];
+        $foto2 = $_FILES['foto2']['name'];
+        $foto_profil = $_FILES['foto_profil']['name'];
+
+        $config['upload_path']        =    './assets/img/';
+        $config['allowed_types']    =    'jpg|jpeg|png';
+        $config['max_size']            =    10000;
+
+        $this->load->library('upload', $config);
+
+        if ($foto1) {
+            if ($this->upload->do_upload('foto1')) {
+
+                $data = [
+                    'foto1' => preg_replace("/\s+/", "_", $foto1),
+                ];
+
+                $update = $this->M_komunitas->update_gambar($id, $data);
+
+                if ($update) {
+                    $this->session->set_flashdata('alert', '<div class="alert alert-success" role="alert">Gambar Berhasil di Update</div>');
+                    redirect('Komunitas/edit_komunitas/' . $id);
+                } else {
+                    $this->session->set_flashdata('alert', '<div class="alert alert-warning" role="alert">Gambar tidak berhasil di Update</div>');
+                    redirect('Komunitas/edit_komunitas/' . $id);
+                }
+            } else {
+                $error = array('error' => $this->upload->display_errors());
+                $this->session->set_flashdata('alert', '<div class="alert alert-danger" role="alert">Gambar tidak sesuai format</div>');
+                redirect('Komunitas/edit_komunitas/' . $id);
+            }
+        } elseif ($foto2) {
+            if ($this->upload->do_upload('foto2')) {
+
+                $data = [
+                    'foto2' => preg_replace("/\s+/", "_", $foto2),
+                ];
+
+                $update = $this->M_komunitas->update_gambar($id, $data);
+
+                if ($update) {
+                    $this->session->set_flashdata('alert1', '<div class="alert alert-success" role="alert">Gambar Berhasil di Update</div>');
+                    redirect('Komunitas/edit_komunitas/' . $id);
+                } else {
+                    $this->session->set_flashdata('alert1', '<div class="alert alert-warning" role="alert">Gambar tidak berhasil di Update</div>');
+                    redirect('Komunitas/edit_komunitas/' . $id);
+                }
+            } else {
+                $error = array('error' => $this->upload->display_errors());
+                $this->session->set_flashdata('alert1', '<div class="alert alert-danger" role="alert">Gambar tidak sesuai format</div>');
+                redirect('Komunitas/edit_komunitas/' . $id);
+            }
+        } elseif ($foto_profil) {
+            if ($this->upload->do_upload('foto_profil')) {
+
+                $data = [
+                    'foto_profil' => preg_replace("/\s+/", "_", $foto_profil),
+                ];
+
+                $update = $this->M_komunitas->update_gambar($id, $data);
+
+                if ($update) {
+                    $this->session->set_flashdata('alert2', '<div class="alert alert-success" role="alert">Gambar Berhasil di Update</div>');
+                    redirect('Komunitas/edit_komunitas/' . $id);
+                } else {
+                    $this->session->set_flashdata('alert2', '<div class="alert alert-warning" role="alert">Gambar tidak berhasil di Update</div>');
+                    redirect('Komunitas/edit_komunitas/' . $id);
+                }
+            } else {
+                $error = array('error' => $this->upload->display_errors());
+                $this->session->set_flashdata('alert2', '<div class="alert alert-danger" role="alert">Gambar tidak sesuai format</div>');
+                redirect('Komunitas/edit_komunitas/' . $id);
+            }
+        } else {
+            $this->session->set_flashdata('alert3', '<div class="alert alert-danger" role="alert">Data Gagal Ditambahkan, Harap Mengupload Gambar</div>');
+            redirect('Komunitas/edit_komunitas/' . $id);
+        }
+    }
 }

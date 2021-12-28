@@ -38,21 +38,18 @@
                                     <td>
                                         <?= $this->session->flashdata('alert'); ?>
                                         <div class="form-group">
-                                            <br>
                                             <img src="<?= base_url('assets/img/' . $ulasan->foto1); ?>" width="80px">
                                         </div>
                                     </td>
                                     <td>
                                         <?= $this->session->flashdata('alert'); ?>
                                         <div class="form-group">
-                                            <br>
                                             <img src="<?= base_url('assets/img/' . $ulasan->foto2); ?>" width="80px">
                                         </div>
                                     </td>
                                     <td>
                                         <?= $this->session->flashdata('alert'); ?>
                                         <div class="form-group">
-                                            <br>
                                             <img src="<?= base_url('assets/img/' . $ulasan->foto3); ?>" width="80px">
                                         </div>
                                     </td>

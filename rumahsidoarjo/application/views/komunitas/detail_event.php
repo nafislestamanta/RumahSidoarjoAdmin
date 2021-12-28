@@ -46,26 +46,36 @@
                             <td class="font-weight-bold">Deskripsi Event</td>
                             <td><?= $detail->deskripsi; ?></td>
                         </tr>
-                        <tr>
-                            <td>Foto 1</td>
-                            <td>
-                                <?= $this->session->flashdata('alert'); ?>
-                                <div class="form-group">
-                                    <br>
-                                    <img src="<?= base_url('assets/img/' . $detail->foto1); ?>" id="foto" width="150px">
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Foto 2</td>
-                            <td>
-                                <?= $this->session->flashdata('alert'); ?>
-                                <div class="form-group">
-                                    <br>
-                                    <img src="<?= base_url('assets/img/' . $detail->foto2); ?>" id="foto" width="150px">
-                                </div>
-                            </td>
-                        </tr>
+
+
+
+
+
+
+                        <table class="table table-bordered" width="90%" cellspacing="0">
+                            <thead>
+                                <tr class="text-center"><b>
+                                        <th>Gambar 1</th>
+                                        <th>Gambar 2</th>
+                                    </b>
+                                </tr>
+                            </thead>
+                            <tbody class="text-center">
+
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <img src="<?= base_url('assets/img/' . $detail->foto1); ?>" width="100px">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <img src="<?= base_url('assets/img/' . $detail->foto2); ?>" width="100px">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
 
                     </thead>
                 </table>

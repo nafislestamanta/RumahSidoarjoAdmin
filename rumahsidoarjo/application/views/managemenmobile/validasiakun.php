@@ -14,7 +14,8 @@
           <div>
               <div class="card-header py-3">
                   <div class="col-auto">
-                      <a href="<?= base_url(''); ?>" class="btn-sm btn-success"><i class="fas fa-download" style="padding-right: 8px;"></i>Report</a>
+                      <a href="<?= base_url(''); ?>" class="btn-sm btn-success"><i class="fas fa-download"
+                              style="padding-right: 8px;"></i>Report</a>
                   </div>
               </div>
               <div class="card-body">
@@ -32,18 +33,19 @@
                                   </b> </tr>
                           </thead>
 
-                          <tbody>
+                          <tbody class="text-center">
                               <?php foreach ($user as $u) : ?>
-                                  <tr>
-                                      <td><?= $u->NIK ?></td>
-                                      <td><?= $u->nama ?></td>
-                                      <td><?= $u->alamat ?></td>
-                                      <td><?= $u->no_telepon ?></td>
-                                      <td class="text-center">
-                                          <a href="<?= base_url('Managemenmobile/detail_validasi/' . $u->NIK) ?>" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
+                              <tr>
+                                  <td><?= $u->NIK ?></td>
+                                  <td><?= $u->nama ?></td>
+                                  <td><?= $u->alamat ?></td>
+                                  <td><?= $u->no_telepon ?></td>
+                                  <td class="text-center">
+                                      <a href="<?= base_url('Managemenmobile/detail_validasi/' . $u->NIK) ?>"
+                                          class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
 
-                                      </td>
-                                  </tr>
+                                  </td>
+                              </tr>
                               <?php endforeach; ?>
 
 

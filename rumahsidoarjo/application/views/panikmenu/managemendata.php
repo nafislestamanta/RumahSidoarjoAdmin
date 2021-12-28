@@ -12,7 +12,7 @@
       <!-- Content -->
       <div class="card shadow mb-4">
           <div class="card-header py-3">
-              <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+              <a class="btn-sm btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <?php if ($title == "Kantor Polisi") : ?>
                   Kantor Polisi
@@ -29,18 +29,18 @@
                   <a class="dropdown-item" href="<?= base_url('PanikMenu/bencana'); ?>">BPBD</a>
               </div>
               <?php if ($title == "Kantor Polisi") : ?>
-              <a href="<?= base_url('PanikMenu/tambah_kantorpolisi'); ?>" class="btn btn-primary"><i class="fas fa-plus"
-                      style="padding-right: 5px;"></i>Tambah Data</a>
-              <a style="float: right;" href="<?= base_url('PanikMenu/'); ?>" target="_blank" class="btn btn-primary"><i
-                      class="fas fa-download" style="padding-right: 5px;"></i>Report</a>
+              <a href="<?= base_url('PanikMenu/tambah_kantorpolisi'); ?>" class="btn-sm btn-primary"><i
+                      class="fas fa-plus" style="padding-right: 5px;"></i>Tambah Data</a>
+              <a style="float: right;" href="<?= base_url('PanikMenu/'); ?>" target="_blank"
+                  class="btn-sm btn-primary"><i class="fas fa-download" style="padding-right: 5px;"></i>Report</a>
               <?php elseif ($title == "Rumah Sakit") : ?>
-              <a style="float: right;" href="<?= base_url('PanikMenu/'); ?>" target="_blank" class="btn btn-primary"><i
-                      class="fas fa-download" style="padding-right: 5px;"></i>Report</a>
+              <a style="float: right;" href="<?= base_url('PanikMenu/'); ?>" target="_blank"
+                  class="btn-sm btn-primary"><i class="fas fa-download" style="padding-right: 5px;"></i>Report</a>
               <?php elseif ($title == "Bencana") : ?>
-              <a href="<?= base_url('PanikMenu/tambah_Bencana'); ?>" class="btn btn-primary"><i class="fas fa-plus"
+              <a href="<?= base_url('PanikMenu/tambah_Bencana'); ?>" class="btn-sm btn-primary"><i class="fas fa-plus"
                       style="padding-right: 5px;"></i>Tambah Data</a>
-              <a style="float: right;" href="<?= base_url('PanikMenu/'); ?>" target="_blank" class="btn btn-primary"><i
-                      class="fas fa-download" style="padding-right: 5px;"></i>Report</a>
+              <a style="float: right;" href="<?= base_url('PanikMenu/'); ?>" target="_blank"
+                  class="btn-sm btn-primary"><i class="fas fa-download" style="padding-right: 5px;"></i>Report</a>
               <?php endif; ?>
           </div>
           <div class="card-body">
@@ -57,7 +57,6 @@
                                   <?php elseif ($title == "Bencana") : ?>
                                   <th>BPBD</th>
                                   <?php endif; ?>
-                                  <th>Penanggung Jawab</th>
                                   <th>Kecamatan</th>
                                   <th>Alamat</th>
                                   <th>No Telepon</th>
@@ -72,7 +71,6 @@
                           <tr>
                               <td><?= $d->id_bpbd ?></td>
                               <td><?= $d->nama ?></td>
-                              <td><?= $d->penanggungjawab ?></td>
                               <td><?= $d->kecamatan ?></td>
                               <td><?= $d->alamat ?></td>
                               <td><?= $d->no_tlp ?></td>
@@ -94,7 +92,6 @@
                           <tr>
                               <td><?= $r->id_kesehatan ?></td>
                               <td><?= $r->nama ?></td>
-                              <td><?= $r->penanggung_jawab ?></td>
                               <td><?= $r->kecamatan ?></td>
                               <td><?= $r->alamat ?></td>
                               <td><?= $r->no_telepon ?></td>
@@ -115,7 +112,6 @@
                           <tr>
                               <td><?= $k->id_kantor_polisi ?></td>
                               <td><?= word_limiter($k->nama_kantor_polisi, 3); ?></td>
-                              <td><?= $k->penanggungjawab ?></td>
                               <td><?= $k->kecamatan ?></td>
                               <td><?= word_limiter($k->alamat, 3); ?></td>
                               <td><?= $k->no_tlp ?></td>

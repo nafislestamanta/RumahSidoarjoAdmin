@@ -39,7 +39,59 @@
                             <td class="font-weight-bold">Sosial Media</td>
                             <td><?= $detail->sosialmedia; ?></td>
                         </tr>
-                        <tr>
+
+
+
+
+                        <table class="table table-bordered" width="90%" cellspacing="0">
+                            <thead>
+                                <tr class="text-center"><b>
+                                        <th>Gambar 1</th>
+                                        <th>Gambar 2</th>
+                                        <th>Gambar 3</th>
+                                    </b>
+                                </tr>
+                            </thead>
+                            <tbody class="text-center">
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <img src="<?= base_url('assets/img/' . $detail->foto1); ?>" width="100px"
+                                                alt="Belum Upload">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <img src="<?= base_url('assets/img/' . $detail->foto2); ?>" width="100px"
+                                                alt="Belum Upload">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <img src="<?= base_url('assets/img/' . $detail->foto_profil); ?>"
+                                                width="100px" alt="Belum Upload">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        <!-- <tr>
                             <td>Foto 1</td>
                             <td>
                                 <?= $this->session->flashdata('alert'); ?>
@@ -58,7 +110,7 @@
                                     <img src="<?= base_url('assets/img/' . $detail->foto2); ?>" id="foto" width="150px">
                                 </div>
                             </td>
-                        </tr>>
+                        </tr>
                         <tr>
                             <td>Foto 3</td>
                             <td>
@@ -69,7 +121,7 @@
                                         width="150px">
                                 </div>
                             </td>
-                        </tr>
+                        </tr> -->
                     </thead>
                 </table>
                 <a href="<?= base_url('Komunitas'); ?>" class="btn btn-danger">Kembali</a>

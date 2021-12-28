@@ -25,7 +25,7 @@ class ManagemenMobile extends CI_Controller
     {
         $delete = $this->M_mobile->delete($id);
         if ($delete) {
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data yang anda pilih telah terhapus</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Akun yang anda pilih telah terhapus</div>');
         } else {
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Tidak bisa hapus data</div>');
         }
@@ -91,7 +91,7 @@ class ManagemenMobile extends CI_Controller
         if ($update) {
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Akun Berhasil Diakftifkan</div>');
         } else {
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Akun Berhasil Ditolak</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Akun Berhasil Ditolak, Data Dihapus. </div>');
         }
         redirect('ManagemenMobile/validasi', $data);
     }

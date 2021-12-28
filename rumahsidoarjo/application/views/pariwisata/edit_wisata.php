@@ -117,7 +117,88 @@
                           </div>
                       </div>
 
-                      <?= $this->session->flashdata('alert'); ?>
+
+
+
+                      <table class="table table-bordered" width="90%" cellspacing="0">
+                          <thead>
+                              <tr class="text-center"><b>
+                                      <th>Gambar 1</th>
+                                      <th>Gambar 2</th>
+                                      <th>Gambar 3</th>
+                                  </b>
+                              </tr>
+                          </thead>
+                          <tbody class="text-center">
+                              <tr>
+                                  <td>
+                                      <?= $this->session->flashdata('alert'); ?>
+                                      <div class="form-group">
+                                          <img src="<?= base_url('assets/img/' . $edit->foto1); ?>" id="foto"
+                                              width="150px"> <br>
+                                          <a data-toggle="modal" type="submit"
+                                              data-target="#editmodalgambar<?= $edit->id_wisata ?>"
+                                              class="btn-sm btn-primary">Edit</a>
+                                          <?= form_error('gambar', '<small class="text-danger pl-2">', '</small>');  ?>
+                                      </div>
+                                  </td>
+                                  <td>
+                                      <?= $this->session->flashdata('alert2'); ?>
+                                      <div class="form-group">
+                                          <?php if ($edit->foto2) : ?>
+                                          <img src="<?= base_url('assets/img/' . $edit->foto2); ?>" id="foto"
+                                              width="150px"> <br>
+                                          <a data-toggle="modal" type="submit"
+                                              data-target="#editmodalgambar2<?= $edit->id_wisata ?>"
+                                              class="btn-sm btn-primary">Edit</a>
+                                          <?php else : ?>
+                                          <a data-toggle="modal" type="submit"
+                                              data-target="#editmodalgambar2<?= $edit->id_wisata ?>"
+                                              class="btn btn-primary">Tambah</a>
+                                          <?php endif; ?>
+                                      </div>
+                                  </td>
+                                  <td>
+                                      <?= $this->session->flashdata('alert3'); ?>
+                                      <div class="form-group">
+                                          <?php if ($edit->foto3) : ?>
+                                          <img src="<?= base_url('assets/img/' . $edit->foto3); ?>" id="foto"
+                                              width="150px"> <br>
+                                          <a data-toggle="modal" type="submit"
+                                              data-target="#editmodalgambar3<?= $edit->id_wisata ?>"
+                                              class="btn-sm btn-primary">Edit</a>
+                                          <?php else : ?>
+                                          <a data-toggle="modal" type="submit"
+                                              data-target="#editmodalgambar3<?= $edit->id_wisata ?>"
+                                              class="btn btn-primary">Tambah</a>
+                                          <?php endif; ?>
+                                      </div>
+                                  </td>
+                              </tr>
+                          </tbody>
+                      </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                      <!-- <?= $this->session->flashdata('alert'); ?>
                       <div class="form-group">
                           <label>Foto Pertama</label> <br>
                           <img src="<?= base_url('assets/img/' . $edit->foto1); ?>" id="foto" width="150px">
@@ -148,7 +229,7 @@
                           <a data-toggle="modal" type="submit" data-target="#editmodalgambar3<?= $edit->id_wisata ?>"
                               class="btn btn-primary">Tambah</a>
                           <?php endif; ?>
-                      </div>
+                      </div> -->
                       <br>
 
                       <?= $this->session->flashdata('message'); ?>
@@ -167,7 +248,7 @@
 
                               <tbody>
                                   <?php
-                    foreach ($edits as $t) : ?>
+                                        foreach ($edits as $t) : ?>
                                   <tr>
                                       <td><?= $t->nama_tiket ?></td>
                                       <td><?= $t->tarif ?></td>
@@ -204,7 +285,7 @@
 
                               <tbody>
                                   <?php
-                    foreach ($kuliner as $t) : ?>
+                                        foreach ($kuliner as $t) : ?>
                                   <tr>
                                       <td><?= $t->nama ?></td>
                                       <td><?= $t->harga ?></td>

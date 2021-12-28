@@ -1150,4 +1150,115 @@ class Pendidikan extends CI_Controller
             'required' => 'Field tidak boleh kosong'
         ]);
     }
+
+    public function simpanGambar($id)
+    {
+        $foto = $_FILES['foto']['name'];
+
+        $config['upload_path']        =    './assets/img/';
+        $config['allowed_types']    =    'jpg|jpeg|png';
+        $config['max_size']            =    10000;
+
+        $this->load->library('upload', $config);
+
+        if ($foto) {
+            if ($this->upload->do_upload('foto')) {
+
+                $data = [
+                    'foto' => preg_replace("/\s+/", "_", $foto),
+                ];
+
+                $update = $this->M_pendidikan->update_gambar($id, $data);
+
+                if ($update) {
+                    $this->session->set_flashdata('alert', '<div class="alert alert-success" role="alert">Gambar Berhasil di Update</div>');
+                    redirect('Pendidikan/edit_sd/' . $id);
+                } else {
+                    $this->session->set_flashdata('alert', '<div class="alert alert-warning" role="alert">Gambar tidak berhasil di Update</div>');
+                    redirect('Pendidikan/edit_sd/' . $id);
+                }
+            } else {
+                $error = array('error' => $this->upload->display_errors());
+                $this->session->set_flashdata('alert', '<div class="alert alert-danger" role="alert">Gambar tidak sesuai format</div>');
+                redirect('Pendidikan/edit_sd/' . $id);
+            }
+        } else {
+            $this->session->set_flashdata('alert', '<div class="alert alert-danger" role="alert">Gambar Gagal Ditambahkan, Harap Mengupload Gambar</div>');
+            redirect('Pendidikan/edit_sd/' . $id);
+        }
+    }
+
+    public function GambarSlb($id)
+    {
+        $foto = $_FILES['foto']['name'];
+
+        $config['upload_path']        =    './assets/img/';
+        $config['allowed_types']    =    'jpg|jpeg|png';
+        $config['max_size']            =    10000;
+
+        $this->load->library('upload', $config);
+
+        if ($foto) {
+            if ($this->upload->do_upload('foto')) {
+
+                $data = [
+                    'foto' => preg_replace("/\s+/", "_", $foto),
+                ];
+
+                $update = $this->M_pendidikan->update_gambar($id, $data);
+
+                if ($update) {
+                    $this->session->set_flashdata('alert', '<div class="alert alert-success" role="alert">Gambar Berhasil di Update</div>');
+                    redirect('Pendidikan/edit_slb/' . $id);
+                } else {
+                    $this->session->set_flashdata('alert', '<div class="alert alert-warning" role="alert">Gambar tidak berhasil di Update</div>');
+                    redirect('Pendidikan/edit_slb/' . $id);
+                }
+            } else {
+                $error = array('error' => $this->upload->display_errors());
+                $this->session->set_flashdata('alert', '<div class="alert alert-danger" role="alert">Gambar tidak sesuai format</div>');
+                redirect('Pendidikan/edit_slb/' . $id);
+            }
+        } else {
+            $this->session->set_flashdata('alert', '<div class="alert alert-danger" role="alert">Gambar Gagal Ditambahkan, Harap Mengupload Gambar</div>');
+            redirect('Pendidikan/edit_slb/' . $id);
+        }
+    }
+
+    public function GambarSmp($id)
+    {
+        $foto = $_FILES['foto']['name'];
+
+        $config['upload_path']        =    './assets/img/';
+        $config['allowed_types']    =    'jpg|jpeg|png';
+        $config['max_size']            =    10000;
+
+        $this->load->library('upload', $config);
+
+        if ($foto) {
+            if ($this->upload->do_upload('foto')) {
+
+                $data = [
+                    'foto' => preg_replace("/\s+/", "_", $foto),
+                ];
+
+                $update = $this->M_pendidikan->update_gambar($id, $data);
+
+                if ($update) {
+                    $this->session->set_flashdata('alert', '<div class="alert alert-success" role="alert">Gambar Berhasil di Update</div>');
+                    redirect('Pendidikan/edit_slb/' . $id);
+                } else {
+                    $this->session->set_flashdata('alert', '<div class="alert alert-warning" role="alert">Gambar tidak berhasil di Update</div>');
+                    redirect('Pendidikan/edit_slb/' . $id);
+                }
+            } else {
+                $error = array('error' => $this->upload->display_errors());
+                $this->session->set_flashdata('alert', '<div class="alert alert-danger" role="alert">Gambar tidak sesuai format</div>');
+                redirect('Pendidikan/edit_slb/' . $id);
+            }
+        } else {
+            $this->session->set_flashdata('alert', '<div class="alert alert-danger" role="alert">Gambar Gagal Ditambahkan, Harap Mengupload Gambar</div>');
+            redirect('Pendidikan/edit_slb/' . $id);
+        }
+    }
 }

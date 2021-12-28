@@ -44,15 +44,15 @@
                         </tr>
                         <tr>
                             <td>Foto KTP</td>
-                            <td><img src="<?= base_url('./assets/img/' . $user->foto_ktp); ?>" alt=""></td>
+                            <td><img src="<?= base_url('./assets/img/' . $user->foto_ktp); ?>" width="95px"></td>
                         </tr>
                         <tr>
                             <td>Foto Profil</td>
-                            <td><img src="<?= base_url('./assets/img/' . $user->foto_profil); ?>" alt=""></td>
+                            <td><img src="<?= base_url('./assets/img/' . $user->foto_profil); ?>" width="95px"></td>
                         </tr>
                         <tr>
                             <td>Selfie KTP</td>
-                            <td><img src="<?= base_url('./assets/img/' . $user->selfie_ktp); ?>" alt=""></td>
+                            <td><img src="<?= base_url('./assets/img/' . $user->selfie_ktp); ?>" width="95px"></td>
                         </tr>
                     </thead>
                 </table>

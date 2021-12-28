@@ -80,4 +80,9 @@ class M_event extends CI_Model
         $query = $this->db->get();
         return $query;
     }
+
+    public function update_gambar($id, $data)
+    {
+        return $this->db->where('id_event', $id)->update('event', $data);
+    }
 }

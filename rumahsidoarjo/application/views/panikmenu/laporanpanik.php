@@ -37,16 +37,17 @@
                   <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                       <thead>
                           <tr class="text-center"><b>
-                                  <th>Kode Laporan</th>
+                                  <th>ID</th>
                                   <th>Kategori</th>
                                   <th>Nama Pelapor</th>
                                   <th>Lokasi Kejadian</th>
                                   <th>Waktu Kejadian</th>
                                   <th>Petugas</th>
+                                  <!-- <th>Status</th> -->
                                   <th>Actions</th>
                               </b> </tr>
                       </thead>
-                      <tbody>
+                      <tbody class="text-center">
                           <?php if ($title == "Laporan Kriminal") :
                                 foreach ($kriminal as $k) : ?>
                           <tr>
@@ -56,6 +57,7 @@
                               <td><?= $k->lokasi_kejadian ?></td>
                               <td><?= $k->waktu_kejadian ?></td>
                               <td><?= $k->petugas ?></td>
+                              <!-- <td><?= $status->status ?></td> -->
                               <td><a href="<?= base_url('PanikMenu/delete_laporanKriminal/' . $k->id_laporan); ?>"
                                       onclick="javascript: return confirm('Anda Yakin Hapus ?')"
                                       class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a></td>
@@ -71,6 +73,7 @@
                               <td><?= $k->lokasi_kejadian ?></td>
                               <td><?= $k->waktu_kejadian ?></td>
                               <td><?= $k->petugas ?></td>
+                              <!-- <td><?= $status->status ?></td> -->
                               <td><a href="<?= base_url('PanikMenu/delete_laporankecelakaan/' . $k->id_laporan); ?>"
                                       onclick="javascript: return confirm('Anda Yakin Hapus ?')"
                                       class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a></td>
@@ -86,6 +89,7 @@
                               <td><?= $k->lokasi_kejadian ?></td>
                               <td><?= $k->waktu_kejadian ?></td>
                               <td><?= $k->petugas ?></td>
+                              <!-- <td><?= $status->status ?></td> -->
                               <td><a href="<?= base_url('PanikMenu/delete_laporanBencana/' . $k->id_laporan); ?>"
                                       onclick="javascript: return confirm('Anda Yakin Hapus ?')"
                                       class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a></td>
@@ -101,6 +105,7 @@
                               <td><?= $k->lokasi_kejadian ?></td>
                               <td><?= $k->waktu_kejadian ?></td>
                               <td><?= $k->petugas ?></td>
+                              <!-- <td><?= $status->status ?></td> -->
                               <td><a href="<?= base_url('PanikMenu/delete_laporan/' . $k->id_laporan); ?>"
                                       onclick="javascript: return confirm('Anda Yakin Hapus ?')"
                                       class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a></td>

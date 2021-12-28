@@ -182,7 +182,7 @@
                       <div class="row">
                           <div class="form-group">
                               <button type="submit" class="btn btn-primary ">Simpan</button>
-                              <a href="<?= base_url('Kesehatan/pkmp') ?>" class="btn btn-success"> Kembali</a>
+                              <a href="<?= base_url('Kesehatan') ?>" class="btn btn-success"> Kembali</a>
 
                           </div>
                       </div>

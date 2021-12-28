@@ -25,6 +25,7 @@ class PanikMenu extends CI_Controller
     {
         $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['laporan'] = $this->m_panikmenu->laporan()->result();
+        $data['status'] = $this->m_panikmenu->status()->result();
         $data['title'] = 'Laporan Panik';
         $this->load->view('admin/templates/header', $data);
         $this->load->view('admin/templates/sidebar', $data);
@@ -37,6 +38,7 @@ class PanikMenu extends CI_Controller
     {
         $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['kriminal'] = $this->m_panikmenu->laporan_kriminal()->result();
+        $data['status'] = $this->m_panikmenu->status()->row();
         $data['title'] = 'Laporan Kriminal';
         $this->load->view('admin/templates/header', $data);
         $this->load->view('admin/templates/sidebar', $data);
@@ -49,6 +51,7 @@ class PanikMenu extends CI_Controller
     {
         $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['kecelakaan'] = $this->m_panikmenu->laporan_kecelakaan()->result();
+        $data['status'] = $this->m_panikmenu->status()->row();
         $data['title'] = 'Laporan Kecelakaan';
         $this->load->view('admin/templates/header', $data);
         $this->load->view('admin/templates/sidebar', $data);
@@ -61,6 +64,7 @@ class PanikMenu extends CI_Controller
     {
         $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['bencana'] = $this->m_panikmenu->laporan_bencana()->result();
+        $data['status'] = $this->m_panikmenu->status()->row();
         $data['title'] = 'Laporan Bencana';
         $this->load->view('admin/templates/header', $data);
         $this->load->view('admin/templates/sidebar', $data);

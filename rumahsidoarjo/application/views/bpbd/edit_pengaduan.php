@@ -46,8 +46,11 @@
                                </tr>
 
                                <tr>
-                                   <td class="font-weight-bold">Bukti Kejadian</td>
-                                   <td><?= $edit->bukti_kejadian; ?></td>
+                                   <td>Bukti kejadian</td>
+                                   <td><img width="150px" height="150px"
+                                           src="<?= base_url('assets/img/' . $edit->bukti_kejadian); ?>"
+                                           alt="Belum Ada Foto">
+                                   </td>
                                </tr>
 
                                <tr>

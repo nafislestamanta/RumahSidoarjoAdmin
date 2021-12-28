@@ -429,12 +429,12 @@
      </li>
      <li class="nav-item active">
          <a class="nav-link" href="<?= base_url('Bpbd/laporan'); ?>">
-             <i class="fas fa-home"></i>
+             <i class="far fa-comments"></i>
              <span>PENGADUAN</span></a>
      </li>
      <li class="nav-item active">
          <a class="nav-link" href="<?= base_url('Bpbd/riwayat'); ?>">
-             <i class="fas fa-home"></i>
+             <i class="fas fa-history"></i>
              <span>RWIAYAT </span></a>
      </li>
 

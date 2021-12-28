@@ -23,36 +23,46 @@
                             <td class="font-weight-bold text-dark">Nama</td>
                             <td><?= $ulasan->nama_wisata; ?></td>
                         </tr>
-                        <tr>
-                            <td>gambar 1</td>
-                            <td>
-                                <?= $this->session->flashdata('alert'); ?>
-                                <div class="form-group">
-                                    <br>
-                                    <img src="<?= base_url('assets/img/' . $ulasan->foto1); ?>" id="foto" width="110px">
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>gambar 2</td>
-                            <td>
-                                <?= $this->session->flashdata('alert'); ?>
-                                <div class="form-group">
-                                    <br>
-                                    <img src="<?= base_url('assets/img/' . $ulasan->foto2); ?>" id="foto" width="110px">
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>gambar 3</td>
-                            <td>
-                                <?= $this->session->flashdata('alert'); ?>
-                                <div class="form-group">
-                                    <br>
-                                    <img src="<?= base_url('assets/img/' . $ulasan->foto3); ?>" id="foto" width="110px">
-                                </div>
-                            </td>
-                        </tr>
+
+
+
+
+                        <table class="table table-bordered" width="90%" cellspacing="0">
+                            <thead>
+                                <tr class="text-center"><b>
+                                        <th>Gambar 1</th>
+                                        <th>Gambar 2</th>
+                                        <th>Gambar 3</th>
+                                    </b>
+                                </tr>
+                            </thead>
+                            <tbody class="text-center">
+
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <br>
+                                            <img src="<?= base_url('assets/img/' . $ulasan->foto1); ?>" width="90px"
+                                                alt="Belum Upload">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <br>
+                                            <img src="<?= base_url('assets/img/' . $ulasan->foto2); ?>" width="90px"
+                                                alt="Belum Upload">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <br>
+                                            <img src="<?= base_url('assets/img/' . $ulasan->foto3); ?>" width="90px"
+                                                alt="Belum Upload">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </thead>
 
                 </table>
@@ -100,7 +110,7 @@
 
                     </tbody>
                 </table>
-                <a href="<?= base_url('Umkm'); ?>" class="btn btn-danger">Kembali</a>
+                <a href="<?= base_url('Pariwisata'); ?>" class="btn btn-danger">Kembali</a>
             </div>
         </div>
 

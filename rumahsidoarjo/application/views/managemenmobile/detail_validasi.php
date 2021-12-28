@@ -56,8 +56,12 @@
                         </tr>
                     </thead>
                 </table>
-                <a href="<?= base_url('ManagemenMobile/validasi_acc/' . $user->NIK) ?>" onclick="javascript: return confirm('Apa Anda Yakin Ingin Mengonfirmasi ?')" class="btn btn-success">Konfirmasi</a>
-                <a href="<?= base_url('ManagemenMobile/delete_validasi/' . $user->NIK) ?>" onclick="javascript: return confirm('Apa Anda Yakin Ingin Menolak ?')" class="btn btn-danger">Tolak</a>
+                <a href="<?= base_url('ManagemenMobile/validasi_acc/' . $user->NIK) ?>"
+                    onclick="javascript: return confirm('Apa Anda Yakin Ingin Mengonfirmasi ?')"
+                    class="btn btn-success">Konfirmasi</a>
+                <a href="<?= base_url('ManagemenMobile/delete_validasi/' . $user->NIK) ?>"
+                    onclick="javascript: return confirm('Apa Anda Yakin Ingin Menolak Akun ? data otomatis dihapus !')"
+                    class="btn btn-danger">Tolak</a>
                 <a href="<?= base_url('ManagemenMobile/validasi') ?>" class="btn btn-warning">Kembali</a>
             </div>
         </div>

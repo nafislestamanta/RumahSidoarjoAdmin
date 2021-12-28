@@ -46,27 +46,43 @@
                             <td class="font-weight-bold">Deskripsi Pekerjaan</td>
                             <td><?= $detail->deskripsi_pekerjaan; ?></td>
                         </tr>
-                        <tr>
-                            <td>Foto</td>
-                            <td>
-                                <?= $this->session->flashdata('alert'); ?>
-                                <div class="form-group">
-                                    <br>
-                                    <img src="<?= base_url('assets/img/' . $detail->foto_lowongan); ?>" id="foto"
-                                        width="150px">
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>File</td>
-                            <td>
-                                <?= $this->session->flashdata('alert'); ?>
-                                <div class="form-group">
-                                    <br>
-                                    <img src="<?= base_url('assets/img/' . $detail->file); ?>" id="foto" width="150px">
-                                </div>
-                            </td>
-                        </tr>
+
+
+
+
+
+
+
+
+                        <table class="table table-bordered" width="90%" cellspacing="0">
+                            <thead>
+                                <tr class="text-center"><b>
+                                        <th>Gambar 1</th>
+                                        <th>Gambar 2</th>
+                                    </b>
+                                </tr>
+                            </thead>
+                            <tbody class="text-center">
+
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <br>
+                                            <img src="<?= base_url('assets/img/' . $detail->foto_lowongan); ?>"
+                                                width="100px">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <br>
+                                            <img src="<?= base_url('assets/img/' . $detail->file); ?>" width="100px">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+
                     </thead>
                 </table>
                 <a href="<?= base_url('LowonganKerja/lowongan'); ?>" class="btn btn-danger">Kembali</a>

@@ -9,7 +9,7 @@
       <!-- Content -->
       <div class="card shadow mb-4">
           <div class="card-header py-3">
-              <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+              <a class="btn-sm btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <?php if ($title == "Konfirmasi Laporan Kriminal") : ?>
                   Kriminal
@@ -27,7 +27,7 @@
                   <a class="dropdown-item" href="<?= base_url('PanikMenu/konfirmasiKecelakaan'); ?>">Kecelakaan</a>
                   <a class="dropdown-item" href="<?= base_url('PanikMenu/konfirmasiBencana'); ?>">Bencana</a>
               </div>
-              <a style="float: right;" href="<?= base_url('Pdf/pdf'); ?>" target="_blank" class="btn btn-primary"><i
+              <a style="float: right;" href="<?= base_url('Pdf/pdf'); ?>" target="_blank" class="btn-sm btn-primary"><i
                       class="fas fa-download" style="padding-right: 5px;"></i>Report</a>
 
           </div>
@@ -48,7 +48,7 @@
                               </b> </tr>
                       </thead>
 
-                      <tbody>
+                      <tbody class="text-center">
                           <?php if ($title == "Konfirmasi Laporan Kriminal") :
                                 foreach ($kriminal as $k) : ?>
                           <tr>

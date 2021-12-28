@@ -11,6 +11,15 @@ class m_panikmenu extends CI_Model
         return $query;
     }
 
+    public function status()
+    {
+        $this->db->select('*');
+        $this->db->from('panik_button');
+        $query = $this->db->get();
+        return $query;
+    }
+
+
     public function konfirmasi()
     {
         $this->db->select('*');

@@ -288,12 +288,6 @@ class Pariwisata extends CI_Controller
         $this->form_validation->set_rules('jamtutup', 'Jamtutup', 'required|trim', [
             'required' => 'Field tidak boleh kosong'
         ]);
-        $this->form_validation->set_rules('lat', 'Lat', 'required|trim', [
-            'required' => 'Field tidak boleh kosong'
-        ]);
-        $this->form_validation->set_rules('long', 'Long', 'required|trim', [
-            'required' => 'Field tidak boleh kosong'
-        ]);
         if ($this->form_validation->run() == false) {
             $this->tambah_wisata();
         } else {
@@ -600,19 +594,19 @@ class Pariwisata extends CI_Controller
                 $update = $this->M_pariwisata->update_gambar1($id, $data);
 
                 if ($update) {
-                    $this->session->set_flashdata('alert', '<div class="alert alert-success" role="alert">Data Berhasil di Update</div>');
+                    $this->session->set_flashdata('alert2', '<div class="alert alert-success" role="alert">Data Berhasil di Update</div>');
                     redirect('Pariwisata/edit_wisata/' . $id);
                 } else {
-                    $this->session->set_flashdata('alert', '<div class="alert alert-warning" role="alert">Data tidak berhasil di Update</div>');
+                    $this->session->set_flashdata('alert2', '<div class="alert alert-warning" role="alert">Data tidak berhasil di Update</div>');
                     redirect('Pariwisata/edit_wisata/' . $id);
                 }
             } else {
                 $error = array('error' => $this->upload->display_errors());
-                $this->session->set_flashdata('alert', '<div class="alert alert-danger" role="alert">Gambar tidak sesuai format</div>');
+                $this->session->set_flashdata('alert2', '<div class="alert alert-danger" role="alert">Gambar tidak sesuai format</div>');
                 redirect('Pariwisata/edit_wisata/' . $id);
             }
         } else {
-            $this->session->set_flashdata('alert', '<div class="alert alert-danger" role="alert">Data Gagal Ditambahkan, Harap Mengupload Gambar</div>');
+            $this->session->set_flashdata('alert2', '<div class="alert alert-danger" role="alert">Data Gagal Ditambahkan, Harap Mengupload Gambar</div>');
             redirect('Pariwisata/edit_wisata/' . $id);
         }
     }
@@ -636,19 +630,19 @@ class Pariwisata extends CI_Controller
                 $update = $this->M_pariwisata->update_gambar1($id, $data);
 
                 if ($update) {
-                    $this->session->set_flashdata('alert', '<div class="alert alert-success" role="alert">Data Berhasil di Update</div>');
+                    $this->session->set_flashdata('alert3', '<div class="alert alert-success" role="alert">Data Berhasil di Update</div>');
                     redirect('Pariwisata/edit_wisata/' . $id);
                 } else {
-                    $this->session->set_flashdata('alert', '<div class="alert alert-warning" role="alert">Data tidak berhasil di Update</div>');
+                    $this->session->set_flashdata('alert3', '<div class="alert alert-warning" role="alert">Data tidak berhasil di Update</div>');
                     redirect('Pariwisata/edit_wisata/' . $id);
                 }
             } else {
                 $error = array('error' => $this->upload->display_errors());
-                $this->session->set_flashdata('alert', '<div class="alert alert-danger" role="alert">Gambar tidak sesuai format</div>');
+                $this->session->set_flashdata('alert3', '<div class="alert alert-danger" role="alert">Gambar tidak sesuai format</div>');
                 redirect('Pariwisata/edit_wisata/' . $id);
             }
         } else {
-            $this->session->set_flashdata('alert', '<div class="alert alert-danger" role="alert">Data Gagal Ditambahkan, Harap Mengupload Gambar</div>');
+            $this->session->set_flashdata('alert3', '<div class="alert alert-danger" role="alert">Data Gagal Ditambahkan, Harap Mengupload Gambar</div>');
             redirect('Pariwisata/edit_wisata/' . $id);
         }
     }

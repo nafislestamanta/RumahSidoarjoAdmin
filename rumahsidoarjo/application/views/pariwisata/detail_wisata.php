@@ -11,6 +11,10 @@
                 <table class="table table-bordered" width="100%" cellspacing="0">
                     <thead>
                         <tr>
+                            <td>ID Wisata</td>
+                            <td><?= $edit->id_wisata; ?></td>
+                        </tr>
+                        <tr>
                             <td>Kategori</td>
                             <td><?= $edit->kategori; ?></td>
                         </tr>
@@ -42,21 +46,47 @@
                             <td>Longitude</td>
                             <td><?= $edit->long; ?></td>
                         </tr>
-                        <tr>
-                            <td>Foto Pertama</td>
-                            <td><img width="150px" height="150px" src="<?= base_url('assets/img/' . $edit->foto1); ?>"
-                                    alt="Belum Ada Foto"></td>
-                        </tr>
-                        <tr>
-                            <td>Foto Kedua</td>
-                            <td><img width="150px" height="150px" src="<?= base_url('assets/img/' . $edit->foto2); ?>"
-                                    alt="Belum Ada Foto"></td>
-                        </tr>
-                        <tr>
-                            <td>Foto Ketiga</td>
-                            <td><img width="150px" height="150px" src="<?= base_url('assets/img/' . $edit->foto3); ?>"
-                                    alt="Belum Ada Foto"></td>
-                        </tr>
+
+
+
+
+
+                        <table class="table table-bordered" width="90%" cellspacing="0">
+                            <thead>
+                                <tr class="text-center"><b>
+                                        <th>Gambar 1</th>
+                                        <th>Gambar 2</th>
+                                        <th>Gambar 3</th>
+                                    </b>
+                                </tr>
+                            </thead>
+                            <tbody class="text-center">
+
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <br>
+                                            <img src="<?= base_url('assets/img/' . $edit->foto1); ?>" width="90px"
+                                                alt="Belum Upload">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <br>
+                                            <img src="<?= base_url('assets/img/' . $edit->foto2); ?>" width="90px"
+                                                alt="Belum Upload">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <br>
+                                            <img src="<?= base_url('assets/img/' . $edit->foto3); ?>" width="90px"
+                                                alt="Belum Upload">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
 
                     </thead>
                 </table>

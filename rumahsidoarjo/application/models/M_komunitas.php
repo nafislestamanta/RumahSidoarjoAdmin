@@ -151,13 +151,8 @@ class M_komunitas extends CI_model
         return $this->db->where('id_event', $id)->update('event_komunitas', $data);
     }
 
-    // public function edit_lowongan($id)
-    // {
-    //     $this->db->select('*');
-    //     $this->db->from('lowongan');
-    //     $this->db->where('id_lowongan', $id);
-    //     $query = $this->db->get();
-    //     return $query;
-    // }
-
+    public function update_gambar($id, $data)
+    {
+        return $this->db->where('id_komunitas', $id)->update('komunitas', $data);
+    }
 }

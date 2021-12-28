@@ -193,9 +193,9 @@ class Event extends CI_Controller
                     'tempat_kegiatan' => $tempat_kegiatan,
                     'deskripsi' => $deskripsi,
                     'tempat_kegiatan' => $tempat_kegiatan,
-                    'foto1' => $foto1,
-                    'foto2' => $foto2,
-                    'foto3' => $foto3,
+                    //'foto1' => $foto1,
+                    //'foto2' => $foto2,
+                    //'foto3' => $foto3,
                 ];
 
                 $update = $this->M_event->update_event($data, $id);
@@ -215,9 +215,9 @@ class Event extends CI_Controller
                     'tempat_kegiatan' => $tempat_kegiatan,
                     'deskripsi' => $deskripsi,
                     'tempat_kegiatan' => $tempat_kegiatan,
-                    'foto1' => $foto1,
-                    'foto2' => $foto2,
-                    'foto3' => $foto3,
+                    //'foto1' => $foto1,
+                    //'foto2' => $foto2,
+                    //'foto3' => $foto3,
                 ];
 
                 $update = $this->M_event->update_event($data, $id);
@@ -266,5 +266,87 @@ class Event extends CI_Controller
         $this->load->view('admin/templates/topbar', $data);
         $this->load->view('event/event', $data);
         $this->load->view('admin/templates/footer', $data);
+    }
+
+
+    public function simpanGambar($id)
+    {
+        $foto1 = $_FILES['foto1']['name'];
+        $foto2 = $_FILES['foto2']['name'];
+        $foto3 = $_FILES['foto3']['name'];
+
+        $config['upload_path']        =    './assets/img/';
+        $config['allowed_types']    =    'jpg|jpeg|png';
+        $config['max_size']            =    10000;
+
+        $this->load->library('upload', $config);
+
+        if ($foto1) {
+            if ($this->upload->do_upload('foto1')) {
+
+                $data = [
+                    'foto1' => preg_replace("/\s+/", "_", $foto1),
+                ];
+
+                $update = $this->M_event->update_gambar($id, $data);
+
+                if ($update) {
+                    $this->session->set_flashdata('alert', '<div class="alert alert-success" role="alert">Gambar Berhasil di Update</div>');
+                    redirect('Event/edit_event/' . $id);
+                } else {
+                    $this->session->set_flashdata('alert', '<div class="alert alert-warning" role="alert">Gambar tidak berhasil di Update</div>');
+                    redirect('Event/edit_event/' . $id);
+                }
+            } else {
+                $error = array('error' => $this->upload->display_errors());
+                $this->session->set_flashdata('alert', '<div class="alert alert-danger" role="alert">Gambar tidak sesuai format</div>');
+                redirect('Event/edit_event/' . $id);
+            }
+        } elseif ($foto2) {
+            if ($this->upload->do_upload('foto2')) {
+
+                $data = [
+                    'foto2' => preg_replace("/\s+/", "_", $foto2),
+                ];
+
+                $update = $this->M_event->update_gambar($id, $data);
+
+                if ($update) {
+                    $this->session->set_flashdata('alert1', '<div class="alert alert-success" role="alert">Gambar Berhasil di Update</div>');
+                    redirect('Event/edit_event/' . $id);
+                } else {
+                    $this->session->set_flashdata('alert1', '<div class="alert alert-warning" role="alert">Gambar tidak berhasil di Update</div>');
+                    redirect('Event/edit_event/' . $id);
+                }
+            } else {
+                $error = array('error' => $this->upload->display_errors());
+                $this->session->set_flashdata('alert1', '<div class="alert alert-danger" role="alert">Gambar tidak sesuai format</div>');
+                redirect('Event/edit_event/' . $id);
+            }
+        } elseif ($foto3) {
+            if ($this->upload->do_upload('foto3')) {
+
+                $data = [
+                    'foto3' => preg_replace("/\s+/", "_", $foto3),
+                ];
+
+                $update = $this->M_event->update_gambar($id, $data);
+
+                if ($update) {
+                    $this->session->set_flashdata('alert2', '<div class="alert alert-success" role="alert">Gambar Berhasil di Update</div>');
+                    redirect('Event/edit_event/' . $id);
+                } else {
+                    $this->session->set_flashdata('alert2', '<div class="alert alert-warning" role="alert">Gambar tidak berhasil di Update</div>');
+                    redirect('Event/edit_event/' . $id);
+                }
+            } else {
+                $error = array('error' => $this->upload->display_errors());
+                $this->session->set_flashdata('alert2', '<div class="alert alert-danger" role="alert">Gambar tidak sesuai format</div>');
+                redirect('Event/edit_event/' . $id);
+            }
+        } else {
+            $this->session->set_flashdata('alert3', '<div class="alert alert-danger" role="alert">Data Gagal Ditambahkan, Harap Mengupload Gambar</div>');
+            redirect('Event/edit_event/' . $id);
+        }
     }
 }

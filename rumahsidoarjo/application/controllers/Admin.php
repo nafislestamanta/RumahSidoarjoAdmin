@@ -173,7 +173,7 @@ class Admin extends CI_Controller
             $alamat = $this->input->post('alamat');
             $notelp = $this->input->post('notelp');
             $email = $this->input->post('email');
-            $gambar = $_FILES['gambar']['name'];
+            $foto = $_FILES['foto']['name'];
             $password = $this->input->post('password');
 
             $config['upload_path']        =    './assets/img/';
@@ -182,7 +182,7 @@ class Admin extends CI_Controller
 
             $this->load->library('upload', $config);
 
-            if ($gambar) {
+            if ($foto) {
                 if ($this->upload->do_upload('gambar')) {
 
                     $data = [
@@ -193,7 +193,7 @@ class Admin extends CI_Controller
                         'alamat' => $alamat,
                         'no_tlp' => $notelp,
                         'email' => $email,
-                        'foto' => preg_replace("/\s+/", "_", $gambar),
+                        'foto' => preg_replace("/\s+/", "_", $foto),
                         'password' => $password,
                     ];
 
@@ -298,7 +298,7 @@ class Admin extends CI_Controller
                     'alamat' => $alamat,
                     'no_tlp' => $no_tlp,
                     'email' => $email,
-                    'foto' => $foto,
+                    //'foto' => $foto,
                 ];
 
                 $update = $this->M_admin->update($data, $id);
@@ -316,7 +316,7 @@ class Admin extends CI_Controller
                     'alamat' => $alamat,
                     'no_tlp' => $no_tlp,
                     'email' => $email,
-                    'foto' => $foto,
+                    // 'foto' => $foto,
 
                 ];
 
@@ -403,6 +403,43 @@ class Admin extends CI_Controller
         } else {
             $this->session->set_flashdata('alert', '<div class="alert alert-danger" role="alert">Data Gagal Ditambahkan, Harap Mengupload Gambar</div>');
             redirect('Admin/profile/' . $id);
+        }
+    }
+
+    public function GambarProfile($id)
+    {
+        $foto = $_FILES['foto']['name'];
+
+        $config['upload_path']        =    './assets/img/';
+        $config['allowed_types']    =    'jpg|jpeg|png';
+        $config['max_size']            =    10000;
+
+        $this->load->library('upload', $config);
+
+        if ($foto) {
+            if ($this->upload->do_upload('foto')) {
+
+                $data = [
+                    'foto' => preg_replace("/\s+/", "_", $foto),
+                ];
+
+                $update = $this->M_admin->update_gambar($id, $data);
+
+                if ($update) {
+                    $this->session->set_flashdata('alert', '<div class="alert alert-success" role="alert">Data Berhasil di Update</div>');
+                    redirect('Admin/edit/' . $id);
+                } else {
+                    $this->session->set_flashdata('alert', '<div class="alert alert-warning" role="alert">Data tidak berhasil di Update</div>');
+                    redirect('Admin/edit/' . $id);
+                }
+            } else {
+                $error = array('error' => $this->upload->display_errors());
+                $this->session->set_flashdata('alert', '<div class="alert alert-danger" role="alert">Gambar tidak sesuai format</div>');
+                redirect('Admin/edit/' . $id);
+            }
+        } else {
+            $this->session->set_flashdata('alert', '<div class="alert alert-danger" role="alert">Data Gagal Ditambahkan, Harap Mengupload Gambar</div>');
+            redirect('Admin/edit/' . $id);
         }
     }
 }

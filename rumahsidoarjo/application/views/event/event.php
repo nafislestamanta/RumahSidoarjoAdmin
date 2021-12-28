@@ -50,7 +50,7 @@
                          </tr>
                      </thead>
 
-                     <tbody>
+                     <tbody class="text-center">
                          <?php $no = 1;
                             if ($title == "agenda kota") :
                                 foreach ($tampil as $a) : ?>

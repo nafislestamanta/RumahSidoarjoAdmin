@@ -38,8 +38,8 @@
                         <tr class="text-center"><b>
                                 <th>No</th>
                                 <th>Nama Event</th>
-                                <th>Komunitas Pelaksana</th>
-                                <th>Hari Pelaksanaan</th>
+                                <th>Pelaksana</th>
+                                <th>Pelaksanaan</th>
                                 <th>No Telepon</th>
                                 <th>Status</th>
                                 <th>Action</th>

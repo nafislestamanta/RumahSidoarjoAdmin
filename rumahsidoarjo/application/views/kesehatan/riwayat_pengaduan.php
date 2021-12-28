@@ -58,15 +58,15 @@
                                       onclick="javascript: return confirm('Anda Yakin Hapus ?')"
                                       class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>
                                   </a>
-                                  <a href="<?= base_url('LayananPublik/edit_pengaduan/' . $k->id_laporan); ?>"
+                                  <a href="<?= base_url('Kesehatan/edit_pengaduan/' . $k->id_laporan); ?>"
                                       class="btn btn-warning btn-sm"><i class="fa fa-edit"></i>
                                   </a>
                               </td>
                           </tr>
                           <?php endforeach; ?>
 
-                          <?php elseif ($title == "Laporan Kecelakaan") :
-                                foreach ($kecelakaan as $k) : ?>
+                          <!-- <?php elseif ($title == "Laporan Kecelakaan") :
+                                    foreach ($kecelakaan as $k) : ?>
                           <tr>
                               <td><?= $k->id_laporan ?></td>
                               <td><?= $k->kategori ?></td>
@@ -84,10 +84,10 @@
                                   </a>
                               </td>
                           </tr>
-                          <?php endforeach; ?>
+                          <?php endforeach; ?> -->
 
                           <?php elseif ($title == "Selesai") :
-                                foreach ($selesai as $k) : ?>
+                                    foreach ($selesai as $k) : ?>
                           <tr>
                               <td><?= $k->id_laporan ?></td>
                               <td><?= $k->kategori ?></td>
@@ -108,7 +108,7 @@
                           <?php endforeach; ?>
 
                           <?php else :
-                                foreach ($riwayat as $k) : ?>
+                                    foreach ($riwayat as $k) : ?>
                           <tr>
                               <td><?= $k->id_laporan ?></td>
                               <td><?= $k->kategori ?></td>

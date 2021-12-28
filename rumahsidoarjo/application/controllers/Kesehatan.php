@@ -922,20 +922,20 @@ class Kesehatan extends CI_Controller
                 $update = $this->m_kesehatan->update_gambar($id, $data);
 
                 if ($update) {
-                    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil diupdate</div>');
-                    redirect('Kesehatan', $data);
+                    $this->session->set_flashdata('alert', '<div class="alert alert-success" role="alert">Gambar berhasil diupdate</div>');
+                    redirect('Kesehatan/edit_rsu/' . $id);
                 } else {
-                    $this->session->set_flashdata('message', '<div class="alert alert-warning" role="alert">Data tidak berhasil di Update</div>');
-                    redirect('Kesehatan', $data);
+                    $this->session->set_flashdata('alert', '<div class="alert alert-warning" role="alert">Gambar tidak berhasil di Update</div>');
+                    redirect('Kesehatan/edit_rsu/' . $id);
                 }
             } else {
                 $error = array('error' => $this->upload->display_errors());
-                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Gambar tidak sesuai format</div>');
-                redirect('Kesehatan');
+                $this->session->set_flashdata('alert', '<div class="alert alert-danger" role="alert">Gambar tidak sesuai format</div>');
+                redirect('Kesehatan/edit_rsu/' . $id);
             }
         } else {
-            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data Gagal Ditambahkan, Harap Mengupload Gambar</div>');
-            redirect('Kesehatan');
+            $this->session->set_flashdata('alert', '<div class="alert alert-danger" role="alert">Gambar Gagal Ditambahkan, Harap Mengupload Gambar</div>');
+            redirect('Kesehatan/edit_rsu/' . $id);
         }
     }
 }

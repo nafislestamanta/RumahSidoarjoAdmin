@@ -24,7 +24,7 @@
                           <thead>
                               <tr class="text-center"><b>
                                       <th>No</th>
-                                      <th>Nama PKM Utama</th>
+                                      <th>Nama PKM Pembantu</th>
                                       <th>Alamat</th>
                                       <th>Kecamatan</th>
                                       <th>Pengelola</th>
