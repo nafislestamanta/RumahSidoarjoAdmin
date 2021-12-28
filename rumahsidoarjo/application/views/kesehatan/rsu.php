@@ -34,9 +34,10 @@
                           </thead>
 
                           <tbody>
-                              <?php foreach ($rsu as $r) : ?>
+                              <?php $no = 1;
+                                foreach ($rsu as $r) : ?>
                               <tr>
-                                  <td><?= $r->id_kesehatan ?></td>
+                                  <td><?= $no++ ?></td>
                                   <td><?= word_limiter($r->nama, 2); ?></td>
                                   <td><?= word_limiter($r->alamat, 2); ?></td>
                                   <td><?= $r->kepemilikan ?></td>

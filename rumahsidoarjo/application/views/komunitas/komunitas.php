@@ -16,7 +16,7 @@
                  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                      <thead>
                          <tr class="text-center"><b>
-                                 <th>ID</th>
+                                 <th>No</th>
                                  <th>Nama Komunitas</th>
                                  <th>Ketua Komunitas</th>
                                  <th>Alamat</th>
@@ -27,10 +27,11 @@
                      </thead>
 
                      <tbody>
-                         <?php if ($title == "Komunitas") :
+                         <?php $no = 1;
+                            if ($title == "Komunitas") :
                                 foreach ($tampil as $e) : ?>
                          <tr class="text-center">
-                             <td><?= $e->id_komunitas ?></td>
+                             <td><?= $no++ ?></td>
                              <td><?= word_limiter($e->nama_komunitas, 3); ?></td>
                              <td><?= $e->ketua ?></td>
                              <td><?= word_limiter($e->alamat, 3); ?></td>

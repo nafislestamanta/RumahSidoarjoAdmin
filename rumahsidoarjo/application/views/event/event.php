@@ -40,7 +40,7 @@
                  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                      <thead>
                          <tr class="text-center"><b>
-                                 <th>Kode</th>
+                                 <th>No</th>
                                  <th>Kategori</th>
                                  <th>Nama Event</th>
                                  <th>Tanggal Publish</th>
@@ -51,10 +51,11 @@
                      </thead>
 
                      <tbody>
-                         <?php if ($title == "agenda kota") :
+                         <?php $no = 1;
+                            if ($title == "agenda kota") :
                                 foreach ($tampil as $a) : ?>
                          <tr>
-                             <td><?= $a->id_event ?></td>
+                             <td><?= $no++ ?></td>
                              <td><?= $a->kategori ?></td>
                              <td><?= word_limiter($a->nama_event, 2); ?></td>
                              <td><?= $a->tgl_posting ?></td>

@@ -14,7 +14,7 @@
                  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                      <thead>
                          <tr class="text-center"><b>
-                                 <th>ID</th>
+                                 <th>NO</th>
                                  <th>Nama Kategori</th>
                                  <th>Action</th>
                              </b>
@@ -22,10 +22,11 @@
                      </thead>
 
                      <tbody>
-                         <?php if ($title == "Kategori") :
+                         <?php $no = 1;
+                            if ($title == "Kategori") :
                                 foreach ($tampil as $e) : ?>
                          <tr class="text-center">
-                             <td><?= $e->id_kategorilayanan ?></td>
+                             <td><?= $no++ ?></td>
                              <td><?= $e->nama_kategori ?></td>
                              <td><a href="<?= base_url('LayananPublik/edit_kategori/' . $e->id_kategorilayanan); ?>"
                                      class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>

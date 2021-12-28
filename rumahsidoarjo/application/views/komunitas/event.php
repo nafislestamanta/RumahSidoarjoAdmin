@@ -36,7 +36,7 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr class="text-center"><b>
-                                <th>Id</th>
+                                <th>No</th>
                                 <th>Nama Event</th>
                                 <th>Komunitas Pelaksana</th>
                                 <th>Hari Pelaksanaan</th>
@@ -48,10 +48,11 @@
                     </thead>
 
                     <tbody class="text-center">
-                        <?php if ($title == "Event Selesai") :
+                        <?php $no = 1;
+                        if ($title == "Event Selesai") :
                             foreach ($tampil as $a) : ?>
                         <tr>
-                            <td><?= $a->id_event ?></td>
+                            <td><?= $no++ ?></td>
                             <td><?= word_limiter($a->nama_event, 3); ?></td>
                             <td><?= $a->nama_komunitas ?></td>
                             <td><?= $a->tanggal ?></td>

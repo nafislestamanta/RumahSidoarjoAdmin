@@ -16,7 +16,7 @@
                  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                      <thead>
                          <tr class="text-center"><b>
-                                 <th>ID</th>
+                                 <th>No</th>
                                  <th>Kategori Informasi</th>
                                  <th>Nama Informasi Layanan</th>
                                  <th>Deskripsi </th>
@@ -26,10 +26,11 @@
                      </thead>
 
                      <tbody>
-                         <?php if ($title == "Informasi Umum") :
+                         <?php $no = 1;
+                            if ($title == "Informasi Umum") :
                                 foreach ($tampil as $e) : ?>
                          <tr class="text-center">
-                             <td><?= $e->id_layanan ?></td>
+                             <td><?= $no++ ?></td>
                              <td><?= $e->nama_kategori ?></td>
                              <td><?= word_limiter($e->nama, 3); ?></td>
                              <td><?= word_limiter($e->deskripsi, 3); ?></td>

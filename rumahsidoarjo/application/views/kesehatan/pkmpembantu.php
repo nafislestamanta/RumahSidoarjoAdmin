@@ -23,7 +23,7 @@
                       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                           <thead>
                               <tr class="text-center"><b>
-                                      <th>Kode</th>
+                                      <th>No</th>
                                       <th>Nama PKM Utama</th>
                                       <th>Alamat</th>
                                       <th>Kecamatan</th>
@@ -35,9 +35,10 @@
                           </thead>
 
                           <tbody>
-                              <?php foreach ($pkmp as $u) : ?>
+                              <?php $no = 1;
+                                foreach ($pkmp as $u) : ?>
                               <tr>
-                                  <td style="text-align: center;"><?= $u->id_kesehatan ?></td>
+                                  <td><?= $no++ ?></td>
                                   <td><?= word_limiter($u->nama, 2); ?></td>
                                   <td><?= word_limiter($u->alamat, 2); ?></td>
                                   <td><?= $u->kecamatan ?></td>

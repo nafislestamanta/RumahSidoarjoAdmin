@@ -24,7 +24,7 @@
                       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                           <thead>
                               <tr class="text-center"><b>
-                                      <th>Kode</th>
+                                      <th>No</th>
                                       <th>Nama CCTV </th>
                                       <th>Alamat</th>
                                       <th>Status</th>
@@ -35,10 +35,11 @@
                           </thead>
 
                           <tbody class="text-center">
-                              <?php if ($title == "Cctv") :
+                              <?php $no = 1;
+                                if ($title == "Cctv") :
                                     foreach ($tampil as $b) : ?>
                               <tr>
-                                  <td><?= $b->id_cctv ?></td>
+                                  <td><?= $no++ ?></td>
                                   <td><?= $b->nama ?></td>
                                   <td><?= word_limiter($b->alamat, 3); ?></td>
                                   <td><?= $b->status ?></td>
