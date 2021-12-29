@@ -15,7 +15,7 @@
               <div class="card-header py-3">
                   <div class="col-auto">
                       <a href="<?= base_url('Admin/tambah'); ?>" class="btn-sm btn-primary"><i class="fas fa-plus" style="padding-right: 8px;"></i>Tambah Data</a>
-                      <a href="<?= base_url(''); ?>" class="btn-sm btn-success"><i class="fas fa-download" style="padding-right: 8px;"></i>Report</a>
+                      <a href="<?= base_url('Admin/pdf'); ?>" class="btn-sm btn-success"><i class="fas fa-download" style="padding-right: 8px;"></i>Report</a>
                   </div>
               </div>
               <div class="card-body">

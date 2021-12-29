@@ -5,10 +5,8 @@
      </div>
      <div class="card shadow mb-4">
          <div class="card-header py-3">
-             <a href="" class="btn-sm btn-primary"><i class="fas fa-download" style="padding-right: 8px;"></i>Report</a>
-
-             <a href="<?= base_url('Komunitas/tambah_komunitas'); ?>" class="btn-sm btn-primary"><i class="fas fa-plus"
-                     style="padding-right: 8px;"></i>Komunitas</a>
+             <a href="<?= base_url('Komunitas/pdf_komunitas'); ?>" class="btn-sm btn-success"><i class="fas fa-download" style="padding-right: 8px;"></i>Report</a>
+             <a href="<?= base_url('Komunitas/tambah_komunitas'); ?>" class="btn-sm btn-primary"><i class="fas fa-plus" style="padding-right: 8px;"></i>Komunitas</a>
          </div>
          <div class="card-body">
              <?= $this->session->flashdata('message'); ?>
@@ -30,23 +28,15 @@
                          <?php $no = 1;
                             if ($title == "Komunitas") :
                                 foreach ($tampil as $e) : ?>
-                         <tr class="text-center">
-                             <td><?= $no++ ?></td>
-                             <td><?= word_limiter($e->nama_komunitas, 3); ?></td>
-                             <td><?= $e->ketua ?></td>
-                             <td><?= word_limiter($e->alamat, 3); ?></td>
-                             <td><?= $e->no_tlp ?></td>
-                             <td><a href="<?= base_url('Komunitas/edit_komunitas/' . $e->id_komunitas); ?>"
-                                     class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a><a
-                                     style="margin-left: 5px;"
-                                     href="<?= base_url('Komunitas/detail_komunitas/' . $e->id_komunitas); ?>"
-                                     class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a><a
-                                     style="margin-left: 5px;"
-                                     href="<?= base_url('Komunitas/delete/' . $e->id_komunitas); ?>"
-                                     onclick="javascript: return confirm('Anda Yakin Hapus ?')"
-                                     class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a></td>
-                         </tr>
-                         <?php endforeach; ?>
+                                 <tr class="text-center">
+                                     <td><?= $no++ ?></td>
+                                     <td><?= word_limiter($e->nama_komunitas, 3); ?></td>
+                                     <td><?= $e->ketua ?></td>
+                                     <td><?= word_limiter($e->alamat, 3); ?></td>
+                                     <td><?= $e->no_tlp ?></td>
+                                     <td><a href="<?= base_url('Komunitas/edit_komunitas/' . $e->id_komunitas); ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a><a style="margin-left: 5px;" href="<?= base_url('Komunitas/detail_komunitas/' . $e->id_komunitas); ?>" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a><a style="margin-left: 5px;" href="<?= base_url('Komunitas/delete/' . $e->id_komunitas); ?>" onclick="javascript: return confirm('Anda Yakin Hapus ?')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a></td>
+                                 </tr>
+                             <?php endforeach; ?>
                          <?php endif; ?>
                      </tbody>
                  </table>

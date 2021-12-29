@@ -28,7 +28,8 @@ class Event extends CI_Controller
     {
         $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['tampil'] = $this->M_event->tampilagenda()->result();
-        $data['title'] = 'agenda kota';
+        $data['event'] = $this->M_event->tampilagenda()->row();
+        $data['title'] = 'agendakota';
         $this->load->view('admin/templates/header', $data);
         $this->load->view('admin/templates/sidebar', $data);
         $this->load->view('admin/templates/topbar', $data);
@@ -40,7 +41,8 @@ class Event extends CI_Controller
     {
         $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['tampil'] = $this->M_event->tampillombadanbudaya()->result();
-        $data['title'] = 'agenda kota';
+        $data['event'] = $this->M_event->tampillombadanbudaya()->row();
+        $data['title'] = 'lombadanbudaya';
         $this->load->view('admin/templates/header', $data);
         $this->load->view('admin/templates/sidebar', $data);
         $this->load->view('admin/templates/topbar', $data);
@@ -349,4 +351,81 @@ class Event extends CI_Controller
             redirect('Event/edit_event/' . $id);
         }
     }
+
+    public function pdf_event()
+    {
+        $this->load->library('dompdf_gen');
+
+        $data['event'] = $this->M_event->tampil()->result();
+
+        $this->load->view('Event/laporan_event', $data);
+
+        $paper_size = 'A4';
+        //$orientation = 'portrait';
+        $orientation = 'landscape';
+        $html = $this->output->get_output();
+        $this->dompdf->set_paper($paper_size, $orientation);
+
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream("Laporan_Event.pdf", array('Attachment' => 0));
+    }
+
+    public function pdf_agenda()
+    {
+        $this->load->library('dompdf_gen');
+
+        $data['event'] = $this->M_event->tampilagenda()->result();
+
+        $this->load->view('Event/laporan_event', $data);
+
+        $paper_size = 'A4';
+        //$orientation = 'portrait';
+        $orientation = 'landscape';
+        $html = $this->output->get_output();
+        $this->dompdf->set_paper($paper_size, $orientation);
+
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream("Laporan_Event_AgendaKota.pdf", array('Attachment' => 0));
+    }
+
+    public function pdf_lomba()
+    {
+        $this->load->library('dompdf_gen');
+
+        $data['event'] = $this->M_event->tampillombadanbudaya()->result();
+
+        $this->load->view('Event/laporan_event', $data);
+
+        $paper_size = 'A4';
+        //$orientation = 'portrait';
+        $orientation = 'landscape';
+        $html = $this->output->get_output();
+        $this->dompdf->set_paper($paper_size, $orientation);
+
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream("Laporan_Event_LombaDanBudaya.pdf", array('Attachment' => 0));
+    }
+
+    // public function pdf_kategori($id)
+    // {
+    //     $this->load->library('dompdf_gen');
+
+    //     $data['event'] = $this->M_event->tampil_kategori($id)->result();
+
+    //     $this->load->view('Event/laporan_event', $data);
+
+    //     $paper_size = 'A4';
+    //     // $orientation = 'portrait';
+    //     $orientation = 'landscape';
+    //     $html = $this->output->get_output();
+    //     $this->dompdf->set_paper($paper_size, $orientation);
+
+    //     $this->dompdf->load_html($html);
+    //     $this->dompdf->render();
+    //     $this->dompdf->stream("Laporan_Event_Kategori.pdf", array('Attachment' => 0));
+    // }
+
 }

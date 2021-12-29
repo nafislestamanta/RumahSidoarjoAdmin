@@ -43,7 +43,7 @@
 
 
              </div>
-             <a href="" class="btn-sm btn-primary"><i class="fas fa-download" style="padding-right: 8px;"></i>Report</a>
+             <!-- <a href="" class="btn-sm btn-primary"><i class="fas fa-download" style="padding-right: 8px;"></i>Report</a> -->
 
              <a href="<?= base_url('BeritaInformasi/tambah'); ?>" class="btn-sm btn-primary"><i class="fas fa-plus"
                      style="padding-right: 8px;"></i>Postingan</a>

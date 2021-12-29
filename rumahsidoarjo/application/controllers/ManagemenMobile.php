@@ -95,4 +95,22 @@ class ManagemenMobile extends CI_Controller
         }
         redirect('ManagemenMobile/validasi', $data);
     }
+
+    public function pdf()
+    {
+        $this->load->library('dompdf_gen');
+
+        $data['user'] = $this->M_mobile->tampil('user_mobile')->result();
+
+        $this->load->view('managemenmobile/laporan', $data);
+
+        $paper_size = 'A4';
+        $orientation = 'portrait';
+        $html = $this->output->get_output();
+        $this->dompdf->set_paper($paper_size, $orientation);
+
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream("Laporan_User.pdf", array('Attachment' => 0));
+    }
 }

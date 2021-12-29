@@ -129,6 +129,7 @@ class LayananPublik extends CI_Controller
     {
         $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['tampil'] = $this->M_layanan_publik->tampil_pengaduan()->result();
+        $data['pengaduan'] = $this->M_layanan_publik->tampil_pengaduan()->row();
         $data['title'] = 'Pengaduan';
         $this->load->view('admin/templates/header', $data);
         $this->load->view('admin/templates/sidebar', $data);
@@ -141,6 +142,7 @@ class LayananPublik extends CI_Controller
     {
         $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['tampil'] = $this->M_layanan_publik->tampil_pelayanan()->result();
+        $data['pengaduan'] = $this->M_layanan_publik->tampil_pelayanan()->row();
         $data['title'] = 'Pelayanan';
         $this->load->view('admin/templates/header', $data);
         $this->load->view('admin/templates/sidebar', $data);
@@ -153,6 +155,7 @@ class LayananPublik extends CI_Controller
     {
         $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['tampil'] = $this->M_layanan_publik->tampil_fasilitas_publik()->result();
+        $data['pengaduan'] = $this->M_layanan_publik->tampil_fasilitas_publik()->row();
         $data['title'] = 'Fasilitas Publik';
         $this->load->view('admin/templates/header', $data);
         $this->load->view('admin/templates/sidebar', $data);
@@ -371,4 +374,92 @@ class LayananPublik extends CI_Controller
         $this->load->view('layananpublik/pengaduan_umum', $data);
         $this->load->view('admin/templates/footer', $data);
     }
+
+
+    public function pdf_semua()
+    {
+        $this->load->library('dompdf_gen');
+
+        $data['pengaduan'] = $this->M_layanan_publik->tampil_pengaduan('berita_informasi')->result();
+
+        $this->load->view('layananpublik/laporan_pengaduan', $data);
+
+        $paper_size = 'A4';
+        //$orientation = 'portrait';
+        $orientation = 'landscape';
+        $html = $this->output->get_output();
+        $this->dompdf->set_paper($paper_size, $orientation);
+
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream("Laporan_pengaduan.pdf", array('Attachment' => 0));
+    }
+
+    public function pdf_pelayanan()
+    {
+        $this->load->library('dompdf_gen');
+        $data['pengaduan'] = $this->M_layanan_publik->tampil_pelayanan('berita_informasi')->result();
+        $this->load->view('layananpublik/laporan_pengaduan', $data);
+        $paper_size = 'A4';
+        //$orientation = 'portrait';
+        $orientation = 'landscape';
+        $html = $this->output->get_output();
+        $this->dompdf->set_paper($paper_size, $orientation);
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream("Laporan_pengaduan.pdf", array('Attachment' => 0));
+    }
+
+    public function pdf_kesehatan()
+    {
+        $this->load->library('dompdf_gen');
+        $data['pengaduan'] = $this->M_layanan_publik->tampil_kesehatan()->result();
+        $this->load->view('layananpublik/laporan_pengaduan', $data);
+        $paper_size = 'A4';
+        //$orientation = 'portrait';
+        $orientation = 'landscape';
+        $html = $this->output->get_output();
+        $this->dompdf->set_paper($paper_size, $orientation);
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream("Laporan_pengaduan.pdf", array('Attachment' => 0));
+    }
+
+    public function pdf_fasilitaspublik()
+    {
+        $this->load->library('dompdf_gen');
+
+        $data['pengaduan'] = $this->M_layanan_publik->tampil_fasilitas_publik()->result();
+
+        $this->load->view('layananpublik/laporan_pengaduan', $data);
+
+        $paper_size = 'A4';
+        //$orientation = 'portrait';
+        $orientation = 'landscape';
+        $html = $this->output->get_output();
+        $this->dompdf->set_paper($paper_size, $orientation);
+
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream("Laporan_pengaduan.pdf", array('Attachment' => 0));
+    }
+
+    // public function pdf_kategori($id)
+    // {
+    //     $this->load->library('dompdf_gen');
+
+    //     $data['pengaduan'] = $this->M_layanan_publik->tampil_laporanpengaduan($id)->result();
+
+    //     $this->load->view('layananpublik/laporan_pengaduan', $data);
+
+    //     $paper_size = 'A4';
+    //     // $orientation = 'portrait';
+    //     $orientation = 'landscape';
+    //     $html = $this->output->get_output();
+    //     $this->dompdf->set_paper($paper_size, $orientation);
+
+    //     $this->dompdf->load_html($html);
+    //     $this->dompdf->render();
+    //     $this->dompdf->stream("Laporan_pengaduan.pdf", array('Attachment' => 0));
+    // }
 }

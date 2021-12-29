@@ -31,15 +31,14 @@
               <?php if ($title == "Kantor Polisi") : ?>
               <a href="<?= base_url('PanikMenu/tambah_kantorpolisi'); ?>" class="btn-sm btn-primary"><i
                       class="fas fa-plus" style="padding-right: 5px;"></i>Tambah Data</a>
-              <a style="float: right;" href="<?= base_url('PanikMenu/'); ?>" target="_blank"
+              <a style="float: right;" href="<?= base_url('PanikMenu/pdf_polisi'); ?>" target="_blank"
                   class="btn-sm btn-primary"><i class="fas fa-download" style="padding-right: 5px;"></i>Report</a>
               <?php elseif ($title == "Rumah Sakit") : ?>
-              <a style="float: right;" href="<?= base_url('PanikMenu/'); ?>" target="_blank"
-                  class="btn-sm btn-primary"><i class="fas fa-download" style="padding-right: 5px;"></i>Report</a>
+              <a style="float: right;" href="<?= base_url('PanikMenu/'); ?>" target="_blank"></a>
               <?php elseif ($title == "Bencana") : ?>
               <a href="<?= base_url('PanikMenu/tambah_Bencana'); ?>" class="btn-sm btn-primary"><i class="fas fa-plus"
                       style="padding-right: 5px;"></i>Tambah Data</a>
-              <a style="float: right;" href="<?= base_url('PanikMenu/'); ?>" target="_blank"
+              <a style="float: right;" href="<?= base_url('PanikMenu/pdf_bpbd'); ?>" target="_blank"
                   class="btn-sm btn-primary"><i class="fas fa-download" style="padding-right: 5px;"></i>Report</a>
               <?php endif; ?>
           </div>

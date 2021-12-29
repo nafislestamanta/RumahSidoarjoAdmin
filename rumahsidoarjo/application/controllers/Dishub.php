@@ -114,4 +114,23 @@ class Dishub extends CI_Controller
       redirect('Dishub', $data);
     }
   }
+
+  public function pdf_cctv()
+  {
+    $this->load->library('dompdf_gen');
+
+    $data['cctv'] = $this->M_dishub->tampil('cctv')->result();
+
+    $this->load->view('dishub/laporan_cctv', $data);
+
+    $paper_size = 'A4';
+    $orientation = 'portrait';
+    //$orientation = 'landscape';
+    $html = $this->output->get_output();
+    $this->dompdf->set_paper($paper_size, $orientation);
+
+    $this->dompdf->load_html($html);
+    $this->dompdf->render();
+    $this->dompdf->stream("Laporan_CCTV.pdf", array('Attachment' => 0));
+  }
 }

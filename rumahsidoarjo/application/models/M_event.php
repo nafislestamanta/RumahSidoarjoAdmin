@@ -12,6 +12,23 @@ class M_event extends CI_Model
         return $query;
     }
 
+    public function tampil_kategori($id)
+    {
+        $this->db->select('*');
+        $this->db->from('event');
+        $this->db->where('kategori', $id);
+        $query = $this->db->get();
+        return $query;
+    }
+
+    // public function tampil_kategori($id)
+    // {
+    //     $this->db->select('*');
+    //     $this->db->from('event');
+    //     $query = $this->db->get();
+    //     return $query;
+    // }
+
     public function tampilagenda()
     {
         $this->db->select('*');

@@ -27,7 +27,7 @@
                   <a class="dropdown-item" href="<?= base_url('PanikMenu/laporankecelakaan'); ?>">Kecelakaan</a>
                   <a class="dropdown-item" href="<?= base_url('PanikMenu/laporanBencana'); ?>">Bencana</a>
               </div>
-              <a style="float: right;" href="<?= base_url('Pdf/pdf'); ?>" target="_blank" class="btn btn-primary"><i
+              <a style="float: right;" href="<?= base_url('Kesehatan/pdf_pengaduan'); ?>" target="_blank" class="btn btn-primary"><i
                       class="fas fa-download" style="padding-right: 5px;"></i>Report</a>
 
           </div>

@@ -13,7 +13,7 @@
                   <div class="col-auto">
                       <a href="<?= base_url('Dishub/addcctv'); ?>" class="btn-sm btn-primary"><i class="fas fa-plus"
                               style="padding-right: 8px;"></i>Tambah Data</a>
-                      <a href="<?= base_url('Dishub/addcctv'); ?>" class="btn-sm btn-success"><i class="fas fa-download"
+                      <a href="<?= base_url('Dishub/pdf_cctv'); ?>" class="btn-sm btn-success"><i class="fas fa-download"
                               style="padding-right: 8px;"></i>Report</a>
                   </div>
               </div>

@@ -461,4 +461,80 @@ class Komunitas extends CI_Controller
             redirect('Komunitas/edit_komunitas/' . $id);
         }
     }
+
+    public function pdf_komunitas()
+    {
+        $this->load->library('dompdf_gen');
+
+        $data['komunitas'] = $this->M_komunitas->tampil_komunitas('komunitas')->result();
+
+        $this->load->view('komunitas/laporan_komunitas', $data);
+
+        $paper_size = 'A4';
+        //$orientation = 'portrait';
+        $orientation = 'landscape';
+        $html = $this->output->get_output();
+        $this->dompdf->set_paper($paper_size, $orientation);
+
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream("Laporan_komunitas.pdf", array('Attachment' => 0));
+    }
+
+    public function pdf_event()
+    {
+        $this->load->library('dompdf_gen');
+
+        $data['event'] = $this->M_komunitas->tampil_event('komunitas')->result();
+
+        $this->load->view('komunitas/laporan_event', $data);
+
+        $paper_size = 'A4';
+        //$orientation = 'portrait';
+        $orientation = 'landscape';
+        $html = $this->output->get_output();
+        $this->dompdf->set_paper($paper_size, $orientation);
+
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream("Laporan_komunitas.pdf", array('Attachment' => 0));
+    }
+
+    public function pdf_eventselesai()
+    {
+        $this->load->library('dompdf_gen');
+
+        $data['event'] = $this->M_komunitas->tampil_event_selesai()->result();
+
+        $this->load->view('komunitas/laporan_event', $data);
+
+        $paper_size = 'A4';
+        //$orientation = 'portrait';
+        $orientation = 'landscape';
+        $html = $this->output->get_output();
+        $this->dompdf->set_paper($paper_size, $orientation);
+
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream("Laporan_EventSelesai.pdf", array('Attachment' => 0));
+    }
+
+    public function pdf_akandatang()
+    {
+        $this->load->library('dompdf_gen');
+
+        $data['event'] = $this->M_komunitas->tampil_event_segera()->result();
+
+        $this->load->view('komunitas/laporan_event', $data);
+
+        $paper_size = 'A4';
+        //$orientation = 'portrait';
+        $orientation = 'landscape';
+        $html = $this->output->get_output();
+        $this->dompdf->set_paper($paper_size, $orientation);
+
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream("Laporan_EventSegera.pdf", array('Attachment' => 0));
+    }
 }

@@ -494,4 +494,41 @@ class LowonganKerja extends CI_Controller
             redirect('LowonganKerja/editlowongan/' . $id);
         }
     }
+
+    public function pdf_perusahaan()
+    {
+        $this->load->library('dompdf_gen');
+
+        $data['perusahaan'] = $this->M_kerja->tampilperusahaan('perusahaan')->result();
+
+        $this->load->view('tenagakerja/laporan_perusahaan', $data);
+
+        $paper_size = 'A4';
+        $orientation = 'portrait';
+        //$orientation = 'landscape';
+        $html = $this->output->get_output();
+        $this->dompdf->set_paper($paper_size, $orientation);
+
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream("Laporan_Perusahaan.pdf", array('Attachment' => 0));
+    }
+
+    public function pdf_lowongan()
+    {
+        $this->load->library('dompdf_gen');
+
+        $data['lowongan'] = $this->M_kerja->tampil_lowongan('lowongan')->result();
+
+        $this->load->view('tenagakerja/laporan_lowongan', $data);
+
+        $paper_size = 'A4';
+        //$orientation = 'portrait';
+        $orientation = 'landscape';
+        $html = $this->output->get_output();
+        $this->dompdf->set_paper($paper_size, $orientation);
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream("Laporan_Lowongan.pdf", array('Attachment' => 0));
+    }
 }

@@ -29,6 +29,15 @@ class M_umkm extends CI_model
         return $query;
     }
 
+    public function tampil_kategori($id)
+    {
+        $this->db->select('*');
+        $this->db->from('umkm');
+        $this->db->where('kategori', $id);
+        $query = $this->db->get();
+        return $query;
+    }
+
     public function tampil_kerajinan()
     {
         $this->db->select('*');

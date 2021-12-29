@@ -18,6 +18,7 @@ class Umkm extends CI_Controller
     {
         $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['tampil'] = $this->M_umkm->tampil()->result();
+       
         $data['title'] = 'Tampil';
         $this->load->view('admin/templates/header', $data);
         $this->load->view('admin/templates/sidebar', $data);
@@ -44,6 +45,7 @@ class Umkm extends CI_Controller
     {
         $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['tampil'] = $this->M_umkm->tampil_kerajinan()->result();
+        $data['kategori'] = $this->M_umkm->tampil_kerajinan()->row();
         $data['title'] = 'Kerajinan';
         $this->load->view('admin/templates/header', $data);
         $this->load->view('admin/templates/sidebar', $data);
@@ -56,6 +58,7 @@ class Umkm extends CI_Controller
     {
         $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['tampil'] = $this->M_umkm->tampil_makanan()->result();
+        $data['kategori'] = $this->M_umkm->tampil_makanan()->row();
         $data['title'] = 'Makanan';
         $this->load->view('admin/templates/header', $data);
         $this->load->view('admin/templates/sidebar', $data);
@@ -68,6 +71,7 @@ class Umkm extends CI_Controller
     {
         $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['tampil'] = $this->M_umkm->tampil_pertanian()->result();
+        $data['kategori'] = $this->M_umkm->tampil_pertanian()->row();
         $data['title'] = 'Pertanian';
         $this->load->view('admin/templates/header', $data);
         $this->load->view('admin/templates/sidebar', $data);
@@ -158,6 +162,7 @@ class Umkm extends CI_Controller
         } else {
             $kategori = $this->input->post('kategori');
             $nama = $this->input->post('nama');
+            $alamat = $this->input->post('alamat');
             $penanggung_jawab = $this->input->post('penanggung_jawab');
             $foto1 = $_FILES['foto1']['name'];
             $foto2 = $_FILES['foto2']['name'];
@@ -179,6 +184,7 @@ class Umkm extends CI_Controller
                     $data = [
                         'kategori' => $kategori,
                         'nama' => $nama,
+                        'alamat' => $alamat,
                         'penanggung_jawab' => $penanggung_jawab,
                         'foto1' => preg_replace("/\s+/", "_", $foto1),
                         'foto2' => preg_replace("/\s+/", "_", $foto2),
@@ -208,6 +214,7 @@ class Umkm extends CI_Controller
                     $data = [
                         'kategori' => $kategori,
                         'nama' => $nama,
+                        'alamat' => $alamat,
                         'penanggung_jawab' => $penanggung_jawab,
                         'foto1' => preg_replace("/\s+/", "_", $foto1),
                         'no_telp' => $no_telp,
@@ -235,6 +242,7 @@ class Umkm extends CI_Controller
                     $data = [
                         'kategori' => $kategori,
                         'nama' => $nama,
+                        'alamat' => $alamat,
                         'penanggung_jawab' => $penanggung_jawab,
                         'foto2' => preg_replace("/\s+/", "_", $foto2),
                         'no_telp' => $no_telp,
@@ -262,6 +270,7 @@ class Umkm extends CI_Controller
                     $data = [
                         'kategori' => $kategori,
                         'nama' => $nama,
+                        'alamat' => $alamat,
                         'penanggung_jawab' => $penanggung_jawab,
                         'foto3' => preg_replace("/\s+/", "_", $foto3),
                         'no_telp' => $no_telp,
@@ -288,6 +297,7 @@ class Umkm extends CI_Controller
                 $data = [
                     'kategori' => $kategori,
                     'nama' => $nama,
+                    'alamat' => $alamat,
                     'penanggung_jawab' => $penanggung_jawab,
                     'no_telp' => $no_telp,
                     'deskripsi' => $deskripsi,
@@ -413,5 +423,43 @@ class Umkm extends CI_Controller
             $this->session->set_flashdata('alert3', '<div class="alert alert-danger" role="alert">Data Gagal Ditambahkan, Harap Mengupload Gambar</div>');
             redirect('Umkm/edit_umkm/' . $id);
         }
+    }
+
+    public function pdf_umkm()
+    {
+        $this->load->library('dompdf_gen');
+
+        $data['umkm'] = $this->M_umkm->tampil('umkm')->result();
+
+        $this->load->view('umkm/laporan_umkm', $data);
+
+        $paper_size = 'A4';
+       // $orientation = 'portrait';
+        $orientation = 'landscape';
+        $html = $this->output->get_output();
+        $this->dompdf->set_paper($paper_size, $orientation);
+
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream("Laporan_UMKM.pdf", array('Attachment' => 0));
+    }
+
+    public function pdf_kategori($id)
+    {
+        $this->load->library('dompdf_gen');
+
+        $data['umkm'] = $this->M_umkm->tampil_kategori($id)->result();
+
+        $this->load->view('umkm/laporan_umkm', $data);
+
+        $paper_size = 'A4';
+        // $orientation = 'portrait';
+        $orientation = 'landscape';
+        $html = $this->output->get_output();
+        $this->dompdf->set_paper($paper_size, $orientation);
+
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream("Laporan_UMKM.pdf", array('Attachment' => 0));
     }
 }

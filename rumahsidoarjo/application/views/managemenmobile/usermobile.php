@@ -14,7 +14,7 @@
           <div>
               <div class="card-header py-3">
                   <div class="col-auto">
-                      <a href="<?= base_url(''); ?>" class="btn-sm btn-success"><i class="fas fa-download"
+                      <a href="<?= base_url('ManagemenMobile/pdf'); ?>" class="btn-sm btn-success"><i class="fas fa-download"
                               style="padding-right: 8px;"></i>Report</a>
                   </div>
               </div>

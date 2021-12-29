@@ -7,16 +7,15 @@
 
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <a class="btn-sm btn-info dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="padding-left: 15;">
+            <a class="btn-sm btn-info dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="padding-left: 15;">
                 <?php if ($title == "Kerajinan") : ?>
-                Kerajinan
+                    Kerajinan
                 <?php elseif ($title == "Makanan") : ?>
-                Makanan
+                    Makanan
                 <?php elseif ($title == "Pertanian") : ?>
-                Pertanian
+                    Pertanian
                 <?php else : ?>
-                Kategori
+                    Kategori
                 <?php endif; ?>
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -24,13 +23,20 @@
                 <a class="dropdown-item" href="<?= base_url('Umkm/tampil_kerajinan'); ?>">Kerajinan</a>
                 <a class="dropdown-item" href="<?= base_url('Umkm/tampil_makanan'); ?>">Makanan</a>
                 <a class="dropdown-item" href="<?= base_url('Umkm/tampil_pertanian'); ?>">Pertanian</a>
-
-
             </div>
-            <a href="" class="btn-sm btn-primary"><i class="fas fa-download" style="padding-right: 8px;"></i>Report</a>
 
-            <a href="<?= base_url('Umkm/tambah_umkm'); ?>" class="btn-sm btn-primary"><i class="fas fa-plus"
-                    style="padding-right: 8px;"></i>UMKM</a>
+            <?php if ($title == "Kerajinan") : ?>
+                <a href="<?= base_url('Umkm/pdf_kategori/' . $kategori->kategori); ?>" class="btn-sm btn-success"><i class="fas fa-download" style="padding-right: 8px;"></i>Report</a>
+                <?php elseif ($title == "Makanan") : ?>
+                <a href="<?= base_url('Umkm/pdf_kategori/' . $kategori->kategori); ?>" class="btn-sm btn-success"><i class="fas fa-download" style="padding-right: 8px;"></i>Report</a>
+                <?php elseif ($title == "Pertanian") : ?>
+                <a href="<?= base_url('Umkm/pdf_kategori/' . $kategori->kategori); ?>" class="btn-sm btn-success"><i class="fas fa-download" style="padding-right: 8px;"></i>Report</a>
+                <?php else : ?>
+                <a href="<?= base_url('Umkm/pdf_umkm'); ?>" class="btn-sm btn-success"><i class="fas fa-download" style="padding-right: 8px;"></i>Report</a>
+                <?php endif; ?>
+
+            <!-- <a href="<?= base_url('Umkm/pdf_umkm'); ?>" class="btn-sm btn-success"><i class="fas fa-download" style="padding-right: 8px;"></i>Report</a> -->
+            <a href="<?= base_url('Umkm/tambah_umkm'); ?>" class="btn-sm btn-primary"><i class="fas fa-plus" style="padding-right: 8px;"></i>UMKM</a>
         </div>
 
 
@@ -53,88 +59,60 @@
                     <tbody class="text-center">
                         <?php if ($title == "Kerajinan") :
                             foreach ($tampil as $a) : ?>
-                        <tr>
-                            <td><?= $a->id_umkm ?></td>
-                            <td><?= word_limiter($a->nama, 3); ?></td>
-                            <td><?= $a->kategori ?></td>
-                            <td><?= word_limiter($a->deskripsi, 3); ?></td>
-                            <td><?= $a->no_telp ?></td>
-                            <td><a href="<?= base_url('Umkm/edit_umkm/' . $a->id_umkm); ?>"
-                                    class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a><a
-                                    style="margin-left: 5px;" href="<?= base_url('Umkm/detail_umkm/' . $a->id_umkm); ?>"
-                                    class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a><a
-                                    style="margin-left: 5px;" href="<?= base_url('Umkm/delete/' . $a->id_umkm); ?>"
-                                    onclick="javascript: return confirm('Anda Yakin Hapus ?')"
-                                    class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
-                                <a style="margin-left: 5px;" href="<?= base_url('Umkm/ulasan/' . $a->id_umkm); ?>"
-                                    class="btn btn-info btn-sm"><i class="fas fa-comments"></i></a>
-                            </td>
-                        </tr>
-                        <?php endforeach; ?>
+                                <tr>
+                                    <td><?= $a->id_umkm ?></td>
+                                    <td><?= word_limiter($a->nama, 3); ?></td>
+                                    <td><?= $a->kategori ?></td>
+                                    <td><?= word_limiter($a->deskripsi, 3); ?></td>
+                                    <td><?= $a->no_telp ?></td>
+                                    <td><a href="<?= base_url('Umkm/edit_umkm/' . $a->id_umkm); ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a><a style="margin-left: 5px;" href="<?= base_url('Umkm/detail_umkm/' . $a->id_umkm); ?>" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a><a style="margin-left: 5px;" href="<?= base_url('Umkm/delete/' . $a->id_umkm); ?>" onclick="javascript: return confirm('Anda Yakin Hapus ?')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                        <a style="margin-left: 5px;" href="<?= base_url('Umkm/ulasan/' . $a->id_umkm); ?>" class="btn btn-info btn-sm"><i class="fas fa-comments"></i></a>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
 
-                        <?php elseif ($title == "Makanan") :
+                            <?php elseif ($title == "Makanan") :
                             foreach ($tampil as $a) : ?>
-                        <tr>
-                            <td><?= $a->id_umkm ?></td>
-                            <td><?= word_limiter($a->nama, 3); ?></td>
-                            <td><?= $a->kategori ?></td>
-                            <td><?= word_limiter($a->deskripsi, 3); ?></td>
-                            <td><?= $a->no_telp ?></td>
-                            <td><a href="<?= base_url('Umkm/edit_umkm/' . $a->id_umkm); ?>"
-                                    class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a><a
-                                    style="margin-left: 5px;" href="<?= base_url('Umkm/detail_umkm/' . $a->id_umkm); ?>"
-                                    class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a><a
-                                    style="margin-left: 5px;" href="<?= base_url('Umkm/delete/' . $a->id_umkm); ?>"
-                                    onclick="javascript: return confirm('Anda Yakin Hapus ?')"
-                                    class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
-                                <a style="margin-left: 5px;" href="<?= base_url('Umkm/ulasan/' . $a->id_umkm); ?>"
-                                    class="btn btn-info btn-sm"><i class="fas fa-comments"></i></a>
-                            </td>
-                        </tr>
-                        <?php endforeach; ?>
+                                <tr>
+                                    <td><?= $a->id_umkm ?></td>
+                                    <td><?= word_limiter($a->nama, 3); ?></td>
+                                    <td><?= $a->kategori ?></td>
+                                    <td><?= word_limiter($a->deskripsi, 3); ?></td>
+                                    <td><?= $a->no_telp ?></td>
+                                    <td><a href="<?= base_url('Umkm/edit_umkm/' . $a->id_umkm); ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a><a style="margin-left: 5px;" href="<?= base_url('Umkm/detail_umkm/' . $a->id_umkm); ?>" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a><a style="margin-left: 5px;" href="<?= base_url('Umkm/delete/' . $a->id_umkm); ?>" onclick="javascript: return confirm('Anda Yakin Hapus ?')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                        <a style="margin-left: 5px;" href="<?= base_url('Umkm/ulasan/' . $a->id_umkm); ?>" class="btn btn-info btn-sm"><i class="fas fa-comments"></i></a>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
 
-                        <?php elseif ($title == "Pertaninan") :
+                            <?php elseif ($title == "Pertaninan") :
                             foreach ($tampil as $a) : ?>
-                        <tr>
-                            <td><?= $a->id_umkm ?></td>
-                            <td><?= word_limiter($a->nama, 3); ?></td>
-                            <td><?= $a->kategori ?></td>
-                            <td><?= word_limiter($a->deskripsi, 3); ?></td>
-                            <td><?= $a->no_telp ?></td>
-                            <td><a href="<?= base_url('Umkm/edit_umkm' . $a->id_umkm); ?>"
-                                    class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a><a
-                                    style="margin-left: 5px;" href="<?= base_url('Umkm/detail_umkm/' . $a->id_umkm); ?>"
-                                    class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a><a
-                                    style="margin-left: 5px;" href="<?= base_url('Umkm/delete/' . $a->id_umkm); ?>"
-                                    onclick="javascript: return confirm('Anda Yakin Hapus ?')"
-                                    class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
-                                <a style="margin-left: 5px;" href="<?= base_url('Umkm/ulasan/' . $a->id_umkm); ?>"
-                                    class="btn btn-info btn-sm"><i class="fas fa-comments"></i></a>
-                            </td>
-                        </tr>
-                        <?php endforeach; ?>
+                                <tr>
+                                    <td><?= $a->id_umkm ?></td>
+                                    <td><?= word_limiter($a->nama, 3); ?></td>
+                                    <td><?= $a->kategori ?></td>
+                                    <td><?= word_limiter($a->deskripsi, 3); ?></td>
+                                    <td><?= $a->no_telp ?></td>
+                                    <td><a href="<?= base_url('Umkm/edit_umkm' . $a->id_umkm); ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a><a style="margin-left: 5px;" href="<?= base_url('Umkm/detail_umkm/' . $a->id_umkm); ?>" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a><a style="margin-left: 5px;" href="<?= base_url('Umkm/delete/' . $a->id_umkm); ?>" onclick="javascript: return confirm('Anda Yakin Hapus ?')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                        <a style="margin-left: 5px;" href="<?= base_url('Umkm/ulasan/' . $a->id_umkm); ?>" class="btn btn-info btn-sm"><i class="fas fa-comments"></i></a>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
 
-                        <?php else :
+                            <?php else :
                             foreach ($tampil as $a) : ?>
-                        <tr>
-                            <td><?= $a->id_umkm ?></td>
-                            <td><?= word_limiter($a->nama, 3); ?></td>
-                            <td><?= $a->kategori ?></td>
-                            <td><?= word_limiter($a->deskripsi, 3); ?></td>
-                            <td><?= $a->no_telp ?></td>
-                            <td><a href="<?= base_url('Umkm/edit_umkm/' . $a->id_umkm); ?>"
-                                    class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a><a
-                                    style="margin-left: 5px;" href="<?= base_url('Umkm/detail_umkm/' . $a->id_umkm); ?>"
-                                    class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a><a
-                                    style="margin-left: 5px;" href="<?= base_url('Umkm/delete/' . $a->id_umkm); ?>"
-                                    onclick="javascript: return confirm('Anda Yakin Hapus ?')"
-                                    class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
-                                <a style="margin-left: 5px;" href="<?= base_url('Umkm/ulasan/' . $a->id_umkm); ?>"
-                                    class="btn btn-info btn-sm"><i class="fas fa-comments"></i></a>
-                            </td>
-                        </tr>
+                                <tr>
+                                    <td><?= $a->id_umkm ?></td>
+                                    <td><?= word_limiter($a->nama, 3); ?></td>
+                                    <td><?= $a->kategori ?></td>
+                                    <td><?= word_limiter($a->deskripsi, 3); ?></td>
+                                    <td><?= $a->no_telp ?></td>
+                                    <td><a href="<?= base_url('Umkm/edit_umkm/' . $a->id_umkm); ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a><a style="margin-left: 5px;" href="<?= base_url('Umkm/detail_umkm/' . $a->id_umkm); ?>" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a><a style="margin-left: 5px;" href="<?= base_url('Umkm/delete/' . $a->id_umkm); ?>" onclick="javascript: return confirm('Anda Yakin Hapus ?')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                        <a style="margin-left: 5px;" href="<?= base_url('Umkm/ulasan/' . $a->id_umkm); ?>" class="btn btn-info btn-sm"><i class="fas fa-comments"></i></a>
+                                    </td>
+                                </tr>
 
-                        <?php endforeach; ?>
+                            <?php endforeach; ?>
                         <?php endif; ?>
                     </tbody>
                 </table>

@@ -13,6 +13,7 @@ class PanikMenu extends CI_Controller
     {
         $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['kantorpolisi'] = $this->m_panikmenu->kantorpolisi()->result();
+        $data['pengaduan'] = $this->m_panikmenu->kantorpolisi()->result();
         $data['title'] = 'Kantor Polisi';
         $this->load->view('admin/templates/header', $data);
         $this->load->view('admin/templates/sidebar', $data);
@@ -25,6 +26,7 @@ class PanikMenu extends CI_Controller
     {
         $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['laporan'] = $this->m_panikmenu->laporan()->result();
+        $data['pengaduan'] = $this->m_panikmenu->laporan()->row();
         $data['status'] = $this->m_panikmenu->status()->result();
         $data['title'] = 'Laporan Panik';
         $this->load->view('admin/templates/header', $data);
@@ -38,6 +40,7 @@ class PanikMenu extends CI_Controller
     {
         $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['kriminal'] = $this->m_panikmenu->laporan_kriminal()->result();
+        $data['kategori'] = $this->m_panikmenu->laporan_kriminal()->row();
         $data['status'] = $this->m_panikmenu->status()->row();
         $data['title'] = 'Laporan Kriminal';
         $this->load->view('admin/templates/header', $data);
@@ -51,6 +54,7 @@ class PanikMenu extends CI_Controller
     {
         $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['kecelakaan'] = $this->m_panikmenu->laporan_kecelakaan()->result();
+        $data['kategori'] = $this->m_panikmenu->laporan_kecelakaan()->row();
         $data['status'] = $this->m_panikmenu->status()->row();
         $data['title'] = 'Laporan Kecelakaan';
         $this->load->view('admin/templates/header', $data);
@@ -64,6 +68,7 @@ class PanikMenu extends CI_Controller
     {
         $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['bencana'] = $this->m_panikmenu->laporan_bencana()->result();
+        $data['kategori'] = $this->m_panikmenu->laporan_bencana()->row();
         $data['status'] = $this->m_panikmenu->status()->row();
         $data['title'] = 'Laporan Bencana';
         $this->load->view('admin/templates/header', $data);
@@ -274,6 +279,7 @@ class PanikMenu extends CI_Controller
     {
         $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['Bencana'] = $this->m_panikmenu->bpbd()->result();
+        $data['pengaduan'] = $this->m_panikmenu->bpbd()->result();
         $data['title'] = 'Bencana';
         $this->load->view('admin/templates/header', $data);
         $this->load->view('admin/templates/sidebar', $data);
@@ -583,5 +589,69 @@ class PanikMenu extends CI_Controller
         $this->load->view('admin/templates/topbar', $data);
         $this->load->view('panikmenu/dashboard_polisi', $data);
         $this->load->view('admin/templates/footer', $data);
+    }
+
+    public function pdf_polisi()
+    {
+        $this->load->library('dompdf_gen');
+        $data['pengaduan'] = $this->m_panikmenu->kantorpolisi()->result();
+        $this->load->view('panikmenu/laporan_polisi', $data);
+        $paper_size = 'A4';
+        //$orientation = 'portrait';
+        $orientation = 'landscape';
+        $html = $this->output->get_output();
+        $this->dompdf->set_paper($paper_size, $orientation);
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream("Laporan_polisi.pdf", array('Attachment' => 0));
+    }
+
+    public function pdf_bpbd()
+    {
+        $this->load->library('dompdf_gen');
+        $data['pengaduan'] = $this->m_panikmenu->bpbd()->result();
+        $this->load->view('panikmenu/laporan_bpbd', $data);
+        $paper_size = 'A4';
+        //$orientation = 'portrait';
+        $orientation = 'landscape';
+        $html = $this->output->get_output();
+        $this->dompdf->set_paper($paper_size, $orientation);
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream("Laporan_bpbd.pdf", array('Attachment' => 0));
+    }
+
+    public function pdf_pengaduan()
+    {
+        $this->load->library('dompdf_gen');
+        $data['pengaduan'] = $this->m_panikmenu->laporan()->result();
+        $this->load->view('panikmenu/laporan', $data);
+        $paper_size = 'A4';
+        //$orientation = 'portrait';
+        $orientation = 'landscape';
+        $html = $this->output->get_output();
+        $this->dompdf->set_paper($paper_size, $orientation);
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream("Laporan_bpbd.pdf", array('Attachment' => 0));
+    }
+
+    public function pdf_kategori($id)
+    {
+        $this->load->library('dompdf_gen');
+
+        $data['pengaduan'] = $this->m_panikmenu->laporan_kategori($id)->result();
+
+        $this->load->view('panikmenu/laporan', $data);
+
+        $paper_size = 'A4';
+        // $orientation = 'portrait';
+        $orientation = 'landscape';
+        $html = $this->output->get_output();
+        $this->dompdf->set_paper($paper_size, $orientation);
+
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream("Laporan_UMKM.pdf", array('Attachment' => 0));
     }
 }

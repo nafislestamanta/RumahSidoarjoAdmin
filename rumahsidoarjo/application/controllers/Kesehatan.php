@@ -938,4 +938,99 @@ class Kesehatan extends CI_Controller
             redirect('Kesehatan/edit_rsu/' . $id);
         }
     }
+
+    public function pdf_pkmutama()
+    {
+        $this->load->library('dompdf_gen');
+
+        $data['pkmu'] = $this->m_kesehatan->pkmu('kesehatan')->result();
+
+        $this->load->view('kesehatan/laporan_pkmu', $data);
+
+        $paper_size = 'A4';
+        //$orientation = 'portrait';
+        $orientation = 'landscape';
+        $html = $this->output->get_output();
+        $this->dompdf->set_paper($paper_size, $orientation);
+
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream("Laporan_PKMU.pdf", array('Attachment' => 0));
+    }
+
+    public function pdf_pkmPembantu()
+    {
+        $this->load->library('dompdf_gen');
+
+        $data['pkmpembantu'] = $this->m_kesehatan->pkmp('kesehatan')->result();
+
+        $this->load->view('kesehatan/laporan_pkmp', $data);
+
+        $paper_size = 'A4';
+        //$orientation = 'portrait';
+        $orientation = 'landscape';
+        $html = $this->output->get_output();
+        $this->dompdf->set_paper($paper_size, $orientation);
+
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream("Laporan_PKMP.pdf", array('Attachment' => 0));
+    }
+
+    public function pdf_rsu()
+    {
+        $this->load->library('dompdf_gen');
+
+        $data['rsu'] = $this->m_kesehatan->rumahsakit('kesehatan')->result();
+
+        $this->load->view('kesehatan/laporan_rsu', $data);
+
+        $paper_size = 'A4';
+        //$orientation = 'portrait';
+        $orientation = 'landscape';
+        $html = $this->output->get_output();
+        $this->dompdf->set_paper($paper_size, $orientation);
+
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream("Laporan_RSU.pdf", array('Attachment' => 0));
+    }
+
+    public function pdf_pengaduan()
+    {
+        $this->load->library('dompdf_gen');
+
+        $data['pengaduan'] = $this->m_kesehatan->laporan('kesehatan')->result();
+
+        $this->load->view('kesehatan/laporan_pengaduan', $data);
+
+        $paper_size = 'A4';
+        //$orientation = 'portrait';
+        $orientation = 'landscape';
+        $html = $this->output->get_output();
+        $this->dompdf->set_paper($paper_size, $orientation);
+
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream("Laporan_Pengaduan.pdf", array('Attachment' => 0));
+    }
+
+    public function pdf_riwayat()
+    {
+        $this->load->library('dompdf_gen');
+
+        $data['riwayat'] = $this->m_kesehatan->riwayat('kesehatan')->result();
+
+        $this->load->view('kesehatan/laporan_riwayat', $data);
+
+        $paper_size = 'A4';
+        //$orientation = 'portrait';
+        $orientation = 'landscape';
+        $html = $this->output->get_output();
+        $this->dompdf->set_paper($paper_size, $orientation);
+
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream("Laporan_RiwayatPengaduan.pdf", array('Attachment' => 0));
+    }
 }

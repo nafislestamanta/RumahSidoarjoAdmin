@@ -13,7 +13,7 @@
                   <div class="col-auto">
                       <a href="<?= base_url('pendidikan/tambah_sd'); ?>" class="btn-sm btn-primary"><i
                               class="fas fa-plus" style="padding-right: 8px;"></i>Tambah Data</a>
-                      <a href="<?= base_url(''); ?>" class="btn-sm btn-success"><i class="fas fa-download"
+                      <a href="<?= base_url('Pendidikan/pdf_sd'); ?>" class="btn-sm btn-success"><i class="fas fa-download"
                               style="padding-right: 8px;"></i>Report</a>
                   </div>
               </div>

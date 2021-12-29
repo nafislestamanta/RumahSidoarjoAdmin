@@ -781,4 +781,23 @@ class Pariwisata extends CI_Controller
         }
         redirect('Pariwisata');
     }
+
+    public function pdf()
+    {
+        $this->load->library('dompdf_gen');
+
+        $data['wisata'] = $this->M_pariwisata->tampil_wisata('pariwisata')->result();
+
+        $this->load->view('pariwisata/laporan_wisata', $data);
+
+        $paper_size = 'A4';
+        $orientation = 'portrait';
+        //$orientation = 'landscape';
+        $html = $this->output->get_output();
+        $this->dompdf->set_paper($paper_size, $orientation);
+
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream("Laporan_Tempat_Wisata.pdf", array('Attachment' => 0));
+    }
 }

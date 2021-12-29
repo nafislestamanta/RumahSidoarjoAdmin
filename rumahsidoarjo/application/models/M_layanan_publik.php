@@ -71,6 +71,15 @@ class M_layanan_publik extends CI_model
         return $query;
     }
 
+    public function tampil_laporanpengaduan($id)
+    {
+        $this->db->select('*');
+        $this->db->from('pengaduan_umum');
+        $this->db->join('user_mobile', 'user_mobile.NIK=pengaduan_umum.NIK');
+        $query = $this->db->get();
+        return $query;
+    }
+
     public function tampil_pelayanan()
     {
         $this->db->select('*');

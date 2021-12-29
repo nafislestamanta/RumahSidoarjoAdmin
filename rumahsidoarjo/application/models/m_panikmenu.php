@@ -11,6 +11,16 @@ class m_panikmenu extends CI_Model
         return $query;
     }
 
+    public function laporan_kategori($id)
+    {
+        $this->db->select('*');
+        $this->db->from('panik_button');
+        $this->db->join('user_mobile', 'user_mobile.NIK=panik_button.NIK');
+        $this->db->where('kategori', $id);
+        $query = $this->db->get();
+        return $query;
+    }
+
     public function status()
     {
         $this->db->select('*');
