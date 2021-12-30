@@ -1,6 +1,6 @@
   <div class="container-fluid">
       <div class="mb-4">
-          <h6><i class="fas fa-home"></i><b> DASHBOARD RUMAH SIDOARJO </b></h6>
+          <h6><i class="fas fa-home"></i><b> DASHBOARD RUMAH SIDOARJO 2 </b></h6>
       </div>
       <script src="<?php echo base_url() ?>assets/vendor/chart.js"></script>
       <!-- Content Row -->
@@ -171,7 +171,7 @@
                   <!-- Card Body -->
                   <div class="card-body">
                       <div class="chart-pie pt-4 pb-2">
-                          <canvas id="myPieChart"></canvas>
+                          <canvas id="donat"></canvas>
                       </div>
                       <div class="mt-4 text-center small">
                           <span class="mr-2">
@@ -222,7 +222,7 @@
 
 
   <script>
-var ctx = document.getElementById('myChart').getContext('2d');
+var ctx = document.getElementById('donat').getContext('2d');
 var chart = new Chart(ctx, {
     // The type of chart we want to create
     type: 'bar',

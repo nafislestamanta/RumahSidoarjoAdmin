@@ -240,7 +240,12 @@ class Auth extends CI_Controller
             $this->session->unset_userdata('reset_email');
 
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Password Berhasil Di Reset, Silahkan Login Kembali!</div>');
-            redirect('Auth');
+            redirect('Auth/notif');
         }
     }
+    public function notif()
+    {
+        $this->load->view('auth/notif');
+    }
+
 }
