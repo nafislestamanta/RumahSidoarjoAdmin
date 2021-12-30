@@ -214,8 +214,8 @@ class Akun extends REST_Controller
         $config = [
             'protocol' => 'smtp',
             'smtp_host' => 'ssl://smtp.googlemail.com',
-            'smtp_user' => 'nafislestamanta@gmail.com',
-            'smtp_pass' => 'kembarlestamanta',
+            'smtp_user' => 'rumahsidoarjo50@gmail.com',
+            'smtp_pass' => 'rumahsidoarjo',
             'smtp_port' => 465,
             'mailtype' => 'html',
             'charset' => 'utf-8',
@@ -225,7 +225,7 @@ class Akun extends REST_Controller
         $this->load->library('email', $config);
 
         $this->email->initialize($config);
-        $this->email->from('nafislestamanta@gmail.com', 'Reset Password Rumah Sidoarjo');
+        $this->email->from('rumahsidoarjo50@gmail.com', 'Reset Password Rumah Sidoarjo');
         $this->email->to($this->post('email'));
 
         if ($type == 'forgot') {
