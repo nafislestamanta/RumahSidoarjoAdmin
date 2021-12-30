@@ -14,8 +14,8 @@
           <div>
               <div class="card-header py-3">
                   <div class="col-auto">
-                      <a href="<?= base_url(''); ?>" class="btn-sm btn-success"><i class="fas fa-download"
-                              style="padding-right: 8px;"></i>Report</a>
+                      <!-- <a href="<?= base_url(''); ?>" class="btn-sm btn-success"><i class="fas fa-download"
+                              style="padding-right: 8px;"></i>Report</a> -->
                   </div>
               </div>
               <div class="card-body">
