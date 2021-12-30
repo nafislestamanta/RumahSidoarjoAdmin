@@ -63,7 +63,7 @@
                                     <td><?= $a->id_umkm ?></td>
                                     <td><?= word_limiter($a->nama, 3); ?></td>
                                     <td><?= $a->kategori ?></td>
-                                    <td><?= word_limiter($a->deskripsi, 3); ?></td>
+                                    <td><?= word_limiter($a->deskripsi, 2); ?></td>
                                     <td><?= $a->no_telp ?></td>
                                     <td><a href="<?= base_url('Umkm/edit_umkm/' . $a->id_umkm); ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a><a style="margin-left: 5px;" href="<?= base_url('Umkm/detail_umkm/' . $a->id_umkm); ?>" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a><a style="margin-left: 5px;" href="<?= base_url('Umkm/delete/' . $a->id_umkm); ?>" onclick="javascript: return confirm('Anda Yakin Hapus ?')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                                         <a style="margin-left: 5px;" href="<?= base_url('Umkm/ulasan/' . $a->id_umkm); ?>" class="btn btn-info btn-sm"><i class="fas fa-comments"></i></a>
@@ -77,7 +77,7 @@
                                     <td><?= $a->id_umkm ?></td>
                                     <td><?= word_limiter($a->nama, 3); ?></td>
                                     <td><?= $a->kategori ?></td>
-                                    <td><?= word_limiter($a->deskripsi, 3); ?></td>
+                                    <td><?= word_limiter($a->deskripsi, 2); ?></td>
                                     <td><?= $a->no_telp ?></td>
                                     <td><a href="<?= base_url('Umkm/edit_umkm/' . $a->id_umkm); ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a><a style="margin-left: 5px;" href="<?= base_url('Umkm/detail_umkm/' . $a->id_umkm); ?>" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a><a style="margin-left: 5px;" href="<?= base_url('Umkm/delete/' . $a->id_umkm); ?>" onclick="javascript: return confirm('Anda Yakin Hapus ?')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                                         <a style="margin-left: 5px;" href="<?= base_url('Umkm/ulasan/' . $a->id_umkm); ?>" class="btn btn-info btn-sm"><i class="fas fa-comments"></i></a>
@@ -85,13 +85,13 @@
                                 </tr>
                             <?php endforeach; ?>
 
-                            <?php elseif ($title == "Pertaninan") :
+                            <?php elseif ($title == "Pertanian") :
                             foreach ($tampil as $a) : ?>
                                 <tr>
                                     <td><?= $a->id_umkm ?></td>
                                     <td><?= word_limiter($a->nama, 3); ?></td>
                                     <td><?= $a->kategori ?></td>
-                                    <td><?= word_limiter($a->deskripsi, 3); ?></td>
+                                    <td><?= word_limiter($a->deskripsi, 2); ?></td>
                                     <td><?= $a->no_telp ?></td>
                                     <td><a href="<?= base_url('Umkm/edit_umkm' . $a->id_umkm); ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a><a style="margin-left: 5px;" href="<?= base_url('Umkm/detail_umkm/' . $a->id_umkm); ?>" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a><a style="margin-left: 5px;" href="<?= base_url('Umkm/delete/' . $a->id_umkm); ?>" onclick="javascript: return confirm('Anda Yakin Hapus ?')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                                         <a style="margin-left: 5px;" href="<?= base_url('Umkm/ulasan/' . $a->id_umkm); ?>" class="btn btn-info btn-sm"><i class="fas fa-comments"></i></a>
@@ -105,7 +105,7 @@
                                     <td><?= $a->id_umkm ?></td>
                                     <td><?= word_limiter($a->nama, 3); ?></td>
                                     <td><?= $a->kategori ?></td>
-                                    <td><?= word_limiter($a->deskripsi, 3); ?></td>
+                                    <td><?= word_limiter($a->deskripsi, 2); ?></td>
                                     <td><?= $a->no_telp ?></td>
                                     <td><a href="<?= base_url('Umkm/edit_umkm/' . $a->id_umkm); ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a><a style="margin-left: 5px;" href="<?= base_url('Umkm/detail_umkm/' . $a->id_umkm); ?>" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a><a style="margin-left: 5px;" href="<?= base_url('Umkm/delete/' . $a->id_umkm); ?>" onclick="javascript: return confirm('Anda Yakin Hapus ?')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                                         <a style="margin-left: 5px;" href="<?= base_url('Umkm/ulasan/' . $a->id_umkm); ?>" class="btn btn-info btn-sm"><i class="fas fa-comments"></i></a>

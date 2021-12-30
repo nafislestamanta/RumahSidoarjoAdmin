@@ -159,7 +159,7 @@ class M_umkm extends CI_model
 
     public function ulasan22($id)
     {
-        $this->db->select('*');
+        $this->db->select('*, ulasan_umkm.foto1 as photo1, ulasan_umkm.foto2 as photo2, ulasan_umkm.foto3 as photo3 ');
         $this->db->from('ulasan_umkm');
         $this->db->join('umkm', 'umkm.id_umkm=ulasan_umkm.id_umkm');
         $this->db->join('user_mobile', 'user_mobile.NIK=ulasan_umkm.NIK');

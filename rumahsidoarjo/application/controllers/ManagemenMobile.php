@@ -83,6 +83,8 @@ class ManagemenMobile extends CI_Controller
     {
         $email = $this->db->get_where("user_mobile", ["NIK" => $id])->row();
         $emailUser = $email->email;
+        $wa = $this->db->get_where("user_mobile", ["NIK" => $id])->row();
+        $waUser = $wa->no_telepon;
 
         $data = [
             'status' => 1,
@@ -93,7 +95,7 @@ class ManagemenMobile extends CI_Controller
         if ($update) {
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Akun Berhasil Diakftifkan</div>');
             $this->_sendEmail($emailUser); // Mengirimkan Email
-            //$this->_sendWA(); // Mengirim Pesan Via WA
+            $this->_sendWA($waUser); // Mengirim Pesan Via WA
         } else {
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Akun Ditolak, Data Dihapus. </div>');
         }
@@ -145,51 +147,74 @@ class ManagemenMobile extends CI_Controller
       
     }
 
+    private function _sendWA($waUser)
+    {
+        $waUser; //Menangkap Inputan Dari Form
+        // cek apakah no hp mengandung karakter + dan 0-9
+        if (!preg_match('/[^+0-9]/', trim($waUser))) {
+            // cek apakah no hp karakter 1-3 adalah +62
+            if (substr(trim($waUser), 0, 2) == '62') {
+                $hp = trim($waUser);
 
-    // private function _sendEmaill()
-    // {
-    //     $config = [
-    //         'protocol' => 'smtp',
-    //         'smtp_host' => 'ssl://smtp.googlemail.com',
-    //         'smtp_user' => 'amaliacollection87@gmail.com',
-    //         'smtp_pass' => 'indah12345',
-    //         'smtp_port' => '465',
-    //         'mailtype' => 'html',
-    //         'charset' => 'utf-8',
-    //         'newline' => "\r\n"
-    //     ];
+                $curl = curl_init();
+                $sender = "6285778055363"; // nomor Server 
+                $dest = $hp; // nomor tujuan, pake kode negara 
+                $isiPesan = "Terimakasih sudah membeli produk kami. Saat ini kami sedang menunggu pembayaran dari anda sebelum kami memprosesnya.*";
 
-    //     $this->load->library('email', $config);
+                curl_setopt_array($curl, array(
 
-    //     $this->email->from('amaliacollection87@gmail.com', 'Amalia Collection');
-    //     $this->email->to($this->input->post('email_penerima'));
+                    CURLOPT_RETURNTRANSFER => true,
+                    CURLOPT_URL => "https://whapi.io/api/send",
+                    CURLOPT_ENCODING => "",
+                    CURLOPT_MAXREDIRS => 10,
+                    CURLOPT_TIMEOUT => 0,
+                    CURLOPT_FOLLOWLOCATION => true,
+                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                    CURLOPT_CUSTOMREQUEST => "POST",
+                    CURLOPT_POSTFIELDS => "{\r\n  \"app\": {\r\n    \"id\": \"$sender\",\r\n    \"time\": \"1605326773\",\r\n    \"data\": {\r\n      \"recipient\": {\r\n        \"id\": \"$dest\"\r\n      },\r\n      \"message\": [\r\n        {\r\n          \"time\": \"1605326773\",\r\n          \"type\": \"text\",\r\n          \"value\": \"$isiPesan\"\r\n        }\r\n      ]\r\n    }\r\n  }\r\n}",
+                    CURLOPT_HTTPHEADER => array(
+                        "Content-Type: text/plain",
+                        "Cookie: __cfduid=d424776e2d5021b158f1e64c99f2d7fce1604293254; ci_session=3b712ap59vc924a9o15j5rti70gif6k0"
+                    ),
+                ));
 
-    //     $this->email->subject('Konfirmasi Pemesanan');
-    //     //$this->email->message('click : <a href="' . base_url() . 'Lupa_Password/resetpassword?email=' . $this->input->post('email') . '&token=' . urlencode($token) . '">activate</a>');
+                $response = curl_exec($curl);
 
-    //     // Data Array ini untuk mengirim data ke halaman kirim email
-    //     $data = array(
-    //         'id_order' => $_POST["id_order"],
-    //         'total' => $_POST["total"],
-    //         'biaya_ongkir' => $_POST["biaya_ongkir"],
-    //         'jasa_pengiriman' => $_POST["jasa_pengiriman"],
-    //         'nama_penerima' => $_POST["nama_penerima"],
-    //         'no_penerima' => $_POST["no_penerima"],
-    //         'alamat_penerima' => $_POST["alamat_penerima"],
+                curl_close($curl);
+                echo $response;
+            }
+            // cek apakah no hp karakter 1 adalah 0
+            elseif (substr(trim($waUser), 0, 1) == '0') {
+                $hp = '62' . substr(trim($waUser), 1);
 
-    //     );
+                $curl = curl_init();
+                $sender = "6285778055363"; // nomor Server 
+                $dest = $hp; // nomor tujuan, pake kode negara 
+                $isiPesan = "Terimakasih sudah membeli produk kami. Saat ini kami sedang menunggu pembayaran dari anda sebelum kami memprosesnya.*"; // isi pesan ente
 
-    //     $body = $this->load->view('Frontend/v_konfirmasi_pemesanan', $data, true); // Untuk Menggabungkan halaman view ke body pesan
+                curl_setopt_array($curl, array(
 
-    //     $this->email->message($body); // Isi Pesan dari Email
+                    CURLOPT_RETURNTRANSFER => true,
+                    CURLOPT_URL => "https://whapi.io/api/send",
+                    CURLOPT_ENCODING => "",
+                    CURLOPT_MAXREDIRS => 10,
+                    CURLOPT_TIMEOUT => 0,
+                    CURLOPT_FOLLOWLOCATION => true,
+                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                    CURLOPT_CUSTOMREQUEST => "POST",
+                    CURLOPT_POSTFIELDS => "{\r\n  \"app\": {\r\n    \"id\": \"$sender\",\r\n    \"time\": \"1605326773\",\r\n    \"data\": {\r\n      \"recipient\": {\r\n        \"id\": \"$dest\"\r\n      },\r\n      \"message\": [\r\n        {\r\n          \"time\": \"1605326773\",\r\n          \"type\": \"text\",\r\n          \"value\": \"$isiPesan\"\r\n        }\r\n      ]\r\n    }\r\n  }\r\n}",
+                    CURLOPT_HTTPHEADER => array(
+                        "Content-Type: text/plain",
+                        "Cookie: __cfduid=d424776e2d5021b158f1e64c99f2d7fce1604293254; ci_session=3b712ap59vc924a9o15j5rti70gif6k0"
+                    ),
+                ));
 
-    //     // Cek Apakah Email Berhasil dikirim apa tidak
-    //     if ($this->email->send()) {
-    //         return true;
-    //     } else {
-    //         echo $this->email->print_debugger();
-    //         die;
-    //     }
-    //}
+                $response = curl_exec($curl);
+
+                curl_close($curl);
+                echo $response;
+            }
+        }
+    }
 
 }

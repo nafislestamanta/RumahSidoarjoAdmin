@@ -24,6 +24,7 @@ class M_mobile extends CI_Model
         $this->db->select('*');
         $this->db->from('user_mobile');
         $this->db->where('NIK', $id);
+       // $this->db->ORDER_BY('NIK', $id);
         $query = $this->db->get();
         return $query;
     }

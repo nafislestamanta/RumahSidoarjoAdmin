@@ -321,7 +321,7 @@ class Umkm extends CI_Controller
     {
         $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['ulasan'] = $this->M_umkm->ulasan($id)->row();
-        $data['ulasan2'] = $this->M_umkm->ulasan22($id)->result();
+        $data['ulasan22'] = $this->M_umkm->ulasan22($id)->result();
         // $data['tampil'] = $this->M_umkm->tampil()->result();
         $data['title'] = 'ulasan';
         $this->load->view('admin/templates/header', $data);

@@ -187,7 +187,8 @@ class M_pariwisata extends CI_Model
 
     public function ulasan22($id)
     {
-        $this->db->select('*');
+        $this->db->select('*, ulasan_wisata.foto1 as photo1, ulasan_wisata.foto2 as photo2, ulasan_wisata.foto3 as photo3 ');
+        //$this->db->select('*');
         $this->db->from('ulasan_wisata');
         $this->db->join('pariwisata', 'pariwisata.id_wisata=ulasan_wisata.id_wisata');
         $this->db->join('user_mobile', 'user_mobile.NIK=ulasan_wisata.NIK');
