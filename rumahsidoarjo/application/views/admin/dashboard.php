@@ -165,7 +165,7 @@
             </div>
         </div> -->
 
-       
+
         <!-- <div class="col-xl-6 col-lg-5">
             <div class="card shadow mb-4">
                
@@ -212,7 +212,7 @@
         <!-- Maps -->
         <div class="col-xl-6 col-lg-5">
             <div class="card shadow mb-4">
-                    <div class="card-body">
+                <div class="card-body">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.062807002249!2d112.71178381420643!3d-7.458304275578898!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7e170bf8f8335%3A0xcc19817a9c23f3af!2sDiskominfo%20Kabupaten%20Sidoarjo!5e0!3m2!1sen!2sid!4v1639016017104!5m2!1sen!2sid" width="485" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>

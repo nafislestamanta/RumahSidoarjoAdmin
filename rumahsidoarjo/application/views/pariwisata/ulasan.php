@@ -95,7 +95,7 @@
                                         </div>
                                     </td>
                                     <td> <img src="<?= base_url('assets/img/' . $a->photo2); ?>" width="80px"></td>
-                                    <td> <img src="<?= base_url('assets/img/' . $a->photo2); ?>" width="80px"></td>
+                                    <td> <img src="<?= base_url('assets/img/' . $a->photo3); ?>" width="80px"></td>
                                     <td><a style="margin-left: 5px;" href="<?= base_url('Pariwisata/delete_ulasan/' . $a->id_ulasan); ?>" onclick="javascript: return confirm('Anda Yakin Ingin Menghapus Ulasan?')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>
                                         </a>
                                     </td>

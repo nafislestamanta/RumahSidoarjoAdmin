@@ -42,18 +42,18 @@
                             <td>Password</td>
                             <td><?= $user->password ?></td>
                         </tr>
-                        <tr>
+                        <!-- <tr>
                             <td>Foto KTP</td>
                             <td><img src="<?= base_url('./assets/img/' . $user->foto_ktp); ?>" width="100px"></td>
-                        </tr>
+                        </tr> -->
                         <tr>
                             <td>Foto Profil</td>
                             <td><img src="<?= base_url('./assets/img/' . $user->foto_profil); ?>" width="100px"></td>
                         </tr>
-                        <tr>
+                        <!-- <tr>
                             <td>Selfie KTP</td>
                             <td><img src="<?= base_url('./assets/img/' . $user->selfie_ktp); ?>" width="100px"></td>
-                        </tr>
+                        </tr> -->
                     </thead>
                 </table>
                 <a href="<?= base_url('ManagemenMobile/validasi_acc/' . $user->NIK) ?>" onclick="javascript: return confirm('Apa Anda Yakin Ingin Mengonfirmasi ?')" class="btn btn-success">Konfirmasi</a>
