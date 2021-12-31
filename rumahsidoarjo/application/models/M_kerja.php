@@ -10,6 +10,9 @@ class M_kerja extends CI_model
     public $alamat;
     public $no_tlp;
     public $email;
+    public $lat;
+    public $long;
+    public $website;
     public $penanggung_jawab;
     public $deskripsi;
     public $foto = 'default.jpg';
@@ -60,6 +63,9 @@ class M_kerja extends CI_model
         $this->alamat = $post["alamat"];
         $this->no_tlp = $post["no_tlp"];
         $this->email = $post["email"];
+        $this->lat = $post["lat"];
+        $this->long = $post["long"];
+        $this->website = $post["website"];
         $this->penanggung_jawab = $post["penanggung_jawab"];
         $this->deskripsi = $post["deskripsi"];
         $this->foto = $_FILES["foto"]['name'];

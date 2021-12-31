@@ -141,6 +141,9 @@ class LowonganKerja extends CI_Controller
             $alamat = $this->input->post('alamat');
             $no_tlp = $this->input->post('no_tlp');
             $email = $this->input->post('email');
+            $lat = $this->input->post('lat');
+            $long = $this->input->post('long');
+            $website = $this->input->post('website');
             $penanggung_jawab = $this->input->post('penanggung_jawab');
             $deskripsi = $this->input->post('deskripsi');
             $foto = $_FILES['foto']['name'];
@@ -153,6 +156,9 @@ class LowonganKerja extends CI_Controller
                     'alamat' => $alamat,
                     'no_tlp' => $no_tlp,
                     'email' => $email,
+                    'lat' => $lat,
+                    'long' => $long,
+                    'website' => $website,
                     'penanggung_jawab' => $penanggung_jawab,
                     'deskripsi' => $deskripsi,
 
@@ -173,6 +179,9 @@ class LowonganKerja extends CI_Controller
                     'alamat' => $alamat,
                     'no_tlp' => $no_tlp,
                     'email' => $email,
+                    'lat' => $lat,
+                    'long' => $long,
+                    'website' => $website,
                     'penanggung_jawab' => $penanggung_jawab,
                     'deskripsi' => $deskripsi,
 
