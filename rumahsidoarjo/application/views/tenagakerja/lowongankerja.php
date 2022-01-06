@@ -14,7 +14,7 @@
                  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                      <thead>
                          <tr class="text-center"><b>
-                                 <th>ID</th>
+                                 <th>No</th>
                                  <th>Judul Lowongan</th>
                                  <th>Nama Perusahaan</th>
                                  <th>Kepemilikan</th>
@@ -25,10 +25,11 @@
                      </thead>
 
                      <tbody>
-                         <?php if ($title == "Lowongan Kerja") :
+                         <?php $no = 1;
+                            if ($title == "Lowongan Kerja") :
                                 foreach ($tampil as $s) : ?>
                                  <tr class="text-center">
-                                     <td><?= $s->id_lowongan ?></td>
+                                     <td><?= $no++ ?></td>
                                      <td><?= word_limiter($s->judul_lowongan, 3); ?></td>
                                      <td><?= word_limiter($s->nama_perusahaan, 3); ?></td>
                                      <td><?= $s->kepemilikan ?></td>

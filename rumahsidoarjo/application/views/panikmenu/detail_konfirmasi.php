@@ -11,10 +11,6 @@
                 <table class="table table-bordered" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <td>Kode</td>
-                            <td><?= $edit->id_laporan; ?></td>
-                        </tr>
-                        <tr>
                             <td>Kategori</td>
                             <td><?= $edit->kategori; ?></td>
                         </tr>
@@ -23,8 +19,12 @@
                             <td><?= $edit->nama; ?></td>
                         </tr>
                         <tr>
-                            <td>Lokasi Kejadian</td>
-                            <td><?= $edit->lokasi_kejadian; ?></td>
+                            <td>Latitude</td>
+                            <td><?= $edit->lat; ?></td>
+                        </tr>
+                        <tr>
+                            <td>Longitude</td>
+                            <td><?= $edit->long; ?></td>
                         </tr>
                         <tr>
                             <td>Waktu Kejadian</td>
@@ -32,8 +32,7 @@
                         </tr>
                         <tr>
                             <td>Bukti Kejadian</td>
-                            <td><img width="150px" height="150px"
-                                    src="<?= base_url('assets/img/' . $edit->bukti_kejadian); ?>" alt="Tidak Ada Foto">
+                            <td><img width="150px" height="150px" src="<?= base_url('assets/img/' . $edit->bukti_kejadian); ?>" alt="Tidak Ada Foto">
                             </td>
                         </tr>
                         <tr>
@@ -46,7 +45,7 @@
                         </tr>
                         <tr>
                             <td>Status</td>
-                            <td><?= $edit->status; ?></td>
+                            <td>Menunggu Konfirmasi</td>
                         </tr>
                     </thead>
                 </table>
@@ -66,32 +65,23 @@
                             <h6 class="m-0 font-weight-bold text-dark">Tambah Laporan Petugas</h6>
                         </label>
                         <?php if ($edit->kategori == "Kriminal") : ?>
-                        <div class="col-lg-5"><input style="margin-right: 5px" checked="checked" disabled="disabled"
-                                type="checkbox" name="nama[]" id="nama" placeholder="" value="Kantor Polisi" />Kantor
-                            Polisi</div>
-                        <div class="col-lg-5"><input style="margin-right: 5px" type="checkbox" name="nama[]" id="nama"
-                                placeholder="" value="Rumah Sakit" />Rumah Sakit</div>
-                        <div class="col-lg-5"><input style="margin-right: 5px" type="checkbox" name="nama[]" id="nama"
-                                placeholder="" value="BPBD" />BPBD</div>
+                            <div class="col-lg-5"><input style="margin-right: 5px" checked="checked" disabled="disabled" type="checkbox" name="nama[]" id="nama" placeholder="" value="Kantor Polisi" />Kantor
+                                Polisi</div>
+                            <div class="col-lg-5"><input style="margin-right: 5px" type="checkbox" name="nama[]" id="nama" placeholder="" value="Rumah Sakit" />Rumah Sakit</div>
+                            <div class="col-lg-5"><input style="margin-right: 5px" type="checkbox" name="nama[]" id="nama" placeholder="" value="BPBD" />BPBD</div>
                         <?php elseif ($edit->kategori == "Kecelakaan") : ?>
-                        <div class="col-lg-5"><input style="margin-right: 5px" type="checkbox" name="nama[]" id="nama"
-                                placeholder="" value="Kantor Polisi" />Kantor Polisi</div>
-                        <div class="col-lg-5"><input style="margin-right: 5px" checked="checked" disabled="disabled"
-                                type="checkbox" name="nama[]" id="nama" placeholder="Rumah Sakit"
-                                value="Rumah Sakit" />Rumah Sakit</div>
-                        <div class="col-lg-5"><input style="margin-right: 5px" type="checkbox" name="nama[]" id="nama"
-                                placeholder="" value="BPBD" />BPBD</div>
+                            <div class="col-lg-5"><input style="margin-right: 5px" type="checkbox" name="nama[]" id="nama" placeholder="" value="Kantor Polisi" />Kantor Polisi</div>
+                            <div class="col-lg-5"><input style="margin-right: 5px" checked="checked" disabled="disabled" type="checkbox" name="nama[]" id="nama" placeholder="Rumah Sakit" value="Rumah Sakit" />Rumah Sakit</div>
+                            <div class="col-lg-5"><input style="margin-right: 5px" type="checkbox" name="nama[]" id="nama" placeholder="" value="BPBD" />BPBD</div>
                         <?php elseif ($edit->kategori == "Bencana") : ?>
-                        <div class="col-lg-5"><input style="margin-right: 5px" type="checkbox" name="nama[]" id="nama"
-                                placeholder="" value="Kantor Polisi" />Kantor Polisi</div>
-                        <div class="col-lg-5"><input style="margin-right: 5px" type="checkbox" name="nama[]" id="nama"
-                                placeholder="" value="Rumah Sakit" />Rumah Sakit</div>
-                        <div class="col-lg-5"><input style="margin-right: 5px" checked="checked" disabled="disabled"
-                                type="checkbox" name="nama[]" id="nama" placeholder="" value="BPBD" />BPBD</div>
+                            <div class="col-lg-5"><input style="margin-right: 5px" type="checkbox" name="nama[]" id="nama" placeholder="" value="Kantor Polisi" />Kantor Polisi</div>
+                            <div class="col-lg-5"><input style="margin-right: 5px" type="checkbox" name="nama[]" id="nama" placeholder="" value="Rumah Sakit" />Rumah Sakit</div>
+                            <div class="col-lg-5"><input style="margin-right: 5px" checked="checked" disabled="disabled" type="checkbox" name="nama[]" id="nama" placeholder="" value="BPBD" />BPBD</div>
                         <?php endif; ?>
                         <input type="text" hidden name="nik" id="nik" value="<?= $edit->NIK ?>">
                         <input type="text" hidden name="kategori" id="kategori" value="<?= $edit->kategori ?>">
-                        <input type="text" hidden name="lokasi" id="lokasi" value="<?= $edit->lokasi_kejadian ?>">
+                        <input type="text" hidden name="lat" id="lat" value="<?= $edit->lat ?>">
+                        <input type="text" hidden name="long" id="long" value="<?= $edit->long ?>">
                         <input type="text" hidden name="waktu" id="waktu" value="<?= $edit->waktu_kejadian ?>">
                         <input type="text" hidden name="bukti" id="bukti" value="<?= $edit->bukti_kejadian ?>">
                         <input type="text" hidden name="deskripsi" id="deskripsi" value="<?= $edit->deskripsi ?>">

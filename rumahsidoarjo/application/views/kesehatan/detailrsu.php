@@ -11,10 +11,6 @@
                 <table class="table table-bordered" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <td>Kode</td>
-                            <td><?= $rsu->id_kesehatan; ?></td>
-                        </tr>
-                        <tr>
                             <td>Nama Rumah Sakit</td>
                             <td><?= $rsu->nama; ?></td>
                         </tr>
@@ -48,8 +44,7 @@
                         </tr>
                         <tr>
                             <td>Gambar</td>
-                            <td><img width="150px" height="150px" src="<?= base_url('assets/img/' . $rsu->foto); ?>"
-                                    alt="Belum Ada Foto"></td>
+                            <td><img width="150px" height="150px" src="<?= base_url('assets/img/' . $rsu->foto); ?>" alt="Belum Ada Foto"></td>
                         </tr>
                         <tr>
                             <td>Langitude</td>

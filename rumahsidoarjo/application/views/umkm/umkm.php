@@ -27,13 +27,13 @@
 
             <?php if ($title == "Kerajinan") : ?>
                 <a href="<?= base_url('Umkm/pdf_kategori/' . $kategori->kategori); ?>" class="btn-sm btn-success"><i class="fas fa-download" style="padding-right: 8px;"></i>Report</a>
-                <?php elseif ($title == "Makanan") : ?>
+            <?php elseif ($title == "Makanan") : ?>
                 <a href="<?= base_url('Umkm/pdf_kategori/' . $kategori->kategori); ?>" class="btn-sm btn-success"><i class="fas fa-download" style="padding-right: 8px;"></i>Report</a>
-                <?php elseif ($title == "Pertanian") : ?>
+            <?php elseif ($title == "Pertanian") : ?>
                 <a href="<?= base_url('Umkm/pdf_kategori/' . $kategori->kategori); ?>" class="btn-sm btn-success"><i class="fas fa-download" style="padding-right: 8px;"></i>Report</a>
-                <?php else : ?>
+            <?php else : ?>
                 <a href="<?= base_url('Umkm/pdf_umkm'); ?>" class="btn-sm btn-success"><i class="fas fa-download" style="padding-right: 8px;"></i>Report</a>
-                <?php endif; ?>
+            <?php endif; ?>
 
             <!-- <a href="<?= base_url('Umkm/pdf_umkm'); ?>" class="btn-sm btn-success"><i class="fas fa-download" style="padding-right: 8px;"></i>Report</a> -->
             <a href="<?= base_url('Umkm/tambah_umkm'); ?>" class="btn-sm btn-primary"><i class="fas fa-plus" style="padding-right: 8px;"></i>UMKM</a>
@@ -46,7 +46,7 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr class="text-center"><b>
-                                <th>Id</th>
+                                <th>No</th>
                                 <th>Nama</th>
                                 <th>Kategori</th>
                                 <th>Deskripsi</th>
@@ -57,10 +57,11 @@
                     </thead>
 
                     <tbody class="text-center">
-                        <?php if ($title == "Kerajinan") :
+                        <?php $no = 1;
+                        if ($title == "Kerajinan") :
                             foreach ($tampil as $a) : ?>
                                 <tr>
-                                    <td><?= $a->id_umkm ?></td>
+                                    <td><?= $no++ ?></td>
                                     <td><?= word_limiter($a->nama, 3); ?></td>
                                     <td><?= $a->kategori ?></td>
                                     <td><?= word_limiter($a->deskripsi, 2); ?></td>
@@ -71,10 +72,11 @@
                                 </tr>
                             <?php endforeach; ?>
 
-                            <?php elseif ($title == "Makanan") :
+                            <?php $no = 1;
+                        elseif ($title == "Makanan") :
                             foreach ($tampil as $a) : ?>
                                 <tr>
-                                    <td><?= $a->id_umkm ?></td>
+                                    <td><?= $no++ ?></td>
                                     <td><?= word_limiter($a->nama, 3); ?></td>
                                     <td><?= $a->kategori ?></td>
                                     <td><?= word_limiter($a->deskripsi, 2); ?></td>
@@ -85,10 +87,11 @@
                                 </tr>
                             <?php endforeach; ?>
 
-                            <?php elseif ($title == "Pertanian") :
+                            <?php $no = 1;
+                        elseif ($title == "Pertanian") :
                             foreach ($tampil as $a) : ?>
                                 <tr>
-                                    <td><?= $a->id_umkm ?></td>
+                                    <td><?= $no++ ?></td>
                                     <td><?= word_limiter($a->nama, 3); ?></td>
                                     <td><?= $a->kategori ?></td>
                                     <td><?= word_limiter($a->deskripsi, 2); ?></td>
@@ -99,10 +102,11 @@
                                 </tr>
                             <?php endforeach; ?>
 
-                            <?php else :
+                            <?php $no = 1;
+                        else :
                             foreach ($tampil as $a) : ?>
                                 <tr>
-                                    <td><?= $a->id_umkm ?></td>
+                                    <td><?= $no++ ?></td>
                                     <td><?= word_limiter($a->nama, 3); ?></td>
                                     <td><?= $a->kategori ?></td>
                                     <td><?= word_limiter($a->deskripsi, 2); ?></td>

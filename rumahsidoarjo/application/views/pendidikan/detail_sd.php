@@ -56,8 +56,7 @@
                         </tr>
                         <tr>
                             <td>Foto</td>
-                            <td><img width="150px" height="150px" src="<?= base_url('assets/img/' . $tampil->foto); ?>"
-                                    alt="Belum Ada Foto"></td>
+                            <td><img width="150px" height="150px" src="<?= base_url('assets/img/' . $tampil->foto); ?>" alt="Belum Ada Foto"></td>
                         </tr>
                     </thead>
                 </table>
@@ -75,10 +74,10 @@
                     <thead>
                         <?php $no = 1;
                         foreach ($fasilitas as $f) : ?>
-                        <tr>
-                            <td><?= $no++ ?> </td>
-                            <td><?= $f->nama; ?></td>
-                        </tr>
+                            <tr>
+                                <td><?= $no++ ?> </td>
+                                <td><?= $f->nama; ?></td>
+                            </tr>
                         <?php endforeach; ?>
                     </thead>
                 </table>
@@ -101,10 +100,10 @@
                     <thead>
                         <?php $no = 1;
                         foreach ($ekskul as $e) : ?>
-                        <tr>
-                            <td><?= $no++ ?></td>
-                            S <td><?= $e->nama; ?></td>
-                        </tr>
+                            <tr>
+                                <td><?= $no++ ?></td>
+                                <td><?= $e->nama; ?></td>
+                            </tr>
                         <?php endforeach; ?>
                     </thead>
                 </table>

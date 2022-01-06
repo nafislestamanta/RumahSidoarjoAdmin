@@ -12,10 +12,6 @@
                     <table class="table table-bordered" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <td class="font-weight-bold text-dark">ID</td>
-                                <td><?= $ulasan->id_wisata; ?></td>
-                            </tr>
-                            <tr>
                                 <td class="font-weight-bold text-dark">Kategori</td>
                                 <td><?= $ulasan3->kategori; ?></td>
                             </tr>
@@ -68,7 +64,7 @@
                     <table class="table table-bordered" width="100%" cellspacing="0">
                         <thead>
                             <tr class="text-center"><b>
-                                    <th>ID Ulasan</th>
+                                    <th>No</th>
                                     <!-- <th>NIK</th> -->
                                     <th>User</th>
                                     <th>Ulasan</th>
@@ -80,10 +76,10 @@
                             </tr>
                         </thead>
                         <tbody class="text-center">
-                            <?php
+                            <?php $no = 1;
                             foreach ($ulasan2 as $a) : ?>
                                 <tr>
-                                    <td class="text-center"><?= $a->id_ulasan ?></td>
+                                    <td class="text-center"><?= $no++ ?></td>
                                     <!-- <td><?= $a->NIK ?></td> -->
                                     <td><?= $a->nama ?></td>
                                     <td><?= $a->ulasan ?></td>

@@ -9,16 +9,15 @@
       <!-- Content -->
       <div class="card shadow mb-4">
           <div class="card-header py-3">
-              <a class="btn-sm btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="btn-sm btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <?php if ($title == "Konfirmasi Laporan Kriminal") : ?>
-                  Kriminal
+                      Kriminal
                   <?php elseif ($title == "Konfirmasi Laporan Kecelakaan") : ?>
-                  Kecelakaan
+                      Kecelakaan
                   <?php elseif ($title == "Konfirmasi Laporan Bencana") : ?>
-                  Bencana
+                      Bencana
                   <?php else : ?>
-                  Kategori
+                      Kategori
                   <?php endif; ?>
               </a>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -37,10 +36,11 @@
                   <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                       <thead>
                           <tr class="text-center"><b>
-                                  <th>Kode Laporan</th>
+                                  <th>No</th>
                                   <th>Kategori</th>
                                   <th>Nama Pelapor</th>
-                                  <th>Lokasi Kejadian</th>
+                                  <th>Latitude</th>
+                                  <th>Longitude</th>
                                   <th>Waktu Kejadian</th>
                                   <th>Petugas</th>
                                   <th>Actions</th>
@@ -49,77 +49,73 @@
                       </thead>
 
                       <tbody class="text-center">
-                          <?php if ($title == "Konfirmasi Laporan Kriminal") :
+                          <?php $no = 1;
+                            if ($title == "Konfirmasi Laporan Kriminal") :
                                 foreach ($kriminal as $k) : ?>
-                          <tr>
-                              <td><?= $k->id_laporan ?></td>
-                              <td><?= $k->kategori ?></td>
-                              <td><?= $k->nama ?></td>
-                              <td><?= $k->lokasi_kejadian ?></td>
-                              <td><?= $k->waktu_kejadian ?></td>
-                              <td><?= $k->petugas ?></td>
-                              <td><a href="<?= base_url('PanikMenu/delete_Bencanaa/' . $k->id_laporan); ?>"
-                                      onclick="javascript: return confirm('Anda Yakin Hapus ?')"
-                                      class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
-                                  <a href="<?= base_url('PanikMenu/detail_konfirmasi/' . $k->id_laporan); ?>"
-                                      class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
-                              </td>
-                          </tr>
-                          <?php endforeach; ?>
+                                  <tr>
+                                      <td><?= $no++ ?></td>
+                                      <td><?= $k->kategori ?></td>
+                                      <td><?= $k->nama ?></td>
+                                      <td><?= $k->lat ?></td>
+                                      <td><?= $k->long ?></td>
+                                      <td><?= $k->waktu_kejadian ?></td>
+                                      <td><?= $k->petugas ?></td>
+                                      <td><a href="<?= base_url('PanikMenu/delete_Bencanaa/' . $k->id_laporan); ?>" onclick="javascript: return confirm('Anda Yakin Hapus ?')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                          <a href="<?= base_url('PanikMenu/detail_konfirmasi/' . $k->id_laporan); ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+                                      </td>
+                                  </tr>
+                              <?php endforeach; ?>
 
-                          <?php elseif ($title == "Konfirmasi Laporan Kecelakaan") :
+                              <?php $no = 1;
+                            elseif ($title == "Konfirmasi Laporan Kecelakaan") :
                                 foreach ($kecelakaan as $k) : ?>
-                          <tr>
-                              <td><?= $k->id_laporan ?></td>
-                              <td><?= $k->kategori ?></td>
-                              <td><?= $k->nama ?></td>
-                              <td><?= $k->lokasi_kejadian ?></td>
-                              <td><?= $k->waktu_kejadian ?></td>
-                              <td><?= $k->petugas ?></td>
-                              <td><a href="<?= base_url('PanikMenu/delete_Bencanaa/' . $k->id_laporan); ?>"
-                                      onclick="javascript: return confirm('Anda Yakin Hapus ?')"
-                                      class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
-                                  <a href="<?= base_url('PanikMenu/detail_konfirmasi/' . $k->id_laporan); ?>"
-                                      class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
-                              </td>
-                          </tr>
-                          <?php endforeach; ?>
+                                  <tr>
+                                      <td><?= $no++ ?></td>
+                                      <td><?= $k->kategori ?></td>
+                                      <td><?= $k->nama ?></td>
+                                      <td><?= $k->lat ?></td>
+                                      <td><?= $k->long ?></td>>
+                                      <td><?= $k->waktu_kejadian ?></td>
+                                      <td><?= $k->petugas ?></td>
+                                      <td><a href="<?= base_url('PanikMenu/delete_Bencanaa/' . $k->id_laporan); ?>" onclick="javascript: return confirm('Anda Yakin Hapus ?')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                          <a href="<?= base_url('PanikMenu/detail_konfirmasi/' . $k->id_laporan); ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+                                      </td>
+                                  </tr>
+                              <?php endforeach; ?>
 
-                          <?php elseif ($title == "Konfirmasi Laporan Bencana") :
+                              <?php $no = 1;
+                            elseif ($title == "Konfirmasi Laporan Bencana") :
                                 foreach ($bencana as $k) : ?>
-                          <tr>
-                              <td><?= $k->id_laporan ?></td>
-                              <td><?= $k->kategori ?></td>
-                              <td><?= $k->nama ?></td>
-                              <td><?= $k->lokasi_kejadian ?></td>
-                              <td><?= $k->waktu_kejadian ?></td>
-                              <td><?= $k->petugas ?></td>
-                              <td><a href="<?= base_url('PanikMenu/delete_Bencanaa/' . $k->id_laporan); ?>"
-                                      onclick="javascript: return confirm('Anda Yakin Hapus ?')"
-                                      class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
-                                  <a href="<?= base_url('PanikMenu/detail_konfirmasi/' . $k->id_laporan); ?>"
-                                      class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
-                              </td>
-                          </tr>
-                          <?php endforeach; ?>
+                                  <tr>
+                                      <td><?= $no++ ?></td>
+                                      <td><?= $k->kategori ?></td>
+                                      <td><?= $k->nama ?></td>
+                                      <td><?= $k->lat ?></td>
+                                      <td><?= $k->long ?></td>
+                                      <td><?= $k->waktu_kejadian ?></td>
+                                      <td><?= $k->petugas ?></td>
+                                      <td><a href="<?= base_url('PanikMenu/delete_Bencanaa/' . $k->id_laporan); ?>" onclick="javascript: return confirm('Anda Yakin Hapus ?')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                          <a href="<?= base_url('PanikMenu/detail_konfirmasi/' . $k->id_laporan); ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+                                      </td>
+                                  </tr>
+                              <?php endforeach; ?>
 
-                          <?php else :
+                              <?php $no = 1;
+                            else :
                                 foreach ($konfirmasi as $k) : ?>
-                          <tr>
-                              <td><?= $k->id_laporan ?></td>
-                              <td><?= $k->kategori ?></td>
-                              <td><?= $k->nama ?></td>
-                              <td><?= $k->lokasi_kejadian ?></td>
-                              <td><?= $k->waktu_kejadian ?></td>
-                              <td><?= $k->petugas ?></td>
-                              <td><a href="<?= base_url('PanikMenu/delete_Bencanaa/' . $k->id_laporan); ?>"
-                                      onclick="javascript: return confirm('Anda Yakin Hapus ?')"
-                                      class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
-                                  <a href="<?= base_url('PanikMenu/detail_konfirmasi/' . $k->id_laporan); ?>"
-                                      class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
-                              </td>
-                          </tr>
-                          <?php endforeach; ?>
+                                  <tr>
+                                      <td><?= $no++ ?></td>
+                                      <td><?= $k->kategori ?></td>
+                                      <td><?= $k->nama ?></td>
+                                      <td><?= $k->lat ?></td>
+                                      <td><?= $k->long ?></td>
+                                      <td><?= $k->waktu_kejadian ?></td>
+                                      <td><?= $k->petugas ?></td>
+                                      <td><a href="<?= base_url('PanikMenu/delete_Bencanaa/' . $k->id_laporan); ?>" onclick="javascript: return confirm('Anda Yakin Hapus ?')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                          <a href="<?= base_url('PanikMenu/detail_konfirmasi/' . $k->id_laporan); ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+                                      </td>
+                                  </tr>
+                              <?php endforeach; ?>
                           <?php endif; ?>
                           </tr>
                   </table>

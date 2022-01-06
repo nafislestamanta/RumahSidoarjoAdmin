@@ -37,9 +37,9 @@
              <div id="collapse1" class="collapse" aria-labelledby="heading1" data-parent="#accordionSidebar">
                  <div class="bg-white py-2 collapse-inner rounded">
                      <h6 class="collapse-header">feature:</h6>
+                     <a class="collapse-item" href="<?= base_url('PanikMenu/konfirmasi'); ?>">Konfirmasi Panik</a>
                      <a class="collapse-item" href="<?= base_url('PanikMenu'); ?>">Managemen Data</a>
                      <a class="collapse-item" href="<?= base_url('PanikMenu/laporanpanik'); ?>">Laporan Panik</a>
-                     <a class="collapse-item" href="<?= base_url('PanikMenu/konfirmasi'); ?>">Konfirmasi Panik</a>
 
                  </div>
              </div>
@@ -63,13 +63,13 @@
          <li class="nav-item">
              <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
                  <i class="fas fa-user-cog"></i>
-                 <span>MANAGEMEN USER</span>
+                 <span>MANAGEMEN ADMIN</span>
              </a>
              <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                  <div class="bg-white py-2 collapse-inner rounded">
                      <h6 class="collapse-header">feature:</h6>
                      <a class="collapse-item" href="<?= base_url('Admin'); ?>">Managemen Admin</a>
-                     <a class="collapse-item" href="<?= base_url(''); ?>">Kepegawaian</a>
+                     <!-- <a class="collapse-item" href="<?= base_url(''); ?>">Kepegawaian</a> -->
                  </div>
              </div>
          </li>
@@ -78,13 +78,13 @@
          <li class="nav-item">
              <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse6" aria-expanded="true" aria-controls="collapse6">
                  <i class="fas fa-mobile-alt"></i>
-                 <span>MANAGEMEN MOBILE</span>
+                 <span>USER MOBILE</span>
              </a>
              <div id="collapse6" class="collapse" aria-labelledby="heading6" data-parent="#accordionSidebar">
                  <div class="bg-white py-2 collapse-inner rounded">
                      <h6 class="collapse-header">feature:</h6>
-                     <a class="collapse-item" href="<?= base_url('ManagemenMobile'); ?>">User Mobile</a>
                      <a class="collapse-item" href="<?= base_url('ManagemenMobile/validasi'); ?>">Validasi Akun</a>
+                     <a class="collapse-item" href="<?= base_url('ManagemenMobile'); ?>">User Mobile</a>
                  </div>
              </div>
          </li>
@@ -98,8 +98,8 @@
              <div id="collapse4" class="collapse" aria-labelledby="heading4" data-parent="#accordionSidebar">
                  <div class="bg-white py-2 collapse-inner rounded">
                      <h6 class="collapse-header">feature:</h6>
-                     <a class="collapse-item" href="<?= base_url('Pariwisata'); ?>">Tempat Wisata</a>
                      <a class="collapse-item" href="<?= base_url('Pariwisata/kategoriwisata'); ?>">Kategori Wisata</a>
+                     <a class="collapse-item" href="<?= base_url('Pariwisata'); ?>">Tempat Wisata</a>
                  </div>
              </div>
          </li>
@@ -174,8 +174,8 @@
              <div id="collapse12" class="collapse" aria-labelledby="heading12" data-parent="#accordionSidebar">
                  <div class="bg-white py-2 collapse-inner rounded">
                      <!-- <a class="collapse-item" href="<?= base_url('LayananPublik/pengaduan'); ?>">Pengaduan Umum</a> -->
-                     <a class="collapse-item" href="<?= base_url('LayananPublik'); ?>">Informasi Umum</a>
                      <a class="collapse-item" href="<?= base_url('LayananPublik/kategori'); ?>">Kategori Informasi</a>
+                     <a class="collapse-item" href="<?= base_url('LayananPublik'); ?>">Informasi Umum</a>
                  </div>
              </div>
          </li>

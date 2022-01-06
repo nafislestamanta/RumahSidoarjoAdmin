@@ -11,10 +11,6 @@
                 <table class="table table-bordered" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <td class="font-weight-bold">ID</td>
-                            <td><?= $detail->id_lowongan; ?></td>
-                        </tr>
-                        <tr>
                             <td class="font-weight-bold">Judul Lowongan</td>
                             <td><?= $detail->judul_lowongan; ?></td>
                         </tr>
@@ -68,8 +64,7 @@
                                     <td>
                                         <div class="form-group">
                                             <br>
-                                            <img src="<?= base_url('assets/img/' . $detail->foto_lowongan); ?>"
-                                                width="100px">
+                                            <img src="<?= base_url('assets/img/' . $detail->foto_lowongan); ?>" width="100px">
                                         </div>
                                     </td>
                                     <td>

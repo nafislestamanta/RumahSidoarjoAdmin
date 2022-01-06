@@ -12,10 +12,6 @@
                     <table class="table table-bordered" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <td class="font-weight-bold">ID</td>
-                                <td><?= $detail->id; ?></td>
-                            </tr>
-                            <tr>
                                 <td class="font-weight-bold">Nama Perusahaan</td>
                                 <td><?= $detail->nama_perusahaan; ?></td>
                             </tr>

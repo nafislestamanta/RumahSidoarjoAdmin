@@ -131,7 +131,8 @@ class PanikMenu extends CI_Controller
         $data['data'] = $this->db->get_where('user_admin', ['username' => $this->session->userdata('username')])->row_array();
         $nik = $this->input->post('nik');
         $kategori = $this->input->post('kategori');
-        $lokasi = $this->input->post('lokasi');
+        $lat = $this->input->post('lat');
+        $long = $this->input->post('long');
         $waktu = $this->input->post('waktu');
         $bukti = $this->input->post('bukti');
         $deskripsi = $this->input->post('deskripsi');
@@ -142,7 +143,8 @@ class PanikMenu extends CI_Controller
         $data = [
             'NIK' => $nik,
             'kategori' => $kategori,
-            'lokasi_kejadian' => $lokasi,
+            'lat' => $lat,
+            'long' => $long,
             'waktu_kejadian' => $waktu,
             'bukti_kejadian' => $bukti,
             'deskripsi' => $deskripsi,

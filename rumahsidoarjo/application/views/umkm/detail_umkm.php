@@ -12,10 +12,6 @@
                     <table class="table table-bordered" width="100%" cellspacing="0">
 
                         <tr>
-                            <td class="font-weight-bold text-dark">ID</td>
-                            <td><?= $detail->id_umkm; ?></td>
-                        </tr>
-                        <tr>
                             <td class="font-weight-bold text-dark">Kategori</td>
                             <td><?= $detail->kategori; ?></td>
                         </tr>

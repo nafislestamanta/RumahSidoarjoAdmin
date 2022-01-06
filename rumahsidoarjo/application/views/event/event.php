@@ -59,7 +59,7 @@
                                      <td><?= word_limiter($a->nama_event, 2); ?></td>
                                      <td><?= $a->tgl_posting ?></td>
                                      <td><?= word_limiter($a->deskripsi, 3); ?></td>
-                                     <td><a href="<?= base_url('BeritaInformasi/editberita' . $a->id_event); ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a><a style="margin-left: 5px;" href="<?= base_url('BeritaInformasi/detailberita/' . $a->id_event); ?>" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a><a style="margin-left: 5px;" href="<?= base_url('BeritaInformasi/delete/' . $a->id_event); ?>" onclick="javascript: return confirm('Anda Yakin Hapus ?')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a></td>
+                                     <td><a href="<?= base_url('Event/edit_event/' . $a->id_event); ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a><a style="margin-left: 5px;" href="<?= base_url('Event/detail_event/' . $a->id_event); ?>" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a><a style="margin-left: 5px;" href="<?= base_url('BeritaInformasi/delete/' . $a->id_event); ?>" onclick="javascript: return confirm('Anda Yakin Hapus ?')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a></td>
                                  </tr>
                              <?php endforeach; ?>
 
@@ -73,7 +73,7 @@
                                      <td><?= word_limiter($a->nama_event, 2); ?></td>
                                      <td><?= $a->tgl_posting ?></td>
                                      <td><?= word_limiter($a->deskripsi, 3); ?></td>
-                                     <td><a href="<?= base_url('BeritaInformasi/editberita' . $a->id_event); ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a><a style="margin-left: 5px;" href="<?= base_url('BeritaInformasi/detailberita/' . $a->id_event); ?>" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a><a style="margin-left: 5px;" href="<?= base_url('BeritaInformasi/delete/' . $a->id_event); ?>" onclick="javascript: return confirm('Anda Yakin Hapus ?')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a></td>
+                                     <td><a href="<?= base_url('Event/edit_event/' . $a->id_event); ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a><a style="margin-left: 5px;" href="<?= base_url('Event/detail_event/' . $a->id_event); ?>" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a><a style="margin-left: 5px;" href="<?= base_url('BeritaInformasi/delete/' . $a->id_event); ?>" onclick="javascript: return confirm('Anda Yakin Hapus ?')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a></td>
                                  </tr>
                              <?php endforeach; ?>
 

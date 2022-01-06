@@ -13,15 +13,13 @@
           <div class="card card-primary">
               <div class="card-body">
                   <?= $this->session->flashdata('sd'); ?>
-                  <form action="<?php echo base_url('Pendidikan/saveSD/' . $tampil->id_sekolah); ?> " method="POST"
-                      enctype="multipart/form-data">
+                  <form action="<?php echo base_url('Pendidikan/saveSD/' . $tampil->id_sekolah); ?> " method="POST" enctype="multipart/form-data">
                       <div class="row">
                           <div class="col-sm-12">
                               <!-- text input -->
                               <div class="form-group">
                                   <label class=" font-weight-bold text-dark">Nama SD</label>
-                                  <input type="text" class="form-control" id="nama" name="nama"
-                                      placeholder="Masukkan Nama SD" value="<?= $tampil->nama_sekolah ?>">
+                                  <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan Nama SD" value="<?= $tampil->nama_sekolah ?>">
                                   <?= form_error('nama', '<small class="text-danger pl-2">', '</small>');  ?>
                               </div>
                           </div>
@@ -37,9 +35,8 @@
                                   <select class="form-control" name="kecamatan" id="kecamatan">
                                       <option value="" selected disabled>- Pilih Kecamatan -</option>
                                       <?php foreach ($kecamatan as $k) : ?>
-                                      <option value="<?= $k->id_kecamatan ?>"
-                                          <?php if ($k->id_kecamatan == $tampil->id_kecamatan) echo 'selected'; ?>>
-                                          <?= $k->kecamatan ?></option>
+                                          <option value="<?= $k->id_kecamatan ?>" <?php if ($k->id_kecamatan == $tampil->id_kecamatan) echo 'selected'; ?>>
+                                              <?= $k->kecamatan ?></option>
                                       <?php endforeach; ?>
                                   </select>
                                   <?= form_error('kecamatan', '<small class="text-danger pl-2">', '</small>');  ?>
@@ -59,9 +56,8 @@
                                   <select class="form-control" name="kelurahan" id="kelurahan">
                                       <option value="" selected disabled>- Pilih Kelurahan -</option>
                                       <?php foreach ($kelurahan as $k) : ?>
-                                      <option value="<?= $k->id_kelurahan ?>"
-                                          <?php if ($k->id_kelurahan == $tampil->id_kelurahan) echo 'selected'; ?>>
-                                          <?= $k->nama ?></option>
+                                          <option value="<?= $k->id_kelurahan ?>" <?php if ($k->id_kelurahan == $tampil->id_kelurahan) echo 'selected'; ?>>
+                                              <?= $k->nama ?></option>
                                       <?php endforeach; ?>
                                   </select>
                                   <?= form_error('kecamatan', '<small class="text-danger pl-2">', '</small>');  ?>
@@ -74,8 +70,7 @@
                               <!-- text input -->
                               <div class="form-group">
                                   <label class=" font-weight-bold text-dark">Alamat</label>
-                                  <input type="text" class="form-control" id="alamat" name="alamat"
-                                      placeholder="Masukkan Alamat" value="<?= $tampil->alamat ?>">
+                                  <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Masukkan Alamat" value="<?= $tampil->alamat ?>">
                                   <?= form_error('alamat', '<small class="text-danger pl-2">', '</small>');  ?>
                               </div>
                           </div>
@@ -86,8 +81,7 @@
                               <!-- text input -->
                               <div class="form-group">
                                   <label class=" font-weight-bold text-dark">No. Telepon</label>
-                                  <input type="number" class="form-control" id="notelp" name="notelp"
-                                      placeholder="Masukkan No Telepon" value="<?= $tampil->no_telepon ?>">
+                                  <input type="number" class="form-control" id="notelp" name="notelp" placeholder="Masukkan No Telepon" value="<?= $tampil->no_telepon ?>">
                                   <?= form_error('notelp', '<small class="text-danger pl-2">', '</small>');  ?>
                               </div>
                           </div>
@@ -102,8 +96,7 @@
                               <option value="A" <?php if ($tampil->akreditasi == "A") echo 'selected'; ?>>A</option>
                               <option value="B" <?php if ($tampil->akreditasi == "B") echo 'selected'; ?>>B</option>
                               <option value="C" <?php if ($tampil->akreditasi == "C") echo 'selected'; ?>>C</option>
-                              <option value="Belum Memiliki Akreditasi"
-                                  <?php if ($tampil->akreditasi == "Belum Memiliki Akreditasi") echo 'selected'; ?>>
+                              <option value="Belum Memiliki Akreditasi" <?php if ($tampil->akreditasi == "Belum Memiliki Akreditasi") echo 'selected'; ?>>
                                   Belum Memiliki Akreditasi</option>
                           </select>
                       </div>
@@ -114,8 +107,7 @@
                               <!-- text input -->
                               <div class="form-group">
                                   <label class=" font-weight-bold text-dark">NPSN</label>
-                                  <input type="number" class="form-control" id="npsn" name="npsn"
-                                      placeholder="Masukkan NPSN" value="<?= $tampil->NPSN ?>">
+                                  <input type="number" class="form-control" id="npsn" name="npsn" placeholder="Masukkan NPSN" value="<?= $tampil->NPSN ?>">
                                   <?= form_error('npsn', '<small class="text-danger pl-2">', '</small>');  ?>
                               </div>
                           </div>
@@ -139,8 +131,7 @@
                               <!-- text input -->
                               <div class="form-group">
                                   <label class=" font-weight-bold text-dark">Latitude</label>
-                                  <input type="number" class="form-control" id="lat" name="lat"
-                                      placeholder="Masukkan Latitude" value="<?= $tampil->lat ?>">
+                                  <input type="number" class="form-control" id="lat" name="lat" placeholder="Masukkan Latitude" value="<?= $tampil->lat ?>">
                                   <?= form_error('lat', '<small class="text-danger pl-2">', '</small>');  ?>
                               </div>
                           </div>
@@ -151,8 +142,7 @@
                               <!-- text input -->
                               <div class="form-group">
                                   <label class=" font-weight-bold text-dark">Longitude</label>
-                                  <input type="number" class="form-control" id="long" name="long"
-                                      placeholder="Masukkan Longitude" value="<?= $tampil->long ?>">
+                                  <input type="number" class="form-control" id="long" name="long" placeholder="Masukkan Longitude" value="<?= $tampil->long ?>">
                                   <?= form_error('long', '<small class="text-danger pl-2">', '</small>');  ?>
                               </div>
                           </div>
@@ -163,8 +153,7 @@
                               <!-- text input -->
                               <div class="form-group">
                                   <label class=" font-weight-bold text-dark">Website</label>
-                                  <input type="text" class="form-control" id="website" name="website"
-                                      placeholder="Masukkan Website" value="<?= $tampil->website ?>">
+                                  <input type="text" class="form-control" id="website" name="website" placeholder="Masukkan Website" value="<?= $tampil->website ?>">
                                   <?= form_error('website', '<small class="text-danger pl-2">', '</small>');  ?>
                               </div>
                           </div>
@@ -177,9 +166,7 @@
                               <div class="form-group">
                                   <br>
                                   <img src="<?= base_url('assets/img/' . $tampil->foto); ?>" id="foto" width="150px">
-                                  <a data-toggle="modal" type="submit"
-                                      data-target="#editmodalgambar<?= $tampil->id_sekolah ?>"
-                                      class="btn-sm btn-primary">Edit</a>
+                                  <a data-toggle="modal" type="submit" data-target="#editmodalgambar<?= $tampil->id_sekolah ?>" class="btn-sm btn-primary">Edit</a>
                                   <?= form_error('gambar', '<small class="text-danger pl-2">', '</small>');  ?>
                               </div>
                           </td>
@@ -208,25 +195,19 @@
                           <tbody>
                               <?php $no = 1;
                                 foreach ($fasilitas as $f) : ?>
-                              <tr>
-                                  <td><?= $no++ ?></td>
-                                  <td><?= $f->nama ?></td>
-                                  <td> <a data-toggle="modal" type="submit"
-                                          data-target="#edit-fasilitas<?= $f->id_fasilitas ?>"
-                                          class="btn btn-primary">Edit</a>
-                                      <a href="<?= base_url('Pendidikan/delete_fasilitas/' . $f->id_fasilitas . '/' . $f->id_sekolah); ?>"
-                                          class="btn btn-danger btn-sm"
-                                          onclick="javascript: return confirm('Anda Yakin Hapus ?')"><i
-                                              class="fa fa-trash"></i></a>
-                                  </td>
-                              </tr>
+                                  <tr>
+                                      <td><?= $no++ ?></td>
+                                      <td><?= $f->nama ?></td>
+                                      <td> <a data-toggle="modal" type="submit" data-target="#edit-fasilitas<?= $f->id_fasilitas ?>" class="btn btn-primary">Edit</a>
+                                          <a href="<?= base_url('Pendidikan/delete_fasilitas/' . $f->id_fasilitas . '/' . $f->id_sekolah); ?>" class="btn btn-danger btn-sm" onclick="javascript: return confirm('Anda Yakin Hapus ?')"><i class="fa fa-trash"></i></a>
+                                      </td>
+                                  </tr>
                               <?php endforeach; ?>
                           </tbody>
                       </table>
                   </div>
                   <br>
-                  <a data-toggle="modal" type="submit" data-target="#tambah-fasilitas"
-                      class="btn btn-primary">Tambah</a>
+                  <a data-toggle="modal" type="submit" data-target="#tambah-fasilitas" class="btn btn-primary">Tambah</a>
                   <br>
                   <br>
                   <br>
@@ -246,18 +227,13 @@
                           <tbody>
                               <?php $no = 1;
                                 foreach ($ekskul as $e) : ?>
-                              <tr>
-                                  <td><?= $no++ ?></td>
-                                  <td><?= $e->nama ?></td>
-                                  <td> <a data-toggle="modal" type="submit"
-                                          data-target="#edit-ekskul<?= $e->id_ekskul ?>"
-                                          class="btn btn-primary">Edit</a>
-                                      <a href="<?= base_url('Pendidikan/delete_ekskul/' . $e->id_ekskul . '/' . $e->id_sekolah); ?>"
-                                          class="btn btn-danger btn-sm"
-                                          onclick="javascript: return confirm('Anda Yakin Hapus ?')"><i
-                                              class="fa fa-trash"></i></a>
-                                  </td>
-                              </tr>
+                                  <tr>
+                                      <td><?= $no++ ?></td>
+                                      <td><?= $e->nama ?></td>
+                                      <td> <a data-toggle="modal" type="submit" data-target="#edit-ekskul<?= $e->id_ekskul ?>" class="btn btn-primary">Edit</a>
+                                          <a href="<?= base_url('Pendidikan/delete_ekskul/' . $e->id_ekskul . '/' . $e->id_sekolah); ?>" class="btn btn-danger btn-sm" onclick="javascript: return confirm('Anda Yakin Hapus ?')"><i class="fa fa-trash"></i></a>
+                                      </td>
+                                  </tr>
                               <?php endforeach; ?>
                           </tbody>
                       </table>
@@ -271,17 +247,14 @@
   </div>
 
   <!-- Modal Tambah -->
-  <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="tambah-fasilitas"
-      class="modal fade">
+  <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="tambah-fasilitas" class="modal fade">
       <div class="modal-dialog">
           <div class="modal-content">
               <div class="modal-header">
                   <!-- <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button> -->
                   <h4 class="modal-title">Tambah Fasilitas</h4>
               </div>
-              <form class="form-horizontal"
-                  action="<?php echo base_url('Pendidikan/tambah_fasilitass/' . $tampil->id_sekolah) ?>" method="post"
-                  enctype="multipart/form-data" role="form">
+              <form class="form-horizontal" action="<?php echo base_url('Pendidikan/tambah_fasilitass/' . $tampil->id_sekolah) ?>" method="post" enctype="multipart/form-data" role="form">
                   <div class="modal-body">
                       <div class="form-group">
                           <label class="col-lg-5 col-sm-5 control-label">Nama Fasilitas</label>
@@ -301,23 +274,19 @@
   <!-- END Modal Tambah -->
 
   <!-- Modal Tambah -->
-  <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="tambah-ekskul"
-      class="modal fade">
+  <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="tambah-ekskul" class="modal fade">
       <div class="modal-dialog">
           <div class="modal-content">
               <div class="modal-header">
                   <!-- <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button> -->
                   <h4 class="modal-title">Tambah Ekstrakulikuler</h4>
               </div>
-              <form class="form-horizontal"
-                  action="<?php echo base_url('Pendidikan/tambah_ekskull/' . $tampil->id_sekolah) ?>" method="post"
-                  enctype="multipart/form-data" role="form">
+              <form class="form-horizontal" action="<?php echo base_url('Pendidikan/tambah_ekskull/' . $tampil->id_sekolah) ?>" method="post" enctype="multipart/form-data" role="form">
                   <div class="modal-body">
                       <div class="form-group">
                           <label class="col-lg-5 col-sm-5 control-label">Nama Ekstrakulikuler</label>
                           <div class="col-lg-10">
-                              <input type="text" class="form-control" name="nama"
-                                  placeholder="Tuliskan Nama Ekstrakulikuler">
+                              <input type="text" class="form-control" name="nama" placeholder="Tuliskan Nama Ekstrakulikuler">
                           </div>
                       </div>
                   </div>
@@ -333,82 +302,72 @@
 
   <!-- Modal Tambah -->
   <?php foreach ($fasilitas as $f) : ?>
-  <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1"
-      id="edit-fasilitas<?= $f->id_fasilitas ?>" class="modal fade">
-      <div class="modal-dialog">
-          <div class="modal-content">
-              <div class="modal-header">
-                  <!-- <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button> -->
-                  <h4 class="modal-title">Edit Fasilitas</h4>
-              </div>
-              <form class="form-horizontal"
-                  action="<?php echo base_url('Pendidikan/edit_fasilitas/' . $f->id_fasilitas); ?>" method="post"
-                  enctype="multipart/form-data" role="form">
-                  <div class="modal-body">
-                      <div class="form-group">
-                          <label class="col-lg-5 col-sm-5 control-label">Nama Fasilitas</label>
-                          <div class="col-lg-10">
-                              <input type="text" name="id" id="id" hidden value="<?= $tampil->id_sekolah ?>">
-                              <input type="text" class="form-control" name="nama" placeholder="Tuliskan Nama Fasilitas"
-                                  value="<?= $f->nama ?>">
+      <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="edit-fasilitas<?= $f->id_fasilitas ?>" class="modal fade">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <!-- <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button> -->
+                      <h4 class="modal-title">Edit Fasilitas</h4>
+                  </div>
+                  <form class="form-horizontal" action="<?php echo base_url('Pendidikan/edit_fasilitas/' . $f->id_fasilitas); ?>" method="post" enctype="multipart/form-data" role="form">
+                      <div class="modal-body">
+                          <div class="form-group">
+                              <label class="col-lg-5 col-sm-5 control-label">Nama Fasilitas</label>
+                              <div class="col-lg-10">
+                                  <input type="text" name="id" id="id" hidden value="<?= $tampil->id_sekolah ?>">
+                                  <input type="text" class="form-control" name="nama" placeholder="Tuliskan Nama Fasilitas" value="<?= $f->nama ?>">
+                              </div>
                           </div>
                       </div>
-                  </div>
-                  <div class="modal-footer">
-                      <button class="btn btn-info" type="submit"> Simpan&nbsp;</button>
-                      <button type="button" class="btn btn-warning" data-dismiss="modal"> Batal</button>
-                  </div>
-              </form>
+                      <div class="modal-footer">
+                          <button class="btn btn-info" type="submit"> Simpan&nbsp;</button>
+                          <button type="button" class="btn btn-warning" data-dismiss="modal"> Batal</button>
+                      </div>
+                  </form>
+              </div>
           </div>
       </div>
-  </div>
   <?php endforeach; ?>
   <!-- END Modal Tambah -->
 
   <!-- Modal Tambah -->
   <?php foreach ($ekskul as $e) : ?>
-  <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1"
-      id="edit-ekskul<?= $e->id_ekskul ?>" class="modal fade">
-      <div class="modal-dialog">
-          <div class="modal-content">
-              <div class="modal-header">
-                  <!-- <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button> -->
-                  <h4 class="modal-title">Edit Ekstrakulikuler</h4>
-              </div>
-              <form class="form-horizontal" action="<?php echo base_url('Pendidikan/edit_ekskul/' . $e->id_ekskul) ?>"
-                  method="post" enctype="multipart/form-data" role="form">
-                  <div class="modal-body">
-                      <input type="text" hidden name="id" id="id" value="<?= $tampil->id_sekolah ?>">
-                      <div class="form-group">
-                          <label class="col-lg-5 col-sm-5 control-label">Nama Ekstrakulikuler</label>
-                          <div class="col-lg-10">
-                              <input type="text" class="form-control" name="nama"
-                                  placeholder="Tuliskan Nama Ekstrakulikuler" value="<?= $e->nama ?>">
+      <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="edit-ekskul<?= $e->id_ekskul ?>" class="modal fade">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <!-- <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button> -->
+                      <h4 class="modal-title">Edit Ekstrakulikuler</h4>
+                  </div>
+                  <form class="form-horizontal" action="<?php echo base_url('Pendidikan/edit_ekskul/' . $e->id_ekskul) ?>" method="post" enctype="multipart/form-data" role="form">
+                      <div class="modal-body">
+                          <input type="text" hidden name="id" id="id" value="<?= $tampil->id_sekolah ?>">
+                          <div class="form-group">
+                              <label class="col-lg-5 col-sm-5 control-label">Nama Ekstrakulikuler</label>
+                              <div class="col-lg-10">
+                                  <input type="text" class="form-control" name="nama" placeholder="Tuliskan Nama Ekstrakulikuler" value="<?= $e->nama ?>">
+                              </div>
                           </div>
                       </div>
-                  </div>
-                  <div class="modal-footer">
-                      <button class="btn btn-info" type="submit"> Simpan&nbsp;</button>
-                      <a href="<?= base_url('Pendidikan') ?>" class="btn btn-success"> Batal</a>
+                      <div class="modal-footer">
+                          <button class="btn btn-info" type="submit"> Simpan&nbsp;</button>
+                          <a href="<?= base_url('Pendidikan') ?>" class="btn btn-success"> Batal</a>
 
-                  </div>
-              </form>
+                      </div>
+                  </form>
+              </div>
           </div>
       </div>
-  </div>
   <?php endforeach; ?>
   <!-- END Modal Tambah -->
 
-  <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1"
-      id="editmodalgambar<?= $tampil->id_sekolah ?>" class="modal fade">
+  <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="editmodalgambar<?= $tampil->id_sekolah ?>" class="modal fade">
       <div class="modal-dialog">
           <div class="modal-content">
               <div class="modal-header">
                   <h5 class="text-center" style="color: darkcyan;">Edit Gambar</h5>
               </div>
-              <form class="form-horizontal"
-                  action="<?php echo base_url('Pendidikan/simpanGambar/' . $tampil->id_sekolah) ?>" method="post"
-                  enctype="multipart/form-data" role="form">
+              <form class="form-horizontal" action="<?php echo base_url('Pendidikan/simpanGambar/' . $tampil->id_sekolah) ?>" method="post" enctype="multipart/form-data" role="form">
                   <div class="modal-body">
                       <div class="form-group">
                           <div class="col-lg-10">
@@ -416,8 +375,7 @@
                               <img src="<?= base_url('assets/img/' . $tampil->foto); ?>" id="foto" width="150px">
                           </div>
                           <br>
-                          <input type="file" id="foto" name="foto" accept="image/png, .jpeg, .jpg"
-                              onchange="gambar1(this.value)">
+                          <input type="file" id="foto" name="foto" accept="image/png, .jpeg, .jpg" onchange="gambar1(this.value)">
                           <div class="col-lg-10">
                               <br>
                               <label class="col-lg-5 col-sm-5 control-label">Foto Baru</label>
@@ -436,9 +394,9 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script type="text/javascript">
-function gambar1(val) {
-    $("#foto1").attr('src', URL.createObjectURL(event.target.files[0]));
-}
+      function gambar1(val) {
+          $("#foto1").attr('src', URL.createObjectURL(event.target.files[0]));
+      }
   </script>
   <!-- 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

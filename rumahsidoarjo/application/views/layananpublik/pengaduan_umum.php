@@ -71,7 +71,7 @@
                      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                          <thead>
                              <tr class="text-center"><b>
-                                     <th>ID</th>
+                                     <th>No</th>
                                      <th>Pelapor</th>
                                      <th>Kategori</th>
                                      <th>Lokasi Kejadian</th>
@@ -83,10 +83,11 @@
                          </thead>
 
                          <tbody>
-                             <?php if ($title == "Pelayanan") :
+                             <?php $no = 1;
+                                if ($title == "Pelayanan") :
                                     foreach ($tampil as $a) : ?>
                                      <tr class="text-center">
-                                         <td><?= $a->id_pengaduan ?></td>
+                                         <td><?= $no++ ?></td>
                                          <td><?= $a->nama ?></td>
                                          <td><?= $a->kategori ?></td>
                                          <td><?= word_limiter($a->lokasi_kejadian, 3); ?></td>
@@ -104,10 +105,11 @@
                                      </tr>
                                  <?php endforeach; ?>
 
-                                 <?php elseif ($title == "Fasilitas Publik") :
+                                 <?php $no = 1;
+                                elseif ($title == "Fasilitas Publik") :
                                     foreach ($tampil as $a) : ?>
                                      <tr class="text-center">
-                                         <td><?= $a->id_pengaduan ?></td>
+                                         <td><?= $no++ ?></td>
                                          <td><?= $a->nama ?></td>
                                          <td><?= $a->kategori ?></td>
                                          <td><?= word_limiter($a->lokasi_kejadian, 3); ?></td>
@@ -125,10 +127,11 @@
                                      </tr>
                                  <?php endforeach; ?>
 
-                                 <?php elseif ($title == "Kesehatan") :
+                                 <?php $no = 1;
+                                elseif ($title == "Kesehatan") :
                                     foreach ($tampil as $a) : ?>
                                      <tr class="text-center">
-                                         <td><?= $a->id_pengaduan ?></td>
+                                         <td><?= $no++ ?></td>
                                          <td><?= $a->nama ?></td>
                                          <td><?= $a->kategori ?></td>
                                          <td><?= word_limiter($a->lokasi_kejadian, 3); ?></td>
@@ -146,10 +149,11 @@
                                      </tr>
                                  <?php endforeach; ?>
 
-                                 <?php elseif ($title == "Pengaduan") :
+                                 <?php $no = 1;
+                                elseif ($title == "Pengaduan") :
                                     foreach ($tampil as $a) : ?>
                                      <tr class="text-center">
-                                         <td><?= $a->id_pengaduan ?></td>
+                                         <td><?= $no++ ?></td>
                                          <td><?= $a->nama ?></td>
                                          <td><?= $a->kategori ?></td>
                                          <td><?= word_limiter($a->lokasi_kejadian, 3); ?></td>
@@ -170,10 +174,11 @@
 
 
 
-                                 <?php elseif ($title == "Status") :
+                                 <?php $no = 1;
+                                elseif ($title == "Status") :
                                     foreach ($tampil as $a) : ?>
                                      <tr class="text-center">
-                                         <td><?= $a->id_pengaduan ?></td>
+                                         <td><?= $no++ ?></td>
                                          <td><?= $a->nama ?></td>
                                          <td><?= $a->kategori ?></td>
                                          <td><?= word_limiter($a->lokasi_kejadian, 3); ?></td>
@@ -191,10 +196,11 @@
                                      </tr>
                                  <?php endforeach; ?>
 
-                                 <?php elseif ($title == "Menunggu") :
+                                 <?php $no = 1;
+                                elseif ($title == "Menunggu") :
                                     foreach ($tampil as $a) : ?>
                                      <tr class="text-center">
-                                         <td><?= $a->id_pengaduan ?></td>
+                                         <td><?= $no++ ?></td>
                                          <td><?= $a->nama ?></td>
                                          <td><?= $a->kategori ?></td>
                                          <td><?= word_limiter($a->lokasi_kejadian, 3); ?></td>
@@ -212,10 +218,11 @@
                                      </tr>
                                  <?php endforeach; ?>
 
-                                 <?php elseif ($title == "Sedang Diproses") :
+                                 <?php $no = 1;
+                                elseif ($title == "Sedang Diproses") :
                                     foreach ($tampil as $a) : ?>
                                      <tr class="text-center">
-                                         <td><?= $a->id_pengaduan ?></td>
+                                         <td><?= $no++ ?></td>
                                          <td><?= $a->nama ?></td>
                                          <td><?= $a->kategori ?></td>
                                          <td><?= word_limiter($a->lokasi_kejadian, 3); ?></td>
@@ -233,10 +240,11 @@
                                      </tr>
                                  <?php endforeach; ?>
 
-                                 <?php elseif ($title == "Selesai") :
+                                 <?php $no = 1;
+                                elseif ($title == "Selesai") :
                                     foreach ($tampil as $a) : ?>
                                      <tr class="text-center">
-                                         <td><?= $a->id_pengaduan ?></td>
+                                         <td><?= $no++ ?></td>
                                          <td><?= $a->nama ?></td>
                                          <td><?= $a->kategori ?></td>
                                          <td><?= word_limiter($a->lokasi_kejadian, 3); ?></td>
@@ -254,10 +262,11 @@
                                      </tr>
                                  <?php endforeach; ?>
 
-                                 <?php elseif ($title == "Ditolak") :
+                                 <?php $no = 1;
+                                elseif ($title == "Ditolak") :
                                     foreach ($tampil as $a) : ?>
                                      <tr class="text-center">
-                                         <td><?= $a->id_pengaduan ?></td>
+                                         <td><?= $no++ ?></td>
                                          <td><?= $a->nama ?></td>
                                          <td><?= $a->kategori ?></td>
                                          <td><?= word_limiter($a->lokasi_kejadian, 3); ?></td>

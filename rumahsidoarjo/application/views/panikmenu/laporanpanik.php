@@ -44,70 +44,71 @@
                   <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                       <thead>
                           <tr class="text-center"><b>
-                                  <th>ID</th>
+                                  <th>No</th>
                                   <th>Kategori</th>
                                   <th>Nama Pelapor</th>
-                                  <th>Lokasi Kejadian</th>
+                                  <th>Latitude</th>
+                                  <th>Longitude</th>
                                   <th>Waktu Kejadian</th>
                                   <th>Petugas</th>
                                   <!-- <th>Status</th> -->
-                                  <th>Actions</th>
                               </b> </tr>
                       </thead>
                       <tbody class="text-center">
-                          <?php if ($title == "Laporan Kriminal") :
+                          <?php $no = 1;
+                            if ($title == "Laporan Kriminal") :
                                 foreach ($kriminal as $k) : ?>
                                   <tr>
-                                      <td><?= $k->id_laporan ?></td>
+                                      <td><?= $no++ ?></td>
                                       <td><?= $k->kategori ?></td>
                                       <td><?= $k->nama ?></td>
-                                      <td><?= $k->lokasi_kejadian ?></td>
+                                      <td><?= $k->lat ?></td>
+                                      <td><?= $k->long ?></td>
                                       <td><?= $k->waktu_kejadian ?></td>
                                       <td><?= $k->petugas ?></td>
                                       <!-- <td><?= $status->status ?></td> -->
-                                      <td><a href="<?= base_url('PanikMenu/delete_laporanKriminal/' . $k->id_laporan); ?>" onclick="javascript: return confirm('Anda Yakin Hapus ?')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a></td>
                                   </tr>
                               <?php endforeach; ?>
 
                               <?php elseif ($title == "Laporan Kecelakaan") :
                                 foreach ($kecelakaan as $k) : ?>
                                   <tr>
-                                      <td><?= $k->id_laporan ?></td>
+                                      <td><?= $no++ ?></td>
                                       <td><?= $k->kategori ?></td>
                                       <td><?= $k->nama ?></td>
-                                      <td><?= $k->lokasi_kejadian ?></td>
+                                      <td><?= $k->lat ?></td>
+                                      <td><?= $k->long ?></td>
                                       <td><?= $k->waktu_kejadian ?></td>
                                       <td><?= $k->petugas ?></td>
                                       <!-- <td><?= $status->status ?></td> -->
-                                      <td><a href="<?= base_url('PanikMenu/delete_laporankecelakaan/' . $k->id_laporan); ?>" onclick="javascript: return confirm('Anda Yakin Hapus ?')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a></td>
                                   </tr>
                               <?php endforeach; ?>
 
                               <?php elseif ($title == "Laporan Bencana") :
                                 foreach ($bencana as $k) : ?>
                                   <tr>
-                                      <td><?= $k->id_laporan ?></td>
+                                      <td><?= $no++ ?></td>
                                       <td><?= $k->kategori ?></td>
                                       <td><?= $k->nama ?></td>
-                                      <td><?= $k->lokasi_kejadian ?></td>
+                                      <td><?= $k->lat ?></td>
+                                      <td><?= $k->long ?></td>
                                       <td><?= $k->waktu_kejadian ?></td>
                                       <td><?= $k->petugas ?></td>
                                       <!-- <td><?= $status->status ?></td> -->
-                                      <td><a href="<?= base_url('PanikMenu/delete_laporanBencana/' . $k->id_laporan); ?>" onclick="javascript: return confirm('Anda Yakin Hapus ?')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a></td>
                                   </tr>
                               <?php endforeach; ?>
 
                               <?php else :
                                 foreach ($laporan as $k) : ?>
                                   <tr>
-                                      <td><?= $k->id_laporan ?></td>
+                                      <td><?= $no++ ?></td>
                                       <td><?= $k->kategori ?></td>
                                       <td><?= $k->nama ?></td>
-                                      <td><?= $k->lokasi_kejadian ?></td>
+                                      <td><?= $k->lat ?></td>
+                                      <td><?= $k->long ?></td>
                                       <td><?= $k->waktu_kejadian ?></td>
                                       <td><?= $k->petugas ?></td>
                                       <!-- <td><?= $status->status ?></td> -->
-                                      <td><a href="<?= base_url('PanikMenu/delete_laporan/' . $k->id_laporan); ?>" onclick="javascript: return confirm('Anda Yakin Hapus ?')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a></td>
                                   </tr>
                               <?php endforeach; ?>
                           <?php endif; ?>

@@ -9,13 +9,11 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Rumah Sidorjo Login</title>
+    <title>Rumah Sidoarjo Login</title>
 
     <!-- Custom fonts for this template-->
     <link href="<?= base_url('assets/'); ?> vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="<?= base_url('assets/'); ?>css/sb-admin-2.min.css" rel="stylesheet">
@@ -54,14 +52,11 @@
                                     <?= $this->session->flashdata('message'); ?>
                                     <form class="user" method="post" action="<?= base_url('auth') ?>">
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-control-user" id="username"
-                                                name="username" placeholder="Username"
-                                                value="<?= set_value('username'); ?>">
+                                            <input type="text" class="form-control form-control-user" id="username" name="username" placeholder="Username" value="<?= set_value('username'); ?>">
                                             <?= form_error('Username', '<small class="text-danger pl-3">', '</small>'); ?>
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user"
-                                                name="password" id="password" placeholder="Password">
+                                            <input type="password" class="form-control form-control-user" name="password" id="password" placeholder="Password">
                                             <?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
                                         </div>
                                         <button type="submit" class="btn btn-primary btn-user btn-block">

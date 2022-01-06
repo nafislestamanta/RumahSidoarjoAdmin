@@ -11,10 +11,6 @@
                 <table class="table table-bordered" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <td class="font-weight-bold">ID Event</td>
-                            <td><?= $detail->id_event; ?></td>
-                        </tr>
-                        <tr>
                             <td class="font-weight-bold">Nama Event</td>
                             <td><?= $detail->nama_event; ?></td>
                         </tr>
